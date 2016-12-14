@@ -1,0 +1,186 @@
+@import "fonts";
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+a,
+div{
+	text-transform: uppercase;
+	color: white;
+	letter-spacing: 3.6px;
+	font-style: normal;
+	margin: 0;
+}
+
+h1, div.slide-title{
+	font:$mp-heading;
+	letter-spacing: 0;
+	@include transition(font .7s ease-in-out);
+	
+	@include media($xl-desktop){
+		font:$xl-heading;
+	}
+	@include media($lg-desktop){
+		font:$lgd-heading;
+	}
+	@include media($xlsm-height){
+		font:$lgd-heading;
+	}
+	@include media($md-desktop){
+		font:$lgd-heading;
+	}
+	@include media($md-desktop){
+		font:$lgd-heading;
+	}
+	// @include media($sm-desktop-height){
+	// 	font:$mp-heading;
+	// }
+	@include media($sm-desktop){
+		font:$lg-heading;	
+	}
+	@include media($sm-mobile){
+		font:$md-heading;	
+	}
+	@include media($xs-mobile){
+		font:$sm-heading;	
+	}
+	@include media($h-ipad-max-screen){
+		font:$md-heading;
+	}
+	@include media($v-iphone-6-plus){
+		font:$sm-heading;
+	}
+	@include media($v-iphone-5){
+		font-size: 35px;
+		line-height: 45px;
+	}
+}
+
+div.slide-subtext{
+
+	letter-spacing:0;
+	@include media($v-iphone-6-plus){
+		font-size: 26px;
+		line-height: 34px;
+	}
+
+	h2{
+		font:$mp-heading;
+		@include transition(font .7s ease-in-out);
+		
+		@include media($xl-desktop){
+			font:$xl-heading;
+		}
+		@include media($lg-desktop){
+			font:$lgd-heading;
+		}
+		@include media($xlsm-height){
+			font:$lgd-heading;
+		}
+		@include media($md-desktop){
+			font:$lgd-heading;
+		}
+		@include media($sm-desktop-height){
+			font:$mp-heading;
+		}
+		@include media($macbook-pro-13){
+			font:$heading;	
+		}
+		@include media($sm-desktop){
+			font:$lg-heading;	
+		}
+		@include media($sm-mobile){
+			font:$md-heading;	
+		}
+		@include media($xs-mobile){
+			font:$sm-heading;	
+		}
+		@include media($v-iphone-6-plus){
+			font:$sm-heading;
+		}
+		@include media($h-ipad-max-screen){
+			font:$md-heading;
+		}
+
+	}
+	h3{
+		font: $mp-av-black;
+		letter-spacing: 0;
+		@include transition(font .7s ease-in-out);
+
+		@include media($xl-desktop){
+			font:$xl-av-black;
+		}
+		@include media($lg-desktop){
+			font:$lgd-av-black;
+		}
+		@include media($xlsm-height){
+			font:$lgd-av-black;
+		}
+		@include media($md-desktop){
+			font:$lgd-av-black;
+		}
+		@include media($sm-desktop-height){
+			font: $mp-av-black;
+		}
+		@include media($most-common-screen){
+			font:$mp-av-black;
+		}
+		@include media($macbook-pro-13){
+			font:$mp-av-black;
+		}
+		@include media($sm-desktop){
+			font:$av-black;
+		}
+		@include media($sm-mobile){
+			font:$lg-av-black;
+		}
+		@include media($h-ipad-max-screen){
+			font:$lg-av-black;
+		}
+
+	}
+	p{
+		font: $mp-av-light;
+		text-transform: uppercase;
+		@include transition(font .7s ease-in-out);
+
+		@include media($xl-desktop){
+			font:$xl-av-light;
+		}
+		@include media($lg-desktop){
+			font:$lgd-av-light;
+		}
+		@include media($xlsm-height){
+			font:$lgd-av-light;
+		}
+		@include media($md-desktop){
+			font:$lgd-av-light;
+		}
+		@include media($sm-desktop-height){
+			font: $mp-av-light;
+		}
+		@include media($most-common-screen){
+			font:$mp-av-light;
+		}
+		@include media($macbook-pro-13){
+			font:$mp-av-light;
+		}
+		@include media($sm-desktop){
+			font:$av-light;
+		}
+		@include media($sm-mobile){
+			font:$lg-av-light;
+		}
+		@include media($h-ipad-max-screen){
+			font:$lg-av-light;
+		}
+
+	}
+
+}
+
+$content:'Avenir Next';

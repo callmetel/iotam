@@ -1,0 +1,321 @@
+section.sec-03{
+  @include position(absolute, 0 0 0 0);
+  margin:0 auto;
+  ul.team{
+    margin: 0;
+      padding: 0;
+      width: 100%;
+      height: 100vh;
+      list-style: none;
+      overflow-y: auto;
+
+    li.team-member{
+      width: 50%;
+      height: 83vh;
+      display: inline-block;
+        margin: 0;
+        margin-top:-1vh;
+        padding:0;
+        list-style: none;
+        cursor: pointer;
+        @include transition(all .75s ease-in-out);
+        background-repeat: no-repeat;
+        background-size: 110%;
+        background-position: -10px;
+        position: relative;
+        &:before{
+          content:'';
+          display: block;
+          background: rgba(0,0,0,.85);
+          width:100%;
+          height:100%;
+          @include transition(color .75s ease-in-out);
+        }
+
+        @include media($xl-height){
+        background-size: 120%;
+      }
+        @include media($xlsm-height){
+        height: 100vh;
+      }
+      @include media($lgsm-height){
+        height: 100vh;
+      }
+      @include media($macbook-pro-13){
+        background-size: 120%;
+          background-position: -30px -20px;
+      }
+      @include media($sm-desktop){
+        background-size: 130%;
+        background-position: -55px -20px;
+      }
+      @include media($lg-mobile){
+        background-size: 130%;
+        background-position: -55px 30%;
+      }
+      @include media($md-mobile){
+        background-size: 160%;
+        background-position: 40% -50px;
+      }
+      @include media($sm-mobile){
+        background-size: 130%;
+        background-position: -125px;
+        width:100%;
+        height:70vh;
+      }
+      @include media($xs-mobile){
+        background-position: -50px;
+        width:100%;
+        height:70vh;
+      }
+
+        &:hover{
+          &:before{
+            background: rgba(0,0,0,.25);
+            @include transition(all .75s ease-in-out);
+          }
+
+          div.member-info {
+          h3.title{
+            color:#ffffff;
+            @include transition(color .75s ease-in-out);
+          }
+          a.email{
+            opacity:1;
+            background-image: url('../images/email-icon-02.svg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            width: 56px;
+            height:58px;
+            display: inline-block;
+            margin-left: 12.29%;
+            @include transition(opacity .75s ease-in-out);
+            cursor: pointer;
+
+            @include media($lgsm-height){
+              width: 46px;
+              height:48px;
+            }
+            @include media($md-desktop){
+              width: 46px;
+              height:48px;
+            }
+            @include media($sm-desktop){
+              width: 46px;
+              height:48px;
+            }
+            @include media($lg-mobile){
+              width: 46px;
+              height:48px;
+            }
+            @include media($xs-mobile){
+              width: 36px;
+              height:38px;
+            }
+            }
+            a.linkedin{
+              opacity:1;
+            background-image: url('../images/linkedin-icon-02.svg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            width: 56px;
+            height:58px;
+            display: inline-block;
+            margin-left: 5px;
+            margin-top: 80px;
+            @include transition(opacity .75s ease-in-out);
+            cursor: pointer;
+
+            @include media($lgsm-height){
+              margin-top: 50px;
+              width: 46px;
+              height:48px;
+            }
+            @include media($md-desktop){
+              margin-top: 50px;
+              width: 46px;
+              height:48px;
+            }
+            @include media($sm-desktop){
+              margin-top: 50px;
+              width: 46px;
+              height:48px;
+            }
+            @include media($lg-mobile){
+              margin-top: 50px;
+              width: 46px;
+              height:48px;
+            }
+            @include media($md-mobile){
+              margin-top: 30px;
+            }
+            @include media($xs-mobile){
+              width: 36px;
+              height:38px;
+            }
+
+            }
+          }
+        
+        }
+
+        &.no-photo{
+          background: #000000;
+          &:hover{
+            background: #828282;
+            @include transition(all .75s ease-in-out);
+          }
+        }
+
+        &.no-photo.alt-bg{
+          background: #828282;
+        }
+
+        &:first-of-type{
+          background-image: url('../images/john.jpg');
+        }
+        &:nth-child(2){
+          background-image: url('../images/nina.jpg');
+        }
+        &:nth-child(3){
+          background-image: url('../images/meg.jpg');
+        }
+        &:nth-child(4){
+          background-image: url('../images/matt.jpg');
+        }
+        &:nth-child(5){
+          background-image: url('../images/claire.jpg');
+        }
+        &:nth-child(6){
+          background-image: url('../images/melissa.jpg');
+        }
+        &:nth-child(7){
+          background-image: url('../images/donald.jpg');
+        }
+        &:nth-child(8){
+          background-image: url('../images/kristen.jpg');
+        }
+      
+        div.member-info {
+          width: 100%;
+          height: 100%;
+          position: absolute;
+          top:0;
+          left:0;
+          text-align: left;
+          @include transition(all .75s ease-in-out);
+          
+
+          h3.name{
+            font: normal normal 200 3.25rem/3rem 'Bella Heavy';
+            color: white;
+            width:58%;
+          margin-left: 12.29%;
+          padding-top: 28.36%;
+          @include transition(color .75s ease-in-out);
+
+            @include media($xl-desktop){
+            font: normal normal 200 5.85rem/5.4rem 'Bella Heavy';
+            }
+            @include media($lg-desktop){
+              padding-top: 32%;
+            font: normal normal 200 4.85rem/4.4rem 'Bella Heavy';
+            }
+            @include media($xl-height){
+              padding-top: 32%;
+            font: normal normal 200 4.85rem/4.4rem 'Bella Heavy';
+            }
+            @include media($xlsm2-height){
+              padding-top: 28%;
+            font: normal normal 200 4.45rem/4rem 'Bella Heavy';
+            }
+            @include media($lgsm-height){
+              padding-top: 24%;
+            font: normal normal 200 4.45rem/4rem 'Bella Heavy';
+            }
+            @include media($md-desktop){
+              padding-top: 30%;
+            font: normal normal 200 4.05rem/3.6rem 'Bella Heavy';
+            }
+            @include media($sm-desktop){
+              padding-top: 24%;
+            font: normal normal 200 3.05rem/2.75rem 'Bella Heavy';
+            }
+            @include media($lg-mobile){
+              padding-top: 24%;
+            font: normal normal 200 3.05rem/2.75rem 'Bella Heavy';
+            }
+            @include media($md-mobile){
+              padding-top: 40%;
+              width:78%;
+            font: normal normal 200 2.55rem/2.25rem 'Bella Heavy';
+            }
+            @include media($sm-mobile){
+              padding-top: 16%;
+              width:50%;
+            font: normal normal 200 2.55rem/2.25rem 'Bella Heavy';
+            }
+            @include media($xs-mobile){
+              padding-top: 18%;
+              width:50%;
+            font: normal normal 200 2.15rem/1.85rem 'Bella Heavy';
+            }
+
+            
+          }
+          h3.title{
+            font: normal normal 200 3.25rem/3rem 'Bella Heavy';
+            width:58%;
+            color: $gray;
+          margin-left: 12.29%;
+          @include transition(color .75s ease-in-out);
+            @include media($xl-desktop){
+            font: normal normal 200 5.85rem/5.4rem 'Bella Heavy';
+            }
+            @include media($lg-desktop){
+            font: normal normal 200 4.85rem/4.4rem 'Bella Heavy';
+            }
+            @include media($xlsm2-height){
+            font: normal normal 200 4.45rem/4rem 'Bella Heavy';
+            }
+            @include media($lgsm-height){
+              width:78%;
+            font: normal normal 200 4.45rem/4rem 'Bella Heavy';
+            }
+            @include media($md-desktop){
+              width:78%;
+            font: normal normal 200 4.05rem/3.6rem 'Bella Heavy';
+            }
+            @include media($sm-desktop){
+              width:78%;
+            font: normal normal 200 3.05rem/2.75rem 'Bella Heavy';
+            }
+            @include media($lg-mobile){
+              width:78%;
+            font: normal normal 200 3.05rem/2.75rem 'Bella Heavy';
+            }
+            @include media($md-mobile){
+              width:78%;
+            font: normal normal 200 2.55rem/2.25rem 'Bella Heavy';
+            }
+            @include media($sm-mobile){
+              width:50%;
+            }
+            @include media($xs-mobile){
+              font: normal normal 200 2.15rem/1.85rem 'Bella Heavy';
+            }
+          }
+          a.email{
+            opacity:0;
+          @include transition(opacity .75s ease-in-out);
+          }
+          a.linkedin{
+            opacity:0;
+          @include transition(opacity .75s ease-in-out);
+          }
+      }
+    }
+
+  }
+    
+}

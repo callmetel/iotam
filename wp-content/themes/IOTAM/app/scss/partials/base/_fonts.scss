@@ -1,0 +1,51 @@
+
+
+@font-face {
+    font-family: 'Bella Heavy';
+    src: url('../fonts/Bella_Heavy.eot');
+    src: url('') format('embedded-opentype'),
+         url('../fonts/Bella_Heavy.woff2') format('woff2'),
+         url('../fonts/Bella_Heavy.woff') format('woff'),
+         url('../fonts/Bella_Heavy.ttf') format('truetype'),
+         url('http://modpreview.com/MOD-Site-2016/fonts/bella-heavy/f37bellaheavy-webfont.svg#f37bellaheavyregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+$bella: 'Bella Heavy';
+
+//Variables
+//
+//font: font-style font-variant font-weight font-size/line-height font-family|caption|icon|menu|message-box|small-caption|status-bar|initial|inherit;
+
+$heading: normal normal 200 5rem/4.375rem 'Bella Heavy'; // for macbook 11"-13"
+$xl-heading: normal normal 200 9rem/8.375rem 'Bella Heavy'; // for xl destops
+$lgd-heading: normal normal 200 7rem/6.375rem 'Bella Heavy'; // for xl destops
+$rgd-heading: normal normal 200 6rem/5.375rem 'Bella Heavy'; // for xl destops
+$mp-heading: normal normal 200 5.5rem/4.8125rem 'Bella Heavy'; // for macbook 15"
+$lg-heading: normal normal 200 4.5rem/3.875rem 'Bella Heavy'; //for horizontal ipads
+$md-heading: normal normal 200 3.625rem/3rem 'Bella Heavy'; //for horizontal ipads
+$sm-heading: normal normal 200 2.625rem/2rem 'Bella Heavy'; //for horizontal ipads
+$xs-heading: normal normal 200 2.325rem/1.7rem 'Bella Heavy'; //for horizontal ipads
+
+$av-light: normal normal 200 0.8125rem/1rem 'Avenir W01', 'Avenir', sans-serif; // for macbook 11"-13"
+$xl-av-light: normal normal 200 1.375rem/1.5625rem 'Avenir W01', 'Avenir', sans-serif; // for xl destops
+$lgd-av-light: normal normal 200 1.175rem/1.3625rem 'Avenir W01', 'Avenir', sans-serif; // for xl destops
+$mp-av-light: normal normal 200 0.91rem/1.12rem 'Avenir W01', 'Avenir', sans-serif; // for macbook 15"
+$lg-av-light: normal normal 200 0.7125rem/0.9rem 'Avenir W01', 'Avenir', sans-serif; //for horizontal ipads
+
+
+$av-black: normal normal 800 0.8125rem/1rem 'Avenir W01', 'Avenir', sans-serif; // for macbook 11"-13"
+$xl-av-black: normal normal 800 1.3125rem/1.5625rem 'Avenir W01', 'Avenir', sans-serif; // for xl destops
+$lgd-av-black: normal normal 800 1.1125rem/1.3625rem 'Avenir W01', 'Avenir', sans-serif; // for xl destops
+$mp-av-black: normal normal 800 0.91rem/1.12rem 'Avenir W01', 'Avenir', sans-serif; // for macbook 15"
+$lg-av-black: normal normal 800 0.7125rem/0.9rem 'Avenir W01', 'Avenir', sans-serif; //for horizontal ipads
+$sm-av-black: normal normal 800 0.6125rem/0.9rem 'Avenir W01', 'Avenir', sans-serif; //for horizontal ipads
+
+$sm-paragraph: normal normal 200 1rem/1.35rem 'Avenir W01', 'Avenir', sans-serif;
+$lg-paragraph: normal normal 200 1.375rem/1.75rem 'Avenir W01', 'Avenir', sans-serif;
+$paragraph: normal normal 200 1.675rem/2.05rem 'Avenir W01', 'Avenir', sans-serif;
+$xl-paragraph: normal normal 200 3.02937rem/3.635rem 'Avenir W01', 'Avenir', sans-serif;
+$lgd-paragraph: normal normal 200 2.32937rem/2.935rem 'Avenir W01', 'Avenir', sans-serif;
+$mdd-paragraph: normal normal 200 2.22937rem/2.835rem 'Avenir W01', 'Avenir', sans-serif;

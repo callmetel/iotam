@@ -1,0 +1,15 @@
+{
+  "name": "refills",
+  "homepage": "https://github.com/thoughtbot/refills",
+  "version": "0.1.0",
+  "_release": "0.1.0",
+  "_resolution": {
+    "type": "version",
+    "tag": "v0.1.0",
+    "commit": "def8295c66d9e8511fb621a3824709a73f02702e"
+  },
+  "_source": "git://github.com/thoughtbot/refills.git",
+  "_target": "^0.1.0",
+  "_originalSource": "thoughtbot/refills",
+  "_direct": true
+}

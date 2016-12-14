@@ -1,0 +1,208 @@
+#O-page{
+	section.sec-02{
+		background: white;
+		color: black;
+		text-align: left;
+		@include pad(29.85vh 24vw null 24vw);
+		margin:0 auto;
+
+		@include media($sm-desktop){
+			@include pad(29.85vh 25vw null 25vw);
+		}
+		@include media($md-mobile){
+			@include pad(29.85vh 20vw null 20vw);
+		}
+		@include media($md-mobile){
+			@include pad(29.85vh 15vw null 15vw);
+		}
+
+
+		h2{
+			font: $heading;
+			color: black;
+			letter-spacing: 0;
+
+			@include media($xl-desktop){
+				font: $xl-heading;	
+			}
+			@include media($lg-desktop){
+				font: $lgd-heading;	
+			}
+			@include media($xlsm-height){
+				font: $lgd-heading;	
+			}
+			@include media($md-desktop){
+				font: $lgd-heading;	
+			}
+			@include media($sm-desktop){
+				font: $lg-heading;	
+			}
+			@include media($sm-mobile){
+				font: $md-heading;	
+			}
+			@include media($xs-mobile){
+				font: $sm-heading;	
+			}
+		}
+		p{
+			font: $paragraph;
+			color: rgba(0,0,0,.3);
+			text-transform: initial;
+			letter-spacing: 0;
+
+			@include media($xl-desktop){
+				font: $xl-paragraph;	
+			}
+			@include media($lg-desktop){
+				font: $lgd-paragraph;	
+			}
+			@include media($xlsm-height){
+				font: $lgd-paragraph;	
+			}
+			@include media($md-desktop){
+				font: $mdd-paragraph;	
+			}
+			@include media($sm-desktop){
+				font: $lg-paragraph;	
+			}
+			@include media($xs-mobile){
+				font: $sm-paragraph;	
+			}
+		}
+	}
+	section.sec-03{
+		background: rgba(0,0,0,.35);
+		color: white;
+		text-align: left;
+		@include pad(29.85vh 24vw null 24vw);
+		margin:0 auto;
+
+		@include media($sm-desktop){
+			@include pad(29.85vh 25vw null 25vw);
+		}
+		@include media($lg-mobile){
+			@include pad(29.85vh 15vw null 15vw);
+		}
+
+		h2{
+			font: $heading;
+			color: white;
+			letter-spacing: 0;
+
+			@include media($xl-desktop){
+				font: $xl-heading;	
+			}
+			@include media($lg-desktop){
+				font: $lgd-heading;	
+			}
+			@include media($xlsm-height){
+				font: $lgd-heading;	
+			}
+			@include media($md-desktop){
+				font: $lgd-heading;	
+			}
+			@include media($sm-desktop){
+				font: $lg-heading;	
+			}
+			@include media($sm-mobile){
+				font: $md-heading;	
+			}
+			@include media($xs-mobile){
+				font: $sm-heading;	
+			}
+
+		}
+		p{
+			font: $paragraph;
+			color: white;
+			text-transform: initial;
+			letter-spacing: 0;
+
+			@include media($xl-desktop){
+				font: $xl-paragraph;	
+			}
+			@include media($lg-desktop){
+				font: $lgd-paragraph;	
+			}
+			@include media($xlsm-height){
+				font: $lgd-paragraph;	
+			}
+			@include media($md-desktop){
+				font: $mdd-paragraph;	
+			}
+			@include media($sm-desktop){
+				font: $lg-paragraph;	
+			}
+			@include media($xs-mobile){
+				font: $sm-paragraph;	
+			}
+		}
+	}
+	section.sec-04{
+		background: white;
+		color: black;
+		text-align: left;
+		@include pad(29.85vh 24vw null 24vw);
+		margin:0 auto;
+
+		@include media($sm-desktop){
+			@include pad(29.85vh 25vw null 25vw);
+		}
+		@include media($md-mobile){
+			@include pad(29.85vh 15vw null 15vw);
+		}
+
+		h2{
+			font: $heading;
+			color: black;
+			letter-spacing: 0;
+
+			@include media($xl-desktop){
+				font: $xl-heading;	
+			}
+			@include media($lg-desktop){
+				font: $lgd-heading;	
+			}
+			@include media($xlsm-height){
+				font: $lgd-heading;	
+			}
+			@include media($md-desktop){
+				font: $lgd-heading;	
+			}
+			@include media($sm-desktop){
+				font: $lg-heading;	
+			}
+			@include media($sm-mobile){
+				font: $md-heading;	
+			}
+			@include media($xs-mobile){
+				font: $sm-heading;	
+			}
+		}
+		p{
+			font: $paragraph;
+			color: rgba(0,0,0,.3);
+			text-transform: initial;
+			letter-spacing: 0;
+
+			@include media($xl-desktop){
+				font: $xl-paragraph;	
+			}
+			@include media($lg-desktop){
+				font: $lgd-paragraph;	
+			}
+			@include media($xlsm-height){
+				font: $lgd-paragraph;	
+			}
+			@include media($md-desktop){
+				font: $mdd-paragraph;	
+			}
+			@include media($sm-desktop){
+				font: $lg-paragraph;	
+			}
+			@include media($xs-mobile){
+				font: $sm-paragraph;	
+			}
+		}
+	}
+}

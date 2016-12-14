@@ -1,0 +1,30 @@
+.top-square {
+    width: 15%;
+    max-width: 15%;
+    overflow: hidden;
+    height: 15vw;
+    display: inline-block;
+    position: relative;
+
+    div.top-square-container{
+        width: 80%;
+        @include position(absolute, 50% null null 50%);
+        @include transform(translate(-50%, -50%));
+        h2 {
+            font: $md-subheading;
+            color: white;
+            text-align: center; 
+            vertical-align: middle;	
+            padding-bottom: 15px;
+        }
+        p{
+        	font: $sm-sq-heading-p;
+        	font-family: $focolight!important;
+            color: white;
+    		text-align: center;
+    		width: 80%;
+    		margin: 0 auto;
+    		margin-top: 18px;
+        }
+    }
+}

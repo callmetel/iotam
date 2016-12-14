@@ -1,0 +1,237 @@
+@import "fonts";
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+a,
+div{
+	color: white;
+	font-style: normal;
+	margin: 0;
+}
+
+p.enter-site-link{
+	font: $link;
+	@include transition(font .5s ease-in-out);
+
+	@include media($xl-desktop){
+		font: $xl-link;
+	}
+	@include media($lg-desktop){
+		font: $lg-link;
+	}
+	@include media($md-desktop){
+		font: $lg-link;
+	}
+}
+
+ul#menu li{
+	font: $link;
+	@include transition(font .5s ease-in-out);
+
+	@include media($xl-desktop){
+		font: $lg-link;
+	}
+	@include media($lg-desktop){
+		font: $lg-link;
+	}
+	@include media($md-desktop){
+		font: $lg-link;
+	}
+}
+
+p.global-apn{
+	font: $sm-smalllink;
+	@include transition(font .5s ease-in-out);
+
+	@include media($xl-desktop){
+		font: $smalllink;
+	}
+	@include media($lg-desktop){
+		font: $sm-smalllink;
+	}
+	@include media($md-desktop){
+		font: $sm-smalllink;
+	}
+}
+
+#grid-item-1 h1 {
+	font: $rg-heading;
+	@include media($xl-desktop){
+		font: $xl-heading;
+	}
+	@include media($lg-desktop){
+		font: $xl-heading;
+	}
+	@include media($md-desktop){
+		font: $lg-heading;
+	}
+	@include media($lg-mobile){
+		font: $rg-heading;
+	}
+	@include media($md-mobile){
+		font: $md-heading;
+	}
+	@include media($mobile){
+		font: $sm-heading;
+	}
+	@include media($sm-mobile){
+		font: $sm-heading;
+	}
+	@include media($xs-mobile){
+		font: $xs-heading;
+	}
+}
+
+#grid-item-1 p {
+	font: $rg-heading-p;
+	@include media($xl-desktop){
+		font: $xl-heading-p;
+	}
+	@include media($lg-desktop){
+		font: $xl-heading-p;
+	}
+	@include media($md-desktop){
+		font: $lg-heading-p;
+	}
+	@include media($lg-mobile){
+		font: $rg-heading-p;
+	}
+	@include media($md-mobile){
+		font: $rg-heading-p;
+	}
+	@include media($mobile){
+		font: $md-heading-p;
+	}
+	@include media($sm-mobile){
+		font: $md-heading-p;
+	}
+	@include media($xs-mobile){
+		font: $sm-heading-p;
+	}
+}
+
+.grid-item-small p, .grid-item-square p {
+	font: $rg-sq-heading-p;
+	@include media($xl-desktop){
+		font: $xl-sq-heading-p;
+	}
+	@include media($lg-desktop){
+		font: $xl-sq-heading-p;
+	}
+	@include media($md-desktop){
+		font: $lg-sq-heading-p;
+	}
+	@include media($lg-mobile){
+		font: $rg-sq-heading-p;
+	}
+	@include media($md-mobile){
+		font: $md-sq-heading-p;
+	}
+	@include media($mobile){
+		font: $sm-sq-heading-p;
+	}
+	@include media($sm-mobile){
+		font: $sm-sq-heading-p;
+	}
+	@include media($xs-mobile){
+		font: $xs-sq-heading-p;
+	}
+}
+
+.grid-item-small h1, .grid-item-square h1 {
+	font: $rg-sq-heading;
+	@include media($xl-desktop){
+		font: $xl-sq-heading;
+	}
+	@include media($lg-desktop){
+		font: $xl-sq-heading;
+	}
+	@include media($md-desktop){
+		font: $lg-sq-heading;
+	}
+	@include media($lg-mobile){
+		font: $rg-sq-heading;
+	}
+	@include media($md-mobile){
+		font: $rg-sq-heading;
+	}
+	@include media($mobile){
+		font: $md-sq-heading;
+	}
+	@include media($sm-mobile){
+		font: $md-sq-heading;
+	}
+	@include media($xs-mobile){
+		font: $sm-sq-heading;
+	}
+}
+
+.dropdown-title {
+	font: $rg-dropdown-title;
+	@include media($xl-desktop){
+		font: $xl-dropdown-title;
+	}
+	@include media($lg-desktop){
+		font: $xl-dropdown-title;
+	}
+	@include media($md-desktop){
+		font: $lg-dropdown-title;
+	}
+	@include media($lg-mobile){
+		font: $rg-dropdown-title;
+	}
+	@include media($md-mobile){
+		font: $rg-dropdown-title;
+	}
+	@include media($mobile){
+		font: $md-dropdown-title;
+	}
+	@include media($sm-mobile){
+		font: $md-dropdown-title;
+	}
+	@include media($xs-mobile){
+		font: $sm-dropdown-title;
+	}
+}
+
+.dropdown-link {
+	font: $rg-dropdown-link;
+	@include media($xl-desktop){
+		font: $xl-dropdown-link;
+	}
+	@include media($lg-desktop){
+		font: $xl-dropdown-link;
+	}
+	@include media($md-desktop){
+		font: $lg-dropdown-link;
+	}
+	@include media($lg-mobile){
+		font: $rg-dropdown-link;
+	}
+	@include media($md-mobile){
+		font: $rg-dropdown-link;
+	}
+	@include media($mobile){
+		font: $md-dropdown-link;
+	}
+	@include media($sm-mobile){
+		font: $md-dropdown-link;
+	}
+	@include media($xs-mobile){
+		font: $sm-dropdown-link;
+	}
+}
+
+ul #menu{
+
+#menu-disclaimer li{
+	font: $xl-menu-disclaimer;
+	@include media($xl-desktop){
+		font: $xl-menu-disclaimer;
+	}
+}
+}

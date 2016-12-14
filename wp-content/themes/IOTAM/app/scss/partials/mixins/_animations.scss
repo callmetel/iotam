@@ -1,0 +1,107 @@
+.move-back {
+    @include animation(fadein 1s ease-out);
+    @include animation-fill-mode(forwards);
+}
+
+
+.blur-info-left {
+	@include transform-origin(center center);
+    @include animation(blurInfoLeft 2.5s ease-out);
+    @include animation-fill-mode(forwards);
+    
+}
+
+.blur-background-out {
+    @include animation(blurBackgroundOut 4s ease-out);
+    @include animation-fill-mode(forwards);
+}
+
+.blur-out {
+    @include animation(blurOut 2.5s ease-in-out);
+    @include animation-fill-mode(forwards);
+}
+
+.slide-letters-in {
+    @include animation(slideLettersIn 2s ease-in-out);
+    @include animation-fill-mode(forwards);
+}
+
+.fade-info-in {
+    @include animation(fadeInfoIn 1.5s cubic-bezier(.43,.12,.07,1.03));
+    @include animation-fill-mode(forwards);
+}
+
+.fade-info-out {
+    @include animation(fadeInfoOut 1.5s cubic-bezier(.43,.12,.07,1.03));
+    @include animation-fill-mode(forwards);
+}
+
+.slide-in {
+    @include animation(slideIn 1s cubic-bezier(.43,.12,.07,1.03));
+    @include animation-fill-mode(forwards);
+}
+
+.open-nav {
+    @include animation(openNav 2s cubic-bezier(.43,.12,.07,1.03));
+    @include animation-fill-mode(forwards);
+}
+
+.close-nav {
+    @include animation(closeNav 2s cubic-bezier(.43,.12,.07,1.03));
+    @include animation-fill-mode(forwards);
+    @include animation-delay(1s);
+}
+
+.show-nav-item-1 {
+    @include animation(showNavItem 2.1s ease-in-out);
+    @include animation-fill-mode(forwards);
+}
+
+.show-nav-item-2 {
+    @include animation(showNavItem 2.25s ease-in-out);
+    @include animation-fill-mode(forwards);
+}
+
+.show-nav-item-3 {
+    @include animation(showNavItem 2.35s ease-in-out);
+    @include animation-fill-mode(forwards);
+}
+
+.show-nav-item-4 {
+    @include animation(showNavItem 2.45s ease-in-out);
+    @include animation-fill-mode(forwards);
+}
+
+.hide-nav-item-1 {
+    @include animation(hideNavItem .25s ease-in-out);
+    @include animation-fill-mode(forwards);
+    @include animation-delay(.45s);
+}
+
+.hide-nav-item-2 {
+    @include animation(hideNavItem .25s ease-in-out);
+    @include animation-fill-mode(forwards);
+    @include animation-delay(.3s);
+}
+
+.hide-nav-item-3 {
+    @include animation(hideNavItem .25s ease-in-out);
+    @include animation-fill-mode(forwards);
+    @include animation-delay(.15s);
+}
+
+.hide-nav-item-4 {
+    @include animation(hideNavItem .25s ease-in-out);
+    @include animation-fill-mode(forwards);
+}
+
+.fade-up {
+    @include animation(fadeUp 2.5s ease-in-out);
+    @include animation-fill-mode(forwards);
+}
+
+.fade-out-in {
+    @include animation(fadeOutIn 3s ease-in-out);
+    @include animation-fill-mode(forwards);
+    @include animation-direction(reverse);
+}

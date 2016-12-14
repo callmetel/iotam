@@ -1,0 +1,17 @@
+.cd-icon {
+  -webkit-transition: color 0.3s;
+  -moz-transition: color 0.3s;
+  -o-transition: color 0.3s;
+  transition: color 0.3s;
+}
+
+.notice.cd {
+  .notice-dismiss {
+    display: none;
+  }
+}
+
+// Hide first collapse, if exist
+#adminmenu #collapse-menu:first-of-type {
+  display: none;
+}

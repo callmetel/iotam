@@ -1,0 +1,66 @@
+ @import "../components/variables";
+ @import "../base/fonts";
+
+
+ #resources-page {
+        background-color: #ffffff;
+        padding-bottom: 3em;
+
+        h2 {
+            font: $md-heading;
+            color: white;
+            text-align: center; 
+            vertical-align: middle;
+            padding-top: 3.5em;
+        }
+
+
+    } 
+    #resources-top-square {
+        background-color: $aetnaBlue;
+    }
+
+    .main-resources {
+        display: inline-block;
+        vertical-align: top;
+        padding-top: 12em;
+        padding-left: 2em;
+
+        h1 {
+            font: $md-heading;
+            color: $aetnaBlue;
+        }
+
+        h3, a{
+            font:$md-heading-light;
+            color: $aetnaBlue;
+            margin-top: 2.5em;
+            display: inline-block;
+            padding-right: 20px;
+            text-decoration: none;
+        }
+
+        p {
+            font: $lg-heading-p;
+            color: $gray; 
+            padding-top: 10px;
+        }
+
+        img {
+
+             width: 25px;
+             height: auto;
+        }
+    }
+
+    #apn {
+        color: $gray;
+        padding-top: 12em;
+        padding-left: 20px;
+
+    }
+
+    .hide {
+        display: none;
+    }
+// Variables

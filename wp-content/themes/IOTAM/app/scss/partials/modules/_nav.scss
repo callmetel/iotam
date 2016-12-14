@@ -1,0 +1,312 @@
+header{
+    @include position(fixed, 0 null null 0);
+    z-index: 9998;
+    @include transform(translateX(-100px));
+
+    #global-nav{
+        position: relative;
+
+        .toggle-menu{
+            display: block;
+            width:auto;
+            height:auto;
+            @include transition(transform 2s $ease-out-circ);
+
+            @include media($xl-desktop){
+                @include transform(translateX(0px));
+            }
+            @include media($lg-desktop){
+                @include transform(translateX(0px));
+            }
+            
+            &:hover{
+                @include transform(translateX(0px));
+            }
+        }
+
+        #invisible-menu-btn, #menu-btn-rect, #menu-btn-rect:before, #menu-btn-rect:after {
+            position: absolute;
+            top: 8.125vh;
+            left: 0px;
+            background: $gray;
+            width: 4.17101px;
+            height: 30.455px;
+            transition: .2s ease;
+            cursor: pointer;
+            z-index: 9999;
+
+            @include media($xl-desktop){
+                width: 8.34202px;
+                height: 60.96px
+            }
+            @include media($lg-desktop){
+                width:7px;
+                height:51px;
+            }
+            @include media($most-common-screen){
+                width:6px;
+                height:41px;
+            }
+            @include media($xlsm-height){
+                width:7px;
+                height:51px;
+            }
+            @include media($md-desktop){
+                width:7px;
+                height:51px;
+            }
+            @include media($most-common-screen){
+                width:6;
+                height:41px;
+            }
+            @include media($macbook-pro-13){
+                width:5.5px;
+                height:36px;
+            }
+            @include media($sm-desktop){
+                width:5.5px;
+                height:36px;
+            }
+            @include media($md-mobile){
+                width:5px;
+                height:31px;
+            }
+        }
+
+        span#m-menu-btn{
+            background-image: url('../images/MOD_M_WHITE.svg');
+            background-size: cover;
+            width:30px;
+            height:30.98px;
+            cursor: pointer;
+            @include position(absolute, 8.125vh null null 1.09vw);
+            z-index: 9998;;
+            @include transition(all .5s ease-in-out);
+
+            &.black-logo{
+                background-image: url('../images/MOD_M_BLACK.svg')!important;
+                @include transition(all .5s ease-in-out);
+            }
+            @include media($xl-desktop){
+                width:60px;
+                height:60.98px;
+            }
+            @include media($lg-desktop){
+                width:50px;
+                height:51px;
+            }
+            @include media($most-common-screen){
+                width:40px;
+                height:41px;
+            }
+            @include media($xlsm-height){
+                width:50px;
+                height:51px;
+            }
+            @include media($md-desktop){
+                width:50px;
+                height:51px;
+            }
+            @include media($most-common-screen){
+                width:40px;
+                height:41px;
+            }
+            @include media($macbook-pro-13){
+                width:35px;
+                height:36px;
+            }
+            @include media($sm-desktop){
+                width:35px;
+                height:36px;
+                left:2vw;
+            }
+            @include media($md-mobile){
+                width:30px;
+                height:31px;
+                left:1.75vw;
+            }
+            @include media($md-mobile){
+                left:15px;
+            }
+        }
+
+        ul#menu {
+            position: absolute;
+            margin: 0;
+            width: 100vw;
+            height: 100vh;
+            background: #000000;
+            cursor: pointer;
+            margin: 0 auto;
+            padding: 30.25vh 14.68vw;
+            list-style: none;
+            z-index: -1;
+
+            &.nav-is-inactive{
+                z-index: -8000;
+                @include transform(scaleY(.002));
+                opacity:0;
+            }
+            
+            @include media($xlsm-height){
+                padding: 15vh 14.68vw;   
+            }
+            @include media($lg-mobile){
+                padding: 26.25vh 14.68vw;
+            }
+            @include media($sm-mobile){
+                @include pad(26.25vh 1.75vw 26.25vh 1.75vw);
+            }
+            @include media($xs-mobile){
+                @include pad(26.25vh 15px 26.25vh 15px);
+            }
+            @include media($v-iphone-6-plus) {
+
+            }
+            @include media($v-ipad-max-screen) {
+                background-size: 1000%;
+            }
+
+            #close-menu-btn{
+                @include position(absolute, 7.88vh 5.468vw null null);
+                display: block;
+                width: 50px;
+                height: 50px;
+                @include transition(all .5s ease-in-out);
+                cursor: pointer;
+                z-index: 11000;
+
+                @include media($sm-mobile){
+                    right: 0;
+                }
+                
+                i{
+                    position:relative;
+                    z-index: 9999;
+                    display: block;
+                    width: 57px;
+                    height: 57px;
+                    overflow: hidden;
+
+                    @include media($xl-desktop){
+                        width:67px;
+                        height:67px;
+                    }
+                    @include media($lg-desktop){
+                        width:57px;
+                        height:57px;
+                    }
+                    @include media($most-common-screen){
+                        width:47px;
+                        height:47px;
+                    }
+                    @include media($xlsm-height){
+                        width:57px;
+                        height:57px;
+                    }
+                    @include media($md-desktop){
+                        width:57px;
+                        height:57px;
+                    }
+                    @include media($most-common-screen){
+                        width:47px;
+                        height:47px;
+                    }
+                    @include media($macbook-pro-13){
+                        width:42px;
+                        height:42px;
+                    }
+                    @include media($sm-desktop){
+                        width:42px;
+                        height:42px;
+                    }
+                    @include media($md-mobile){
+                        width:37px;
+                        height:37px;
+                    }
+
+                    &::before, &::after {
+                        content: '';
+                        @include position(absolute, 50% 0 null null);
+                        height: 1px;
+                        width: 100%;
+                        margin-top: -1px;
+                        background: #fff;
+
+                        @include media($xl-desktop){
+                            height: 1px;
+                        }
+                    }
+                    &::before {
+                        @include transform(rotate(45deg));
+                    }
+                    &::after {
+                        @include transform(rotate(-45deg));
+                    }  
+                }
+            }
+
+            li{
+                font: normal normal 200 8.5rem/6.875rem 'Bella Heavy';
+                text-align: left;
+                color: rgb(64,64,64);
+                width:100%;
+                @include transition(color .35s ease-in-out);
+                &.is-chosen{
+                    color:#ffffff!important;
+                }
+                &:hover{
+                    color: white;
+                    @include transition(color .35s ease-in-out);
+                }
+                @include media($xl-desktop){
+                    font: normal normal 200 14.5rem/11.25rem 'Bella Heavy';   
+                }
+                @include media($lg-desktop){
+                    font: normal normal 200 11.25rem/9rem 'Bella Heavy';   
+                }
+                @include media($xlsm-height){
+                    font: normal normal 200 11.25rem/9rem 'Bella Heavy';   
+                    max-width: 60vw;
+                    margin: 0 auto;
+                }
+                @include media($md-desktop){
+                    font: normal normal 200 10.25rem/8.5rem 'Bella Heavy';   
+                }
+                @include media($sm-desktop){
+                    font: normal normal 200 7rem/5.45rem 'Bella Heavy';   
+                }
+                @include media($lg-mobile){
+                    font: normal normal 200 6rem/4.85rem 'Bella Heavy';   
+                }
+                @include media($md-mobile){
+                    font: normal normal 200 5.25rem/4.15rem 'Bella Heavy';   
+                }
+                @include media($sm-mobile){
+                    font: normal normal 200 5.45rem/4.5rem 'Bella Heavy';   
+                }
+                @include media($xs-mobile){
+                    font: normal normal 200 14vw/12vw 'Bella Heavy';   
+                }
+                @include media($h-ipad-max-screen){
+                    font: normal normal 200 6.1625rem/4.98438rem 'Bella Heavy';
+                }
+
+                span.menu-item-number{
+                    width: 25%;
+                    float: left;
+                }
+                span.menu-item-title{
+                    width: 75%;
+                    text-align: right;
+                }
+
+            }
+            li.show-nav-item-1{
+                span.menu-item-number{
+                    letter-spacing: .45rem;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,77 @@
+$tcon-size: 40px !default;
+$tcon-transition: .3s !default;
+$tcon-jstransform: 'tcon-transform' !default;
+
+$tcon-plus-bg: transparent !default;
+$tcon-circle-radius: 80% !default;
+$tcon-plus-radius: ($tcon-size / 8) !default;
+$tcon-plus-color: black !default;
+$tcon-remove-color: black !default;
+.tcon-indicator{
+  @include position(fixed,  null null 12vh 20vw);
+  margin: 0 auto;
+  width: 50px;
+}
+/* Transforming into - */
+.open .navicon {
+  background: transparent;
+}
+.open .navicon:after {
+  transform: rotate(135deg);
+}
+.open {
+  transform: rotate(45deg);
+  @include position(absolute, null 0 90vh 0);
+
+}
+
+// see issue #7 https://github.com/grayghostvisuals/transformicons/issues/7#issuecomment-59813596
+.tcon-visuallyhidden {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+
+  &:active,
+  &:focus {
+    clip: auto;
+    height: auto;
+    margin: 0;
+    overflow: visible;
+    position: static;
+    width: auto;
+  }
+}
+$tcon-svgchevron-size: $tcon-size !default;
+$tcon-svgchevron-color: white !default;
+$tcon-svgchevron-strokew: 1px !default;
+$tcon-svgchevron-timing: 3s !default;
+
+@keyframes chevron-pulse {
+  0%   { opacity: 0; }
+  40%  { opacity: 1; }
+  80%  { opacity: 0; }
+  100% { opacity: 0; }
+}
+
+.tcon-svgchevron {
+  height: $tcon-svgchevron-size;
+  width: $tcon-svgchevron-size;
+}
+
+.tcon-svgchevron path {
+  animation: chevron-pulse $tcon-svgchevron-timing infinite cubic-bezier(0.4, 0, 0.2, 1);
+  fill: transparent;
+  stroke: $tcon-svgchevron-color;
+  stroke-width: $tcon-svgchevron-strokew;
+}
+
+@for $i from 1 through 3 {
+  .tcon-svgchevron path.a#{$i} {
+    animation-delay: -($i - ($i/2)) + 0.5s;
+  }
+}

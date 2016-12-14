@@ -1,0 +1,249 @@
+@include keyframes (moveback) {
+    0% {
+        @include filter(blur(100px));
+        @include transform(scaleY(.007) translateX(-200%));
+    }
+    100% {
+        @include filter(blur(0px));
+        @include transform(scaleY(1) translateX(0%));
+    }
+}
+
+@include keyframes (blurInfoLeft) {
+    0% {
+        @include transform(translateX(0%));
+        opacity:1;
+    }
+    10%{
+        @include transform(translateX(0%));
+        opacity:1;
+    }
+    60%{
+        @include transform(translateX(-130%));
+        opacity:1;
+    }
+    80%{
+        opacity:0;
+        @include transform(translateX(-130%));
+    }
+}
+
+@include keyframes (blurBackgroundOut) {
+    0% {
+        @include filter(blur(50px));
+    }
+    40%{
+         @include filter(blur(20px));
+    }
+    100% {
+        @include filter(blur(0px));
+    }
+}
+
+@include keyframes (blurOut) {
+    100% {
+        // @include filter(blur(50px));
+        @include transform(translateX(-5%));
+        opacity:0;
+    }
+}
+
+@include keyframes (slideLettersIn) {
+    0% {
+        @include transform(translateX(30%));
+        opacity:0;
+    }
+    100% {
+        opacity:1;
+        @include transform(translateX(-2%));
+    }
+}
+@include media($lg-mobile){
+    @include keyframes (slideLettersIn) {
+        0% {
+            @include transform(translateX(30%));
+            opacity:0;
+        }
+        100% {
+            opacity:1;
+            @include transform(translateX(-10%));
+        }
+    }
+}
+
+@include media($md-mobile){
+    @include keyframes (slideLettersIn) {
+        0% {
+            @include transform(translateX(30%));
+            opacity:0;
+        }
+        100% {
+            opacity:1;
+            @include transform(translateX(-15%));
+        }
+    }
+}
+
+@include media($sm-mobile){
+    @include keyframes (slideLettersIn) {
+        0% {
+            @include transform(translateX(30%));
+            opacity:0;
+        }
+        100% {
+            opacity:1;
+            @include transform(translateX(-15.5%));
+        }
+    }
+}
+
+@include media($xs-mobile){
+    @include keyframes (slideLettersIn) {
+        0% {
+            @include transform(translateX(30%));
+            opacity:0;
+        }
+        100% {
+            opacity:1;
+            @include transform(translateX(-22.5%));
+        }
+    }
+}
+
+@include media($v-iphone-6-plus){
+    @include keyframes (slideLettersIn) {
+        0% {
+            @include transform(translateX(30%));
+            opacity:0;
+        }
+        100% {
+            opacity:1;
+            @include transform(translateX(-30%));
+        }
+    }
+}
+
+@include keyframes (fadeInfoIn) {
+    100% {
+        @include transform(translateX(0));
+        opacity:1;
+    }
+}
+@include keyframes (fadeInfoOut) {
+    0% {
+        @include transform(translateX(0px));
+        opacity:1;
+    }
+    100% {
+        @include transform(translateX(-100px));
+        opacity:0;
+    }
+}
+
+@include keyframes (slideIn) {
+    100% {
+        @include transform(translateX(0px));
+    }
+}
+
+@include keyframes (openNav) {
+    0%{
+        z-index:9500;
+        opacity:0;
+        
+        @include transform(scaleY(.002));
+    }
+    50%{
+        opacity:1;
+        @include transform(scaleY(.002));
+    }
+    51%{
+        background:#000000;
+    }
+    100% {
+        @include transform(scaleY(1));
+    }
+}
+
+@include keyframes (closeNav) {
+    0%{
+        z-index:9500;
+        opacity:1;
+        @include transform(scaleY(1));
+        
+    }
+    60%{
+        background:#000000;
+        @include transform(scaleY(0));
+    }
+    96% {
+        @include transform(scaleY(0));
+        opacity:1;
+    }
+    97%{
+        opacity:0;
+    }
+    100%{
+        z-index: -8000;
+        @include transform(scaleY(.002));
+        opacity:0;
+    }
+}
+
+@include keyframes (showNavItem) {
+    0%{
+        opacity:0;
+        @include transform(translateY(-20px));
+    }
+    70%{
+        opacity:0;
+        @include transform(translateY(-20px));
+    }
+    100% {
+        opacity:1!important;
+        @include transform(translateY(0px));
+    }
+}
+
+@include keyframes (hideNavItem) {
+    0%{
+        opacity:1;
+        @include transform(translateY(0px));
+    }
+    100% {
+        opacity:0;
+        @include transform(translateY(-20px));
+    }
+}
+
+@include keyframes (fadeUp) {
+    0%{
+        opacity:0;
+        @include transform(translateY(10px));
+    }
+    50%{
+        opacity:0;
+        @include transform(translateY(0px));
+    }
+    100% {
+        opacity:1;
+        @include transform(translateY(0px));
+    }
+}
+
+@include keyframes (fadeOutIn) {
+    0%{
+        opacity:1;
+    }
+    50%{
+        opacity:0;
+    }
+    99%{
+        opacity:0;
+    }
+    100% {
+        opacity:1;
+    }
+}
+
+

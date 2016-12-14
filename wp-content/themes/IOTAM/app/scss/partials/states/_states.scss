@@ -1,0 +1,366 @@
+.is-active{
+	display: inherit;
+	opacity: 1!important;
+	@include transition(all .5s ease-in-out);
+}
+.is-inactive{
+	display: none;
+	opacity: 0;
+	@include transition(all .5s ease-in-out);
+}
+.is-visible{
+	visibility: visible;
+	@include transition(all .5s ease-in-out);
+}
+.is-hidden{
+	opacity:0;
+	visibility: hidden;
+}
+
+.is-disabled{
+	cursor: default;
+	&:hover{
+		cursor: default!important;
+		color:rgb(64,64,64)!important;
+	}
+	a{
+		cursor: default;
+		&:hover{
+			cursor: default!important;
+			border: none!important;
+		}
+	}
+}
+
+.is-enabled{
+	opacity: 1;
+	cursor: pointer;
+	&:hover{
+		cursor:pointer;
+	}
+}
+
+.is-scrollable{
+	overflow:auto!important;
+}
+
+a.no-decoration, a:hover.no-decoration{
+  text-decoration: none!important;
+  border:none!important;
+}
+
+.is-saturated{
+	@include filter(saturate(130%));
+}
+
+.is-full-width{
+	width:100vw!important;
+	@include transition(width 1s ease-in-out);
+}
+
+.is-full-height{
+	width:100vh!important;
+	@include transition(width 1s ease-in-out);
+}
+
+.flipped .back-image{
+  transform: rotateY(0deg)!important;
+  z-index:303!important;
+}
+
+.flipped .front-image{
+  transform: rotateY(180deg)!important;
+  z-index:303!important;
+}
+
+.bring-to-front{
+	z-index: 304!important;
+	//@include transition(all .25s ease-in-out);
+}
+.send-back{
+	z-index: 0!important;
+	//@include transition(all .25s ease-in-out);
+}
+
+.is-not-drawn{
+	stroke-dashoffset: 786px;
+    stroke-dasharray: 789px;
+}
+.is-filled-in{
+	fill: white!important;
+	@include transition(all .5s ease-in-out);
+}
+.is-not-filled{
+	fill: none!important;
+	@include transition(all .5s ease-in-out);
+}
+.moved-left{
+	right: 0!important;
+	@include transition(all 2.2s ease-in-out);
+}
+
+.is-outlined{
+	//stroke: #fff!important;
+	stroke-width: 10px!important;
+	stroke: #9cb3c4!important;
+	stroke-opacity:1!important;
+	@include transition(all .5s ease-in-out);
+}
+.is-highlighted{
+	background-color: #d8cebf!important;
+	@include transition(all .5s ease-in-out);
+}
+
+.dark-menu, .dark-menu:before, .dark-menu:after{
+	background: #817e77!important;
+	@include transition(all .5s ease-in-out);
+}
+
+.change-top-pos{
+	top:110vh!important;
+	@include transition(all .5s ease-in-out);
+}
+
+.is-previous-section{
+	@include transform(translateY(-100%)!important);
+	z-index: 9000;
+	@include transition(transform 1.5s $ease-in-out-quart);
+	transform-origin: initial;
+}
+.is-current-section{
+	@include transform(translateY(0%)!important);
+	z-index: 9000;
+	@include transition(transform 1.5s $ease-in-out-quart);
+	transform-origin: initial;
+}
+.is-next-section{
+	@include transform(translateY(100%)!important);
+	z-index: 9000;
+	@include transition(transform 1.5s $ease-in-out-quart);
+	transform-origin: initial;
+}
+
+.is-current{
+	@include transform(translateY(0%)!important);
+	z-index: 8000;
+	@include transition(transform 1.5s $ease-in-out-quart);
+	@include transition-delay(.5s);
+	transform-origin: initial;
+}
+
+.is-next{
+	@include transform(translateY(100%)!important);
+	z-index:-1;
+	@include transition(transform 1.5s $ease-in-out-quart);
+	transform-origin: initial;
+}
+.is-previous{
+	z-index:-8000;
+	@include transition(all .5s $ease-in-out-quart);
+	transform-origin: initial;
+}
+.is-last{
+	@include transform(translateY(100%)!important);
+	z-index:-1;
+	@include transition(transform 1.5s $ease-in-out-quart);
+	transform-origin: initial;
+}
+
+.is-active-slide, .is-active-section{
+	z-index:8000;
+}
+.is-inactive-slide, .is-inactive-section{
+	z-index:-8000;
+}
+
+.move-behind{
+	z-index:8000!important;
+}
+.clear-transform{
+	@include transform(none!important);
+}
+
+.move-off-left{
+	@include filter(blur(100px));
+	@include transform(scaleY(.007) translateX(-200%));
+	@include transition(all 1s ease-out);
+	@include transition-delay(1.8s);
+}
+.move-in-right{
+    opacity:1!important;
+	@include filter(blur(0px));
+	@include transform(scaleY(.007) translateY(0) translateX(0%));
+	@include transition(all 1s ease-out);
+}
+.make-current{
+	@include transform(translateY(0%)!important);
+	@include transition(transform .5s $ease-in-out-quart!important);
+}
+.make-previous{
+	@include transform(translateY(-100%)!important);
+	@include transition(transform .5s $ease-in-out-quart!important);
+}
+.move-to-M{
+	@include transform(translateX(-7.45%)!important);
+	@include transition(transform 1.5s $ease-in-out-quart);
+
+	@include media($xl-desktop){
+		@include transform(translateX(-5.2%)!important);
+	}
+	@include media($lg-desktop){
+		@include transform(translateX(-8.8%)!important);
+	}
+	@include media($xlsm-height){
+		@include transform(translateX(-1%)!important);
+	}
+	@include media($lgsm-height){
+		@include transform(translateX(-1%)!important);
+	}
+	@include media($md-desktop){
+		@include transform(translateX(-5.2%)!important);
+	}
+	@include media($macbook-pro-13){
+		@include transform(translateX(-7.75%)!important);
+	}
+	@include media($lg-mobile){
+		@include transform(translateX(-15%)!important);
+	}
+	@include media($sm-mobile){
+		@include transform(translateX(-16.5%)!important);
+	}
+	@include media($xs-mobile){
+		@include transform(translateX(-24.5%)!important);
+	}
+	@include media($v-ipad-max-screen){
+		@include transform(translateX(-5%)!important);
+	}
+}
+.move-to-O{
+	@include transform(translateX(-21.65%)!important);
+	@include transition(transform 1.5s $ease-in-out-quart);
+
+	@include media($xl-desktop){
+		@include transform(translateX(-19.3%)!important);
+	}
+	@include media($lg-desktop){
+		@include transform(translateX(-24.7%)!important);
+	}
+	@include media($xl-height){
+		@include transform(translateX(-39.05%)!important);
+	}
+	@include media($md-desktop){
+		@include transform(translateX(-21.5%)!important);
+	}
+	@include media($xlsm-height){
+		@include transform(translateX(-5.5%)!important);
+	}
+	@include media($lgsm-height){
+		@include transform(translateX(-12.5%)!important);
+	}
+	@include media($macbook-pro-13){
+		@include transform(translateX(-25.35%)!important);
+	}
+	@include media($sm-desktop){
+		@include transform(translateX(-23.5%)!important);
+	}
+	@include media($lg-mobile){
+		@include transform(translateX(-24.25%)!important);
+	}
+	@include media($md-mobile){
+		@include transform(translateX(-33.25%)!important);
+	}
+	@include media($sm-mobile){
+		@include transform(translateX(-37.05%)!important);
+	}
+	@include media($xs-mobile){
+		@include transform(translateX(-43.05%)!important);
+	}
+	@include media($v-ipad-max-screen){
+		@include transform(translateX(-24.75%)!important);
+	}
+}
+.move-to-D{
+	@include transition(transform 1.5s $ease-in-out-quart);
+
+	@include media($xl-desktop){
+		@include transform(translateX(-35%)!important);
+	}
+	@include media($xlsm-height){
+		@include transform(translateX(-10%)!important);
+	}
+	@include media($lgsm-height){
+		@include transform(translateX(-15%)!important);
+	}
+	@include media($md-desktop){
+		@include transform(translateX(-35%)!important);
+	}
+	@include media($most-common-screen){
+		@include transform(translateX(-36.51%)!important);
+	}
+	@include media($macbook-pro-13){
+		@include transform(translateX(-35.51%)!important);
+	}
+	@include media($sm-desktop){
+		@include transform(translateX(-36.35%)!important);
+	}
+	@include media($lg-mobile){
+		@include transform(translateX(-42.28%)!important);
+	}
+	@include media($md-mobile){
+		@include transform(translateX(-56.28%)!important);
+	}
+	@include media($sm-mobile){
+		@include transform(translateX(-53.28%)!important);
+	}
+	@include media($v-ipad-max-screen){
+		@include transform(translateX(-42.28%)!important);
+	}
+}
+.is-centered{
+	@include transform(translateX(-2%)!important);
+	@include media($lg-mobile){
+		@include transform(translateX(-10%)!important);
+	}
+	@include media($md-mobile){
+		@include transform(translateX(-15%)!important);
+	}
+	@include media($sm-mobile){
+		@include transform(translateX(-15.5%)!important);
+	}
+	@include media($xs-mobile){
+		@include transform(translateX(-22.5%)!important);
+	}
+	@include media($v-iphone-6-plus){
+		@include transform(translateX(-30%)!important);
+	}
+}
+
+.is-scrollable{
+	overflow-y: auto!important;
+}
+.is-in-color{
+	@include filter(grayscale(0%)!important);
+	@include transition(transform 1.5s $ease-in-out-quad);
+}
+.change-pos-abs{
+	position:absolute!important;
+	z-index:1!important;
+}
+.faded{
+	opacity: .35;
+}
+.has-overlay{
+	opacity: .25;
+}
+.nobg{
+	&:before{
+		background: transparent!important;
+	}
+	&:after{
+		background: transparent!important;
+	}
+}
+
+.ease-back{
+	@include transition(transform 1.5s $ease-out-back!important);
+}

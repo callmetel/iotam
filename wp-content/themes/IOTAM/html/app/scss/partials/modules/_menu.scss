@@ -1,0 +1,138 @@
+ul#menu {
+    position: absolute;
+    margin: 0;
+    width: 20%;
+    height: auto;
+    background: $gray;
+    color: white;
+    cursor: pointer;
+    list-style: none;
+    z-index: 11400;
+    padding: 100px 25px 25px 25px;
+    @include transform(translateX(-100%));
+    @include transition(transform 1.5s $ease-out-quad);
+    list-style: none;
+    // &.nav-is-inactive{
+    //     z-index: -8000;
+    //     @include transform(scaleY(.002));
+    //     opacity:0;
+    // }
+
+    .main-link {
+        padding-bottom: 20px;
+        padding-top: 20px;
+
+        a {
+            text-decoration: none;
+        }
+    }
+
+    li{
+        
+        text-align: left;
+        color: white;
+        width:100%;
+        padding-bottom: 0px;
+        @include transition(color .35s ease-in-out);
+        list-style: none;
+
+        &:hover{
+            color: white;
+            @include transition(color .35s ease-in-out);
+        }
+
+        span{
+            vertical-align: middle;
+            display: inline-block;
+        }
+
+        ul.dropdown{
+            padding-left: 15px;
+            height:0;
+            overflow: hidden;
+            opacity:  0;
+            margin: 0;
+            @include transition(all 1.5s $ease-in-out-quad);
+
+            &.is-open{
+                margin-top: 25px;
+                height:auto;
+                opacity:1;
+            }
+
+            .arrow{
+                width: auto;
+                height: 1.2vw;
+                max-height: 40px;
+                min-height:20px;
+                vertical-align: middle;
+                display: inline-block;
+            }
+
+            #arrow1{
+                margin-left: 145px;
+            }
+
+            #arrow2{
+                margin-left: 130px;
+                }
+
+            #arrow3{
+                margin-left: 105px;
+            }
+
+            #arrow4{
+                margin-left: 132px;
+            }
+
+            #arrow5{
+                margin-left: 158px;
+            }
+
+            .play-btn{
+                width: 9%;
+                max-width: 40px;
+                min-width:20px;
+                display: inline-block;
+                vertical-align: middle;
+                margin-right: 10px; 
+            }
+            .dropdown-link{
+                vertical-align: middle;
+                display: inline-block;
+            }
+
+            .dropdown-title{
+                display: inline-block;
+            }
+
+        }
+
+
+           ul.hidden{
+                display: none;
+                opacity: 0;
+                @include transition(opacity 1s ease-in-out);
+            }
+
+
+            .dropdown a {
+                text-decoration: none;
+            }
+
+           
+
+    }
+
+    .active {
+        display: block;
+    }
+
+    li#menu-disclaimer{
+        font-family: $focobold;
+        font-size: 13px;
+        line-height: normal;
+        margin-top: 15px;
+
+    }
+}

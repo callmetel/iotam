@@ -1,0 +1,106 @@
+.close-icon{
+  position: fixed;
+  display: block;
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+    
+  i{
+      position:relative;
+      display: block;
+      width: 50px;
+      height: 50px;
+      overflow: hidden;
+
+      &:before {
+          content: '';
+          @include position(absolute, 50% 0 null null);
+          height: 1px;
+          width: 100%;
+          margin-top: -1px;
+          @include transform(rotate(45deg));
+      }
+      &:after {
+          content: '';
+          @include position(absolute, 50% 0 null null);
+          height: 1px;
+          width: 100%;
+          margin-top: -1px;
+          @include transform(rotate(-45deg));
+      }  
+  }
+}
+
+
+.burger{
+  width: 25px;
+  height: 1px;
+  background: white;
+  position: fixed;
+  transition: .2s ease;
+  cursor: pointer;
+  z-index: 11500;
+
+  &:before{
+    content:'';
+    display: block;
+    width: 25px;
+    height: 1px;
+    background: white;
+    margin-top: -7px;
+    position: fixed;
+    transition: .2s ease;
+    cursor: pointer;
+    z-index: 11500;
+  }
+  &:after{
+    content:'';
+    display: block;
+    width: 25px;
+    height: 1px;
+    background: white;
+    margin-top: 7px;
+    position: fixed;
+    transition: .2s ease;
+    cursor: pointer;
+    z-index: 11500;
+  }
+  i{
+    &:after{
+      content:'';
+      display: block;
+      background-size: contain;
+      background-repeat: no-repeat;
+      margin-left: 3vw;
+      margin-top: -10px;
+      text-decoration: none;
+      background-image: url('../images/nav-logo.svg');
+      width:65px;
+      height:26px;
+      @include transition(translateX 1s ease-in-out);
+    }
+  }
+}
+
+.nav-trigger {
+    position: fixed;
+    background: white;
+    transition: .2s ease;
+    cursor: pointer;
+    z-index: 9999;
+    width: 50px;
+    height: 50px;
+    padding: 10px;
+    background: none;
+
+    @include media($xl-desktop){
+        width: 100px;
+        height:100px;
+    }
+    @include media($lg-desktop){
+        width: 100px;
+        height:100px;
+    }
+}
+
+

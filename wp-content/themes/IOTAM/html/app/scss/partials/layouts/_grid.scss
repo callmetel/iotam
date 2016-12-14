@@ -1,0 +1,370 @@
+@import '../base/fonts';
+@import '../components/variables';
+
+@mixin grid-item-columns($columns) {
+  width: (100% / 4) * $columns;
+}
+ 
+ .mySlides {
+
+  display:none;
+
+ }
+  .mySlides p {
+    margin-bottom: 20px;
+  }
+
+.w3-left, .w3-right, .w3-badge {cursor:pointer};
+.w3-text-white {
+  color: #ffffff!important;
+}
+.w3-section {
+  margin-top: 16px!important;
+  margin-bottom: 16px!important;
+}
+.w3-white,.w3-hover-white:hover
+{
+  color:#000!important;
+  background-color:#fff!important
+}
+
+
+
+.w3-text-white,.w3-hover-text-white:hover
+{
+  color:#ffffff!important;
+
+}
+
+.w3-badge{
+  background-color:#000;
+  color:#ffffff;
+  display:inline-block;
+  height: 15px;
+  width: 15px;
+  padding-left:8px;
+  padding-right:8px;
+  text-align:center;
+  border-radius:50%; 
+  text-align: center!important;
+  margin: 0 10px 0 0;
+}
+
+
+.w3-border span{
+  border: 1px solid #ffffff!important;
+  border-radius: 50%;
+}
+
+.w3-transparent {
+  background-color: #85d1e1;
+}
+
+
+.w3-center{text-align:center!important}
+
+.w3-display-bottommiddle {
+  position: absolute;
+  left: 25%;
+  bottom: 40%;
+  transform:
+  translate(-50%,0%)
+}
+
+.w3-center {
+  text-align: center!important;
+}
+
+.w3-large {
+  font-size: 18px!important;
+}
+.grid-items-lines {
+  $base-background-color: $aetnaBlue !default;
+  $dark-gray: #333 !default;
+  $light-gray: #DDD !default;
+  $medium-screen: 40em !default;
+  $large-screen: 53.75em !default;
+  $base-font-color: $dark-gray !default;
+  $grid-items-background: $base-background-color;
+  $grid-item-background: $base-background-color;
+  $grid-item-border: 1px solid transparentize($base-font-color, 0.8);
+  $grid-item-columns: 2;
+  $grid-item-big-columns: 3;
+  $grid-item-small-columns: 1;
+  $grid-item-color:  white;
+  $grid-item-height: 50vw;
+  $grid-item-small-height: 25vw;
+  cursor: pointer;
+
+  @include clearfix;
+
+
+  .grid-item {
+    background: $grid-item-background;
+    cursor: pointer;
+    float: left;
+    height: $grid-item-height;
+    outline: none;
+    overflow: hidden;
+    padding: 0;
+    text-decoration: none;
+    transition: all 0.2s ease-in-out;
+    width: 100%;
+    cursor: pointer;
+
+
+    @include media($large-screen) {
+      @include grid-item-columns($grid-item-columns);
+    }
+
+    a{
+      text-decoration: none;
+    }
+    
+
+    &:focus,
+    &:hover {
+      background: transparentize($grid-item-color, 0.95);
+    }
+
+  }
+
+  .grid-item:first-of-type {
+    background-color: #0ba2c3;
+    padding: 17vh 17vh 17vh 2vw;
+
+    h1 {
+      color: $grid-item-color;
+      margin-bottom: 0.4em;
+      text-transform: none;
+    }
+
+  }
+
+
+  p {
+    color: white;
+    text-transform: none;
+    padding-right: 2em;
+  }
+
+  .grid-item-big {
+    @include media($large-screen) {
+      @include grid-item-columns($grid-item-big-columns);
+      max-width: 75%;
+    }
+
+  }
+  .grid-item-square {
+    background: $grid-item-background;
+    background-size: cover;
+    background-repeat: no-repeat;
+    cursor: pointer;
+    float: left;
+    height: $grid-item-height;
+    outline: none;
+    overflow: hidden;
+    padding: 8em 2em;
+    text-decoration: none;
+    transition: all 0.2s ease-in-out;
+    width: 50%;
+    text-align: center;
+    vertical-align: middle;
+    cursor: pointer;
+    position: relative;
+
+    @include media($large-screen) {
+      @include grid-item-columns($grid-item-columns);
+      max-width: 50%;
+      overflow: hidden;
+      height:25vw;
+    }
+
+    a{
+      display:block;
+      vertical-align: middle;
+      margin: auto;
+      text-align: center;
+      text-decoration: none;
+    }
+
+    .underline{
+      display:block;
+      height: 1px;
+      width: 37px;
+      background: white;
+      margin: 15px auto;
+      text-align: center;
+    }
+    p{
+      text-align: center;
+      padding:0;
+    }
+
+    img{
+      width:44%;
+      height: auto;
+      text-align: center;
+    }
+
+    &:first-of-type{
+      background-image: url('../images/happiness-background.png');
+      &:hover{
+        background-image: url('../images/IOTAM_Happiness.gif');
+      }
+    }
+    &:nth-of-type(2){
+      background-image: url('../images/connection-background.png');
+      &:hover{
+        background-image: url('../images/IOTAM_Connection.gif');
+      }
+    }
+    &:nth-of-type(3){
+
+    }
+    &:nth-of-type(4){
+      background-image: url('../images/peaceofmind-background.png');
+      &:hover{
+        background-image: url('../images/IOTAM_PeaceofMind.gif');
+      }
+    }
+
+  }
+  .grid-item-small {
+    background: $grid-item-background;
+    background-size: cover;
+    background-repeat: no-repeat;
+    cursor: pointer;
+    float: left;
+    height: $grid-item-height;
+    outline: none;
+    overflow: hidden;
+    padding: 8em 2em;
+    text-decoration: none;
+    transition: all 0.2s ease-in-out;
+    width: 100%;
+    cursor: pointer;
+    position: relative;
+
+    @include media($large-screen) {
+      @include grid-item-columns($grid-item-small-columns);
+      max-width: 25%;
+      overflow: hidden;
+      height:25vw;
+    }
+
+    a{
+      display:block;
+      vertical-align: middle;
+      margin: auto;
+      text-align: center;
+      text-decoration: none;
+    }
+
+    .underline{
+      display:block;
+      height: 1px;
+      width: 37px;
+      background: white;
+      margin: 15px auto;
+      text-align: center;
+    }
+    p{
+      text-align: center;
+      padding:0;
+    }
+
+    img{
+      width:44%;
+      height: auto;
+      text-align: center;
+    }
+
+    &:nth-of-type(2){
+      background-image: url('../images/confidence-background.png');
+      &:hover{
+        background-image: url('../images/IOTAM_Confdence.gif');
+      }
+    }
+    &:nth-of-type(3){
+      background-image: url('../images/freedom-background.png');
+      &:hover{
+        background-image: url('../images/IOTAM_Freedom.gif');
+      }
+    }
+
+  }
+
+    .icon-square p{
+
+    color: #0BA2BE;
+    font-size: 1.65em;
+    line-height: normal;
+    text-align: left;
+    display: block;
+    position: absolute;
+    width: 80%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .discover-square {
+
+   
+    p {
+    font-size: 1.5em;
+    line-height: normal;
+    text-align: center;
+    display: block;
+    top: 50%;
+    left: 50%;
+    }
+
+    h1 {
+        color: $grid-item-color;
+        text-transform: none;
+        display: inline-block;
+        padding-right: 10px;
+    }
+
+    img {
+      width: 12px;
+      height: 21px;
+      display: inline-block;
+    }
+
+    li {
+      display: inline;
+    }
+
+  }
+
+
+
+  
+// this, below, might not be the most beautiful solution but it removes the outer borders by using the background color.
+  .bottom-cover {
+    background: $grid-items-background;
+    bottom: 0;
+    height: 3px;
+    position: absolute;
+    width: 100%;
+  }
+
+  .right-cover {
+    background: $grid-items-background;
+    height: 100%;
+    position: absolute;
+    right: 0;
+    width: 4px;
+  }
+}
+
+
+.grid-item-square:not(.has-white-background) a, .grid-item-small:not(.has-white-background) a{
+  position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}

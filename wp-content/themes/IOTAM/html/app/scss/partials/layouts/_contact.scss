@@ -1,0 +1,405 @@
+#Contact-slide{
+	.slide-info{
+		@include media($lgsm-height){
+			top: 43vh!important;
+		}
+		@include media($xs-mobile){
+			top:20vh!important;
+			left: 10vw!important;
+		}
+	}
+	#Contact-slide-bg{
+		@include position(fixed, 0 0 0 0);
+		z-index: 1;
+		width: 150%;
+		height: 150%;
+		display: inherit;
+		background: #000000;
+	}
+	.contact-container{
+		margin-top: -22.125vh;
+		height: 276px;
+    	width: 80vw;
+
+
+		@include media($xl-desktop){
+			height: 381px;
+			width:39.31vw;
+		}
+		@include media($xlsm-height){
+			height: 303px;
+			width:38vw;
+		}
+		@include media($lg-desktop){
+			height: 303px;
+			width:38vw;
+		}
+		@include media($md-desktop){
+			height: 303px;
+			width:48vw;
+		}
+		@include media($most-common-screen){
+			height: 295px;
+			width:50vw;
+		}
+		@include media($macbook-pro-13){
+			height: 295px;
+			width:50vw;
+		}
+		@include media($md-mobile){
+			width: 85vw;
+		}
+		@include media($xs-mobile){
+			width: 75vw;
+			margin-top: 0;
+		}
+		@include media($h-ipad-max-screen){
+			width: 42.31vw;
+			height:195px;
+		}
+
+		.address{
+			font: normal normal 200 3.25rem/3.0325rem 'Bella Heavy';
+			letter-spacing: 1px;
+			text-decoration: none;
+			width: 118.178px;
+			color: rgba(255,255,255,0.35);
+			margin-right: 10.885vw;
+			display: inline-block;
+			vertical-align: bottom;
+			
+			@include media($xl-desktop){
+				font: normal normal 200 7.8075rem/7.43938rem 'Bella Heavy';
+				width: 35%;
+				margin-right: 7.885vw;
+			}
+			@include media($xlsm-height){
+				font: normal normal 200 4.8075rem/4.43938rem 'Bella Heavy';
+				width: 28%;
+				margin-right: 7.885vw;
+			}
+			@include media($lg-desktop){
+				font: normal normal 200 4.8075rem/4.43938rem 'Bella Heavy';
+				width: 28%;
+				margin-right: 7.885vw;
+			}
+			@include media($md-desktop){
+				font: normal normal 200 4.8075rem/4.43938rem 'Bella Heavy';
+				width: 28%;
+				margin-right: 7.885vw;
+			}
+			@include media($most-common-screen){
+				font: normal normal 200 3.8075rem/3.43938rem 'Bella Heavy';
+				width: 200px;
+				margin-right: 7.885vw;
+			}
+			@include media($macbook-pro-13){
+				font: normal normal 200 3.8075rem/3.43938rem 'Bella Heavy';
+				width: 200px;
+				margin-right: 7.885vw;
+			}
+			@include media($md-mobile){
+				margin-right: 15.885vw;
+			}
+			@include media($xs-mobile){
+				display: none;
+			}
+			@include media($h-ipad-max-screen){
+				font: normal normal 200 1.97313rem/1.7825rem 'Bella Heavy';
+				width: 68.68px;
+				margin-right: 5.099vw;
+				margin-right: 7.885vw;
+			}
+
+			span.address-logo{
+				background-image: url('../images/MOD_LOGO-WHITE.svg');
+				background-size: contain;
+				background-repeat: no-repeat;
+				display:block;
+				width: 100%;
+    			height: 3.3938rem;
+
+				
+				@include media($xl-desktop){
+					width: 100%;
+    				height: 5.3938rem;
+				}
+				@include media($xlsm-height){
+					width: 100%;
+    				height: 3.3938rem;
+				}
+				@include media($lg-desktop){
+					width: 100%;
+    				height: 3.3938rem;
+				}
+				@include media($md-desktop){
+					width: 100%;
+    				height: 3.3938rem;
+				}
+				@include media($most-common-screen){
+					width: 100%;
+    				height: 2.8938rem;
+				}
+				@include media($macbook-pro-13){
+					width: 100%;
+    				height: 2.8938rem;
+				}
+				@include media($h-ipad-max-screen){
+					width: 68.68px;
+					height: 1.7825rem;
+				}
+			}
+		}
+		ul.contact-links{
+			display: inline-block;
+			vertical-align: bottom;
+			margin:0;
+			list-style:none;
+			height:100%;
+			text-align: left;
+
+			@include media($xs-mobile){
+				width:100%;
+				height: auto;
+			}
+
+			li.contact-link{
+				margin:0;
+				height:42.67%;
+				padding-top: 13%;
+				padding-bottom: 20%;
+				text-align: left;
+				letter-spacing: 2px;
+				border-bottom: .25px solid rgba(255,255,255,0.35);
+				
+
+				@include media($xl-desktop){
+					padding-top: 15%;
+				}
+				@include media($xs-mobile){
+					height: auto;
+					padding-top: 8%;
+					padding-bottom: 8%;
+				}
+				@include media($h-ipad-max-screen){
+					padding-top: 10%;
+					border-bottom: 1px solid rgba(255,255,255,0.35);
+				}
+
+
+				p{
+					margin:0;
+					font: normal normal 200 .96875rem/1.39188rem 'Avenir W01', 'Avenir', sans-serif;
+
+					@include media($xl-desktop){
+						font: normal normal 200 1.26875rem/1.69188rem 'Avenir W01', 'Avenir', sans-serif;
+					}
+					@include media($lg-desktop){
+						font: normal normal 200 1.06875rem/1.49188rem 'Avenir W01', 'Avenir', sans-serif;
+					}
+					@include media($md-desktop){
+						font: normal normal 200 1.06875rem/1.49188rem 'Avenir W01', 'Avenir', sans-serif;
+					}
+					@include media($xs-mobile){
+						font: normal normal 200 .85rem/1rem 'Avenir W01', 'Avenir', sans-serif;
+					}
+					@include media($h-ipad-max-screen){
+						font: normal normal 200 0.6575rem/0.876875rem 'Avenir W01', 'Avenir', sans-serif;
+
+					}
+				}
+				a{
+					font: normal normal 200 .96875rem/1.39188rem 'Avenir W01', 'Avenir', sans-serif;
+					letter-spacing: 2px;
+					cursor: pointer;
+					text-decoration: none;
+					@include media($xl-desktop){
+						font: normal normal 200 1.26875rem/1.69188rem 'Avenir W01', 'Avenir', sans-serif;
+					}
+					@include media($lg-desktop){
+						font: normal normal 200 1.06875rem/1.49188rem 'Avenir W01', 'Avenir', sans-serif;
+					}
+					@include media($md-desktop){
+						font: normal normal 200 1.06875rem/1.49188rem 'Avenir W01', 'Avenir', sans-serif;
+					}
+					@include media($xs-mobile){
+						font: normal normal 200 .85rem/1rem 'Avenir W01', 'Avenir', sans-serif;
+					}
+				}
+				#careers-text{
+					display: inline-block;
+				}
+			}
+
+			li#mobile-address{
+				span.mobile-address-logo{
+					background-image: url('../images/MOD_LOGO-WHITE.svg');
+					background-size: contain;
+					background-repeat: no-repeat;
+					display:block;
+					width: 100%;
+	    			height: 40px;
+	    			margin-bottom:8%;
+				}
+			}
+
+			li.contact-link:first-child{
+				height:27.04%;
+				padding:0;
+				@include media($xs-mobile){
+					height: auto;
+					padding-top: 0;
+					padding-bottom: 8%;
+				}
+			}
+			li.contact-link:last-child{
+				height:29.88%;
+				padding:0;
+				padding-top: 13.398%;
+				line-height: 0;
+				line-height: 16px;vertical-align: middle;
+				border-bottom: none;
+
+				@include media($xs-mobile){
+					height: auto;
+					padding-top: 8%;
+					padding-bottom: 0;
+				}
+				@include media($h-ipad-max-screen){
+					padding-top: 13%;
+				}
+
+				div.arrow{
+					width:14.926px;
+					height: 14.926px;
+					background-image: url('../images/down-arrow-white.svg');
+					background-size: cover;
+					display:inline-block;
+					margin-top: -3px;
+					margin-left: 10px;
+					cursor: pointer;
+					line-height: 16px;vertical-align: middle;
+					@include transform(rotate(-90deg));
+
+					@include media($xl-desktop){
+						width:25.259px;
+						height:25.259px;
+						margin-top: -6.76px;
+					}
+					@include media($lg-desktop){
+						width:20.259px;
+						height:20.259px;
+						margin-top: -6.76px;
+					}
+					@include media($md-desktop){
+						width:20.259px;
+						height:20.259px;
+						margin-top: -6.76px;
+					}
+				}
+			}
+		}
+
+	}
+	
+
+}
+
+ul.social-icons{
+	list-style: none;
+	height:22px;
+	margin: 0;
+	@include position(absolute, null 4.09vw 14vh null);
+	z-index:3;
+	@include transition(all .5s ease-in-out);
+	
+	@include media($lg-desktop){
+		bottom:10vh;
+	}
+	@include media($md-desktop){
+		bottom:10vh;
+	}
+
+	@include media($md-mobile){
+		bottom:7vh;
+	}
+	@include media($xs-mobile){
+		bottom:4vh;
+		right: 4vh;
+	}
+
+	a{
+		width: 25px;
+		height:25px;
+		vertical-align: middle;
+		text-decoration: none;
+		display: inline-block;
+		margin: 0 16px;
+
+		@include media($xl-desktop){
+			width: 40px;
+			height:40px;
+		}
+		@include media($lg-desktop){
+			width: 30px;
+			height:30px;
+		}
+		@include media($md-desktop){
+			width: 30px;
+			height:30px;
+		}
+		@include media($xs-mobile){
+			width: 18px;
+			height:18px;
+			margin: 0 0 0 8px;
+		}
+
+		&#twitter li.icon{
+			background-image: url('../images/twitter-02.svg');
+		}
+		&#instagram li.icon{
+			background-image: url('../images/instagram-02.svg');
+		}
+		&#facebook li.icon{
+			background-image: url('../images/facebook-02.svg');
+		}
+		&#linkedin li.icon{
+			background-image: url('../images/linkedin-02.svg');
+		}
+
+		li.icon{
+			width: 25px;
+			height:25px;
+			background-size: cover;
+			background-repeat: no-repeat;
+
+			@include media($xl-desktop){
+				width: 40px;
+				height:40px;
+			}
+			@include media($lg-desktop){
+				width: 30px;
+				height:30px;
+			}
+			@include media($md-desktop){
+				width: 30px;
+				height:30px;
+			}
+
+			@include media($most-common-screen){
+				width: 25px;
+				height:25px;
+			}
+			@include media($macbook-pro-13){
+				width: 25px;
+				height:25px;
+			}
+			@include media($xs-mobile){
+				width: 18px;
+				height:18px;
+			}
+			
+		}
+	}
+
+}

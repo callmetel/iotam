@@ -1,0 +1,76 @@
+@import '../base/fonts';
+#preloader {
+  @include position(fixed, 0 0 0 0);
+  width: 100%;
+  height: 100%;
+  z-index: 1001;
+  margin:0 auto;
+  color: black;
+}
+  #preloader .preloader-container {
+     margin: 0 auto;
+     width: 50%;
+     @include media($v-ipad-max-screen){
+        width:65%;
+      }
+  }
+  #preloader{
+    div.intro-mod-logo-container{
+      margin: 0 auto;
+      margin-top: 47.25vh;
+      width:200px;
+      max-width:200px;
+      height:118px;
+      position: relative;
+
+      @include media($sm-mobile){
+        width:30vw;
+      }
+
+      .intro-mod-logo{
+        width:100%;
+      }
+    }
+}
+
+#preloader.is-hidden {
+  visibility: hidden;
+  opacity: 0; 
+}
+
+
+.initial-hide {
+  opacity:0;
+  z-index:-3000;
+}
+
+#skip-intro{
+  @include position(fixed, null 20px 20px null);
+  font: $av-light;
+  cursor: pointer;
+  text-transform: uppercase;
+  @include transition(font .7s ease-in-out);
+
+  @include media($xl-desktop){
+    font:$lgd-av-light;
+  }
+  @include media($lg-desktop){
+    font:$mp-av-light;
+  }
+  @include media($xlsm-height){
+    font:$mp-av-light;
+  }
+  @include media($md-desktop){
+    font:$mp-av-light;
+  }
+  @include media($sm-desktop-height){
+    font: $av-light;
+  }
+  @include media($macbook-pro-13){
+    font:$av-light;
+  }
+  @include media($h-ipad-max-screen){
+    font:$lg-av-light;
+  }
+
+}

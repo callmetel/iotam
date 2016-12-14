@@ -1,0 +1,114 @@
+@import '../base/fonts';
+
+#preloader {
+
+  @include position(fixed, 0 0 0 0);
+  width: 100%;
+  height: 100%;
+  z-index: 1001;
+  margin:0 auto;
+  color: white;
+
+  &.is-hidden {
+    visibility: hidden;
+    opacity: 0; 
+  }
+
+  video#teaser-video { 
+    @include position(fixed, 50% 0 0 50%);
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: -1000;
+    display: inherit;
+    @include transform(translateX(-50%) translateY(-50%));
+    background: url('//demosthenes.info/assets/images/polina.jpg') no-repeat;
+    background-size: cover;
+    @include transition(1s opacity);
+    
+    @include media($v-iphone-6-plus){
+      
+    }
+  }
+
+  div.mobile-bg {
+    @include position(fixed, 0 0 0 0);
+    z-index: -1000;
+    display: inherit!important;
+    min-width: 120%;
+    min-height: 100%;
+    background-image: url('../images/mobile-teaser-video.gif');
+    background-size: cover;
+    background-repeat: no-repeat;
+    @include media($v-iphone-6-plus){
+      display:none;
+    }
+  }
+  
+  .preloader-container {
+    margin: 0 auto;
+    width: auto;
+    text-align: center;
+
+    div.enter-site-link-container{
+      margin: 0 auto;
+      margin-top: 47.25vh;
+      position: relative;
+
+      .enter-site-link{
+        width:auto;
+        cursor: pointer;
+        opacity:0;
+        @include transform(translateX(-100px));
+
+        .right-arrow{
+          width: 10px;
+          height: auto;
+          vertical-align: middle;
+          margin-left: 10px;
+
+          @include media($xl-desktop){
+            width: 18px;
+          }
+          @include media($lg-desktop){
+            width: 14px;
+          }
+          @include media($md-desktop){
+            width: 14px;
+          }
+        }
+      }
+    }
+  }
+
+  #skip-intro{
+    @include position(fixed, null 20px 20px null);
+    font: $smalllink;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    @include transition(font .7s ease-in-out);
+
+    @include media($xl-desktop){
+      font: $xl-smalllink;
+    }
+    @include media($lg-desktop){
+      font: $lg-smalllink;
+    }
+    @include media($md-desktop){
+      font: $lg-smalllink;
+    }
+    @include media($sm-desktop-height){
+      font: $smalllink;
+    }
+    @include media($macbook-pro-13){
+      font: $smalllink;
+    }
+    @include media($h-ipad-max-screen){
+      font: $smalllink;
+    }
+
+  }
+}
+

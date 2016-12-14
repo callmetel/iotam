@@ -1,0 +1,97 @@
+#M-page{
+	video.video-section{
+		
+		min-width: 100vw;
+    	min-height: 100vh;
+		@include filter(grayscale(100%));
+	}
+	a.play-btn{
+		@include position(absolute, 35.875vh 0 0 0);
+		width:100%;
+		text-decoration: none;
+
+		@include media($lgsm-height){
+			top:32.875vh;
+		}
+		@include media($sm-mobile){
+			margin: auto 0;
+			top:38.875vh;
+		}
+
+		&:before{
+			content:'ESSENCE';
+			display: block;
+			font-family: 'Bella Heavy';
+			font-size: 14.5rem;
+			color: white;
+			@include media($xl-desktop){
+				font-size: 22.5rem;
+			}
+			@include media($lg-desktop){
+				font-size: 16.5rem;
+			}
+			@include media($xlsm-height){
+				font-size: 16.5rem;
+			}
+			@include media($lgsm-height){
+				font-size: 16.5rem;
+			}
+			@include media($md-desktop){
+				font-size: 16.5rem;
+			}
+			@include media($lg-mobile){
+				font-size: 11.5rem;
+			}
+			@include media($md-mobile){
+				font-size: 10.5rem;
+			}
+			@include media($sm-mobile){
+				font-size: 7.5rem;
+			}
+			@include media($xs-mobile){
+				font-size: 5rem;
+			}
+		}
+		&:after{
+			content:'';
+			display: block;
+			background-image: url(../images/play.png);
+			background-size: cover;
+			width:100px;
+			height:100px;
+			@include position(absolute, 12vh 0 0 0);
+			margin: 0 auto;
+			
+			@include media($xl-desktop){
+				top:12vh;
+			}
+			@include media($lg-desktop){
+				top:10vh;
+			}
+			@include media($lgsm-height){
+				top:14vh;
+			}
+			@include media($sm-desktop){
+				width:70px;
+				height:70px;
+				top: 11vh;
+			}
+			@include media($sm-desktop){
+				width:70px;
+				height:70px;
+				top: 9vh;
+			}
+			@include media($sm-mobile){
+				width:45px;
+				height:45px;
+				top: 7vh;
+			}
+			@include media($xs-mobile){
+				width:35px;
+				height:35px;
+				top: 5.5vh;
+			}
+		}
+	}
+	
+}

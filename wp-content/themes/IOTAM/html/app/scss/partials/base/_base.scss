@@ -1,0 +1,57 @@
+@import "../components/variables";
+@import "fonts";
+
+body{
+	margin:0;
+	width:100vw;
+	height:100%;
+	overflow-y:auto;
+	background: $aetnaBlue;
+	cursor: grab!important;
+
+    @include media($v-iphone-6-plus){
+        width:100%;
+        height:100%;
+    }
+
+    #main {
+        margin-top: 7vh;
+        @include transform(translateY(30%));
+        @include transition(all 2s $ease-out-quad);
+        opacity: 0;
+        .main-container{
+            position: relative;
+        }
+    }
+
+}
+
+$transBlack: rgba(0,0,0,.8);
+$gray: #2E3238;
+$ltgray:rgba(0,0,0,.3);
+
+* {
+    margin: 0;
+    padding: 0;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    text-rendering: optimizeLegibility;
+    font-smooth: always;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.content-container, #MOD-main, #slides-container{
+    width: 100%;
+    height: 100%;
+}
+
+ .sub-content-container{
+    width: 100%;
+    height: 100vh;
+}
+
+.page{
+    margin-top: 7vh;
+}
