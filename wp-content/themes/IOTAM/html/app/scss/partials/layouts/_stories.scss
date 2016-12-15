@@ -1,0 +1,249 @@
+.page{
+	.stories-grid{
+		padding-top: 0;
+		padding-left: 20vw;
+		padding-right:0;
+		background: white;
+
+		@include media($most-common-screen){
+	        padding-left: 20vw; 
+	    }
+		@include media($macbook-pro-13){
+	        padding-left: 20vw; 
+	    }
+		@include media($sm-desktop){
+	        padding-left: 20vw; 
+	    }
+
+	    @include media($mobile){
+	        padding-left: 33.333vw;
+	    }
+	    @include media($sm-mobile){
+	    	padding-left: 0;
+	    	padding-right: 0;
+	    	
+	    }
+
+		ul.stories-container{
+			height: 93vh;
+			overflow-y: auto;
+
+
+		    @include media($sm-mobile){
+		    	padding-top: 0;
+
+		    }
+
+		    li{
+		    	@include media($sm-mobile){
+			    	&:nth-child(odd){
+						border-right: 2.5px solid white!important;
+				    }
+			    	&:nth-child(even){
+						border-left: 2.5px solid white!important;
+				    }
+				}
+		    }
+
+			li.story, li.mobile-top-square {
+			    width: 20vw;
+    			max-width: 20vw;
+			    overflow: hidden;
+			    height: 20vw;
+			    display: inline-block;
+			    position: relative;
+			    background: $green;
+			    border-left: 5px solid white;
+    			border-bottom: 2px solid white;
+
+
+			    @include media($most-common-screen){
+			        height: 20vw;  
+			    }
+			    @include media($macbook-pro-13){
+			        height: 20vw;  
+			    }
+			    @include media($sm-desktop){
+			        height: 20vw;  
+			    }
+			    @include media($mobile){
+			        width: 33.333vw;
+			        max-width: 33.333vw;
+			        height: 33.333vw;   
+			    }
+			    @include media($sm-mobile){
+			        width: 50vw;
+			        max-width: 50vw;
+			        height: 50vw;   
+			        border-left: 0;
+			        border-bottom: 0;
+			    }
+
+			    &.last-story{
+			    	background: white;
+
+			    	a, p{
+			    		color: $green;
+			    		text-decoration: none;
+			    		display: block;
+
+			    		&.back-to-top-btn{
+			    			font: $lg-story-heading; 
+			    			font-family: $focolight!important;
+
+				            @include media($xl-desktop){
+				                font: $xl-story-heading;    
+				            }
+				            @include media($most-common-screen){
+				                font: $rg-story-heading;
+				            }
+				            @include media($macbook-pro-13){
+				                font: $rg-story-heading;
+				            }
+				            @include media($sm-desktop){
+				                font: $md-story-heading;
+				            }
+				            @include media($desktop-bp){
+				                font: $md-story-heading;    
+				            }
+
+				            span{
+				            	display:inline-block;
+				            	width:15px;
+				            	height:15px;
+				            	background-image: url('../images/arrow-green.svg');
+				            	background-repeat: no-repeat;
+				            	background-size: contain;
+				            	margin-top: 2px;
+				            	margin-left:5px;
+
+				            	@include media($most-common-screen){
+					            	width:12px;
+				            		height:12px;
+					            }
+					            @include media($sm-desktop){
+					                width:9px;
+				            		height:9px;
+					            }
+					            @include media($macbook-pro-13){
+					                width:12px;
+				            		height:12px;
+					            }
+				            }
+			    		}
+			    	}
+			    }
+
+			    div.individual-story-container{
+			        width: 80%;
+			        @include position(absolute, 50% null null 50%);
+			        @include transform(translate(-50%, -50%));
+			        h3.name {
+			            color: white;
+			            text-align: left; 
+			            vertical-align: middle;	
+			            margin-bottom: 15px;
+			            padding-bottom: 0;
+			            font: $lg-story-heading; 
+
+			            @include media($xl-desktop){
+			                font: $xl-story-heading;    
+			            }
+			            @include media($most-common-screen){
+			                font: $rg-story-heading;
+			            }
+			            @include media($macbook-pro-13){
+			                font: $rg-story-heading;
+			            }
+			            @include media($sm-desktop){
+			                font: $md-story-heading;
+			            }
+			            @include media($desktop-bp){
+			                font: $md-story-heading;    
+			            }
+
+			            span.location{
+			            	display:block;
+			            	font-family: $focolight!important;
+			            }
+			        }
+
+			        p{
+			            color: white;
+			    		text-align: left;
+			    		width: 100%;
+			    		margin: 0 auto;
+			            font: $lg-story-p;
+
+			            @include media($xl-desktop){
+			                font: $xl-story-p;   
+			            }
+			            @include media($most-common-screen){
+			                font: $rg-story-p;
+			            }
+			            @include media($macbook-pro-13){
+			                font: $rg-story-p;
+			            }
+			            @include media($sm-desktop){
+			                font: $md-story-p;
+			            }
+			            @include media($sm-mobile){
+			                font: $md-story-p;
+			            }
+			        }
+			        a.read-more-btn{
+						color: white;
+			    		text-align: left;
+			    		margin: 0 auto;
+			    		margin-top: 18px;
+			    		display: block;
+			            font: $lg-story-p;
+			            font-family: $focobold!important;
+			            text-decoration: none;
+
+			            @include media($xl-desktop){
+			                font: $xl-story-p;   
+			            }
+			            @include media($most-common-screen){
+			                font: $rg-story-p;
+			            }
+			            @include media($macbook-pro-13){
+			                font: $rg-story-p;
+			            }
+			            @include media($sm-desktop){
+			                font: $md-story-p;
+			            }
+			            @include media($sm-mobile){
+			                font: $md-story-p;
+			            }
+
+			            span{
+			            	display:inline-block;
+			            	width:15px;
+			            	height:15px;
+			            	background-image: url('../images/arrow.svg');
+			            	background-repeat: no-repeat;
+			            	background-size: contain;
+			            	margin-top: 2px;
+			            	margin-left:5px;
+
+			            	@include media($most-common-screen){
+				            	width:12px;
+			            		height:12px;
+				            }
+				            @include media($sm-desktop){
+				                width:9px;
+			            		height:9px;
+				            }
+				            @include media($macbook-pro-13){
+				                width:12px;
+			            		height:12px;
+				            }
+			            }
+			        }
+			    }
+			}
+
+		}
+	}
+}

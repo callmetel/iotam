@@ -943,56 +943,191 @@ footer {
   left: 50%;
   transform: translate(-50%, -50%); }
 
-.page .share-your-story {
-  padding-top: 7vh;
-  padding-left: 18%;
-  padding-right: 4%; }
-  @media screen and (min-width: 1367px) and (max-width: 1440px) {
-    .page .share-your-story {
-      padding-left: 25%; } }
-  @media screen and (min-width: 1280px) and (max-width: 1366px) {
-    .page .share-your-story {
-      padding-left: 25%; } }
-  @media screen and (max-width: 1280px) {
-    .page .share-your-story {
-      padding-left: 25%; } }
-  @media screen and (max-width: 992px) {
-    .page .share-your-story {
-      padding-left: 31%;
-      padding-right: 3%; } }
-  @media screen and (max-width: 768px) {
-    .page .share-your-story {
-      padding-top: 55%;
-      padding-left: 4%;
-      padding-right: 4%; } }
-  .page .share-your-story h2 {
-    font: normal normal normal 40.5px/40.5px "Foco W01 Bold1373642", "Foco", "Calibri W01 Bold_904607", Calibri, sans-serif;
-    color: #00a78e;
-    text-align: left; }
+.page {
+  posiiton: relative; }
+  .page .share-your-story {
+    padding-top: 7vh;
+    padding-left: 18%;
+    padding-right: 4%; }
+    @media screen and (min-width: 1367px) and (max-width: 1440px) {
+      .page .share-your-story {
+        padding-left: 25%; } }
+    @media screen and (min-width: 1280px) and (max-width: 1366px) {
+      .page .share-your-story {
+        padding-left: 25%; } }
+    @media screen and (max-width: 1280px) {
+      .page .share-your-story {
+        padding-left: 25%; } }
     @media screen and (max-width: 992px) {
-      .page .share-your-story h2 {
-        font: normal normal normal 25px/25px "Foco W01 Bold1373642", "Foco", "Calibri W01 Bold_904607", Calibri, sans-serif; } }
-    .page .share-your-story h2:nth-of-type(2) {
-      font-family: "Foco W01 Regular1373692", "Foco", "Calibri W01 Regular_904604", Calibri, sans-serif !important;
-      vertical-align: middle;
-      margin-top: 65px; }
-      .page .share-your-story h2:nth-of-type(2) img.green-down-arrow {
-        width: 15px;
-        margin-left: 20px;
+      .page .share-your-story {
+        padding-left: 31%;
+        padding-right: 3%; } }
+    @media screen and (max-width: 768px) {
+      .page .share-your-story {
+        padding-top: 55%;
+        padding-left: 4%;
+        padding-right: 4%; } }
+    .page .share-your-story h2 {
+      font: normal normal normal 30.6px/37.6px "Foco W01 Bold1373642", "Foco", "Calibri W01 Bold_904607", Calibri, sans-serif;
+      color: #00a78e;
+      text-align: left; }
+      @media screen and (max-width: 992px) {
+        .page .share-your-story h2 {
+          font: normal normal normal 25px/25px "Foco W01 Bold1373642", "Foco", "Calibri W01 Bold_904607", Calibri, sans-serif; } }
+      .page .share-your-story h2:nth-of-type(2) {
+        font-family: "Foco W01 Regular1373692", "Foco", "Calibri W01 Regular_904604", Calibri, sans-serif !important;
         vertical-align: middle;
-        -webkit-transform: rotate(90deg);
-        -moz-transform: rotate(90deg);
-        -ms-transform: rotate(90deg);
-        -o-transform: rotate(90deg);
-        transform: rotate(90deg); }
-  .page .share-your-story p {
-    font: normal normal normal 21px/25px "Foco W01 Bold1373642", "Foco", "Calibri W01 Bold_904607", Calibri, sans-serif;
-    font-family: "Foco W01 Light1373672", "Foco", "Calibri W01 Light", Calibri, sans-serif !important;
-    color: #2E3238;
-    padding-top: 10px; }
+        margin-top: 65px; }
+        .page .share-your-story h2:nth-of-type(2) img.green-down-arrow {
+          width: 15px;
+          margin-left: 20px;
+          vertical-align: middle;
+          -webkit-transform: rotate(90deg);
+          -moz-transform: rotate(90deg);
+          -ms-transform: rotate(90deg);
+          -o-transform: rotate(90deg);
+          transform: rotate(90deg); }
+    .page .share-your-story p {
+      font: normal normal normal 21px/25px "Foco W01 Bold1373642", "Foco", "Calibri W01 Bold_904607", Calibri, sans-serif;
+      font-family: "Foco W01 Light1373672", "Foco", "Calibri W01 Light", Calibri, sans-serif !important;
+      color: #2E3238;
+      padding-top: 10px; }
+      @media screen and (max-width: 992px) {
+        .page .share-your-story p {
+          font: normal normal normal 16px/18px "Foco W01 Light1373672", "Foco", "Calibri W01 Light", Calibri, sans-serif; } }
+  .page .stories-grid {
+    padding-top: 0;
+    padding-left: 20vw;
+    padding-right: 0;
+    background: white; }
+    @media screen and (min-width: 1367px) and (max-width: 1440px) {
+      .page .stories-grid {
+        padding-left: 20vw; } }
+    @media screen and (min-width: 1280px) and (max-width: 1366px) {
+      .page .stories-grid {
+        padding-left: 20vw; } }
+    @media screen and (max-width: 1280px) {
+      .page .stories-grid {
+        padding-left: 20vw; } }
     @media screen and (max-width: 992px) {
-      .page .share-your-story p {
-        font: normal normal normal 16px/18px "Foco W01 Light1373672", "Foco", "Calibri W01 Light", Calibri, sans-serif; } }
+      .page .stories-grid {
+        padding-left: 33.333vw; } }
+    @media screen and (max-width: 768px) {
+      .page .stories-grid {
+        padding-left: 0;
+        padding-right: 0; } }
+    .page .stories-grid ul.stories-container {
+      height: 93vh;
+      overflow-y: auto; }
+      @media screen and (max-width: 768px) {
+        .page .stories-grid ul.stories-container {
+          padding-top: 0; } }
+      @media screen and (max-width: 768px) {
+        .page .stories-grid ul.stories-container li:nth-child(odd) {
+          border-right: 2.5px solid white !important; }
+        .page .stories-grid ul.stories-container li:nth-child(even) {
+          border-left: 2.5px solid white !important; } }
+      .page .stories-grid ul.stories-container li.story, .page .stories-grid ul.stories-container li.mobile-top-square {
+        width: 20vw;
+        max-width: 20vw;
+        overflow: hidden;
+        height: 20vw;
+        display: inline-block;
+        position: relative;
+        background: #00a78e;
+        border-left: 5px solid white;
+        border-bottom: 2px solid white; }
+        @media screen and (min-width: 1367px) and (max-width: 1440px) {
+          .page .stories-grid ul.stories-container li.story, .page .stories-grid ul.stories-container li.mobile-top-square {
+            height: 20vw; } }
+        @media screen and (min-width: 1280px) and (max-width: 1366px) {
+          .page .stories-grid ul.stories-container li.story, .page .stories-grid ul.stories-container li.mobile-top-square {
+            height: 20vw; } }
+        @media screen and (max-width: 1280px) {
+          .page .stories-grid ul.stories-container li.story, .page .stories-grid ul.stories-container li.mobile-top-square {
+            height: 20vw; } }
+        @media screen and (max-width: 992px) {
+          .page .stories-grid ul.stories-container li.story, .page .stories-grid ul.stories-container li.mobile-top-square {
+            width: 33.333vw;
+            max-width: 33.333vw;
+            height: 33.333vw; } }
+        @media screen and (max-width: 768px) {
+          .page .stories-grid ul.stories-container li.story, .page .stories-grid ul.stories-container li.mobile-top-square {
+            width: 50vw;
+            max-width: 50vw;
+            height: 50vw;
+            border-left: 0;
+            border-bottom: 0; } }
+        .page .stories-grid ul.stories-container li.story div.individual-story-container, .page .stories-grid ul.stories-container li.mobile-top-square div.individual-story-container {
+          width: 80%;
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          -webkit-transform: translate(-50%, -50%);
+          -moz-transform: translate(-50%, -50%);
+          -ms-transform: translate(-50%, -50%);
+          -o-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%); }
+          .page .stories-grid ul.stories-container li.story div.individual-story-container h3, .page .stories-grid ul.stories-container li.mobile-top-square div.individual-story-container h3 {
+            color: white;
+            text-align: center;
+            vertical-align: middle;
+            padding-bottom: 15px;
+            font: normal normal normal 27px/34px "Foco W01 Bold1373642", "Foco", "Calibri W01 Bold_904607", Calibri, sans-serif; }
+            @media screen and (min-width: 2001px) {
+              .page .stories-grid ul.stories-container li.story div.individual-story-container h3, .page .stories-grid ul.stories-container li.mobile-top-square div.individual-story-container h3 {
+                font: normal normal normal 30.6px/37.6px "Foco W01 Bold1373642", "Foco", "Calibri W01 Bold_904607", Calibri, sans-serif; } }
+            @media screen and (max-width: 1200px) {
+              .page .stories-grid ul.stories-container li.story div.individual-story-container h3, .page .stories-grid ul.stories-container li.mobile-top-square div.individual-story-container h3 {
+                font: normal normal normal 25px/25px "Foco W01 Bold1373642", "Foco", "Calibri W01 Bold_904607", Calibri, sans-serif; } }
+          .page .stories-grid ul.stories-container li.story div.individual-story-container div.underline, .page .stories-grid ul.stories-container li.mobile-top-square div.individual-story-container div.underline {
+            width: 30%; }
+          .page .stories-grid ul.stories-container li.story div.individual-story-container p, .page .stories-grid ul.stories-container li.mobile-top-square div.individual-story-container p {
+            font-family: "Foco W01 Light1373672", "Foco", "Calibri W01 Light", Calibri, sans-serif !important;
+            color: white;
+            text-align: center;
+            width: 100%;
+            margin: 0 auto;
+            margin-top: 18px;
+            font: normal normal normal 18px/21px "Foco W01 Bold1373642", "Foco", "Calibri W01 Bold_904607", Calibri, sans-serif; }
+            @media screen and (min-width: 2001px) {
+              .page .stories-grid ul.stories-container li.story div.individual-story-container p, .page .stories-grid ul.stories-container li.mobile-top-square div.individual-story-container p {
+                font: normal normal normal 21px/25px "Foco W01 Bold1373642", "Foco", "Calibri W01 Bold_904607", Calibri, sans-serif; } }
+            @media screen and (max-width: 768px) {
+              .page .stories-grid ul.stories-container li.story div.individual-story-container p, .page .stories-grid ul.stories-container li.mobile-top-square div.individual-story-container p {
+                font: normal normal normal 16px/18px "Foco W01 Light1373672", "Foco", "Calibri W01 Light", Calibri, sans-serif; } }
+  .page .social-media-hub {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    display: block;
+    border: 1px solid #00a78e;
+    width: 20vw;
+    height: 20vw; }
+    @media screen and (min-width: 1367px) and (max-width: 1440px) {
+      .page .social-media-hub {
+        width: 20vw;
+        height: 20vw; } }
+    @media screen and (min-width: 1280px) and (max-width: 1366px) {
+      .page .social-media-hub {
+        width: 20vw;
+        height: 20vw; } }
+    @media screen and (max-width: 1280px) {
+      .page .social-media-hub {
+        width: 20vw;
+        height: 20vw; } }
+    @media screen and (max-width: 992px) {
+      .page .social-media-hub {
+        width: 33.333vw;
+        max-width: 33.333vw;
+        overflow: hidden;
+        height: 33.333vw; } }
+    @media screen and (max-width: 768px) {
+      .page .social-media-hub {
+        width: 50%;
+        max-width: 50%;
+        overflow: hidden;
+        height: 50vw; } }
 
 div#main {
   width: 100%;
@@ -1061,6 +1196,216 @@ div#main {
   padding-top: 12em;
   padding-left: 20px; }
 
+.page .stories-grid {
+  padding-top: 0;
+  padding-left: 20vw;
+  padding-right: 0;
+  background: white; }
+  @media screen and (min-width: 1367px) and (max-width: 1440px) {
+    .page .stories-grid {
+      padding-left: 20vw; } }
+  @media screen and (min-width: 1280px) and (max-width: 1366px) {
+    .page .stories-grid {
+      padding-left: 20vw; } }
+  @media screen and (max-width: 1280px) {
+    .page .stories-grid {
+      padding-left: 20vw; } }
+  @media screen and (max-width: 992px) {
+    .page .stories-grid {
+      padding-left: 33.333vw; } }
+  @media screen and (max-width: 768px) {
+    .page .stories-grid {
+      padding-left: 0;
+      padding-right: 0; } }
+  .page .stories-grid ul.stories-container {
+    height: 93vh;
+    overflow-y: auto; }
+    @media screen and (max-width: 768px) {
+      .page .stories-grid ul.stories-container {
+        padding-top: 0; } }
+    @media screen and (max-width: 768px) {
+      .page .stories-grid ul.stories-container li:nth-child(odd) {
+        border-right: 2.5px solid white !important; }
+      .page .stories-grid ul.stories-container li:nth-child(even) {
+        border-left: 2.5px solid white !important; } }
+    .page .stories-grid ul.stories-container li.story, .page .stories-grid ul.stories-container li.mobile-top-square {
+      width: 20vw;
+      max-width: 20vw;
+      overflow: hidden;
+      height: 20vw;
+      display: inline-block;
+      position: relative;
+      background: #00a78e;
+      border-left: 5px solid white;
+      border-bottom: 2px solid white; }
+      @media screen and (min-width: 1367px) and (max-width: 1440px) {
+        .page .stories-grid ul.stories-container li.story, .page .stories-grid ul.stories-container li.mobile-top-square {
+          height: 20vw; } }
+      @media screen and (min-width: 1280px) and (max-width: 1366px) {
+        .page .stories-grid ul.stories-container li.story, .page .stories-grid ul.stories-container li.mobile-top-square {
+          height: 20vw; } }
+      @media screen and (max-width: 1280px) {
+        .page .stories-grid ul.stories-container li.story, .page .stories-grid ul.stories-container li.mobile-top-square {
+          height: 20vw; } }
+      @media screen and (max-width: 992px) {
+        .page .stories-grid ul.stories-container li.story, .page .stories-grid ul.stories-container li.mobile-top-square {
+          width: 33.333vw;
+          max-width: 33.333vw;
+          height: 33.333vw; } }
+      @media screen and (max-width: 768px) {
+        .page .stories-grid ul.stories-container li.story, .page .stories-grid ul.stories-container li.mobile-top-square {
+          width: 50vw;
+          max-width: 50vw;
+          height: 50vw;
+          border-left: 0;
+          border-bottom: 0; } }
+      .page .stories-grid ul.stories-container li.story.last-story, .page .stories-grid ul.stories-container li.mobile-top-square.last-story {
+        background: white; }
+        .page .stories-grid ul.stories-container li.story.last-story a, .page .stories-grid ul.stories-container li.story.last-story p, .page .stories-grid ul.stories-container li.mobile-top-square.last-story a, .page .stories-grid ul.stories-container li.mobile-top-square.last-story p {
+          color: #00a78e;
+          text-decoration: none;
+          display: block; }
+          .page .stories-grid ul.stories-container li.story.last-story a.back-to-top-btn, .page .stories-grid ul.stories-container li.story.last-story p.back-to-top-btn, .page .stories-grid ul.stories-container li.mobile-top-square.last-story a.back-to-top-btn, .page .stories-grid ul.stories-container li.mobile-top-square.last-story p.back-to-top-btn {
+            font: normal normal normal 28px/30px "Foco W01 Bold1373642", "Foco", "Calibri W01 Bold_904607", Calibri, sans-serif;
+            font-family: "Foco W01 Light1373672", "Foco", "Calibri W01 Light", Calibri, sans-serif !important; }
+            @media screen and (min-width: 2001px) {
+              .page .stories-grid ul.stories-container li.story.last-story a.back-to-top-btn, .page .stories-grid ul.stories-container li.story.last-story p.back-to-top-btn, .page .stories-grid ul.stories-container li.mobile-top-square.last-story a.back-to-top-btn, .page .stories-grid ul.stories-container li.mobile-top-square.last-story p.back-to-top-btn {
+                font: normal normal normal 36px/38px "Foco W01 Bold1373642", "Foco", "Calibri W01 Bold_904607", Calibri, sans-serif; } }
+            @media screen and (min-width: 1367px) and (max-width: 1440px) {
+              .page .stories-grid ul.stories-container li.story.last-story a.back-to-top-btn, .page .stories-grid ul.stories-container li.story.last-story p.back-to-top-btn, .page .stories-grid ul.stories-container li.mobile-top-square.last-story a.back-to-top-btn, .page .stories-grid ul.stories-container li.mobile-top-square.last-story p.back-to-top-btn {
+                font: normal normal normal 20px/22px "Foco W01 Bold1373642", "Foco", "Calibri W01 Bold_904607", Calibri, sans-serif; } }
+            @media screen and (min-width: 1280px) and (max-width: 1366px) {
+              .page .stories-grid ul.stories-container li.story.last-story a.back-to-top-btn, .page .stories-grid ul.stories-container li.story.last-story p.back-to-top-btn, .page .stories-grid ul.stories-container li.mobile-top-square.last-story a.back-to-top-btn, .page .stories-grid ul.stories-container li.mobile-top-square.last-story p.back-to-top-btn {
+                font: normal normal normal 20px/22px "Foco W01 Bold1373642", "Foco", "Calibri W01 Bold_904607", Calibri, sans-serif; } }
+            @media screen and (max-width: 1280px) {
+              .page .stories-grid ul.stories-container li.story.last-story a.back-to-top-btn, .page .stories-grid ul.stories-container li.story.last-story p.back-to-top-btn, .page .stories-grid ul.stories-container li.mobile-top-square.last-story a.back-to-top-btn, .page .stories-grid ul.stories-container li.mobile-top-square.last-story p.back-to-top-btn {
+                font: normal normal normal 17px/19px "Foco W01 Bold1373642", "Foco", "Calibri W01 Bold_904607", Calibri, sans-serif; } }
+            @media screen and (max-width: 1200px) {
+              .page .stories-grid ul.stories-container li.story.last-story a.back-to-top-btn, .page .stories-grid ul.stories-container li.story.last-story p.back-to-top-btn, .page .stories-grid ul.stories-container li.mobile-top-square.last-story a.back-to-top-btn, .page .stories-grid ul.stories-container li.mobile-top-square.last-story p.back-to-top-btn {
+                font: normal normal normal 17px/19px "Foco W01 Bold1373642", "Foco", "Calibri W01 Bold_904607", Calibri, sans-serif; } }
+            .page .stories-grid ul.stories-container li.story.last-story a.back-to-top-btn span, .page .stories-grid ul.stories-container li.story.last-story p.back-to-top-btn span, .page .stories-grid ul.stories-container li.mobile-top-square.last-story a.back-to-top-btn span, .page .stories-grid ul.stories-container li.mobile-top-square.last-story p.back-to-top-btn span {
+              display: inline-block;
+              width: 15px;
+              height: 15px;
+              background-image: url("../images/arrow-green.svg");
+              background-repeat: no-repeat;
+              background-size: contain;
+              margin-top: 2px;
+              margin-left: 5px; }
+              @media screen and (min-width: 1367px) and (max-width: 1440px) {
+                .page .stories-grid ul.stories-container li.story.last-story a.back-to-top-btn span, .page .stories-grid ul.stories-container li.story.last-story p.back-to-top-btn span, .page .stories-grid ul.stories-container li.mobile-top-square.last-story a.back-to-top-btn span, .page .stories-grid ul.stories-container li.mobile-top-square.last-story p.back-to-top-btn span {
+                  width: 12px;
+                  height: 12px; } }
+              @media screen and (max-width: 1280px) {
+                .page .stories-grid ul.stories-container li.story.last-story a.back-to-top-btn span, .page .stories-grid ul.stories-container li.story.last-story p.back-to-top-btn span, .page .stories-grid ul.stories-container li.mobile-top-square.last-story a.back-to-top-btn span, .page .stories-grid ul.stories-container li.mobile-top-square.last-story p.back-to-top-btn span {
+                  width: 9px;
+                  height: 9px; } }
+              @media screen and (min-width: 1280px) and (max-width: 1366px) {
+                .page .stories-grid ul.stories-container li.story.last-story a.back-to-top-btn span, .page .stories-grid ul.stories-container li.story.last-story p.back-to-top-btn span, .page .stories-grid ul.stories-container li.mobile-top-square.last-story a.back-to-top-btn span, .page .stories-grid ul.stories-container li.mobile-top-square.last-story p.back-to-top-btn span {
+                  width: 12px;
+                  height: 12px; } }
+      .page .stories-grid ul.stories-container li.story div.individual-story-container, .page .stories-grid ul.stories-container li.mobile-top-square div.individual-story-container {
+        width: 80%;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        -webkit-transform: translate(-50%, -50%);
+        -moz-transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+        -o-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%); }
+        .page .stories-grid ul.stories-container li.story div.individual-story-container h3.name, .page .stories-grid ul.stories-container li.mobile-top-square div.individual-story-container h3.name {
+          color: white;
+          text-align: left;
+          vertical-align: middle;
+          margin-bottom: 15px;
+          padding-bottom: 0;
+          font: normal normal normal 28px/30px "Foco W01 Bold1373642", "Foco", "Calibri W01 Bold_904607", Calibri, sans-serif; }
+          @media screen and (min-width: 2001px) {
+            .page .stories-grid ul.stories-container li.story div.individual-story-container h3.name, .page .stories-grid ul.stories-container li.mobile-top-square div.individual-story-container h3.name {
+              font: normal normal normal 36px/38px "Foco W01 Bold1373642", "Foco", "Calibri W01 Bold_904607", Calibri, sans-serif; } }
+          @media screen and (min-width: 1367px) and (max-width: 1440px) {
+            .page .stories-grid ul.stories-container li.story div.individual-story-container h3.name, .page .stories-grid ul.stories-container li.mobile-top-square div.individual-story-container h3.name {
+              font: normal normal normal 20px/22px "Foco W01 Bold1373642", "Foco", "Calibri W01 Bold_904607", Calibri, sans-serif; } }
+          @media screen and (min-width: 1280px) and (max-width: 1366px) {
+            .page .stories-grid ul.stories-container li.story div.individual-story-container h3.name, .page .stories-grid ul.stories-container li.mobile-top-square div.individual-story-container h3.name {
+              font: normal normal normal 20px/22px "Foco W01 Bold1373642", "Foco", "Calibri W01 Bold_904607", Calibri, sans-serif; } }
+          @media screen and (max-width: 1280px) {
+            .page .stories-grid ul.stories-container li.story div.individual-story-container h3.name, .page .stories-grid ul.stories-container li.mobile-top-square div.individual-story-container h3.name {
+              font: normal normal normal 17px/19px "Foco W01 Bold1373642", "Foco", "Calibri W01 Bold_904607", Calibri, sans-serif; } }
+          @media screen and (max-width: 1200px) {
+            .page .stories-grid ul.stories-container li.story div.individual-story-container h3.name, .page .stories-grid ul.stories-container li.mobile-top-square div.individual-story-container h3.name {
+              font: normal normal normal 17px/19px "Foco W01 Bold1373642", "Foco", "Calibri W01 Bold_904607", Calibri, sans-serif; } }
+          .page .stories-grid ul.stories-container li.story div.individual-story-container h3.name span.location, .page .stories-grid ul.stories-container li.mobile-top-square div.individual-story-container h3.name span.location {
+            display: block;
+            font-family: "Foco W01 Light1373672", "Foco", "Calibri W01 Light", Calibri, sans-serif !important; }
+        .page .stories-grid ul.stories-container li.story div.individual-story-container p, .page .stories-grid ul.stories-container li.mobile-top-square div.individual-story-container p {
+          color: white;
+          text-align: left;
+          width: 100%;
+          margin: 0 auto;
+          font: normal normal normal 19.6px/23.6px "Foco W01 Light1373672", "Foco", "Calibri W01 Light", Calibri, sans-serif; }
+          @media screen and (min-width: 2001px) {
+            .page .stories-grid ul.stories-container li.story div.individual-story-container p, .page .stories-grid ul.stories-container li.mobile-top-square div.individual-story-container p {
+              font: normal normal normal 25.2px/29.2px "Foco W01 Light1373672", "Foco", "Calibri W01 Light", Calibri, sans-serif; } }
+          @media screen and (min-width: 1367px) and (max-width: 1440px) {
+            .page .stories-grid ul.stories-container li.story div.individual-story-container p, .page .stories-grid ul.stories-container li.mobile-top-square div.individual-story-container p {
+              font: normal normal normal 14px/18px "Foco W01 Light1373672", "Foco", "Calibri W01 Light", Calibri, sans-serif; } }
+          @media screen and (min-width: 1280px) and (max-width: 1366px) {
+            .page .stories-grid ul.stories-container li.story div.individual-story-container p, .page .stories-grid ul.stories-container li.mobile-top-square div.individual-story-container p {
+              font: normal normal normal 14px/18px "Foco W01 Light1373672", "Foco", "Calibri W01 Light", Calibri, sans-serif; } }
+          @media screen and (max-width: 1280px) {
+            .page .stories-grid ul.stories-container li.story div.individual-story-container p, .page .stories-grid ul.stories-container li.mobile-top-square div.individual-story-container p {
+              font: normal normal normal 11.9px/15.9px "Foco W01 Light1373672", "Foco", "Calibri W01 Light", Calibri, sans-serif; } }
+          @media screen and (max-width: 768px) {
+            .page .stories-grid ul.stories-container li.story div.individual-story-container p, .page .stories-grid ul.stories-container li.mobile-top-square div.individual-story-container p {
+              font: normal normal normal 11.9px/15.9px "Foco W01 Light1373672", "Foco", "Calibri W01 Light", Calibri, sans-serif; } }
+        .page .stories-grid ul.stories-container li.story div.individual-story-container a.read-more-btn, .page .stories-grid ul.stories-container li.mobile-top-square div.individual-story-container a.read-more-btn {
+          color: white;
+          text-align: left;
+          margin: 0 auto;
+          margin-top: 18px;
+          display: block;
+          font: normal normal normal 19.6px/23.6px "Foco W01 Light1373672", "Foco", "Calibri W01 Light", Calibri, sans-serif;
+          font-family: "Foco W01 Bold1373642", "Foco", "Calibri W01 Bold_904607", Calibri, sans-serif !important;
+          text-decoration: none; }
+          @media screen and (min-width: 2001px) {
+            .page .stories-grid ul.stories-container li.story div.individual-story-container a.read-more-btn, .page .stories-grid ul.stories-container li.mobile-top-square div.individual-story-container a.read-more-btn {
+              font: normal normal normal 25.2px/29.2px "Foco W01 Light1373672", "Foco", "Calibri W01 Light", Calibri, sans-serif; } }
+          @media screen and (min-width: 1367px) and (max-width: 1440px) {
+            .page .stories-grid ul.stories-container li.story div.individual-story-container a.read-more-btn, .page .stories-grid ul.stories-container li.mobile-top-square div.individual-story-container a.read-more-btn {
+              font: normal normal normal 14px/18px "Foco W01 Light1373672", "Foco", "Calibri W01 Light", Calibri, sans-serif; } }
+          @media screen and (min-width: 1280px) and (max-width: 1366px) {
+            .page .stories-grid ul.stories-container li.story div.individual-story-container a.read-more-btn, .page .stories-grid ul.stories-container li.mobile-top-square div.individual-story-container a.read-more-btn {
+              font: normal normal normal 14px/18px "Foco W01 Light1373672", "Foco", "Calibri W01 Light", Calibri, sans-serif; } }
+          @media screen and (max-width: 1280px) {
+            .page .stories-grid ul.stories-container li.story div.individual-story-container a.read-more-btn, .page .stories-grid ul.stories-container li.mobile-top-square div.individual-story-container a.read-more-btn {
+              font: normal normal normal 11.9px/15.9px "Foco W01 Light1373672", "Foco", "Calibri W01 Light", Calibri, sans-serif; } }
+          @media screen and (max-width: 768px) {
+            .page .stories-grid ul.stories-container li.story div.individual-story-container a.read-more-btn, .page .stories-grid ul.stories-container li.mobile-top-square div.individual-story-container a.read-more-btn {
+              font: normal normal normal 11.9px/15.9px "Foco W01 Light1373672", "Foco", "Calibri W01 Light", Calibri, sans-serif; } }
+          .page .stories-grid ul.stories-container li.story div.individual-story-container a.read-more-btn span, .page .stories-grid ul.stories-container li.mobile-top-square div.individual-story-container a.read-more-btn span {
+            display: inline-block;
+            width: 15px;
+            height: 15px;
+            background-image: url("../images/arrow.svg");
+            background-repeat: no-repeat;
+            background-size: contain;
+            margin-top: 2px;
+            margin-left: 5px; }
+            @media screen and (min-width: 1367px) and (max-width: 1440px) {
+              .page .stories-grid ul.stories-container li.story div.individual-story-container a.read-more-btn span, .page .stories-grid ul.stories-container li.mobile-top-square div.individual-story-container a.read-more-btn span {
+                width: 12px;
+                height: 12px; } }
+            @media screen and (max-width: 1280px) {
+              .page .stories-grid ul.stories-container li.story div.individual-story-container a.read-more-btn span, .page .stories-grid ul.stories-container li.mobile-top-square div.individual-story-container a.read-more-btn span {
+                width: 9px;
+                height: 9px; } }
+            @media screen and (min-width: 1280px) and (max-width: 1366px) {
+              .page .stories-grid ul.stories-container li.story div.individual-story-container a.read-more-btn span, .page .stories-grid ul.stories-container li.mobile-top-square div.individual-story-container a.read-more-btn span {
+                width: 12px;
+                height: 12px; } }
+
 #happiness-video-page {
   position: relative; }
   #happiness-video-page .overlay {
@@ -1126,7 +1471,7 @@ div#main {
   text-align: center;
   margin: 0 auto; }
   #middle-info h1 {
-    font: normal normal normal 40.5px/40.5px "Foco W01 Bold1373642", "Foco", "Calibri W01 Bold_904607", Calibri, sans-serif;
+    font: normal normal normal 30.6px/37.6px "Foco W01 Bold1373642", "Foco", "Calibri W01 Bold_904607", Calibri, sans-serif;
     color: white;
     position: relative;
     text-align: center;
@@ -1933,44 +2278,43 @@ div#main {
     opacity: 0; }
   100% {
     opacity: 1; } }
-.top-square {
-  width: 15%;
-  max-width: 15%;
+.top-square, .mobile-top-square {
+  width: 20vw;
+  max-width: 20vw;
   overflow: hidden;
-  height: 15vw;
+  height: 19.9vw;
   display: inline-block;
   position: fixed; }
+  @media screen and (min-width: 2001px) {
+    .top-square, .mobile-top-square {
+      width: 20vw;
+      max-width: 20vw;
+      height: 19.9vw; } }
   @media screen and (min-width: 1367px) and (max-width: 1440px) {
-    .top-square {
-      width: 22%;
-      max-width: 22%;
-      overflow: hidden;
-      height: 22vw; } }
+    .top-square, .mobile-top-square {
+      width: 20vw;
+      max-width: 20vw;
+      height: 19.55vw; } }
   @media screen and (min-width: 1280px) and (max-width: 1366px) {
-    .top-square {
-      width: 22%;
-      max-width: 22%;
-      overflow: hidden;
-      height: 22vw; } }
+    .top-square, .mobile-top-square {
+      width: 20vw;
+      max-width: 20vw;
+      height: 20vw; } }
   @media screen and (max-width: 1280px) {
-    .top-square {
-      width: 22%;
-      max-width: 22%;
-      overflow: hidden;
-      height: 22vw; } }
+    .top-square, .mobile-top-square {
+      width: 20vw;
+      max-width: 20vw;
+      height: 20vw; } }
   @media screen and (max-width: 992px) {
-    .top-square {
-      width: 28%;
-      max-width: 28%;
+    .top-square, .mobile-top-square {
+      width: 33.333vw;
+      max-width: 33.333vw;
       overflow: hidden;
-      height: 28vw; } }
+      height: 33.333vw; } }
   @media screen and (max-width: 768px) {
-    .top-square {
-      width: 50%;
-      max-width: 50%;
-      overflow: hidden;
-      height: 50vw; } }
-  .top-square div.top-square-container {
+    .top-square, .mobile-top-square {
+      display: none; } }
+  .top-square div.top-square-container, .mobile-top-square div.top-square-container {
     width: 80%;
     position: absolute;
     top: 50%;
@@ -1980,34 +2324,63 @@ div#main {
     -ms-transform: translate(-50%, -50%);
     -o-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%); }
-    .top-square div.top-square-container h2 {
+    .top-square div.top-square-container h2, .mobile-top-square div.top-square-container h2 {
       color: white;
       text-align: center;
       vertical-align: middle;
       padding-bottom: 15px;
-      font: normal normal normal 30px/30px "Foco W01 Bold1373642", "Foco", "Calibri W01 Bold_904607", Calibri, sans-serif; }
+      font: normal normal normal 50.4px/57.4px "Foco W01 Bold1373642", "Foco", "Calibri W01 Bold_904607", Calibri, sans-serif; }
       @media screen and (min-width: 2001px) {
-        .top-square div.top-square-container h2 {
-          font: normal normal normal 40.5px/40.5px "Foco W01 Bold1373642", "Foco", "Calibri W01 Bold_904607", Calibri, sans-serif; } }
+        .top-square div.top-square-container h2, .mobile-top-square div.top-square-container h2 {
+          font: normal normal normal 64.8px/71.8px "Foco W01 Bold1373642", "Foco", "Calibri W01 Bold_904607", Calibri, sans-serif;
+          padding-bottom: 25px; } }
+      @media screen and (min-width: 1367px) and (max-width: 1440px) {
+        .top-square div.top-square-container h2, .mobile-top-square div.top-square-container h2 {
+          font: normal normal normal 36px/43px "Foco W01 Bold1373642", "Foco", "Calibri W01 Bold_904607", Calibri, sans-serif; } }
+      @media screen and (min-width: 1280px) and (max-width: 1366px) {
+        .top-square div.top-square-container h2, .mobile-top-square div.top-square-container h2 {
+          font: normal normal normal 36px/43px "Foco W01 Bold1373642", "Foco", "Calibri W01 Bold_904607", Calibri, sans-serif; } }
+      @media screen and (max-width: 1280px) {
+        .top-square div.top-square-container h2, .mobile-top-square div.top-square-container h2 {
+          font: normal normal normal 30.6px/37.6px "Foco W01 Bold1373642", "Foco", "Calibri W01 Bold_904607", Calibri, sans-serif; } }
       @media screen and (max-width: 1200px) {
-        .top-square div.top-square-container h2 {
+        .top-square div.top-square-container h2, .mobile-top-square div.top-square-container h2 {
           font: normal normal normal 25px/25px "Foco W01 Bold1373642", "Foco", "Calibri W01 Bold_904607", Calibri, sans-serif; } }
-    .top-square div.top-square-container div.underline {
+    .top-square div.top-square-container div.underline, .mobile-top-square div.top-square-container div.underline {
       width: 30%; }
-    .top-square div.top-square-container p {
+      @media screen and (min-width: 2001px) {
+        .top-square div.top-square-container div.underline, .mobile-top-square div.top-square-container div.underline {
+          width: 20%; } }
+    .top-square div.top-square-container p, .mobile-top-square div.top-square-container p {
       font-family: "Foco W01 Light1373672", "Foco", "Calibri W01 Light", Calibri, sans-serif !important;
       color: white;
       text-align: center;
       width: 100%;
       margin: 0 auto;
       margin-top: 18px;
-      font: normal normal normal 18px/21px "Foco W01 Bold1373642", "Foco", "Calibri W01 Bold_904607", Calibri, sans-serif; }
+      font: normal normal normal 24px/28.5px "Foco W01 Bold1373642", "Foco", "Calibri W01 Bold_904607", Calibri, sans-serif; }
       @media screen and (min-width: 2001px) {
-        .top-square div.top-square-container p {
+        .top-square div.top-square-container p, .mobile-top-square div.top-square-container p {
+          font: normal normal normal 32px/38px "Foco W01 Bold1373642", "Foco", "Calibri W01 Bold_904607", Calibri, sans-serif;
+          margin-top: 28px; } }
+      @media screen and (min-width: 1367px) and (max-width: 1440px) {
+        .top-square div.top-square-container p, .mobile-top-square div.top-square-container p {
           font: normal normal normal 21px/25px "Foco W01 Bold1373642", "Foco", "Calibri W01 Bold_904607", Calibri, sans-serif; } }
+      @media screen and (min-width: 1280px) and (max-width: 1366px) {
+        .top-square div.top-square-container p, .mobile-top-square div.top-square-container p {
+          font: normal normal normal 21px/25px "Foco W01 Bold1373642", "Foco", "Calibri W01 Bold_904607", Calibri, sans-serif; } }
+      @media screen and (max-width: 1280px) {
+        .top-square div.top-square-container p, .mobile-top-square div.top-square-container p {
+          font: normal normal normal 18px/21px "Foco W01 Bold1373642", "Foco", "Calibri W01 Bold_904607", Calibri, sans-serif; } }
       @media screen and (max-width: 768px) {
-        .top-square div.top-square-container p {
+        .top-square div.top-square-container p, .mobile-top-square div.top-square-container p {
           font: normal normal normal 16px/18px "Foco W01 Light1373672", "Foco", "Calibri W01 Light", Calibri, sans-serif; } }
+
+.mobile-top-square {
+  display: none !important; }
+  @media screen and (max-width: 768px) {
+    .mobile-top-square {
+      display: inline-block !important; } }
 
 #M-page video.video-section {
   min-width: 100vw;

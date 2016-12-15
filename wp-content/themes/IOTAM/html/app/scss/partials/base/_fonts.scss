@@ -22,14 +22,15 @@ $lg-heading: normal normal normal 103px/103px $focobold;
 $xl-heading: normal normal normal 133px/133px $focobold;
 
 $xs-subheading: normal normal normal 25px/25px $focobold;
-$sm-subheading: normal normal normal 30px/30px $focobold;
-$md-subheading: normal normal normal 40.5px/40.5px $focobold;
-$md-subheading-light: normal normal normal 55.5px/55.5px $focolight;
-$rg-subheading: normal normal normal 74px/74px $focobold;
-$lg-subheading: normal normal normal 103px/103px $focobold;
-$xl-subheading: normal normal normal 133px/133px $focobold;
+$sm-subheading: normal normal normal 27px/34px $focobold;
+$md-subheading: normal normal normal 30.6px/37.6px $focobold;
+$rg-subheading: normal normal normal 36px/43px $focobold;
+$lg-subheading: normal normal normal 50.4px/57.4px $focobold;
+$xl-subheading: normal normal normal 64.8px/71.8px $focobold;
 
-$xs-heading-p: normal normal normal 12px/14.3px $focolight;
+$md-subheading-light: normal normal normal 55.5px/55.5px $focolight;
+
+$xs-heading-p: normal normal normal 23.4px/30.4px $focolight;
 $sm-heading-p: normal normal normal 13.5px/16.5px $focolight;
 $md-heading-p: normal normal normal 16px/18px $focolight;
 $rg-heading-p: normal normal normal 18px/22px $focolight;
@@ -63,26 +64,17 @@ $xl-dropdown-link: normal normal normal 20.2px/40.4px $focolight;
 
 $xl-menu-disclaimer: normal normal normal 13px/16px $focobold;
 
-$av-light: normal normal 200 0.8125rem/1rem 'Avenir W01', 'Avenir', sans-serif; // for macbook 11"-13"
-$xl-av-light: normal normal 200 1.375rem/1.5625rem 'Avenir W01', 'Avenir', sans-serif; // for xl destops
-$lgd-av-light: normal normal 200 1.175rem/1.3625rem 'Avenir W01', 'Avenir', sans-serif; // for xl destops
-$mp-av-light: normal normal 200 0.91rem/1.12rem 'Avenir W01', 'Avenir', sans-serif; // for macbook 15"
-$lg-av-light: normal normal 200 0.7125rem/0.9rem 'Avenir W01', 'Avenir', sans-serif; //for horizontal ipads
+$sm-story-heading: normal normal normal 13px/15px $focobold;
+$md-story-heading: normal normal normal 17px/19px $focobold;
+$rg-story-heading: normal normal normal 20px/22px $focobold;
+$lg-story-heading: normal normal normal 28px/30px $focobold;
+$xl-story-heading: normal normal normal 36px/38px $focobold;
 
-
-$av-black: normal normal 800 0.8125rem/1rem 'Avenir W01', 'Avenir', sans-serif; // for macbook 11"-13"
-$xl-av-black: normal normal 800 1.3125rem/1.5625rem 'Avenir W01', 'Avenir', sans-serif; // for xl destops
-$lgd-av-black: normal normal 800 1.1125rem/1.3625rem 'Avenir W01', 'Avenir', sans-serif; // for xl destops
-$mp-av-black: normal normal 800 0.91rem/1.12rem 'Avenir W01', 'Avenir', sans-serif; // for macbook 15"
-$lg-av-black: normal normal 800 0.7125rem/0.9rem 'Avenir W01', 'Avenir', sans-serif; //for horizontal ipads
-$sm-av-black: normal normal 800 0.6125rem/0.9rem 'Avenir W01', 'Avenir', sans-serif; //for horizontal ipads
-
-$sm-paragraph: normal normal 200 1rem/1.35rem 'Avenir W01', 'Avenir', sans-serif;
-$lg-paragraph: normal normal 200 1.375rem/1.75rem 'Avenir W01', 'Avenir', sans-serif;
-$paragraph: normal normal 200 1.675rem/2.05rem 'Avenir W01', 'Avenir', sans-serif;
-$xl-paragraph: normal normal 200 3.02937rem/3.635rem 'Avenir W01', 'Avenir', sans-serif;
-$lgd-paragraph: normal normal 200 2.32937rem/2.935rem 'Avenir W01', 'Avenir', sans-serif;
-$mdd-paragraph: normal normal 200 2.22937rem/2.835rem 'Avenir W01', 'Avenir', sans-serif;
+$sm-story-p: normal normal normal 9.1px/13.1px $focolight;
+$md-story-p: normal normal normal 11.9px/15.9px $focolight;
+$rg-story-p: normal normal normal 14px/18px $focolight;
+$lg-story-p: normal normal normal 19.6px/23.6px $focolight;
+$xl-story-p: normal normal normal 25.2px/29.2px $focolight;
 
 
 $link: normal normal normal 24px/28.8px $focobold;
