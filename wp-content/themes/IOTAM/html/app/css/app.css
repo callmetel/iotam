@@ -972,6 +972,19 @@ footer {
     @media screen and (max-width: 992px) {
       .page .share-your-story h2 {
         font: normal normal normal 25px/25px "Foco W01 Bold1373642", "Foco", "Calibri W01 Bold_904607", Calibri, sans-serif; } }
+    .page .share-your-story h2:nth-of-type(2) {
+      font-family: "Foco W01 Regular1373692", "Foco", "Calibri W01 Regular_904604", Calibri, sans-serif !important;
+      vertical-align: middle;
+      margin-top: 65px; }
+      .page .share-your-story h2:nth-of-type(2) img.green-down-arrow {
+        width: 15px;
+        margin-left: 20px;
+        vertical-align: middle;
+        -webkit-transform: rotate(90deg);
+        -moz-transform: rotate(90deg);
+        -ms-transform: rotate(90deg);
+        -o-transform: rotate(90deg);
+        transform: rotate(90deg); }
   .page .share-your-story p {
     font: normal normal normal 21px/25px "Foco W01 Bold1373642", "Foco", "Calibri W01 Bold_904607", Calibri, sans-serif;
     font-family: "Foco W01 Light1373672", "Foco", "Calibri W01 Light", Calibri, sans-serif !important;

@@ -33,6 +33,19 @@
 	        @include media($mobile){
 	        	font: $xs-subheading;
 	        }
+
+	        &:nth-of-type(2){
+				font-family: $foco!important;
+				vertical-align: middle;
+				margin-top:65px;
+
+				img.green-down-arrow{
+					width:15px;
+					margin-left: 20px;
+					vertical-align: middle;
+					@include transform(rotate(90deg));
+				}
+	        }
 	    }
 	    p {
             font: $sm-sq-heading-p;
