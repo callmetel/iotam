@@ -1048,8 +1048,6 @@ footer {
   bottom: 3vh;
   left: 3vh;
   z-index: 999; }
-  footer .global-apn {
-    color: white; }
 
 .mySlides {
   display: none; }
@@ -1730,69 +1728,6 @@ footer {
           #slides-container .slide-info .slide-subtext p {
             max-width: 23.81vw; } }
 
-.page {
-  width: 100%;
-  position: fixed;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  -webkit-transform: translateY(100%);
-  -moz-transform: translateY(100%);
-  -ms-transform: translateY(100%);
-  -o-transform: translateY(100%);
-  transform: translateY(100%);
-  -webkit-transition: -webkit-transform 1s cubic-bezier(0.77, 0, 0.175, 1);
-  -moz-transition: -moz-transform 1s cubic-bezier(0.77, 0, 0.175, 1);
-  transition: transform 1s cubic-bezier(0.77, 0, 0.175, 1); }
-  .page .section {
-    height: 100vh;
-    width: 100vw;
-    text-align: center;
-    overflow: hidden;
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    -webkit-transform: translateY(100%);
-    -moz-transform: translateY(100%);
-    -ms-transform: translateY(100%);
-    -o-transform: translateY(100%);
-    transform: translateY(100%);
-    -webkit-transition: -webkit-transform 1s cubic-bezier(0.77, 0, 0.175, 1);
-    -moz-transition: -moz-transform 1s cubic-bezier(0.77, 0, 0.175, 1);
-    transition: transform 1s cubic-bezier(0.77, 0, 0.175, 1); }
-  .page section.sec-01 h1.page-title {
-    font-family: 'Bella Heavy';
-    font-size: 200px;
-    color: white;
-    margin-top: 46.5vh; }
-    @media screen and (min-width: 2001px) {
-      .page section.sec-01 h1.page-title {
-        font-size: 22.5rem;
-        margin-top: 47vh; } }
-    @media screen and (min-width: 1600px) and (max-width: 2000px) {
-      .page section.sec-01 h1.page-title {
-        font-size: 16.5rem;
-        margin-top: 47vh; } }
-    @media screen and (min-width: 2000px) and (max-height: 1160px) {
-      .page section.sec-01 h1.page-title {
-        font-size: 16.5rem;
-        margin-top: 47vh; } }
-    @media screen and (min-width: 1441px) and (max-width: 1599px) {
-      .page section.sec-01 h1.page-title {
-        font-size: 16.5rem;
-        margin-top: 47vh; } }
-    @media screen and (max-width: 880px) {
-      .page section.sec-01 h1.page-title {
-        font-size: 7.5rem;
-        margin-top: 47vh; } }
-  .page .section-title {
-    padding-bottom: 30px; }
-  .page#D-page section.sec-03 {
-    background: #000000; }
-
 div#main {
   width: 100%;
   height: 100%;
@@ -1823,7 +1758,7 @@ div#main {
   background-color: #ffffff;
   padding-bottom: 3em; }
   #resources-page h2 {
-    font: normal normal normal 55.5px/55.5px "Foco W01 Bold1373642", "Foco", "Calibri W01 Bold_904607", Calibri, sans-serif;
+    font: normal normal normal 40.5px/40.5px "Foco W01 Bold1373642", "Foco", "Calibri W01 Bold_904607", Calibri, sans-serif;
     color: white;
     text-align: center;
     vertical-align: middle;
@@ -1835,20 +1770,21 @@ div#main {
 .main-resources {
   display: inline-block;
   vertical-align: top;
-  padding-top: 12em;
-  padding-left: 2em; }
+  padding-top: 9em;
+  padding-left: 22em; }
   .main-resources h1 {
-    font: normal normal normal 55.5px/55.5px "Foco W01 Bold1373642", "Foco", "Calibri W01 Bold_904607", Calibri, sans-serif;
+    font: normal normal normal 40.5px/40.5px "Foco W01 Bold1373642", "Foco", "Calibri W01 Bold_904607", Calibri, sans-serif;
     color: #0ba2c3; }
   .main-resources h3, .main-resources a {
     font: normal normal normal 55.5px/55.5px "Foco W01 Light1373672", "Foco", "Calibri W01 Light", Calibri, sans-serif;
     color: #0ba2c3;
-    margin-top: 2.5em;
+    margin-top: 1em;
     display: inline-block;
     padding-right: 20px;
     text-decoration: none; }
   .main-resources p {
-    font: normal normal normal 25px/31px "Foco W01 Light1373672", "Foco", "Calibri W01 Light", Calibri, sans-serif;
+    font: normal normal normal 21px/25px "Foco W01 Bold1373642", "Foco", "Calibri W01 Bold_904607", Calibri, sans-serif;
+    font-family: "Foco W01 Light1373672", "Foco", "Calibri W01 Light", Calibri, sans-serif;
     color: #2E3238;
     padding-top: 10px; }
   .main-resources img {
@@ -1863,53 +1799,66 @@ div#main {
 .hide {
   display: none; }
 
-#happiness-video-page {
+.video-page {
   position: relative;
   height: 100vh; }
-  #happiness-video-page .overlay {
-    background-image: url("../images/happiness_screenshot_1.png");
-    background-size: cover;
-    background-repeat: none;
+
+#happiness-video-page #happiness-top-square {
+  background-color: rgba(20, 153, 123, 0.75); }
+#happiness-video-page .page .inactive-page {
+  display: none; }
+#happiness-video-page .page .overlay {
+  background-size: cover;
+  background-repeat: none;
+  width: 100%;
+  height: 100vh;
+  position: absolute;
+  z-index: -1; }
+  #happiness-video-page .page .overlay:before {
+    position: absolute;
+    content: " ";
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
-    position: absolute;
-    z-index: -1; }
-    #happiness-video-page .overlay:before {
-      position: absolute;
-      content: " ";
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      display: block;
-      z-index: 0;
-      background-color: rgba(0, 0, 0, 0.37); }
-
-#happiness-top-square {
-  background-color: rgba(20, 153, 123, 0.75); }
-
-.underline {
-  display: block;
-  height: 1px;
-  width: 60px;
-  background: white;
-  margin: 10px auto;
-  text-align: center; }
-
-.main-happiness {
-  display: inline-block;
-  vertical-align: middle;
-  width: 100%;
+    display: block;
+    z-index: 0;
+    background-color: rgba(0, 0, 0, 0.37); }
+#happiness-video-page .page .page-1 .overlay {
+  background-image: url("../images/happiness_screenshot_1.png"); }
+#happiness-video-page .page .page-2 .overlay {
+  background-image: url("../images/happiness_screenshot_2.png"); }
+#happiness-video-page .page .page-3 .overlay {
+  background-image: url("../images/happiness_screenshot_3.png"); }
+#happiness-video-page .page .display-bottommiddle {
   position: absolute;
-  top: 37%;
+  top: 80%;
   left: 50%;
   -webkit-transform: translateX(-50%);
   -moz-transform: translateX(-50%);
   -ms-transform: translateX(-50%);
   -o-transform: translateX(-50%);
   transform: translateX(-50%); }
-
-.happiness-play img {
+#happiness-video-page .page .underline {
+  display: block;
+  height: 1px;
+  width: 60px;
+  background: white;
+  margin: 10px auto;
+  text-align: center; }
+#happiness-video-page .page .main-page {
+  display: inline-block;
+  vertical-align: middle;
+  width: 100%;
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+  -moz-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  -o-transform: translateX(-50%);
+  transform: translateX(-50%); }
+#happiness-video-page .page .video-play img {
   width: 7.3vw;
   max-width: 150px;
   height: auto;
@@ -1918,27 +1867,111 @@ div#main {
   padding-bottom: 20px;
   text-align: center;
   margin: 0 auto; }
-
-#middle-info {
+#happiness-video-page .page .middle-info {
   text-align: center;
   margin: 0 auto; }
-  #middle-info h1 {
+  #happiness-video-page .page .middle-info h1 {
     font: normal normal normal 40.5px/40.5px "Foco W01 Bold1373642", "Foco", "Calibri W01 Bold_904607", Calibri, sans-serif;
     color: white;
     position: relative;
     text-align: center;
     display: inline-block;
     vertical-align: middle; }
-  #middle-info #left-arrow {
+  #happiness-video-page .page .middle-info .left-arrow {
     width: 25px;
     display: inline-block;
     margin-right: 4.5vw;
     vertical-align: middle; }
-  #middle-info #right-arrow {
+  #happiness-video-page .page .middle-info .right-arrow {
     width: 25px;
     display: inline-block;
     margin-left: 4.5vw;
     vertical-align: middle; }
+  #happiness-video-page .page .middle-info p {
+    font: normal normal normal 21px/25px "Foco W01 Bold1373642", "Foco", "Calibri W01 Bold_904607", Calibri, sans-serif;
+    font-family: "Foco W01 Light1373672", "Foco", "Calibri W01 Light", Calibri, sans-serif !important;
+    color: white;
+    text-align: center;
+    width: 30%;
+    margin: 0 auto;
+    margin-top: 18px;
+    margin-bottom: 30px; }
+  #happiness-video-page .page .middle-info .underline {
+    margin-top: 20px; }
+  #happiness-video-page .page .middle-info .transcript-arrow {
+    width: 10px;
+    display: inline-block; }
+  #happiness-video-page .page .middle-info div.transcript-button {
+    border: 1px solid #00a78e;
+    width: 15%;
+    padding: 15px 20px 15px 20px;
+    margin: 0 auto; }
+    #happiness-video-page .page .middle-info div.transcript-button p {
+      display: inline;
+      padding-right: 5px;
+      text-align: center; }
+#happiness-video-page .main-page-dots {
+  position: absolute;
+  top: 80%; }
+#happiness-video-page .left, #happiness-video-page .right, #happiness-video-page .badge {
+  cursor: pointer; }
+#happiness-video-page .text-white {
+  color: #ffffff !important; }
+#happiness-video-page .section {
+  margin-top: 16px !important;
+  margin-bottom: 16px !important; }
+#happiness-video-page .white, #happiness-video-page .hover-white:hover {
+  color: #000 !important;
+  background-color: #fff !important; }
+#happiness-video-page .text-white, #happiness-video-page .hover-text-white:hover {
+  color: #ffffff !important; }
+#happiness-video-page .badge {
+  background-color: #000;
+  color: #ffffff;
+  display: inline-block;
+  height: 15px;
+  width: 15px;
+  padding-left: 8px;
+  padding-right: 8px;
+  text-align: center;
+  border-radius: 50%;
+  text-align: center !important;
+  margin: 0 10px 0 0; }
+#happiness-video-page .border span {
+  border: 1px solid #ffffff !important;
+  border-radius: 50%; }
+#happiness-video-page .center {
+  text-align: center !important; }
+#happiness-video-page .transparent {
+  background-color: #b0afb0; }
+#happiness-video-page .large {
+  font-size: 18px !important; }
+#happiness-video-page .selected {
+  background-color: white; }
+#happiness-video-page .social-media-info {
+  position: fixed;
+  left: 30px;
+  top: 69%;
+  margin-bottom: 30px; }
+  #happiness-video-page .social-media-info p {
+    font: normal normal normal 21px/25px "Foco W01 Bold1373642", "Foco", "Calibri W01 Bold_904607", Calibri, sans-serif;
+    display: inline-block;
+    margin-right: 5px;
+    margin-left: 10px;
+    margin-bottom: 20px;
+    margin-top: 20px; }
+  #happiness-video-page .social-media-info .conversation-arrow {
+    width: 10px; }
+  #happiness-video-page .social-media-info .hashtag {
+    font-family: "Foco W01 Light1373672", "Foco", "Calibri W01 Light", Calibri, sans-serif !important;
+    display: block; }
+  #happiness-video-page .social-media-info .global-apn p {
+    color: white;
+    font: normal normal normal 10px/10px "Foco W01 Light1373672", "Foco", "Calibri W01 Light", Calibri, sans-serif; }
+#happiness-video-page .social-media-icons img {
+  width: 40px;
+  display: inline;
+  margin: 5px 5px 5px 5px; }
 
 .move-back {
   -webkit-animation: fadein 1s ease-out;
@@ -2736,7 +2769,8 @@ div#main {
   overflow: hidden;
   height: 15vw;
   display: inline-block;
-  position: relative; }
+  position: absolute;
+  z-index: 100; }
   .top-square div.top-square-container {
     width: 80%;
     position: absolute;
@@ -2761,6 +2795,10 @@ div#main {
       width: 80%;
       margin: 0 auto;
       margin-top: 18px; }
+
+.global-apn p {
+  color: white;
+  font: normal normal normal 10px/10px "Foco W01 Light1373672", "Foco", "Calibri W01 Light", Calibri, sans-serif; }
 
 #M-page video.video-section {
   min-width: 100vw;

@@ -8,7 +8,7 @@
         
 
         h2 {
-            font: $md-heading;
+            font: $md-subheading;
             color: white;
             text-align: center; 
             vertical-align: middle;
@@ -24,25 +24,26 @@
     .main-resources {
         display: inline-block;
         vertical-align: top;
-        padding-top: 12em;
-        padding-left: 2em;
+        padding-top: 9em;
+        padding-left: 22em;
 
         h1 {
-            font: $md-heading;
+            font: $md-subheading; 
             color: $aetnaBlue;
         }
 
         h3, a{
             font:$md-heading-light;
             color: $aetnaBlue;
-            margin-top: 2.5em;
+            margin-top: 1em;
             display: inline-block;
             padding-right: 20px;
             text-decoration: none;
         }
 
         p {
-            font: $lg-heading-p;
+            font:  $sm-sq-heading-p;
+            font-family: $focolight;
             color: $gray; 
             padding-top: 10px;
         }

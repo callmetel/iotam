@@ -154,7 +154,7 @@
         </nav>
     </header>
     <div class="content-container">
-      
+        <div id="main">
             <div class="main-container">
                 <div class="grid-items-lines">
                     <div class="grid-item">
@@ -167,7 +167,7 @@
                             <p>Here we celebrate real people who’ve taken steps to overcome emotional and mental health challenges in their lives or with others.<p> 
                             <p>You’ll see and hear how each person addresses topics not everyone is comfortable talking about.</p>
                         </a>
-                        <div class="w3-center w3-section w3-large w3-text-white w3-display-bottommiddle" style="width:100%">
+                        <div class="w3-center w3-section large w3-text-white w3-display-bottommiddle" style="width:100%">
                             <span id="dot1" class="w3-badge demo w3-border w3-transparent w3-hover-white selected" onclick="currentDiv(1)"></span>
                             <span id="dot2" class="w3-badge demo w3-border w3-transparent w3-hover-white selected" onclick="currentDiv(2)"></span>
                         </div>
@@ -287,25 +287,90 @@
             </div>
             <p class="global-apn" id="apn">48.36.807.1 (11/16)</p>
         </div>
-        <div id="happiness-video-page">
-            <div class="overlay"></div>
-            <div id="happiness-top-square" class="top-square">
+        <div id="happiness-video-page" class="video-page">
+         <div id="happiness-top-square" class="top-square">
                 <div class="top-square-container">
                     <h2>Happiness</h2>
                     <div class="underline"></div>
                     <p>Finding people to talk to and connect with to overcome&nbsp;depression</p>    
                 </div>
             </div>
-            <div class="main-happiness">
-                <div class="happiness-play"><img src="app/images/arrow-thin.svg"></div>
-                <div id="middle-info">
-                    <img src="app/images/arrow-left.svg" alt="arrow" id="left-arrow">
+         <div class="page">   
+         <div class="page-1">
+         <div class="overlay"></div>
+            <div class="main-page">
+                <div class="video-play"><img src="app/images/arrow-thin.svg"></div>
+                <div class="middle-info">
+                    <img src="app/images/arrow-left.svg" alt="arrow" class="left-arrow">
                     <h1>Being There Matters</h1>
-                    <img src="app/images/arrow.svg" alt="arrow" id="right-arrow">
+                    <img src="app/images/arrow.svg" alt="arrow" class="right-arrow">
+                    <div class="underline"></div>
+                    <p>When Jennifer faced depression in high school, her long-time best friend, Alyson, was there  for her. With no formal training, just being a  friend made a difference.</p>
+                    <div tag="button" class="transcript-button">
+                    <p>Read Transcript</p>
+                    <img src="app/images/arrow.svg" alt="arrow" class="transcript-arrow">
+                    </div>
                 </div>
-            </div>
+                </div>
+                </div>
+                <div class="page-2 inactive-page">
+                <div class="overlay"></div>
+                <div class="main-page">
+                <div class="video-play"><img src="app/images/arrow-thin.svg"></div>
+                <div class="middle-info">
+                    <img src="app/images/arrow-left.svg" alt="arrow" class="left-arrow">
+                    <h1>Living for Thursdays</h1>
+                    <img src="app/images/arrow.svg" alt="arrow" class="right-arrow">
+                    <div class="underline"></div>
+                    <p>After his accident, AJ couldn’t envision a life  worth living. He was an active person who  thought he’d never have an active life again.  Learn how joining a new community completely changed AJ’s perspective.</p>
+                    <div tag="button" class="transcript-button">
+                    <p>Read Transcript</p>
+                    <img src="app/images/arrow.svg" alt="arrow" class="transcript-arrow">
+                    </div>
+                </div>
+                </div>
+                </div>
+                <div class="page-3 inactive-page">
+                <div class="overlay"></div>
+                <div class="main-page">
+                <div class="video-play"><img src="app/images/arrow-thin.svg"></div>
+                <div class="middle-info">
+                    <img src="app/images/arrow-left.svg" alt="arrow" class="left-arrow">
+                    <h1>New Moms Aren’t Alone</h1>
+                    <img src="app/images/arrow.svg" alt="arrow" class="right-arrow">
+                    <div class="underline"></div>
+                    <p>Postpartum depression is more common than many new mothers realize – and it can be very serious. Learn how Raivon faced her postpartum depression by learning she wasn’t alone and got the help she needed.</p>
+                    <div tag="button" class="transcript-button">
+                    <p>Read Transcript</p>
+                    <img src="app/images/arrow.svg" alt="arrow" class="transcript-arrow">
+                    </div>
+                </div>
+                </div>
+                </div>
+                </div>
+
+                     <div class="center section large text-white display-bottommiddle main-page-dots" style="width:100%">
+                            <span id="dot-1" class="badge demo border transparent hover-white" onclick="currentDiv(1)"></span>
+                            <span id="dot-2" class="badge demo border transparent hover-white" onclick="currentDiv(2)"></span>
+                            <span id="dot-3" class="badge demo border transparent hover-white" onclick="currentDiv(3)"></span>
+                    </div>
+
+             <div class="social-media-info">
+                <div>
+                <p>Join the conversation</p> <img src="app/images/arrow.svg" alt="arrow" class="conversation-arrow">
+                </div>
+                <div class="social-media-icons">
+                <img src="app/images/instagram-icon.svg" alt="instagram icon">
+                <img src="app/images/facebook-icon.svg" alt="facebook icon">
+                <img src="app/images/twitter-icon.svg" alt="twitter icon">
+                <img src="app/images/linkedin-icon.svg" alt="linkedin icon">
+                </div>
+                <p class="hashtag">#itonlytakesaminute</p>
+                <span class="global-apn"><p>48.36.807.1 (11/16)</p></span>
+                </div>
         </div>
     </div>
+
 
     <script src="app/js/lib/minified/hammer.min.js" class="load"></script>
     <script>
@@ -350,8 +415,9 @@
     <script src="app/bower_components/gsap/src/minified/TweenMax.min.js"></script>
     <script src="app/js/plugins/jquery-mousewheel-3.1.13/jquery.mousewheel.min.js"></script>
     <script src="app/js/lib/function.js"></script>
-    <script id="__bs_script__">//<![CDATA[
-    document.write("<script async src='http://HOST:3000/browser-sync/browser-sync-client.2.14.0.js'><\/script>".replace("HOST", location.hostname));
-    //]]></script>
+   <script id="__bs_script__">//<![CDATA[
+    document.write("<script async src='http://HOST:3000/browser-sync/browser-sync-client.js?v=2.17.6'><\/script>".replace("HOST", location.hostname));
+//]]></script>
+
 </body>
 </html>

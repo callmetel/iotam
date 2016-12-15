@@ -4,7 +4,8 @@
     overflow: hidden;
     height: 15vw;
     display: inline-block;
-    position: relative;
+    position: absolute;
+    z-index: 100;
 
     div.top-square-container{
         width: 80%;
@@ -28,3 +29,11 @@
         }
     }
 }
+
+.global-apn p{
+        color: white;
+        font: $sm-smalllink;
+
+    }
+
+    
