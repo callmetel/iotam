@@ -4,27 +4,75 @@
     overflow: hidden;
     height: 15vw;
     display: inline-block;
-    position: relative;
+    position: fixed;
+
+    @include media($most-common-screen){
+        width: 22%;
+        max-width: 22%;
+        overflow: hidden;
+        height: 22vw;   
+    }
+    @include media($macbook-pro-13){
+        width: 22%;
+        max-width: 22%;
+        overflow: hidden;
+        height: 22vw;   
+    }
+    @include media($sm-desktop){
+        width: 22%;
+        max-width: 22%;
+        overflow: hidden;
+        height: 22vw;   
+    }
+    @include media($mobile){
+        width: 28%;
+        max-width: 28%;
+        overflow: hidden;
+        height: 28vw;   
+    }
+    @include media($sm-mobile){
+        width: 50%;
+        max-width: 50%;
+        overflow: hidden;
+        height: 50vw;   
+    }
 
     div.top-square-container{
         width: 80%;
         @include position(absolute, 50% null null 50%);
         @include transform(translate(-50%, -50%));
         h2 {
-            font: $md-subheading;
             color: white;
             text-align: center; 
             vertical-align: middle;	
             padding-bottom: 15px;
+            font: $sm-subheading; 
+
+            @include media($xl-desktop){
+                font: $md-subheading;    
+            }
+            @include media($desktop-bp){
+                font: $xs-subheading;    
+            }
+        }
+        div.underline{
+            width:30%;
         }
         p{
-        	font: $sm-sq-heading-p;
         	font-family: $focolight!important;
             color: white;
     		text-align: center;
-    		width: 80%;
+    		width: 100%;
     		margin: 0 auto;
     		margin-top: 18px;
+            font: $xs-sq-heading-p;
+
+            @include media($xl-desktop){
+                font: $sm-sq-heading-p;   
+            }
+            @include media($sm-mobile){
+                font: $md-heading-p;
+            }
         }
     }
 }

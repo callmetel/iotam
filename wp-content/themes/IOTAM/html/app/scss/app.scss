@@ -18,6 +18,7 @@
 /// Components
 /// /////////////////////////////////////// 
 
+	@import "partials/components/forms";
 	@import "partials/components/icons";
 	@import "partials/components/variables";
 
@@ -25,11 +26,8 @@
 /// Layouts
 /// /////////////////////////////////////// 
 
-	@import "partials/layouts/contact";
-	@import "partials/layouts/flex-grid";
 	@import "partials/layouts/footer";
 	@import "partials/layouts/grid";
-	@import "partials/layouts/slide";
 	@import "partials/layouts/page";
 	@import "partials/layouts/home";
 	@import "partials/layouts/resources-page";

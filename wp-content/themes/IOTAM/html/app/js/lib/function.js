@@ -99,7 +99,19 @@ var status = 1;
 			$('#resources-page').removeClass('hide');
 			$('.global-nav').addClass('add-border');
 			
-			});
+		});
+
+		$('.select-option').bind('click touchend', function() {
+            $('ul.select-dropdown').toggleClass('dropdown-active'); 
+
+            var selectedText = $(this).text();
+
+            $('#topic option').val(selectedText);
+            $('.is-selected').html('<span>' + selectedText + '</span>');
+
+            console.log($('#topic option').val());
+            
+        });
 
 
 

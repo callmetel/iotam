@@ -9,7 +9,7 @@ ul#menu {
     list-style: none;
     z-index: 11400;
     padding: 100px 25px 25px 25px;
-    @include transform(translateX(-100%));
+    @include transform(translateX(-150%));
     @include transition(transform 1.5s $ease-out-quad);
     list-style: none;
     // &.nav-is-inactive{

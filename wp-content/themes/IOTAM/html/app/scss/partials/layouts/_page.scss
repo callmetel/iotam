@@ -1,60 +1,48 @@
-// Global section styles
-
 .page{
-	width:100%;
-	@include position(fixed, 0 0 0 0);
-	@include transform(translateY(100%));
-	@include transition(transform 1s $ease-in-out-quart);
+	.share-your-story{
+		padding-top: 7vh;
+		padding-left: 18%;
+		padding-right:4%;
 
-	.section{
-		height: 100vh;
-		width:100vw;
-		text-align: center;
-		overflow: hidden;
-		@include position(absolute, 0 0 0 0);
-		@include transform(translateY(100%));
-		@include transition(transform 1s $ease-in-out-quart);
-	}
+		@include media($most-common-screen){
+	        padding-left: 25%; 
+	    }
+		@include media($macbook-pro-13){
+	        padding-left: 25%; 
+	    }
+		@include media($sm-desktop){
+	        padding-left: 25%; 
+	    }
 
-	section.sec-01{
-		h1.page-title{
-			font-family: 'Bella Heavy';
-			font-size: 200px;
-			color: white;
-			margin-top: 46.5vh;
+	    @include media($mobile){
+	        padding-left: 31%; 
+	        padding-right:3%;
+	    }
 
-			@include media($xl-desktop){
-				font-size: 22.5rem;
-				margin-top: 47vh;
-			}
-			@include media($lg-desktop){
-				font-size: 16.5rem;
-				margin-top: 47vh;
-			}
-			@include media($xlsm-height){
-				font-size: 16.5rem;
-				margin-top: 47vh;
-			}
-			@include media($md-desktop){
-				font-size: 16.5rem;
-				margin-top: 47vh;
-			}
-			@include media($md-mobile){
-				font-size: 7.5rem;
-				margin-top: 47vh;
-			}
-		}
-	}
+	    @include media($sm-mobile){
+	    	padding-top: 55%;
+	        padding-left: 4%; 
+	        padding-right:4%;
+	    }
 
-	.section-title{
-		padding-bottom: 30px;
-	}
+		h2 {
+	        font: $md-subheading;
+	        color: $green;
+	        text-align: left;
 
-	&#D-page{
-		section.sec-03{
-			background: #000000;
-		}
+	        @include media($mobile){
+	        	font: $xs-subheading;
+	        }
+	    }
+	    p {
+            font: $sm-sq-heading-p;
+            font-family: $focolight!important;
+            color: $gray; 
+            padding-top: 10px;
+
+            @include media($mobile){
+            	font: $md-heading-p;
+            }
+        }
 	}
 }
-
-
