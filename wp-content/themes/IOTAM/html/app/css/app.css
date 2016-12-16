@@ -1728,6 +1728,106 @@ footer {
           #slides-container .slide-info .slide-subtext p {
             max-width: 23.81vw; } }
 
+.page.inactive-page {
+  display: none; }
+.page .overlay {
+  background-size: cover;
+  background-repeat: none;
+  width: 100%;
+  height: 100vh;
+  position: absolute;
+  z-index: -1; }
+  .page .overlay:before {
+    position: absolute;
+    content: " ";
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: block;
+    z-index: 0;
+    background-color: rgba(0, 0, 0, 0.37); }
+.page .display-bottommiddle {
+  position: absolute;
+  top: 80%;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+  -moz-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  -o-transform: translateX(-50%);
+  transform: translateX(-50%); }
+.page .underline {
+  display: block;
+  height: 1px;
+  width: 60px;
+  background: white;
+  margin: 10px auto;
+  text-align: center; }
+.page .main-page {
+  display: inline-block;
+  vertical-align: middle;
+  width: 100%;
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+  -moz-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  -o-transform: translateX(-50%);
+  transform: translateX(-50%); }
+.page .video-play img {
+  width: 7.3vw;
+  max-width: 150px;
+  height: auto;
+  display: block;
+  left: 45%;
+  padding-bottom: 20px;
+  text-align: center;
+  margin: 0 auto; }
+.page .middle-info {
+  text-align: center;
+  margin: 0 auto; }
+  .page .middle-info h1 {
+    font: normal normal normal 40.5px/40.5px "Foco W01 Bold1373642", "Foco", "Calibri W01 Bold_904607", Calibri, sans-serif;
+    color: white;
+    position: relative;
+    text-align: center;
+    display: inline-block;
+    vertical-align: middle; }
+  .page .middle-info .left-arrow {
+    width: 25px;
+    display: inline-block;
+    margin-right: 4.5vw;
+    vertical-align: middle; }
+  .page .middle-info .right-arrow {
+    width: 25px;
+    display: inline-block;
+    margin-left: 4.5vw;
+    vertical-align: middle; }
+  .page .middle-info p {
+    font: normal normal normal 21px/25px "Foco W01 Bold1373642", "Foco", "Calibri W01 Bold_904607", Calibri, sans-serif;
+    font-family: "Foco W01 Light1373672", "Foco", "Calibri W01 Light", Calibri, sans-serif !important;
+    color: white;
+    text-align: center;
+    width: 30%;
+    margin: 0 auto;
+    margin-top: 18px;
+    margin-bottom: 30px; }
+  .page .middle-info .underline {
+    margin-top: 20px; }
+  .page .middle-info .transcript-arrow {
+    width: 10px;
+    display: inline-block; }
+  .page .middle-info div.transcript-button {
+    border: 1px solid #00a78e;
+    width: 15%;
+    padding: 15px 20px 15px 20px;
+    margin: 0 auto; }
+    .page .middle-info div.transcript-button p {
+      display: inline;
+      padding-right: 5px;
+      text-align: center; }
+
 div#main {
   width: 100%;
   height: 100%;
@@ -1762,7 +1862,7 @@ div#main {
     color: white;
     text-align: center;
     vertical-align: middle;
-    padding-top: 3.5em; }
+    padding-top: 3em; }
 
 #resources-top-square {
   background-color: #0ba2c3; }
@@ -1770,7 +1870,7 @@ div#main {
 .main-resources {
   display: inline-block;
   vertical-align: top;
-  padding-top: 9em;
+  padding-top: 10.75em;
   padding-left: 22em; }
   .main-resources h1 {
     font: normal normal normal 40.5px/40.5px "Foco W01 Bold1373642", "Foco", "Calibri W01 Bold_904607", Calibri, sans-serif;
@@ -1804,112 +1904,14 @@ div#main {
   height: 100vh; }
 
 #happiness-video-page #happiness-top-square {
-  background-color: rgba(20, 153, 123, 0.75); }
-#happiness-video-page .page .inactive-page {
-  display: none; }
-#happiness-video-page .page .overlay {
-  background-size: cover;
-  background-repeat: none;
-  width: 100%;
-  height: 100vh;
-  position: absolute;
-  z-index: -1; }
-  #happiness-video-page .page .overlay:before {
-    position: absolute;
-    content: " ";
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    display: block;
-    z-index: 0;
-    background-color: rgba(0, 0, 0, 0.37); }
-#happiness-video-page .page .page-1 .overlay {
+  background-color: rgba(20, 153, 123, 0.75);
+  margin-top: 0; }
+#happiness-video-page .page-1 .overlay {
   background-image: url("../images/happiness_screenshot_1.png"); }
-#happiness-video-page .page .page-2 .overlay {
+#happiness-video-page .page-2 .overlay {
   background-image: url("../images/happiness_screenshot_2.png"); }
-#happiness-video-page .page .page-3 .overlay {
+#happiness-video-page .page-3 .overlay {
   background-image: url("../images/happiness_screenshot_3.png"); }
-#happiness-video-page .page .display-bottommiddle {
-  position: absolute;
-  top: 80%;
-  left: 50%;
-  -webkit-transform: translateX(-50%);
-  -moz-transform: translateX(-50%);
-  -ms-transform: translateX(-50%);
-  -o-transform: translateX(-50%);
-  transform: translateX(-50%); }
-#happiness-video-page .page .underline {
-  display: block;
-  height: 1px;
-  width: 60px;
-  background: white;
-  margin: 10px auto;
-  text-align: center; }
-#happiness-video-page .page .main-page {
-  display: inline-block;
-  vertical-align: middle;
-  width: 100%;
-  position: absolute;
-  top: 30%;
-  left: 50%;
-  -webkit-transform: translateX(-50%);
-  -moz-transform: translateX(-50%);
-  -ms-transform: translateX(-50%);
-  -o-transform: translateX(-50%);
-  transform: translateX(-50%); }
-#happiness-video-page .page .video-play img {
-  width: 7.3vw;
-  max-width: 150px;
-  height: auto;
-  display: block;
-  left: 45%;
-  padding-bottom: 20px;
-  text-align: center;
-  margin: 0 auto; }
-#happiness-video-page .page .middle-info {
-  text-align: center;
-  margin: 0 auto; }
-  #happiness-video-page .page .middle-info h1 {
-    font: normal normal normal 40.5px/40.5px "Foco W01 Bold1373642", "Foco", "Calibri W01 Bold_904607", Calibri, sans-serif;
-    color: white;
-    position: relative;
-    text-align: center;
-    display: inline-block;
-    vertical-align: middle; }
-  #happiness-video-page .page .middle-info .left-arrow {
-    width: 25px;
-    display: inline-block;
-    margin-right: 4.5vw;
-    vertical-align: middle; }
-  #happiness-video-page .page .middle-info .right-arrow {
-    width: 25px;
-    display: inline-block;
-    margin-left: 4.5vw;
-    vertical-align: middle; }
-  #happiness-video-page .page .middle-info p {
-    font: normal normal normal 21px/25px "Foco W01 Bold1373642", "Foco", "Calibri W01 Bold_904607", Calibri, sans-serif;
-    font-family: "Foco W01 Light1373672", "Foco", "Calibri W01 Light", Calibri, sans-serif !important;
-    color: white;
-    text-align: center;
-    width: 30%;
-    margin: 0 auto;
-    margin-top: 18px;
-    margin-bottom: 30px; }
-  #happiness-video-page .page .middle-info .underline {
-    margin-top: 20px; }
-  #happiness-video-page .page .middle-info .transcript-arrow {
-    width: 10px;
-    display: inline-block; }
-  #happiness-video-page .page .middle-info div.transcript-button {
-    border: 1px solid #00a78e;
-    width: 15%;
-    padding: 15px 20px 15px 20px;
-    margin: 0 auto; }
-    #happiness-video-page .page .middle-info div.transcript-button p {
-      display: inline;
-      padding-right: 5px;
-      text-align: center; }
 #happiness-video-page .main-page-dots {
   position: absolute;
   top: 80%; }
@@ -2770,7 +2772,8 @@ div#main {
   height: 15vw;
   display: inline-block;
   position: absolute;
-  z-index: 100; }
+  z-index: 100;
+  margin-top: 7vh; }
   .top-square div.top-square-container {
     width: 80%;
     position: absolute;

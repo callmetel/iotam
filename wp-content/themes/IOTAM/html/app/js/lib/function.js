@@ -1101,6 +1101,32 @@ var status = 1;
 			});
 
 
+			$(".dot-1").bind("click touchend", function() {
+				$(this).addClass('selected');
+				$(this).siblings().removeClass('selected');
+				$(this).parents(".video-page").find(".page-1").addClass('active-page').removeClass('inactive-page');
+				$(this).parents(".video-page").find(".page-1").siblings().removeClass('active-page').addClass('inactive-page');
+
+			});
+
+			$(".dot-2").bind("click touchend", function(){
+				$(this).addClass('selected');
+				$(this).siblings().removeClass('selected');
+				$(this).parents(".video-page").find(".page-2").addClass('active-page').removeClass('inactive-page');
+				$(this).parents(".video-page").find(".page-2").siblings().removeClass('active-page').addClass('inactive-page');
+			});
+
+			$(".dot-3").bind("click touchend", function(){
+				$(this).addClass('selected');
+				$(this).siblings().removeClass('selected');
+				$(this).parents(".video-page").find(".page-3").addClass('active-page').removeClass('inactive-page');
+				$(this).parents(".video-page").find(".page-3").siblings().removeClass('active-page').addClass('inactive-page');
+			});
+
+			
+
+
+
 
 
 
