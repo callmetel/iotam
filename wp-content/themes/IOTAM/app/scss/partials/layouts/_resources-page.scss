@@ -1,0 +1,74 @@
+ @import "../components/variables";
+ @import "../base/fonts";
+
+
+ #resources {
+        background-color: #ffffff;
+        height:93vh;
+ 
+    #resources-top-square {
+        background-color: $aetnaBlue;
+        @include media($lg-mobile){
+            display: block;
+            opacity:1;
+        }
+        @include media($sm-mobile){
+            display: none;
+        }
+    }
+
+    &.is-active-section{
+         #resources-top-square {
+            z-index: 4000;
+        }
+    }
+
+    .main-resources {
+
+
+        h2 {
+            color: $aetnaBlue;
+        }
+
+        h3{
+            margin-top: 5vh;
+            display: block;
+
+            a{
+                font: $md-subheading;
+                color: $green;
+                text-align: left;
+                font-family: $focolight!important;
+                color: $aetnaBlue;
+                display: inline-block;
+                padding-right: 20px;
+                text-decoration: none;
+
+                @include media($mobile){
+                    font: $xs-subheading;
+                }
+            }
+
+            p {
+                font:  $sm-sq-heading-p;
+                font-family: $focolight;
+                color: $gray; 
+            }
+
+            img {
+
+                 height: 30px;
+
+                 @include media($mobile){
+                    font: $xs-subheading;
+                }
+            }
+        }
+    }
+
+    .page-apn{
+        color:$gray!important;
+    }
+
+}
+// Variables

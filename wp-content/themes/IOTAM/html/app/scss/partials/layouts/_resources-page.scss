@@ -2,64 +2,66 @@
  @import "../base/fonts";
 
 
- #resources-page {
+ #resources {
         background-color: #ffffff;
-        padding-bottom: 3em;
-
-
-        h2 {
-            font: $md-heading;
-            color: white;
-            text-align: center; 
-            vertical-align: middle;
-            padding-top: 3.5em;
-        }
-
-
-    } 
+        height:93vh;
+        margin-top: 7vh;
+ 
     #resources-top-square {
         background-color: $aetnaBlue;
     }
 
+    &.is-active-section{
+         #resources-top-square {
+            z-index: 4000;
+        }
+    }
+
     .main-resources {
-        display: inline-block;
-        vertical-align: top;
-        padding-top: 12em;
-        padding-left: 2em;
 
-        h1 {
-            font: $md-heading;
+        h2 {
             color: $aetnaBlue;
         }
 
-        h3, a{
-            font:$md-heading-light;
-            color: $aetnaBlue;
-            margin-top: 2.5em;
-            display: inline-block;
-            padding-right: 20px;
-            text-decoration: none;
-        }
+        h3{
+            margin-top: 5vh;
+            display: block;
 
-        p {
-            font: $lg-heading-p;
-            color: $gray; 
-            padding-top: 10px;
-        }
+            a{
+                font: $md-subheading;
+                color: $green;
+                text-align: left;
+                font-family: $focolight!important;
+                color: $aetnaBlue;
+                display: inline-block;
+                padding-right: 20px;
+                text-decoration: none;
 
-        img {
+                @include media($mobile){
+                    font: $xs-subheading;
+                }
+            }
 
-             width: 25px;
-             height: auto;
+            p {
+                font:  $sm-sq-heading-p;
+                font-family: $focolight;
+                color: $gray; 
+            }
+
+            img {
+
+                 height: 30px;
+
+                 @include media($mobile){
+                    font: $xs-subheading;
+                }
+            }
         }
     }
 
-    #apn {
-        color: $gray;
-        padding-top: 12em;
-        padding-left: 20px;
-
+    .page-apn{
+        color:$gray!important;
     }
 
-    
+}
 // Variables

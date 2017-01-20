@@ -1,0 +1,646 @@
+
+@import "../components/variables";
+@import "../base/fonts";
+
+#happiness-video-page{
+
+    #happiness-top-square {
+        background-color: $transGreen;
+        margin-top: 0;
+        &.opaque{
+            background-color: $green!important;
+        }
+    }
+    
+    .section-1{
+        a.transcript-button {
+            border: 1px solid $green;
+        }
+        .page-1 {
+            .video, .overlay{
+                background-image: url('../images/happiness_screenshot_1.png');
+            }
+
+        }
+
+        .page-2 {
+            .video, .overlay{
+                background-image: url('../images/happiness_screenshot_2.png');
+            }
+        }
+
+        .page-3 {
+            .video, .overlay{
+                background-image: url('../images/happiness_screenshot_3.png');
+            }
+        }    
+    }
+
+    .section-2{
+        form {
+
+            form textarea, form select, input.field, .select-option, textarea.story{
+
+                color: $green;
+                @include placeholder {
+                    color: $green;
+                }
+            }
+        }
+
+        .submit{
+            input{
+                background: $green;
+            }
+            p.disclaimer{
+                color: $green!important;
+            }
+            
+        }
+
+        li.select-option{
+            &:hover{
+                background-color: $green;
+                color:white;
+            }
+        }
+
+        li.select-option.is-selected{
+            color: $green;
+            &:hover{
+                background-color: $green;
+                color:white;
+            }
+            span{
+                &:after{
+                    background-image: url('../images/arrow-green.svg');
+                }
+            }
+        }
+        .required {
+            color:$green;
+        }
+        h2 {
+            color: $green;
+        }
+    }
+
+    .section-3{
+        li.story, li.mobile-top-square {
+            background: $green;
+
+            &.last-story{
+                background: white;
+                a, p{
+                    color: $green;
+
+                    &.back-to-top-btn{
+                        span{
+                            background-image: url('../images/arrow-green.svg');
+                        }
+                    }
+                    &.more-stories-btn{
+                        span{
+                            background-image: url('../images/arrow-green.svg');
+                        }
+                    }
+                    &.story-counter{
+                        color: $green;
+                    }
+                }
+            }
+        }
+        .story-lightbox{
+            color:$green;
+
+            .close-story {
+                color: $green; 
+            }
+
+            h3{
+                color: $green!important;
+            }
+
+            p{
+                color:$green!important;
+            }
+        }
+    }
+    
+}
+
+#connection-video-page{
+
+    #connection-top-square {
+        background-color: $transOrange;
+        margin-top: 0;
+        &.opaque{
+            background-color: $orange!important;
+        }
+    }
+    
+    .section-1{
+        a.transcript-button {
+            border: 1px solid $orange;
+        }
+        .page-1 {
+            .video, .overlay{
+                background-image: url('../images/connection_screenshot_1.png');
+            }
+
+        }
+
+        .page-2 {
+            .video, .overlay{
+                background-image: url('../images/connection_screenshot_2.png');
+            }
+        }
+
+        .page-3 {
+            .video, .overlay{
+                background-image: url('../images/connection_screenshot_3.png');
+            }
+        }    
+    }
+
+    .section-2{
+        form {
+
+            form textarea, form select, input.field, .select-option, textarea.story{
+
+                color: $orange;
+                @include placeholder {
+                    color: $orange;
+                }
+            }
+        }
+
+        .submit{
+            input{
+                background: $orange;
+            }
+            p.disclaimer{
+                color: $orange!important;
+            }
+            
+        }
+
+        li.select-option{
+            &:hover{
+                background-color: $orange;
+                color:white;
+            }
+        }
+
+        li.select-option.is-selected{
+            color: $orange;
+            &:hover{
+                background-color: $orange;
+                color:white;
+            }
+            span{
+                &:after{
+                    background-image: url('../images/arrow-orange.svg');
+                }
+            }
+        }
+        .required {
+            color:$orange;
+        }
+        h2 {
+            color: $orange;
+        }
+    }
+
+    .section-3{
+        li.story, li.mobile-top-square {
+            background: $orange;
+
+            &.last-story{
+                background: white;
+                
+                a, p{
+                    color: $orange;
+
+                    &.back-to-top-btn{
+                        span{
+                            background-image: url('../images/arrow-orange.svg');
+                        }
+                    }
+                    &.more-stories-btn{
+                        span{
+                            background-image: url('../images/arrow-orange.svg');
+                        }
+                    }
+                    &.story-counter{
+                        color: $orange;
+                    }
+                }
+            }
+        }
+        .story-lightbox{
+            color:$orange;
+
+            .close-story {
+                color: $orange; 
+            }
+
+            h3{
+                color: $orange!important;
+            }
+
+            p{
+                color:$orange!important;
+            }
+        }
+    }
+    
+
+}
+
+#peaceofmind-video-page{
+
+    #peaceofmind-top-square {
+        background-color: $transBlue;
+        margin-top: 0;
+        &.opaque{
+            background-color: $blue!important;
+        }
+    }
+    
+    .section-1{
+        a.transcript-button {
+            border: 1px solid $blue;
+        }
+        .page-1 {
+            .video, .overlay{
+                background-image: url('../images/peaceofmind_screenshot_1.png');
+            }
+
+        }
+
+        .page-2 {
+            .video, .overlay{
+                background-image: url('../images/peaceofmind_screenshot_2.png');
+            }
+        }
+
+        .page-3 {
+            .video, .overlay{
+                background-image: url('../images/peaceofmind_screenshot_3.png');
+            }
+        }    
+    }
+
+    .section-2{
+        form {
+
+            form textarea, form select, input.field, .select-option, textarea.story{
+
+                color: $blue;
+                @include placeholder {
+                    color: $blue;
+                }
+            }
+        }
+
+        .submit{
+            input{
+                background: $blue;
+            }
+            p.disclaimer{
+                color: $blue!important;
+            }
+            
+        }
+
+        li.select-option{
+            &:hover{
+                background-color: $blue;
+                color:white;
+            }
+        }
+
+        li.select-option.is-selected{
+            color: $blue;
+            &:hover{
+                background-color: $blue;
+                color:white;
+            }
+            span{
+                &:after{
+                    background-image: url('../images/arrow-blue.svg');
+                }
+            }
+        }
+        .required {
+            color:$blue;
+        }
+        h2 {
+            color: $blue;
+        }
+    }
+
+    .section-3{
+        li.story, li.mobile-top-square {
+            background: $blue;
+
+            &.last-story{
+                background: white;
+                
+                a, p{
+                    color: $blue;
+
+                    &.back-to-top-btn{
+                        span{
+                            background-image: url('../images/arrow-blue.svg');
+                        }
+                    }
+                    &.more-stories-btn{
+                        span{
+                            background-image: url('../images/arrow-blue.svg');
+                        }
+                    }
+                    &.story-counter{
+                        color: $blue;
+                    }
+                }
+            }
+        }
+
+        .story-lightbox{
+            color:$blue;
+
+            .close-story {
+                color: $blue; 
+            }
+
+            h3{
+                color: $blue!important;
+            }
+
+            p{
+                color:$blue!important;
+            }
+        }
+    }
+
+}
+
+#confidence-video-page{
+
+    #confidence-top-square {
+        background-color: $transLime;
+        margin-top: 0;
+        &.opaque{
+            background-color: $lime!important;
+        }
+    }
+    
+    .section-1{
+        a.transcript-button {
+            border: 1px solid $lime;
+        }
+        .page-1 {
+            .video, .overlay{
+                background-image: url('../images/confidence_screenshot_1.png');
+            }
+
+        }
+
+        .page-2 {
+            .video, .overlay{
+                background-image: url('../images/confidence_screenshot_2.png');
+            }
+        }
+
+        .page-3 {
+            .video, .overlay{
+                background-image: url('../images/confidence_screenshot_3.png');
+            }
+        }    
+    }
+
+    .section-2{
+        form {
+
+            form textarea, form select, input.field, .select-option, textarea.story{
+
+                color: $lime;
+                @include placeholder {
+                    color: $lime;
+                }
+            }
+        }
+
+        .submit{
+            input{
+                background: $lime;
+            }
+            p.disclaimer{
+                color: $lime!important;
+            }
+            
+        }
+
+        li.select-option{
+            &:hover{
+                background-color: $lime;
+                color:white;
+            }
+        }
+
+        li.select-option.is-selected{
+            color: $lime;
+            &:hover{
+                background-color: $lime;
+                color:white;
+            }
+            span{
+                &:after{
+                    background-image: url('../images/arrow-lime.svg');
+                }
+            }
+        }
+        .required {
+            color:$lime;
+        }
+        h2 {
+            color: $lime;
+        }
+    }
+
+    .section-3{
+        li.story, li.mobile-top-square {
+            background: $lime;
+
+            &.last-story{
+                background: white;
+                
+                a, p{
+                    color: $lime;
+
+                    &.back-to-top-btn{
+                        span{
+                            background-image: url('../images/arrow-lime.svg');
+                        }
+                    }
+                    &.more-stories-btn{
+                        span{
+                            background-image: url('../images/arrow-lime.svg');
+                        }
+                    }
+                    &.story-counter{
+                        color: $lime;
+                    }
+                }
+            }
+        }
+
+        .story-lightbox{
+            color:$lime;
+
+            .close-story {
+                color: $lime; 
+            }
+
+            h3{
+                color: $lime!important;
+            }
+
+            p{
+                color:$lime!important;
+            }
+        }
+    }
+
+}
+
+#freedom-video-page{
+
+    #freedom-top-square {
+        background-color: $transPink;
+        margin-top: 0;
+        &.opaque{
+            background-color: $pink!important;
+        }
+    }
+    
+    .section-1{
+        a.transcript-button {
+            border: 1px solid $pink;
+        }
+        .page-1 {
+            .video, .overlay{
+                background-image: url('../images/freedom_screenshot_1.png');
+            }
+
+        }
+
+        .page-2 {
+            .video, .overlay{
+                background-image: url('../images/freedom_screenshot_2.png');
+            }
+        }
+
+        .page-3 {
+            .video, .overlay{
+                background-image: url('../images/freedom_screenshot_3.png');
+            }
+        }    
+    }
+
+    .section-2{
+        form {
+
+            form textarea, form select, input.field, .select-option, textarea.story{
+
+                color: $pink;
+                @include placeholder {
+                    color: $pink;
+                }
+            }
+        }
+
+        .submit{
+            input{
+                background: $pink;
+            }
+            p.disclaimer{
+                color: $pink!important;
+            }
+            
+        }
+
+        li.select-option{
+            &:hover{
+                background-color: $pink;
+                color:white;
+            }
+        }
+
+        li.select-option.is-selected{
+            color: $pink;
+            &:hover{
+                background-color: $pink;
+                color:white;
+            }
+            span{
+                &:after{
+                    background-image: url('../images/arrow-pink.svg');
+                }
+            }
+        }
+        .required {
+            color:$pink;
+        }
+
+        h2 {
+            color: $pink;
+        }
+    }
+
+    .section-3{
+        li.story, li.mobile-top-square {
+            background: $pink;
+
+            &.last-story{
+                background: white;
+                
+                a, p{
+                    color: $pink;
+
+                    &.back-to-top-btn{
+                        span{
+                            background-image: url('../images/arrow-pink.svg');
+                        }
+                    }
+                    &.more-stories-btn{
+                        span{
+                            background-image: url('../images/arrow-pink.svg');
+                        }
+                    }
+                    &.story-counter{
+                        color: $pink;
+                    }
+                }
+            }
+        }
+
+        .story-lightbox{
+            color:$pink;
+
+            .close-story {
+                color: $pink; 
+            }
+
+            h3{
+                color: $pink!important;
+            }
+
+            p{
+                color:$pink!important;
+            }
+        }
+    }
+}

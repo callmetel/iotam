@@ -43,7 +43,7 @@ ul#menu li{
 	}
 }
 
-p.global-apn{
+.global-apn p{
 	font: $sm-smalllink;
 	@include transition(font .5s ease-in-out);
 
@@ -82,11 +82,11 @@ p.global-apn{
 		font: $sm-heading;
 	}
 	@include media($xs-mobile){
-		font: $xs-heading;
+		font: $xxs-heading;
 	}
 }
 
-#grid-item-1 p {
+#grid-item-1 p, .has-white-background .slide-2 p {
 	font: $rg-heading-p;
 	@include media($xl-desktop){
 		font: $xl-heading-p;
@@ -115,7 +115,7 @@ p.global-apn{
 }
 
 .grid-item-small p, .grid-item-square p {
-	font: $rg-sq-heading-p;
+	font: $md-sq-heading-p;
 	@include media($xl-desktop){
 		font: $xl-sq-heading-p;
 	}
@@ -126,16 +126,16 @@ p.global-apn{
 		font: $lg-sq-heading-p;
 	}
 	@include media($lg-mobile){
-		font: $rg-sq-heading-p;
+		font: $md-sq-heading-p;
 	}
 	@include media($md-mobile){
 		font: $md-sq-heading-p;
 	}
 	@include media($mobile){
-		font: $sm-sq-heading-p;
+		font: $xs-sq-heading-p;
 	}
 	@include media($sm-mobile){
-		font: $sm-sq-heading-p;
+		font: $xs-sq-heading-p;
 	}
 	@include media($xs-mobile){
 		font: $xs-sq-heading-p;
@@ -172,29 +172,39 @@ p.global-apn{
 
 .dropdown-title {
 	font: $rg-dropdown-title;
+	line-height: 20px!important;
+
 	@include media($xl-desktop){
 		font: $xl-dropdown-title;
+		line-height: 25.2px!important;
 	}
 	@include media($lg-desktop){
 		font: $xl-dropdown-title;
+		line-height: 25.2px!important;
 	}
 	@include media($md-desktop){
 		font: $lg-dropdown-title;
+		line-height: 27px!important;
 	}
 	@include media($lg-mobile){
 		font: $rg-dropdown-title;
+		line-height: 20px!important;
 	}
 	@include media($md-mobile){
 		font: $rg-dropdown-title;
+		line-height: 20px!important;
 	}
 	@include media($mobile){
 		font: $md-dropdown-title;
+		line-height: 15.5px!important;
 	}
 	@include media($sm-mobile){
 		font: $md-dropdown-title;
+		line-height: 15.5px!important;
 	}
 	@include media($xs-mobile){
-		font: $sm-dropdown-title;
+		font: $rg-dropdown-title;
+		line-height: 20px!important;
 	}
 }
 
@@ -222,7 +232,7 @@ p.global-apn{
 		font: $md-dropdown-link;
 	}
 	@include media($xs-mobile){
-		font: $sm-dropdown-link;
+		font: $rg-dropdown-link;
 	}
 }
 

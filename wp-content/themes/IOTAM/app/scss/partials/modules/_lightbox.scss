@@ -1,0 +1,88 @@
+.stories-grid{
+	.story-lightbox{
+		width:70vh;
+		height:70vh;
+		background: white;
+		z-index: -4500;
+		overflow-y: auto;
+		opacity:0;
+		padding: 30px;
+		@include position(fixed, 50% null null 50%);
+		@include transform(translate(-50%, -30%));
+		@include transition(all 1.2s $ease-in-out-quad);
+
+		@include media($sm-desktop){
+			width:50vh;
+			height:50vh;
+		}
+
+		@include media($sm-mobile){
+			width:90vw;
+			height:90vw;
+		}
+
+		&.is-shown{
+			z-index:4500!important;
+			opacity:1!important;
+			display: block!important;
+			@include transform(translate(-50%, -50%)!important);
+		}
+
+		&.fade-out{
+			z-index:4500!important;
+			opacity:0!important;
+			@include transform(translate(-50%, -30%)!important);
+		}
+
+		.close-story {
+			text-align: right;
+			width: 100%;
+			margin: 0 auto;
+			text-decoration: none;
+			font-family: $focobold!important; 
+	        font: $lg-story-p;
+	        @include position(absolute, 30px 30px null null);
+	        z-index:4550;
+
+	        @include media($xl-desktop){
+	            font: $xl-story-p;   
+	        }
+	        @include media($most-common-screen){
+	            font: $rg-story-p;
+	        }
+	        @include media($macbook-pro-13){
+	            font: $rg-story-p;
+	        }
+	        @include media($sm-desktop){
+	            font: $md-story-p;
+	        }
+	        @include media($sm-mobile){
+	            font: $md-story-p;
+	        }
+	    }
+
+	    p{
+	    	margin-bottom: 20px;
+	    }
+	}
+	.lightbox-dimmer{
+		z-index: -4400;
+		display: none;
+		@include position(fixed, 0 0 0 0);
+		width:100vw;
+		height:100vh;
+		background: rgba(0,0,0,0.85);
+		opacity:0;
+		@include transition(opacity 1.2s $ease-in-out-quad);
+
+		&.is-shown{
+			z-index:4400!important;
+			opacity:1!important;
+			display: block!important;
+		}
+		&.fade-out{
+			z-index:4400!important;
+			opacity:0!important;
+		}
+	}
+}

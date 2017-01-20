@@ -54,7 +54,7 @@ $narrow-desktop: new-breakpoint(max-width 768px max-height 700px);
 
 $sm-desktop-height: new-breakpoint(max-height 600px);
 
-$filter-desktop-bp: new-breakpoint(max-width 1200px);
+$desktop-bp: new-breakpoint(max-width 1200px);
 // // Neat Breakpoints
 // $medium-screen: em(640);
 // $large-screen: em(1140);

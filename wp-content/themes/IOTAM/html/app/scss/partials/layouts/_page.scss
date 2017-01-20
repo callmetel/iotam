@@ -1,47 +1,318 @@
-.page{
-	posiiton: relative;
 
-	.share-your-story{
+.video-page {
+    position: relative;
+    height: 100vh;
+    opacity:0;
+    display: none;
+    // @include transition(transform 1s $ease-in-out-quad);
+
+    .page {
+        @include position(fixed, 0 0 0 0);
+        @include transition(transform 1.5s $ease-in-out-quad);
+        @include transform(translateX(0%));
+        z-index: 3000;
+
+    	.overlay{
+    		background-size: cover;
+    		background-repeat: no-repeat;
+    		width: 100%;
+    		height: 100vh;
+    		position: absolute;
+    		z-index: 0;
+            @include transition(opacity 1s ease-in-out);
+
+    		&:before{
+    			position: absolute;
+    			content:" ";
+    			top:0;
+    			left:0;
+    			width:100%;
+    			height:100%;
+    			display: block;
+    			z-index:0;
+    			background-color: $transBlack;
+    		}   
+    	}
+
+        .video{
+            @include position(fixed, 50% 0 0 50%);
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            z-index: -1000;
+            display: inherit;
+            @include transform(translateX(-50%) translateY(-50%));
+            background-size: cover;
+            @include transition(opacity 1s ease-in-out);
+            
+            @include media($v-iphone-6-plus){
+              
+            }
+
+        }
+
+    	.main-page {
+    		display: inline-block;
+    		vertical-align: middle;
+    		width: 100%;
+    		position: absolute;
+    		top: 30%;
+    		left: 50%;
+    		@include transform(translateX(-50%));
+    	}
+
+    	.video-play{
+            cursor:pointer; 
+
+            img {
+        		width: 7.3vw;
+                min-width: 60px;
+        		max-width: 150px;
+        		height: auto;
+        		display: block;
+        		left: 45%;
+        		padding-bottom: 20px;
+        		text-align: center;
+        		margin: 0 auto;
+        	}
+        }
+
+    	.middle-info {
+    		text-align: center;
+    		margin: 0 auto;
+
+    		h1 {
+    			color: white;
+    			position: relative;
+    			text-align: center;
+    			display: inline-block;
+    			vertical-align: middle;
+                font: $rg-sq-heading-p;
+
+                @include media($xl-desktop){
+                    font: $lg-sq-heading-p; 
+                }
+                @include media($most-common-screen){
+                    font: $rg-sq-heading-p;
+                }
+                @include media($macbook-pro-13){
+                    font: $md-sq-heading-p;
+                }
+                @include media($sm-desktop){
+                    font: $md-sq-heading-p;
+                }
+                @include media($sm-mobile){
+                    font: $sm-sq-heading-p;
+                }
+    		}
+
+    		.left-arrow {
+    			width: 2vw;
+                min-width: 20px;
+    			display: inline-block;
+    			margin-right: 4.5vw;
+    			vertical-align: middle;
+                cursor:pointer;
+    		}
+
+    		.right-arrow {
+    			width: 2vw;
+                min-width: 20px;
+    			display: inline-block;
+    			margin-left: 4.5vw;
+    			vertical-align: middle;
+                cursor:pointer;
+    		}
+
+    		p {
+    			color: white;
+    			text-align: center;
+    			width: 26vw;
+    			margin: 0 auto;
+    			margin-top: 18px;
+    			margin-bottom: 30px;
+                font: $rg-heading-p;
+
+                @include media($xl-desktop){
+                    font: $lg-heading-p; 
+                }
+                @include media($most-common-screen){
+                    font: $rg-heading-p;
+                }
+                @include media($macbook-pro-13){
+                    font: $md-heading-p;
+                }
+                @include media($sm-desktop){
+                    font: $md-heading-p;
+                }
+                @include media($lg-mobile){
+                    width: 40vw;
+                }
+                @include media($sm-mobile){
+                    font: $sm-heading-p;
+                    width: 65vw;
+                }
+    		}
+
+    		.underline {
+    			margin-top: 20px;
+    		}
+
+    		
+
+    		a.transcript-button {
+                display: block;
+                text-decoration: none;
+    			width: 16vw;
+    			padding: 15px 20px;
+    			margin: 0 auto;
+
+                @include media($lg-mobile){
+                    width: 25vw;
+                }
+                @include media($sm-mobile){
+                    width: 45vw;
+                }
+
+    			p {
+    				display: inline;
+    				padding-right: 5px;
+    				// text-align: center;
+                    vertical-align: middle;
+    			}
+
+                .transcript-arrow {
+                    width: 10px;
+                    display: inline-block;
+                    vertical-align: middle;
+                }
+    		}
+
+    	}
+    }
+
+    .main-page-dots {
+        @include position(absolute, null null 5% 50%);
+        @include transform(translateX(-50%));
+        z-index: -4000;
+        @include media($xl-desktop){
+            bottom: 15vh;
+        }
+
+    }
+
+    .dot{
+        background-color:rgba(255,255,255,0.2);
+        display:inline-block;
+        width: 20px;
+        height: 20px;
+        text-align:center;
+        border-radius:50%; 
+        text-align: center!important;
+        margin: 0 10px 0 0;
+        cursor: pointer;
+        @include transition(all .35s ease-in-out);
+
+        @include media($most-common-screen){
+            width: 15px;
+            height:15px;
+        }
+        @include media($macbook-pro-13){
+            width: 15px;
+            height:15px;
+        }
+        @include media($sm-desktop){
+            width: 10px;
+            height:10px;
+        }
+        @include media($lg-mobile){
+            width: 10px;
+            height:10px;
+        }
+
+        &.selected, &:hover{
+            background:#ffffff!important;
+        }
+    }
+
+
+    .border span{
+        border: 1px solid #ffffff!important;
+        border-radius: 50%;
+    }
+
+
+
+    .center{
+        text-align:center!important;
+    }
+
+    .transparent {
+        background-color: #b0afb0;
+    }
+
+
+    .large {
+        font-size: 18px!important;
+    }
+
+    .selected {
+        background-color: white;
+    }
+
+}
+.addtlpage, .section-2{
+	posiiton: relative;
+	background: white;
+.main-resources, .share-your-story{
 		padding-top: 7vh;
-		padding-left: 18%;
-		padding-right:4%;
+		padding-left: 23vw;
+		padding-right:0;
+		background: white;
 
 		@include media($most-common-screen){
-	        padding-left: 25%; 
+	        padding-left: 23vw; 
 	    }
 		@include media($macbook-pro-13){
-	        padding-left: 25%; 
+	        padding-left: 23vw; 
 	    }
 		@include media($sm-desktop){
-	        padding-left: 25%; 
+	        padding-left: 23vw; 
 	    }
 
 	    @include media($mobile){
-	        padding-left: 31%; 
-	        padding-right:3%;
+	        padding-left: 36.333vw;
 	    }
-
 	    @include media($sm-mobile){
-	    	padding-top: 55%;
-	        padding-left: 4%; 
-	        padding-right:4%;
+	    	padding-left: 5vw;
+	    	padding-right: 5vw;
+	    	
 	    }
 
 		h2 {
 	        font: $md-subheading;
-	        color: $green;
 	        text-align: left;
 
-	        @include media($mobile){
+	        @include media($sm-desktop){
+                font: $sm-subheading;
+            }
+            @include media($mobile){
 	        	font: $xs-subheading;
 	        }
 
 	        &:nth-of-type(2){
 				font-family: $foco!important;
+                font-weight: 400!important;
 				vertical-align: middle;
 				margin-top:65px;
+                margin-bottom: 50px;
 
-				img.green-down-arrow{
+                @include media($sm-desktop){
+                    margin-top:45px;
+                }
+
+				img.colored-down-arrow{
 					width:15px;
 					margin-left: 20px;
 					vertical-align: middle;
@@ -52,168 +323,25 @@
 	    p {
             font: $sm-sq-heading-p;
             font-family: $focolight!important;
+            font-weight: 300!important;
             color: $gray; 
             padding-top: 10px;
 
+            @include media($sm-desktop){
+                font: $md-heading-p;
+            }
             @include media($mobile){
             	font: $md-heading-p;
             }
         }
 	}
 
-	.stories-grid{
-		padding-top: 0;
-		padding-left: 20vw;
-		padding-right:0;
-		background: white;
+}
 
-		@include media($most-common-screen){
-	        padding-left: 20vw; 
-	    }
-		@include media($macbook-pro-13){
-	        padding-left: 20vw; 
-	    }
-		@include media($sm-desktop){
-	        padding-left: 20vw; 
-	    }
-
-	    @include media($mobile){
-	        padding-left: 33.333vw;
-	    }
-	    @include media($sm-mobile){
-	    	padding-left: 0;
-	    	padding-right: 0;
-	    	
-	    }
-
-		ul.stories-container{
-			height: 93vh;
-			overflow-y: auto;
-
-
-		    @include media($sm-mobile){
-		    	padding-top: 0;
-
-		    }
-
-		    li{
-		    	@include media($sm-mobile){
-			    	&:nth-child(odd){
-						border-right: 2.5px solid white!important;
-				    }
-			    	&:nth-child(even){
-						border-left: 2.5px solid white!important;
-				    }
-				}
-		    }
-
-			li.story, li.mobile-top-square {
-			    width: 20vw;
-    			max-width: 20vw;
-			    overflow: hidden;
-			    height: 20vw;
-			    display: inline-block;
-			    position: relative;
-			    background: $green;
-			    border-left: 5px solid white;
-    			border-bottom: 2px solid white;
-
-
-			    @include media($most-common-screen){
-			        height: 20vw;  
-			    }
-			    @include media($macbook-pro-13){
-			        height: 20vw;  
-			    }
-			    @include media($sm-desktop){
-			        height: 20vw;  
-			    }
-			    @include media($mobile){
-			        width: 33.333vw;
-			        max-width: 33.333vw;
-			        height: 33.333vw;   
-			    }
-			    @include media($sm-mobile){
-			        width: 50vw;
-			        max-width: 50vw;
-			        height: 50vw;   
-			        border-left: 0;
-			        border-bottom: 0;
-			    }
-
-			    div.individual-story-container{
-			        width: 80%;
-			        @include position(absolute, 50% null null 50%);
-			        @include transform(translate(-50%, -50%));
-			        h3 {
-			            color: white;
-			            text-align: center; 
-			            vertical-align: middle;	
-			            padding-bottom: 15px;
-			            font: $sm-subheading; 
-
-			            @include media($xl-desktop){
-			                font: $md-subheading;    
-			            }
-			            @include media($desktop-bp){
-			                font: $xs-subheading;    
-			            }
-			        }
-			        div.underline{
-			            width:30%;
-			        }
-			        p{
-			        	font-family: $focolight!important;
-			            color: white;
-			    		text-align: center;
-			    		width: 100%;
-			    		margin: 0 auto;
-			    		margin-top: 18px;
-			            font: $xs-sq-heading-p;
-
-			            @include media($xl-desktop){
-			                font: $sm-sq-heading-p;   
-			            }
-			            @include media($sm-mobile){
-			                font: $md-heading-p;
-			            }
-			        }
-			    }
-			}
-
-		}
-	}
-
-	.social-media-hub{
-		@include position(fixed, null null 0 0);
-		display: block;
-		border: 1px solid $green;
-		width:20vw;
-		height:20vw;
-
-		@include media($most-common-screen){
-	        width:20vw;
-			height:20vw;  
-	    }
-	    @include media($macbook-pro-13){
-	        width:20vw;
-			height:20vw;   
-	    }
-	    @include media($sm-desktop){
-	        width:20vw;
-			height:20vw;   
-	    }
-	    @include media($mobile){
-	        width: 33.333vw;
-	        max-width: 33.333vw;
-	        overflow: hidden;
-	        height: 33.333vw;   
-	    }
-	    @include media($sm-mobile){
-	        width: 50%;
-	        max-width: 50%;
-	        overflow: hidden;
-	        height: 50vw;   
-	    }
-	}
+.video-page-is-active{
+    opacity:1;
+    display: block;
+    .main-page-dots{
+         z-index: 4000;
+    }
 }

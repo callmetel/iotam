@@ -2,8 +2,7 @@ header{
     @include position(fixed, 0 0 0 0);
     width:100%;
     height:7vh;
-    min-height: 60px;
-    z-index:1000;
+    z-index:4000;
     @include transform(translateY(-100%));
     @include transition(transform .65s $ease-out-quad);
 
@@ -11,14 +10,12 @@ header{
         position: relative;
         width:100%;
         height:7vh;
-        min-height: 60px;
         background: white;
 
         .toggle-menu{
             .nav-trigger, .burger, .burger:before, .burger:after {
                 top:3.5vh;
                 left: 1.75vw;
-                background: $aetnaBlue;
                 @include transition(background .5s ease-in-out);
             }
 
@@ -28,22 +25,20 @@ header{
                 width: 20%;
                 top: 5px;
                 left: 20px;
-
-                .burger{
-                    .global-logo:after{
-                        @include transition(opacity .5s ease-in-out);
-                    }
-                }
             }  
+
+            .burger{
+                background-image: url('../images/full-nav-logo.svg');
+                 @include transition(opacity .5s ease-in-out);
+            }
             
             &.menu-is-active{
                 .burger, .burger:before, .burger:after{
-                    background: white!important;
                 }
                 .burger{
-                    .global-logo:after{
+                    
                         opacity:0!important;
-                    }
+                    
                 }
             }  
         }

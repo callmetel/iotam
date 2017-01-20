@@ -1,77 +1,236 @@
-$tcon-size: 40px !default;
-$tcon-transition: .3s !default;
-$tcon-jstransform: 'tcon-transform' !default;
-
-$tcon-plus-bg: transparent !default;
-$tcon-circle-radius: 80% !default;
-$tcon-plus-radius: ($tcon-size / 8) !default;
-$tcon-plus-color: black !default;
-$tcon-remove-color: black !default;
-.tcon-indicator{
-  @include position(fixed,  null null 12vh 20vw);
-  margin: 0 auto;
+.close-icon{
+  position: fixed;
+  display: block;
   width: 50px;
-}
-/* Transforming into - */
-.open .navicon {
-  background: transparent;
-}
-.open .navicon:after {
-  transform: rotate(135deg);
-}
-.open {
-  transform: rotate(45deg);
-  @include position(absolute, null 0 90vh 0);
+  height: 50px;
+  cursor: pointer;
+    
+  i{
+      position:relative;
+      display: block;
+      width: 50px;
+      height: 50px;
+      overflow: hidden;
 
-}
-
-// see issue #7 https://github.com/grayghostvisuals/transformicons/issues/7#issuecomment-59813596
-.tcon-visuallyhidden {
-  border: 0;
-  clip: rect(0 0 0 0);
-  height: 1px;
-  margin: -1px;
-  overflow: hidden;
-  padding: 0;
-  position: absolute;
-  width: 1px;
-
-  &:active,
-  &:focus {
-    clip: auto;
-    height: auto;
-    margin: 0;
-    overflow: visible;
-    position: static;
-    width: auto;
+      &:before {
+          content: '';
+          @include position(absolute, 50% 0 null null);
+          height: 1px;
+          width: 100%;
+          margin-top: -1px;
+          @include transform(rotate(45deg));
+      }
+      &:after {
+          content: '';
+          @include position(absolute, 50% 0 null null);
+          height: 1px;
+          width: 100%;
+          margin-top: -1px;
+          @include transform(rotate(-45deg));
+      }  
   }
 }
-$tcon-svgchevron-size: $tcon-size !default;
-$tcon-svgchevron-color: white !default;
-$tcon-svgchevron-strokew: 1px !default;
-$tcon-svgchevron-timing: 3s !default;
 
-@keyframes chevron-pulse {
-  0%   { opacity: 0; }
-  40%  { opacity: 1; }
-  80%  { opacity: 0; }
-  100% { opacity: 0; }
-}
 
-.tcon-svgchevron {
-  height: $tcon-svgchevron-size;
-  width: $tcon-svgchevron-size;
-}
+.burger{
+  background-size: contain;
+  background-repeat: no-repeat;
+  position: fixed;
+  margin-top: -8.5px;
+  cursor: pointer;
+  z-index: 11500;
+  width:115px;
+  height:17px;
 
-.tcon-svgchevron path {
-  animation: chevron-pulse $tcon-svgchevron-timing infinite cubic-bezier(0.4, 0, 0.2, 1);
-  fill: transparent;
-  stroke: $tcon-svgchevron-color;
-  stroke-width: $tcon-svgchevron-strokew;
-}
-
-@for $i from 1 through 3 {
-  .tcon-svgchevron path.a#{$i} {
-    animation-delay: -($i - ($i/2)) + 0.5s;
+  @include media($md-desktop){
+    width: 135px;
+    height: 27px;
+  }
+  @include media($lg-desktop){
+    width: 145px;
+    height: 37px;
+  }
+  @include media($xl-desktop){
+    width: 155px;
+    height: 37px;
   }
 }
+
+.nav-trigger {
+    position: fixed;
+    background: white;
+    transition: .2s ease;
+    cursor: pointer;
+    z-index: 9999;
+    width: 50px;
+    height: 50px;
+    padding: 10px;
+    background: none;
+
+    @include media($xl-desktop){
+        width: 100px;
+        height:100px;
+    }
+    @include media($lg-desktop){
+        width: 100px;
+        height:100px;
+    }
+}
+
+button.close-video{
+  border:0;
+  border-radius:0;
+  background: none;
+  @include position(fixed, 3.4vw null null 3.4vw);
+  cursor: pointer;
+
+  &:focus{
+    outline: -webkit-focus-ring-color auto 5px;
+    background: #b4e7fd;
+    border:#7090a5 2px solid;
+  }
+    
+    img.icon{
+        width:2.5vw;
+    }
+
+}
+
+
+.video-controls{
+
+    @include position(fixed, null null 7.8vh 50%);
+    @include transform(translateX(-50%));
+    width: 100%;
+    text-align: center;
+    display: inherit;
+    // z-index:-1000;
+    @include media($v-iphone-6-plus){
+      display: none;
+    }
+
+    .video-buttons{
+      margin-bottom: 3.9vh;
+      button{
+          border:0;
+          border-radius:0;
+          background: none;
+          cursor: pointer;
+
+          img.icon{
+              width:2.5vw;
+              vertical-align: middle;
+          }
+
+          &:nth-of-type(2){
+              margin-left: 7vw;
+              margin-right: 7vw;
+          }
+
+          &:focus{
+            outline: -webkit-focus-ring-color auto 5px;
+            background: #b4e7fd;
+            border:#7090a5 2px solid;
+          }
+      }
+    }
+
+    input[type="range"]{
+      z-index:-1000;
+        -webkit-appearance: none; /* Hides the slider so that custom slider can be made */
+      width: 100%; /* Specific width is required for Firefox. */
+      background: white; /* Otherwise white in Chrome */
+      height: 1px;
+
+      &:after{
+        content: '';
+        display: block;
+        background: transparent;
+        width:100%;
+        height:2vw;
+        margin-top:-10px;
+      }
+    }
+    input[type=range]::-webkit-slider-thumb {
+      -webkit-appearance: none;
+    }
+    input[type=range]:focus {
+      outline: none; /* Removes the blue border. You should probably do some kind of focus styling for accessibility reasons though. */
+    }
+
+    input[type=range]::-ms-track {
+      width: 100%;
+      cursor: pointer;
+
+      /* Hides the slider so custom styles can be added */
+      background: transparent; 
+      border-color: transparent;
+      color: transparent;
+    }
+
+    input[type=range]::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      border: 1px solid white;
+      height: 2vw;
+      width: 2vw;
+      min-width:21px;
+      min-height:21px;
+      border-radius: 50%;
+      background: none;
+      cursor: pointer;
+      margin-top: 0px; /* You need to specify a margin in Chrome, but in Firefox and IE it is automatic */
+      box-shadow: 0; /* Add cool effects to your sliders! */
+    }
+
+    /* All the same stuff for Firefox */
+    input[type=range]::-moz-range-thumb {
+      box-shadow: 0;
+      border: 1px solid white;
+      height: 2vw;
+      width: 2vw;
+      min-width:21px;
+      min-height:21px;
+      border-radius: 50%;
+      background: none;
+      cursor: pointer;
+    }
+
+    /* All the same stuff for IE */
+    input[type=range]::-ms-thumb {
+      box-shadow: 0;
+      border: 1px solid white;
+      height: 2vw;
+      width: 2vw;
+      min-width:21px;
+      min-height:21px;
+      border-radius: 50%;
+      background: none;
+      cursor: pointer;
+    }
+} 
+
+.icon{
+  width: 3vw;
+  min-width: 30px;
+  height: 3vw;
+  min-height: 30px;
+  margin-right: .5vw;
+  display: inline-block;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.instagram.icon{
+  background-image: url('../images/icon-instagram-white.svg');
+}
+.facebook.icon{
+  background-image: url('../images/icon-facebook-white.svg');
+}
+.twitter.icon{
+  background-image: url('../images/icon-twitter-white.svg');
+}
+.linkedin.icon{
+  background-image: url('../images/icon-linkedin-white.svg');
+}
+
+

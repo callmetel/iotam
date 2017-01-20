@@ -1,3 +1,36 @@
+.site-container{
+    @include transform(translateX(0));
+    @include transition(transform .85s $ease-in-out-quad);
+
+    &.move-over{
+        @include transform(translateX(20%)!important);
+        @include transition(transform .85s $ease-in-out-quad);
+        
+        @include media($md-desktop){
+            @include transform(translateX(30%)!important);
+        }
+        @include media($macbook-pro-13){
+            @include transform(translateX(30%)!important);
+        }
+        @include media($sm-desktop){
+            @include transform(translateX(30%)!important);
+        }
+        @include media($sm-mobile){
+            @include transform(translateX(40%)!important);
+        }
+        @include media($xs-mobile){
+            @include transform(translateX(0%)!important);
+        }
+
+    }
+}
+
+.no-focus{
+	outline: none!important; 
+    background: inherit;
+    border:0!important;
+}
+
 .is-active{
 	display: inherit;
 	opacity: 1!important;
@@ -14,7 +47,9 @@
 }
 .is-hidden{
 	opacity:0;
-	visibility: hidden;
+}
+.has-not-transition{
+	@include transition(none!important);
 }
 
 .is-disabled{
@@ -32,6 +67,21 @@
 	}
 }
 
+.is-inactive-section{
+	opacity:0!important;
+	z-index:-1000!important;
+	@include position(fixed, 7vh 0 0 0);
+	@include transition(opacity 1s ease-in-out);
+	display: none;
+}
+
+.is-active-section{
+	opacity:1!important;
+	z-index:1000!important;
+	@include position(fixed, 7vh 0 0 0);
+	@include transition(opacity 1s ease-in-out);
+}
+
 .is-enabled{
 	opacity: 1;
 	cursor: pointer;
@@ -39,9 +89,35 @@
 		cursor:pointer;
 	}
 }
+.bring-forward{
+	z-index:14000!important;
+}
+.bring-backward{
+	z-index:-1000!important;
+}
+.move-to-top{
+	top:0!important;
+	height:100vh!important;
+	@include transition(all 1s ease-in-out);
+}
+// .fade-in{
+// 	opacity:1!important;
+// 	@include transition(opacity 1s ease-in-out);
+// }
+// .fade-out{
+// 	opacity:0!important;
+// 	@include transition(opacity 1s ease-in-out);
+// }
+.hide {
+    display: none!important;
+}
 
 .is-scrollable{
 	overflow:auto!important;
+}
+
+.is-not-scrollable{
+	overflow:hidden!important;
 }
 
 a.no-decoration, a:hover.no-decoration{
@@ -63,6 +139,11 @@ a.no-decoration, a:hover.no-decoration{
 	@include transition(width 1s ease-in-out);
 }
 
+.is-rotated{
+	@include transform(translateX(-10px) rotate(90deg)!important);
+	@include transition(transform .35s ease-in-out);
+}
+
 .flipped .back-image{
   transform: rotateY(0deg)!important;
   z-index:303!important;
@@ -74,7 +155,7 @@ a.no-decoration, a:hover.no-decoration{
 }
 
 .bring-to-front{
-	z-index: 304!important;
+	z-index: 1000!important;
 	//@include transition(all .25s ease-in-out);
 }
 .send-back{
@@ -123,42 +204,40 @@ a.no-decoration, a:hover.no-decoration{
 
 .is-previous-section{
 	@include transform(translateY(-100%)!important);
-	z-index: 9000;
+	z-index: -3000!important;
 	@include transition(transform 1.5s $ease-in-out-quart);
 	transform-origin: initial;
 }
 .is-current-section{
 	@include transform(translateY(0%)!important);
-	z-index: 9000;
 	@include transition(transform 1.5s $ease-in-out-quart);
 	transform-origin: initial;
 }
 .is-next-section{
 	@include transform(translateY(100%)!important);
-	z-index: 9000;
 	@include transition(transform 1.5s $ease-in-out-quart);
 	transform-origin: initial;
 }
 
-.is-current{
-	@include transform(translateY(0%)!important);
-	z-index: 8000;
-	@include transition(transform 1.5s $ease-in-out-quart);
+.is-current-page{
+	@include transform(translateX(0%)!important);
+	z-index: 3001!important;
+	@include transition(transform 1.5s $ease-in-out-quad);
 	@include transition-delay(.5s);
 	transform-origin: initial;
 }
 
-.is-next{
-	@include transform(translateY(100%)!important);
-	z-index:-1;
-	@include transition(transform 1.5s $ease-in-out-quart);
+.is-next-page{
+	@include transform(translateX(100%)!important);
+	@include transition(transform 1.5s $ease-in-out-quad);
 	transform-origin: initial;
 }
-.is-previous{
-	z-index:-8000;
-	@include transition(all .5s $ease-in-out-quart);
+.is-previous-page{
+	@include transform(translateX(-100%)!important);
+	@include transition(all 1.5s $ease-in-out-quad);
 	transform-origin: initial;
 }
+
 .is-last{
 	@include transform(translateY(100%)!important);
 	z-index:-1;
@@ -197,143 +276,15 @@ a.no-decoration, a:hover.no-decoration{
 	@include transition(transform .5s $ease-in-out-quart!important);
 }
 .make-previous{
-	@include transform(translateY(-100%)!important);
-	@include transition(transform .5s $ease-in-out-quart!important);
+	@include transform(translateX(-100%)!important);
+	@include transition(transform .001s $ease-in-out-quart!important);
 }
-.move-to-M{
-	@include transform(translateX(-7.45%)!important);
-	@include transition(transform 1.5s $ease-in-out-quart);
 
-	@include media($xl-desktop){
-		@include transform(translateX(-5.2%)!important);
-	}
-	@include media($lg-desktop){
-		@include transform(translateX(-8.8%)!important);
-	}
-	@include media($xlsm-height){
-		@include transform(translateX(-1%)!important);
-	}
-	@include media($lgsm-height){
-		@include transform(translateX(-1%)!important);
-	}
-	@include media($md-desktop){
-		@include transform(translateX(-5.2%)!important);
-	}
-	@include media($macbook-pro-13){
-		@include transform(translateX(-7.75%)!important);
-	}
-	@include media($lg-mobile){
-		@include transform(translateX(-15%)!important);
-	}
-	@include media($sm-mobile){
-		@include transform(translateX(-16.5%)!important);
-	}
-	@include media($xs-mobile){
-		@include transform(translateX(-24.5%)!important);
-	}
-	@include media($v-ipad-max-screen){
-		@include transform(translateX(-5%)!important);
-	}
+.make-next{
+	@include transform(translateX(100%)!important);
+	@include transition(transform .001s $ease-in-out-quart!important);
 }
-.move-to-O{
-	@include transform(translateX(-21.65%)!important);
-	@include transition(transform 1.5s $ease-in-out-quart);
 
-	@include media($xl-desktop){
-		@include transform(translateX(-19.3%)!important);
-	}
-	@include media($lg-desktop){
-		@include transform(translateX(-24.7%)!important);
-	}
-	@include media($xl-height){
-		@include transform(translateX(-39.05%)!important);
-	}
-	@include media($md-desktop){
-		@include transform(translateX(-21.5%)!important);
-	}
-	@include media($xlsm-height){
-		@include transform(translateX(-5.5%)!important);
-	}
-	@include media($lgsm-height){
-		@include transform(translateX(-12.5%)!important);
-	}
-	@include media($macbook-pro-13){
-		@include transform(translateX(-25.35%)!important);
-	}
-	@include media($sm-desktop){
-		@include transform(translateX(-23.5%)!important);
-	}
-	@include media($lg-mobile){
-		@include transform(translateX(-24.25%)!important);
-	}
-	@include media($md-mobile){
-		@include transform(translateX(-33.25%)!important);
-	}
-	@include media($sm-mobile){
-		@include transform(translateX(-37.05%)!important);
-	}
-	@include media($xs-mobile){
-		@include transform(translateX(-43.05%)!important);
-	}
-	@include media($v-ipad-max-screen){
-		@include transform(translateX(-24.75%)!important);
-	}
-}
-.move-to-D{
-	@include transition(transform 1.5s $ease-in-out-quart);
-
-	@include media($xl-desktop){
-		@include transform(translateX(-35%)!important);
-	}
-	@include media($xlsm-height){
-		@include transform(translateX(-10%)!important);
-	}
-	@include media($lgsm-height){
-		@include transform(translateX(-15%)!important);
-	}
-	@include media($md-desktop){
-		@include transform(translateX(-35%)!important);
-	}
-	@include media($most-common-screen){
-		@include transform(translateX(-36.51%)!important);
-	}
-	@include media($macbook-pro-13){
-		@include transform(translateX(-35.51%)!important);
-	}
-	@include media($sm-desktop){
-		@include transform(translateX(-36.35%)!important);
-	}
-	@include media($lg-mobile){
-		@include transform(translateX(-42.28%)!important);
-	}
-	@include media($md-mobile){
-		@include transform(translateX(-56.28%)!important);
-	}
-	@include media($sm-mobile){
-		@include transform(translateX(-53.28%)!important);
-	}
-	@include media($v-ipad-max-screen){
-		@include transform(translateX(-42.28%)!important);
-	}
-}
-.is-centered{
-	@include transform(translateX(-2%)!important);
-	@include media($lg-mobile){
-		@include transform(translateX(-10%)!important);
-	}
-	@include media($md-mobile){
-		@include transform(translateX(-15%)!important);
-	}
-	@include media($sm-mobile){
-		@include transform(translateX(-15.5%)!important);
-	}
-	@include media($xs-mobile){
-		@include transform(translateX(-22.5%)!important);
-	}
-	@include media($v-iphone-6-plus){
-		@include transform(translateX(-30%)!important);
-	}
-}
 
 .is-scrollable{
 	overflow-y: auto!important;
@@ -363,4 +314,58 @@ a.no-decoration, a:hover.no-decoration{
 
 .ease-back{
 	@include transition(transform 1.5s $ease-out-back!important);
+}
+.is-dimmed{
+	@include filter(brightness(50%));
+	@include transition(all 1.5s $ease-out-quad);
+}
+.is-on-screen-X{
+	 @include transform(translateX(0%)!important);
+}
+.is-on-screen-Y{
+	@include transform(translateY(0%)!important);
+}
+.is-faded-in-Y{
+	@include transform(translateY(0%)!important);
+	opacity:1!important;
+}
+.is-on-screen{
+	@include transform(translateY(-100vh)!important);
+	z-index: 100;
+}
+.has-white-background{
+	background:white!important;
+}
+
+.is-expanded{
+	width: 40vw!important;
+	max-width: 40vw!important;
+    height: 40vw!important;
+    background: white!important;
+	@include transition(all 1s $ease-in-out-quad);
+
+    @include media($most-common-screen){
+        height: 40vw!important;  
+    }
+    @include media($macbook-pro-13){
+        height: 40vw!important;  
+    }
+    @include media($sm-desktop){
+        height: 40vw!important;  
+    }
+    @include media($mobile){
+        width: 66.666vw!important;
+        max-width: 66.666vw!important;
+        height: 66.666vw!important;   
+    }
+    @include media($sm-mobile){
+        width: 100vw!important;
+        max-width: 100vw!important;
+        height: 100vw!important;   
+    }
+
+    h3, p, a{
+    	color: $green!important;
+    }
+
 }

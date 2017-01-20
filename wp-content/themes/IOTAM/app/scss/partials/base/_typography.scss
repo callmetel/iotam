@@ -8,179 +8,240 @@ h5,
 h6,
 a,
 div{
-	text-transform: uppercase;
 	color: white;
-	letter-spacing: 3.6px;
 	font-style: normal;
 	margin: 0;
 }
 
-h1, div.slide-title{
-	font:$mp-heading;
-	letter-spacing: 0;
-	@include transition(font .7s ease-in-out);
-	
+p.enter-site-link{
+	font: $link;
+	@include transition(font .5s ease-in-out);
+
 	@include media($xl-desktop){
-		font:$xl-heading;
+		font: $xl-link;
 	}
 	@include media($lg-desktop){
-		font:$lgd-heading;
-	}
-	@include media($xlsm-height){
-		font:$lgd-heading;
+		font: $lg-link;
 	}
 	@include media($md-desktop){
-		font:$lgd-heading;
+		font: $lg-link;
+	}
+}
+
+ul#menu li{
+	font: $link;
+	@include transition(font .5s ease-in-out);
+
+	@include media($xl-desktop){
+		font: $lg-link;
+	}
+	@include media($lg-desktop){
+		font: $lg-link;
 	}
 	@include media($md-desktop){
-		font:$lgd-heading;
+		font: $lg-link;
 	}
-	// @include media($sm-desktop-height){
-	// 	font:$mp-heading;
-	// }
-	@include media($sm-desktop){
-		font:$lg-heading;	
+}
+
+.global-apn p{
+	font: $sm-smalllink;
+	@include transition(font .5s ease-in-out);
+
+	@include media($xl-desktop){
+		font: $smalllink;
+	}
+	@include media($lg-desktop){
+		font: $sm-smalllink;
+	}
+	@include media($md-desktop){
+		font: $sm-smalllink;
+	}
+}
+
+#grid-item-1 h1 {
+	font: $rg-heading;
+	@include media($xl-desktop){
+		font: $lg-heading;
+	}
+	@include media($lg-desktop){
+		font: $lg-heading;
+	}
+	@include media($md-desktop){
+		font: $rg-heading;
+	}
+	@include media($lg-mobile){
+		font: $rg-heading;
+	}
+	@include media($md-mobile){
+		font: $md-heading;
+	}
+	@include media($mobile){
+		font: $sm-heading;
 	}
 	@include media($sm-mobile){
-		font:$md-heading;	
+		font: $sm-heading;
 	}
 	@include media($xs-mobile){
-		font:$sm-heading;	
-	}
-	@include media($h-ipad-max-screen){
-		font:$md-heading;
-	}
-	@include media($v-iphone-6-plus){
-		font:$sm-heading;
-	}
-	@include media($v-iphone-5){
-		font-size: 35px;
-		line-height: 45px;
+		font: $xxs-heading;
 	}
 }
 
-div.slide-subtext{
-
-	letter-spacing:0;
-	@include media($v-iphone-6-plus){
-		font-size: 26px;
-		line-height: 34px;
+#grid-item-1 p, .has-white-background .slide-2 p {
+	font: $rg-sq-heading;
+	@include media($xl-desktop){
+		font: $xl-sq-heading;
 	}
-
-	h2{
-		font:$mp-heading;
-		@include transition(font .7s ease-in-out);
-		
-		@include media($xl-desktop){
-			font:$xl-heading;
-		}
-		@include media($lg-desktop){
-			font:$lgd-heading;
-		}
-		@include media($xlsm-height){
-			font:$lgd-heading;
-		}
-		@include media($md-desktop){
-			font:$lgd-heading;
-		}
-		@include media($sm-desktop-height){
-			font:$mp-heading;
-		}
-		@include media($macbook-pro-13){
-			font:$heading;	
-		}
-		@include media($sm-desktop){
-			font:$lg-heading;	
-		}
-		@include media($sm-mobile){
-			font:$md-heading;	
-		}
-		@include media($xs-mobile){
-			font:$sm-heading;	
-		}
-		@include media($v-iphone-6-plus){
-			font:$sm-heading;
-		}
-		@include media($h-ipad-max-screen){
-			font:$md-heading;
-		}
-
+	@include media($lg-desktop){
+		font: $xl-sq-heading;
 	}
-	h3{
-		font: $mp-av-black;
-		letter-spacing: 0;
-		@include transition(font .7s ease-in-out);
-
-		@include media($xl-desktop){
-			font:$xl-av-black;
-		}
-		@include media($lg-desktop){
-			font:$lgd-av-black;
-		}
-		@include media($xlsm-height){
-			font:$lgd-av-black;
-		}
-		@include media($md-desktop){
-			font:$lgd-av-black;
-		}
-		@include media($sm-desktop-height){
-			font: $mp-av-black;
-		}
-		@include media($most-common-screen){
-			font:$mp-av-black;
-		}
-		@include media($macbook-pro-13){
-			font:$mp-av-black;
-		}
-		@include media($sm-desktop){
-			font:$av-black;
-		}
-		@include media($sm-mobile){
-			font:$lg-av-black;
-		}
-		@include media($h-ipad-max-screen){
-			font:$lg-av-black;
-		}
-
+	@include media($md-desktop){
+		font: $lg-sq-heading;
 	}
-	p{
-		font: $mp-av-light;
-		text-transform: uppercase;
-		@include transition(font .7s ease-in-out);
-
-		@include media($xl-desktop){
-			font:$xl-av-light;
-		}
-		@include media($lg-desktop){
-			font:$lgd-av-light;
-		}
-		@include media($xlsm-height){
-			font:$lgd-av-light;
-		}
-		@include media($md-desktop){
-			font:$lgd-av-light;
-		}
-		@include media($sm-desktop-height){
-			font: $mp-av-light;
-		}
-		@include media($most-common-screen){
-			font:$mp-av-light;
-		}
-		@include media($macbook-pro-13){
-			font:$mp-av-light;
-		}
-		@include media($sm-desktop){
-			font:$av-light;
-		}
-		@include media($sm-mobile){
-			font:$lg-av-light;
-		}
-		@include media($h-ipad-max-screen){
-			font:$lg-av-light;
-		}
-
+	@include media($lg-mobile){
+		font: $rg-sq-heading;
 	}
-
+	@include media($md-mobile){
+		font: $rg-sq-heading;
+	}
+	@include media($mobile){
+		font: $md-sq-heading;
+	}
+	@include media($sm-mobile){
+		font: $md-sq-heading;
+	}
+	@include media($xs-mobile){
+		font: $sm-sq-heading;
+	}
 }
 
-$content:'Avenir Next';
+.grid-item-small p, .grid-item-square p {
+	font: $md-sq-heading-p;
+	@include media($xl-desktop){
+		font: $lg-sq-heading-p;
+	}
+	@include media($lg-desktop){
+		font: $lg-sq-heading-p;
+	}
+	@include media($md-desktop){
+		font: $rg-sq-heading-p;
+	}
+	@include media($lg-mobile){
+		font: $md-sq-heading-p;
+	}
+	@include media($md-mobile){
+		font: $md-sq-heading-p;
+	}
+	@include media($mobile){
+		font: $xs-sq-heading-p;
+	}
+	@include media($sm-mobile){
+		font: $xs-sq-heading-p;
+	}
+	@include media($xs-mobile){
+		font: $xs-sq-heading-p;
+	}
+}
+
+.grid-item-small h2, .grid-item-square h2 {
+	font: $rg-sq-heading;
+	@include media($xl-desktop){
+		font: $xl-sq-heading;
+	}
+	@include media($lg-desktop){
+		font: $xl-sq-heading;
+	}
+	@include media($md-desktop){
+		font: $lg-sq-heading;
+	}
+	@include media($lg-mobile){
+		font: $rg-sq-heading;
+	}
+	@include media($md-mobile){
+		font: $rg-sq-heading;
+	}
+	@include media($mobile){
+		font: $md-sq-heading;
+	}
+	@include media($sm-mobile){
+		font: $md-sq-heading;
+	}
+	@include media($xs-mobile){
+		font: $sm-sq-heading;
+	}
+}
+
+.dropdown-title {
+	font: $rg-dropdown-title;
+	line-height: 20px!important;
+
+	@include media($xl-desktop){
+		font: $xl-dropdown-title;
+		line-height: 25.2px!important;
+	}
+	@include media($lg-desktop){
+		font: $xl-dropdown-title;
+		line-height: 25.2px!important;
+	}
+	@include media($md-desktop){
+		font: $lg-dropdown-title;
+		line-height: 27px!important;
+	}
+	@include media($lg-mobile){
+		font: $rg-dropdown-title;
+		line-height: 20px!important;
+	}
+	@include media($md-mobile){
+		font: $rg-dropdown-title;
+		line-height: 20px!important;
+	}
+	@include media($mobile){
+		font: $md-dropdown-title;
+		line-height: 15.5px!important;
+	}
+	@include media($sm-mobile){
+		font: $md-dropdown-title;
+		line-height: 15.5px!important;
+	}
+	@include media($xs-mobile){
+		font: $rg-dropdown-title;
+		line-height: 20px!important;
+	}
+}
+
+.dropdown-link {
+	font: $rg-dropdown-link;
+	@include media($xl-desktop){
+		font: $xl-dropdown-link;
+	}
+	@include media($lg-desktop){
+		font: $xl-dropdown-link;
+	}
+	@include media($md-desktop){
+		font: $lg-dropdown-link;
+	}
+	@include media($lg-mobile){
+		font: $rg-dropdown-link;
+	}
+	@include media($md-mobile){
+		font: $rg-dropdown-link;
+	}
+	@include media($mobile){
+		font: $md-dropdown-link;
+	}
+	@include media($sm-mobile){
+		font: $md-dropdown-link;
+	}
+	@include media($xs-mobile){
+		font: $rg-dropdown-link;
+	}
+}
+
+ul #menu{
+
+#menu-disclaimer li{
+	font: $xl-menu-disclaimer;
+	@include media($xl-desktop){
+		font: $xl-menu-disclaimer;
+	}
+}
+}

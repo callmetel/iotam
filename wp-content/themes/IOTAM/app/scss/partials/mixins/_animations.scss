@@ -3,7 +3,6 @@
     @include animation-fill-mode(forwards);
 }
 
-
 .blur-info-left {
 	@include transform-origin(center center);
     @include animation(blurInfoLeft 2.5s ease-out);
@@ -26,14 +25,16 @@
     @include animation-fill-mode(forwards);
 }
 
-.fade-info-in {
-    @include animation(fadeInfoIn 1.5s cubic-bezier(.43,.12,.07,1.03));
+.fade-in {
+    @include animation(fadeIn 1.5s ease-in-out);
     @include animation-fill-mode(forwards);
+    z-index: 1!important;
 }
 
-.fade-info-out {
-    @include animation(fadeInfoOut 1.5s cubic-bezier(.43,.12,.07,1.03));
+.fade-out {
+    @include animation(fadeOut 1.5s ease-in-out);
     @include animation-fill-mode(forwards);
+    
 }
 
 .slide-in {

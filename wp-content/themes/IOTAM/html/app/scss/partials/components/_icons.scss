@@ -33,53 +33,14 @@
 
 
 .burger{
-  width: 25px;
-  height: 1px;
-  background: white;
+  background-size: contain;
+  background-repeat: no-repeat;
   position: fixed;
-  transition: .2s ease;
+  margin-top: -8.5px;
   cursor: pointer;
   z-index: 11500;
-
-  &:before{
-    content:'';
-    display: block;
-    width: 25px;
-    height: 1px;
-    background: white;
-    margin-top: -7px;
-    position: fixed;
-    transition: .2s ease;
-    cursor: pointer;
-    z-index: 11500;
-  }
-  &:after{
-    content:'';
-    display: block;
-    width: 25px;
-    height: 1px;
-    background: white;
-    margin-top: 7px;
-    position: fixed;
-    transition: .2s ease;
-    cursor: pointer;
-    z-index: 11500;
-  }
-  i{
-    &:after{
-      content:'';
-      display: block;
-      background-size: contain;
-      background-repeat: no-repeat;
-      margin-left: 3vw;
-      margin-top: -10px;
-      text-decoration: none;
-      background-image: url('../images/nav-logo.svg');
-      width:65px;
-      height:26px;
-      @include transition(translateX 1s ease-in-out);
-    }
-  }
+  width:115px;
+  height:17px;
 }
 
 .nav-trigger {
@@ -101,6 +62,146 @@
         width: 100px;
         height:100px;
     }
+}
+
+button.close-video{
+    border:0;
+    border-radius:0;
+    background: none;
+    @include position(fixed, 3.4vw null null 3.4vw);
+    cursor: pointer;
+    // z-index:-1000;
+
+    img.icon{
+        width:2.5vw;
+    }
+
+}
+
+
+.video-controls{
+
+    @include position(fixed, null null 7.8vh 50%);
+    @include transform(translateX(-50%));
+    width: 100%;
+    text-align: center;
+    display: inherit;
+    // z-index:-1000;
+    @include media($v-iphone-6-plus){
+      display: none;
+    }
+
+    .video-buttons{
+      margin-bottom: 3.9vh;
+      button{
+          border:0;
+          border-radius:0;
+          background: none;
+          cursor: pointer;
+
+          img.icon{
+              width:2.5vw;
+              vertical-align: middle;
+          }
+
+          &:nth-of-type(2){
+              margin-left: 7vw;
+              margin-right: 7vw;
+          }
+
+          &:focus{
+            outline: 0; 
+          }
+      }
+    }
+
+    input[type="range"]{
+      z-index:-1000;
+        -webkit-appearance: none; /* Hides the slider so that custom slider can be made */
+      width: 100%; /* Specific width is required for Firefox. */
+      background: white; /* Otherwise white in Chrome */
+      height: 1px;
+    }
+    input[type=range]::-webkit-slider-thumb {
+      -webkit-appearance: none;
+    }
+    input[type=range]:focus {
+      outline: none; /* Removes the blue border. You should probably do some kind of focus styling for accessibility reasons though. */
+    }
+
+    input[type=range]::-ms-track {
+      width: 100%;
+      cursor: pointer;
+
+      /* Hides the slider so custom styles can be added */
+      background: transparent; 
+      border-color: transparent;
+      color: transparent;
+    }
+
+    input[type=range]::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      border: 1px solid white;
+      height: 2vw;
+      width: 2vw;
+      min-width:21px;
+      min-height:21px;
+      border-radius: 50%;
+      background: none;
+      cursor: pointer;
+      margin-top: 0px; /* You need to specify a margin in Chrome, but in Firefox and IE it is automatic */
+      box-shadow: 0; /* Add cool effects to your sliders! */
+    }
+
+    /* All the same stuff for Firefox */
+    input[type=range]::-moz-range-thumb {
+      box-shadow: 0;
+      border: 1px solid white;
+      height: 2vw;
+      width: 2vw;
+      min-width:21px;
+      min-height:21px;
+      border-radius: 50%;
+      background: none;
+      cursor: pointer;
+    }
+
+    /* All the same stuff for IE */
+    input[type=range]::-ms-thumb {
+      box-shadow: 0;
+      border: 1px solid white;
+      height: 2vw;
+      width: 2vw;
+      min-width:21px;
+      min-height:21px;
+      border-radius: 50%;
+      background: none;
+      cursor: pointer;
+    }
+} 
+
+.icon{
+  width: 3vw;
+  min-width: 30px;
+  height: 3vw;
+  min-height: 30px;
+  margin-right: .5vw;
+  display: inline-block;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.instagram.icon{
+  background-image: url('../images/icon-instagram-white.svg');
+}
+.facebook.icon{
+  background-image: url('../images/icon-facebook-white.svg');
+}
+.twitter.icon{
+  background-image: url('../images/icon-twitter-white.svg');
+}
+.linkedin.icon{
+  background-image: url('../images/icon-linkedin-white.svg');
 }
 
 

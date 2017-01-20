@@ -1,0 +1,16 @@
+.IE{
+	.fade-out{
+		z-index:-1000!important; 
+		opacity:0!important;
+		display:none!important;
+	}
+	.close-video{
+		top: 9vh!important;
+	}
+	.story-lightbox{
+		display: none;
+	}
+	.move-over{
+		@include transform(translateX(0)!important);
+	}
+}

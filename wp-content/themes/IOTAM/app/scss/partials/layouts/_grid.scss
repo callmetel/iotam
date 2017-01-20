@@ -1,0 +1,608 @@
+@import '../base/fonts';
+@import '../components/variables';
+
+@mixin grid-item-columns($columns) {
+  width: (100% / 4) * $columns;
+}
+
+.grid-items-lines {
+  $base-background-color: $aetnaBlue !default;
+  $dark-gray: #333 !default;
+  $light-gray: #DDD !default;
+  $medium-screen: 40em !default;
+  $large-screen: 53.75em !default;
+  $base-font-color: $dark-gray !default;
+  $grid-items-background: $base-background-color;
+  $grid-item-background: $base-background-color;
+  $grid-item-border: 1px solid transparentize($base-font-color, 0.8);
+  $grid-item-columns: 2;
+  $grid-item-big-columns: 3;
+  $grid-item-small-columns: 1;
+  $grid-item-color:  white;
+  $grid-item-height: 62vh;
+  $grid-item-small-height: 31vh;
+  cursor: pointer;
+  @include clearfix;
+
+  .grid-item {
+    background: $grid-item-background;
+    cursor: pointer;
+    float: left;
+    height: $grid-item-height;
+    outline: none;
+    overflow: hidden;
+    padding: 0;
+    text-decoration: none;
+    transition: all 0.2s ease-in-out;
+    width: 100%;
+
+
+    @include media($large-screen) {
+      @include grid-item-columns($grid-item-columns);
+    }
+    @include media($v-ipad-max-screen){
+      height:100vw;
+    }
+    @include media($sm-mobile){
+      height:100vw;
+    }
+    &:focus{
+      outline: -webkit-focus-ring-color auto 5px!important;
+      border: #7090a5 2px solid!important;
+      &:after{
+        content:'';
+        display: block;
+        background: rgba(255,255,255,0.4);
+        width:100%;
+        height:100%;
+        @include position(absolute, 0 0 0 0);
+      }
+    }
+    &:focus, &:hover {
+      background: transparentize($grid-item-color, 0.95);
+    }
+    
+    &#grid-item-1 {
+      background-color: #0ba2c3;
+      padding: 12vh 17vh 12vh 2vw;
+      position:relative;
+
+      @include media($v-ipad-max-screen){
+        height:50vw;
+      }
+      @include media($sm-mobile){
+        height:50vw;
+      }
+      @include media($xs-mobile){
+        padding: 7vw 10vw;
+      }
+
+      div.slide-indicator{
+        display: block;
+        margin:0 auto;
+        text-align: center;
+        @include position(absolute, null null 5% 50%);
+        @include transform(translateX(-50%));
+
+        @include media($xl-desktop){
+          bottom: 5%;
+        }
+
+        .slide-dot{
+          width: 20px;
+          height: 20px;
+          display: inline-block;
+          border-radius: 10px;
+          margin:0 5px;
+          background: rgba(255,255,255, 0.5);
+
+          @include media($most-common-screen){
+            width: 15px;
+            height:15px;
+            border-radius: 7.5px;
+            margin:0 3px;
+          }
+          @include media($macbook-pro-13){
+            width: 15px;
+            height:15px;
+            border-radius: 7.5px;
+            margin:0 3px;
+          }
+          @include media($sm-desktop){
+            width: 15px;
+            height:15px;
+            border-radius: 7.5px;
+            margin:0 3px;
+          }
+          @include media($sm-desktop){
+            width: 10px;
+            height:10px;
+            border-radius: 5px;
+            margin:0 3px;
+          }
+
+          &.selected{
+            background: white;
+          }
+        }  
+      }
+      
+
+      .slide-1{
+        @include transform(translateX(0px));
+        opacity:1;
+        // display: block;
+        @include transition(all 1s $ease-in-out-quad);
+        
+          &.is-inactive-slide{
+            @include transform(translateX(30px));
+            opacity:0;
+            // font-size: 0!important;
+            line-height: 0!important;
+            // display: none;
+          }
+      }
+      .slide-2{
+          @include transform(translateX(-30px));
+          opacity:0;
+          // display: none;
+          @include transition(all 1s $ease-in-out-quad);
+
+          h2{
+            opacity:0;
+            @include transform(translateX(-30px));
+            @include transition(all 1s $ease-in-out-quad);
+            @include transition-delay(.75s);
+          }
+          img{
+            opacity:0;
+            @include transition(all .5s $ease-in-out-quad);
+            @include transition-delay(.75s);
+          }
+          
+          &.is-active-slide{
+            @include transform(translateX(0px));
+            opacity:1;
+            // display: block;
+            // 
+            h2{
+              @include transform(translateX(0px));
+              opacity:1;
+            }
+            img{
+              opacity:1;
+            }
+          }
+      } 
+
+      h1 {
+        color: $grid-item-color;
+        margin-bottom: 0.4em;
+        text-transform: none;
+        text-align: left;
+      }
+      p{
+        color: white;
+        text-align: left;
+      }
+    }
+   
+    a{
+      text-decoration: none;
+    }
+
+  }
+
+  .grid-item-big {
+    @include media($large-screen) {
+      @include grid-item-columns($grid-item-big-columns);
+      max-width: 75%;
+    }
+  }
+
+  .grid-item-square {
+    background: $grid-item-background;
+    background-size: cover;
+    background-repeat: no-repeat;
+    cursor: pointer;
+    float: left;
+    height: $grid-item-height;
+    outline: none;
+    overflow: hidden;
+    padding: 0;
+    text-decoration: none;
+    transition: all 0.2s ease-in-out;
+    width: 50vw;
+    text-align: center;
+    vertical-align: middle;
+    cursor: pointer;
+    position: relative;
+
+    @include media($macbook-pro-13) {
+      padding: 5em 1.5em;
+    }
+    @include media($large-screen) {
+      @include grid-item-columns($grid-item-columns);
+      max-width: 50%;
+      overflow: hidden;
+      height:31vh;
+    }
+    @include media($v-ipad-max-screen) {
+      padding: 0;
+
+    }
+
+    &:focus{
+      outline: -webkit-focus-ring-color auto 5px!important;
+      border: #7090a5 2px solid!important;
+      &:after{
+        content:'';
+        display: block;
+        background: rgba(0,0,0,0.4);
+        width:100%;
+        height:100%;
+        @include position(absolute, 0 0 0 0);
+      }
+    }
+
+    a{
+      display:block;
+      vertical-align: middle;
+      margin: auto;
+      text-align: center;
+      text-decoration: none;
+
+      @include media($macbook-pro-13) {
+        width:90%;
+      }
+    }
+
+    .underline{
+      display:block;
+      height: 1px;
+      width: 37px;
+      background: white;
+      margin: 15px auto;
+      text-align: center;
+    }
+    p{
+      text-align: center;
+      padding:0;
+    }
+
+    img{
+      width:100%;
+      height: auto;
+      text-align: center;
+    }
+
+    &:first-of-type{
+      background-image: url('../images/happiness-background.png');
+      &:hover{
+        background-image: url('../images/IOTAM_Happiness.gif');
+      }
+    }
+    &:nth-of-type(2){
+      background-image: url('../images/connection-background.png');
+      &:hover{
+        background-image: url('../images/IOTAM_Connection.gif');
+      }
+    }
+    // &:nth-of-type(3){
+
+    // }
+    &:nth-of-type(3){
+      background-image: url('../images/peaceofmind-background.png');
+      &:hover{
+        background-image: url('../images/IOTAM_PeaceofMind.gif');
+      }
+    }
+    &.has-white-background{
+      .slide-1{
+        width: 45%;
+      }
+      .slide-2{
+        text-align: left;
+        width: 80%;
+        p{
+          text-align: left;
+          color:$aetnaBlue!important;
+          font-family: $focobold!important;
+        }
+      }
+    }
+
+    .slide-1{
+      @include position(absolute, 50% null null 50%);
+      @include transform(translate(-50%,-50%));
+      opacity:1;
+      @include transition(all 1s $ease-in-out-quad);
+      // display: block;
+      
+      &.is-inactive-slide{
+        @include transform(translate(-40%,-50%));
+        @include transition(all 1s $ease-in-out-quad);
+        opacity:0;
+        // display: none;
+      }
+    }
+    .slide-2{
+      @include position(absolute, 50% null null 50%);
+      @include transform(translate(-50%, -40%));
+      opacity:0;
+      width: 80%;
+      @include transition(all .5s $ease-in-out-quad);
+      
+      .grid-cta{
+        opacity:0;
+        @include transform(translateY(20px));
+        @include transition(all .5s ease-in-out);
+        @include transition-delay(.5s);
+      }
+      
+      &.is-active-slide{
+        @include transform(translate(-50%,-50%));
+        opacity:1;
+        // display: block;
+        .grid-cta{
+          @include transform(translateY(0px));
+          opacity:1;
+        }
+      }
+    } 
+
+  }
+
+  .grid-item-small {
+    background: $grid-item-background;
+    background-size: cover;
+    background-repeat: no-repeat;
+    cursor: pointer;
+    float: left;
+    height: $grid-item-height;
+    outline: none;
+    overflow: hidden;
+    padding: 0;
+    text-decoration: none;
+    transition: all 0.2s ease-in-out;
+    width: 50vw;
+    cursor: pointer;
+    position: relative;
+
+    @include media($large-screen) {
+      @include grid-item-columns($grid-item-small-columns);
+      max-width: 25%;
+      overflow: hidden;
+      height:31vh;
+    }
+
+    @include media($v-ipad-max-screen) {
+      padding: 0;
+    }
+    @include media($xs-mobile) {
+      padding: 0;
+    }
+
+    &:focus{
+      outline: -webkit-focus-ring-color auto 5px!important;
+      border: #7090a5 2px solid!important;
+      &:after{
+        content:'';
+        display: block;
+        background: rgba(0,0,0,0.4);
+        width:100%;
+        height:100%;
+        @include position(absolute, 0 0 0 0);
+      }
+    }
+
+    a{
+      display:block;
+      vertical-align: middle;
+      margin: auto;
+      text-align: center;
+      text-decoration: none;
+    }
+
+    .underline{
+      display:block;
+      height: 1px;
+      width: 37px;
+      background: white;
+      margin: 15px auto;
+      text-align: center;
+    }
+    p{
+      text-align: center;
+      padding:0;
+    }
+
+    img{
+      width:100%;
+      height: auto;
+      text-align: center;
+    }
+
+    &:nth-of-type(2){
+      background-image: url('../images/confidence-background.png');
+      &:hover{
+        background-image: url('../images/IOTAM_Confdence.gif');
+      }
+    }
+    &:nth-of-type(3){
+      background-image: url('../images/freedom-background.png');
+      &:hover{
+        background-image: url('../images/IOTAM_Freedom.gif');
+      }
+    }
+
+    &.has-white-background{
+      &:first-of-type{
+        .slide-2{
+          p{
+              text-align: center!important;
+            }
+          div{
+            text-align: center!important;
+            h2{
+              text-align: center!important;
+            }
+          }
+        }
+
+      }
+      .slide-1{
+        width: 45%;
+      }
+      .slide-2{
+        text-align: left;
+        width: 80%;
+        p{
+          text-align: left;
+          color:$aetnaBlue!important;
+          font-family: $focobold!important;
+        }
+      }
+
+      &:focus{
+        outline: -webkit-focus-ring-color auto 5px!important;
+        border: #7090a5 2px solid!important;
+        background: rgb(180, 231, 253)!important;
+        &:after{
+          content:'';
+          display: block;
+          background: none;
+          width:100%;
+          height:100%;
+          @include position(absolute, 0 0 0 0);
+        }
+      }
+    }
+
+    .slide-1, .slide-2{
+      text-align: center;
+    }
+
+    .slide-1{
+      @include position(absolute, 50% null null 50%);
+      @include transform(translate(-50%,-50%));
+      opacity:1;
+      @include transition(all 1s $ease-in-out-quad);
+      // display: block;
+      
+      &.is-inactive-slide{
+        @include transform(translate(-40%,-50%));
+        @include transition(all 1s $ease-in-out-quad);
+        opacity:0;
+        // display: none;
+      }
+    }
+    .slide-2{
+      @include position(absolute, 50% null null 50%);
+      @include transform(translate(-50%, -40%));
+      opacity:0;
+      width: 80%;
+      @include transition(all .5s $ease-in-out-quad);
+      
+      .grid-cta{
+        opacity:0;
+        @include transform(translateY(20px));
+        @include transition(all .5s ease-in-out);
+        @include transition-delay(.5s);
+      }
+      
+      &.is-active-slide{
+        @include transform(translate(-50%,-50%));
+        opacity:1;
+        // display: block;
+        .grid-cta{
+          @include transform(translateY(0px));
+          opacity:1;
+        }
+      }
+    } 
+    
+
+  }
+
+  
+
+  .icon-square, .has-white-background{
+    .slide-1, .slide-2{
+      text-align: center;
+    }
+    div.slide-1{
+      @include position(absolute, 50% null null 50%);
+      @include transform(translate(-50%, -50%));
+    }
+    div.slide-2{
+      position: absolute;
+
+      p{
+        color: $aetnaBlue;
+        text-align: left;
+        display: block;
+        position: static;
+        width: 100%;
+      }
+      h2 {
+          color: $aetnaBlue;
+          text-transform: none;
+          display: inline-block;
+          padding-right: 10px;
+          vertical-align: middle;
+      }
+      .underline{
+        background: $aetnaBlue;
+      }
+
+      img {
+        width: 12px;
+        height: 21px;
+        display: inline-block;
+        vertical-align: middle;
+      }
+    }
+
+  }
+  
+
+  .discover-square {
+
+   
+    p {
+    text-align: center;
+    display: block;
+    top: 50%;
+    left: 50%;
+    }
+
+    h2 {
+        color: $grid-item-color;
+        text-transform: none;
+        display: inline-block;
+        padding-right: 10px;
+        vertical-align: middle;
+    }
+
+    img {
+      width: 12px;
+      height: 21px;
+      display: inline-block;
+      vertical-align: middle;
+    }
+
+    li {
+      display: inline;
+    }
+
+  }
+
+}
+
+.grid-item-square:not(.has-white-background) a, .grid-item-small:not(.has-white-background) a{
+  position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}

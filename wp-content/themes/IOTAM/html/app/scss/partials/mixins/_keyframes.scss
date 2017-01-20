@@ -123,19 +123,29 @@
     }
 }
 
-@include keyframes (fadeInfoIn) {
+@include keyframes (fadeIn) {
+    0%{
+        opacity:0;
+    }
+    99% {
+        opacity:1;
+    }
     100% {
-        @include transform(translateX(0));
+        z-index:1;
         opacity:1;
     }
 }
-@include keyframes (fadeInfoOut) {
-    0% {
-        @include transform(translateX(0px));
+@include keyframes (fadeOut) {
+    0%{
         opacity:1;
+        z-index:inherit;
+    }
+    99% {
+        opacity:0;
+        z-index:inherit;
     }
     100% {
-        @include transform(translateX(-100px));
+        z-index:-1000;
         opacity:0;
     }
 }

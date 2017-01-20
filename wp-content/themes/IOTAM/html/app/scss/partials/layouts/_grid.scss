@@ -4,80 +4,7 @@
 @mixin grid-item-columns($columns) {
   width: (100% / 4) * $columns;
 }
- 
- .mySlides {
 
-  display:none;
-
- }
-  .mySlides p {
-    margin-bottom: 20px;
-  }
-
-.w3-left, .w3-right, .w3-badge {cursor:pointer};
-.w3-text-white {
-  color: #ffffff!important;
-}
-.w3-section {
-  margin-top: 16px!important;
-  margin-bottom: 16px!important;
-}
-.w3-white,.w3-hover-white:hover
-{
-  color:#000!important;
-  background-color:#fff!important
-}
-
-
-
-.w3-text-white,.w3-hover-text-white:hover
-{
-  color:#ffffff!important;
-
-}
-
-.w3-badge{
-  background-color:#000;
-  color:#ffffff;
-  display:inline-block;
-  height: 15px;
-  width: 15px;
-  padding-left:8px;
-  padding-right:8px;
-  text-align:center;
-  border-radius:50%; 
-  text-align: center!important;
-  margin: 0 10px 0 0;
-}
-
-
-.w3-border span{
-  border: 1px solid #ffffff!important;
-  border-radius: 50%;
-}
-
-.w3-transparent {
-  background-color: #85d1e1;
-}
-
-
-.w3-center{text-align:center!important}
-
-.w3-display-bottommiddle {
-  position: absolute;
-  left: 25%;
-  bottom: 40%;
-  transform:
-  translate(-50%,0%)
-}
-
-.w3-center {
-  text-align: center!important;
-}
-
-.w3-large {
-  font-size: 18px!important;
-}
 .grid-items-lines {
   $base-background-color: $aetnaBlue !default;
   $dark-gray: #333 !default;
@@ -95,9 +22,7 @@
   $grid-item-height: 50vw;
   $grid-item-small-height: 25vw;
   cursor: pointer;
-
   @include clearfix;
-
 
   .grid-item {
     background: $grid-item-background;
@@ -116,36 +41,121 @@
     @include media($large-screen) {
       @include grid-item-columns($grid-item-columns);
     }
+    @include media($v-ipad-max-screen){
+      height:100vw;
+    }
+    @include media($sm-mobile){
+      height:100vw;
+    }
 
+    &:focus, &:hover {
+      background: transparentize($grid-item-color, 0.95);
+    }
+    
+    &:first-of-type {
+      background-color: #0ba2c3;
+      padding: 17vh 17vh 17vh 2vw;
+      position:relative;
+
+      @include media($v-ipad-max-screen){
+        height:50vw;
+      }
+      @include media($sm-mobile){
+        height:50vw;
+      }
+      @include media($xs-mobile){
+        padding: 7vw 10vw;
+      }
+
+      div.slide-indicator{
+        display: block;
+        margin:0 auto;
+        text-align: center;
+        @include position(absolute, null null 5% 50%);
+        @include transform(translateX(-50%));
+
+        @include media($xl-desktop){
+          bottom: 20%;
+        }
+
+        .slide-dot{
+          width: 20px;
+          height: 20px;
+          display: inline-block;
+          border-radius: 10px;
+          margin:0 5px;
+          background: rgba(255,255,255, 0.5);
+
+          @include media($most-common-screen){
+            width: 15px;
+            height:15px;
+            border-radius: 7.5px;
+            margin:0 3px;
+          }
+          @include media($macbook-pro-13){
+            width: 15px;
+            height:15px;
+            border-radius: 7.5px;
+            margin:0 3px;
+          }
+          @include media($sm-desktop){
+            width: 15px;
+            height:15px;
+            border-radius: 7.5px;
+            margin:0 3px;
+          }
+          @include media($sm-desktop){
+            width: 10px;
+            height:10px;
+            border-radius: 5px;
+            margin:0 3px;
+          }
+
+          &.selected{
+            background: white;
+          }
+        }  
+      }
+      
+
+      .slide-1{
+        @include transform(translateX(0px));
+        opacity:1;
+        // display: block;
+        @include transition(all 1s $ease-in-out-quad);
+        
+          &.is-inactive-slide{
+            @include transform(translateX(30px));
+            opacity:0;
+            // font-size: 0!important;
+            line-height: 0!important;
+            // display: none;
+          }
+      }
+      .slide-2{
+          @include transform(translateX(-30px));
+          opacity:0;
+          // display: none;
+          @include transition(all 1s $ease-in-out-quad);
+          
+          &.is-active-slide{
+            @include transform(translateX(0px));
+            opacity:1;
+            // display: block;
+          }
+      } 
+
+      h1 {
+        color: $grid-item-color;
+        margin-bottom: 0.4em;
+        text-transform: none;
+      }
+    }
+   
     a{
       text-decoration: none;
     }
-    
 
-    &:focus,
-    &:hover {
-      background: transparentize($grid-item-color, 0.95);
-    }
-
-  }
-
-  .grid-item:first-of-type {
-    background-color: #0ba2c3;
-    padding: 17vh 17vh 17vh 2vw;
-
-    h1 {
-      color: $grid-item-color;
-      margin-bottom: 0.4em;
-      text-transform: none;
-    }
-
-  }
-
-
-  p {
-    color: white;
-    text-transform: none;
-    padding-right: 2em;
   }
 
   .grid-item-big {
@@ -153,8 +163,8 @@
       @include grid-item-columns($grid-item-big-columns);
       max-width: 75%;
     }
-
   }
+
   .grid-item-square {
     background: $grid-item-background;
     background-size: cover;
@@ -164,20 +174,27 @@
     height: $grid-item-height;
     outline: none;
     overflow: hidden;
-    padding: 8em 2em;
+    padding: 0;
     text-decoration: none;
     transition: all 0.2s ease-in-out;
-    width: 50%;
+    width: 50vw;
     text-align: center;
     vertical-align: middle;
     cursor: pointer;
     position: relative;
 
+    @include media($macbook-pro-13) {
+      padding: 5em 1.5em;
+    }
     @include media($large-screen) {
       @include grid-item-columns($grid-item-columns);
       max-width: 50%;
       overflow: hidden;
       height:25vw;
+    }
+    @include media($v-ipad-max-screen) {
+      padding: 0;
+
     }
 
     a{
@@ -186,6 +203,10 @@
       margin: auto;
       text-align: center;
       text-decoration: none;
+
+      @include media($macbook-pro-13) {
+        width:90%;
+      }
     }
 
     .underline{
@@ -202,7 +223,7 @@
     }
 
     img{
-      width:44%;
+      width:100%;
       height: auto;
       text-align: center;
     }
@@ -228,8 +249,53 @@
         background-image: url('../images/IOTAM_PeaceofMind.gif');
       }
     }
+    &.has-white-background{
+      .slide-1{
+        width: 45%;
+      }
+      .slide-2{
+        text-align: left;
+        width: 80%;
+        p{
+          text-align: left;
+          color:$aetnaBlue!important;
+          font-family: $focobold!important;
+        }
+      }
+    }
+
+    .slide-1{
+      @include position(absolute, 50% null null 50%);
+      @include transform(translate(-50%,-50%));
+      opacity:1;
+      @include transition(all 1s $ease-in-out-quad);
+      // display: block;
+      
+      &.is-inactive-slide{
+        @include transform(translate(-40%,-50%));
+        @include transition(all 1s $ease-in-out-quad);
+        opacity:0;
+        // display: none;
+      }
+    }
+    .slide-2{
+      @include position(absolute, 50% null null 50%);
+      @include transform(translate(-60%, -50%));
+      opacity:0;
+      width: 80%;
+      @include transition(all 1s $ease-in-out-quad);
+      // display: none;
+      
+      &.is-active-slide{
+        @include transform(translate(-50%,-50%));
+        @include transition(all 1s $ease-in-out-quad);
+        opacity:1;
+        // display: block;
+      }
+    } 
 
   }
+
   .grid-item-small {
     background: $grid-item-background;
     background-size: cover;
@@ -242,7 +308,7 @@
     padding: 8em 2em;
     text-decoration: none;
     transition: all 0.2s ease-in-out;
-    width: 100%;
+    width: 50vw;
     cursor: pointer;
     position: relative;
 
@@ -251,6 +317,13 @@
       max-width: 25%;
       overflow: hidden;
       height:25vw;
+    }
+
+    @include media($v-ipad-max-screen) {
+      padding: 0;
+    }
+    @include media($xs-mobile) {
+      padding: 0;
     }
 
     a{
@@ -275,7 +348,7 @@
     }
 
     img{
-      width:44%;
+      width:100%;
       height: auto;
       text-align: center;
     }
@@ -293,28 +366,80 @@
       }
     }
 
+    &.has-white-background{
+      .slide-1{
+        width: 45%;
+      }
+      .slide-2{
+        text-align: left;
+        width: 80%;
+        p{
+          text-align: left;
+          color:$aetnaBlue!important;
+          font-family: $focobold!important;
+        }
+      }
+    }
+
+    .slide-1{
+      @include position(absolute, 50% null null 50%);
+      @include transform(translate(-50%,-50%));
+      opacity:1;
+      @include transition(all 1s $ease-in-out-quad);
+      // display: block;
+      
+      &.is-inactive-slide{
+        @include transform(translate(-40%,-50%));
+        @include transition(all 1s $ease-in-out-quad);
+        opacity:0;
+        // display: none;
+      }
+    }
+    .slide-2{
+      @include position(absolute, 50% null null 50%);
+      @include transform(translate(-60%, -50%));
+      opacity:0;
+      width: 80%;
+      @include transition(all 1s $ease-in-out-quad);
+      // display: none;
+      
+      &.is-active-slide{
+        @include transform(translate(-50%,-50%));
+        @include transition(all 1s $ease-in-out-quad);
+        opacity:1;
+        // display: block;
+      }
+    } 
+    
+
   }
 
-    .icon-square p{
+  
 
-    color: #0BA2BE;
-    font-size: 1.65em;
-    line-height: normal;
-    text-align: left;
-    display: block;
-    position: absolute;
-    width: 80%;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+  .icon-square{
+    div.slide-1{
+      @include position(absolute, 50% null null 50%);
+      @include transform(translate(-50%, -50%));
+    }
+    div.slide-2{
+      position: absolute;
+
+      p{
+        color: $aetnaBlue;
+        text-align: left;
+        display: block;
+        position: absolute;
+        width: 100%;
+      }
+    }
+
   }
+  
 
   .discover-square {
 
    
     p {
-    font-size: 1.5em;
-    line-height: normal;
     text-align: center;
     display: block;
     top: 50%;
@@ -340,25 +465,6 @@
 
   }
 
-
-
-  
-// this, below, might not be the most beautiful solution but it removes the outer borders by using the background color.
-  .bottom-cover {
-    background: $grid-items-background;
-    bottom: 0;
-    height: 3px;
-    position: absolute;
-    width: 100%;
-  }
-
-  .right-cover {
-    background: $grid-items-background;
-    height: 100%;
-    position: absolute;
-    right: 0;
-    width: 4px;
-  }
 }
 
 

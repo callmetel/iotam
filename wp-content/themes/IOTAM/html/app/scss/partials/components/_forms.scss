@@ -70,8 +70,11 @@ form input, form textarea, form select{
     -moz-transition: all .35s ease-in-out;
 
     @include placeholder {
-        color: $green;
+        
         font: $sm-sq-heading-p;
+        @include media($sm-desktop){
+            font: $xs-sq-heading-p;
+        }
         @include media($mobile){
             font: $xs-sq-heading-p;
         }
@@ -83,7 +86,7 @@ form input.field, form select, .select-option{
     letter-spacing: 0;
     border: none;
     outline: 0;
-    color: $green;
+    
     font: $sm-sq-heading-p;
     background: #f2f2f2;
     height: 4.6vh;
@@ -96,6 +99,12 @@ form input.field, form select, .select-option{
     -webkit-border-radius: 0px;
     vertical-align: middle;
 
+    @include media($sm-desktop){
+        font: $xs-sq-heading-p;
+        min-height: 50px;
+        height: 50px;
+        margin-bottom: 10px;
+    }
     @include media($mobile){
         font: $xs-sq-heading-p;
         min-height: 45px;
@@ -107,7 +116,7 @@ form input.field, form select, .select-option{
 form textarea.story{
     border: none;
     outline: 0;
-    color: $green;
+    
     background: #f2f2f2;
     height: 15.47vh;
     min-height: 124px;
@@ -136,7 +145,6 @@ form textarea.story{
     input{
         margin:0;
         padding: 10px;
-        background: $green;
         font: $sm-sq-heading-p;
         color: white;
         border: 0!important;
@@ -150,6 +158,12 @@ form textarea.story{
         height:100%;
         min-height: 56px;
 
+        @include media($sm-desktop){
+            font: $xs-sq-heading-p;
+            min-height: 50px;
+            height: 50px;
+            margin-bottom: 10px;
+        }
         @include media($mobile){
             font: $xs-sq-heading-p;
             min-height: 45px;
@@ -182,7 +196,6 @@ form textarea.story{
     }
 
     p.disclaimer{
-        color: $green!important;
         font:$rg-heading-p!important;
 
         @include media($mobile){
@@ -251,7 +264,6 @@ li.select-option{
         }
     }
     &:hover{
-        background-color: $green;
         color: white;
         
         span{
@@ -267,9 +279,8 @@ li.select-option.is-selected{
     opacity:1;
     border: 1px solid white;
     width:100%;
-    color: $green;
+    
     &:hover{
-        background-color: $green;
         color: white;
         
         span{
@@ -289,7 +300,6 @@ li.select-option.is-selected{
             display: inline-block;
             width: 21px;
             height: 20px;
-            background-image: url('../images/arrow-green.svg');
             background-size: contain;
             background-repeat: no-repeat;
             vertical-align: middle;
@@ -304,7 +314,6 @@ li.select-option.is-selected{
     }
 }
 .required {
-    color:$green;
     padding-right: 5px;
 }
 
@@ -312,6 +321,16 @@ form.share-form{
     margin-top: 30px;    
     
     @include media($sm-mobile){
+        overflow-y: auto;
+        height: 38vh;    
+    }
+
+    @include media($v-ipad-max-screen){
+        overflow-y: auto;
+        height: 60vh;    
+    }
+
+    @include media($v-iphone-6-plus){
         overflow-y: auto;
         height: 38vh;    
     }

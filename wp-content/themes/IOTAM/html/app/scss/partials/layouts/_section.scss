@@ -1,0 +1,18 @@
+.video-page{
+	.section{
+		@include position(fixed, 7vh 0 0 0);
+		height: 93vh;
+		width:100%;
+		z-index: -2000;
+
+		&.section-2, &.section-3{
+			overflow-y: auto;
+		}
+	}
+}
+
+.video-page-is-active{
+	.section{
+		z-index: 2000;
+	}
+}

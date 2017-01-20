@@ -1,0 +1,372 @@
+.top-square, .mobile-top-square {
+    width: 19.25vw;
+    max-width: 19.25vw;
+    overflow: hidden;
+    height: 19.25vw;
+    display: inline-block;
+    position: fixed;
+    z-index: -4000;
+    top:7vh;
+
+    @include media($mobile){
+        width: 32.444vw;
+        max-width: 32.444vw;
+        overflow: hidden;
+        height: 32.444vw; 
+        display: none;  
+        opacity:0;
+        @include transition(opacity 1s ease-in-out);
+    }
+    @include media($sm-mobile){
+        display: none;  
+    }
+
+    div.top-square-container{
+        width: 80%;
+        @include position(absolute, 50% null null 50%);
+        @include transform(translate(-50%, -50%));
+
+        h2 {
+            color: white;
+            text-align: center; 
+            vertical-align: middle;	
+            padding-bottom: 15px;
+            font: $rg-subheading; 
+
+            @include media($xl-desktop){
+                font: $xl-subheading;
+                padding-bottom: 25px;    
+            }
+            @include media($most-common-screen){
+                font: $rg-subheading;
+            }
+            @include media($macbook-pro-13){
+                font: $rg-subheading;
+            }
+            @include media($sm-desktop){
+                font: $md-subheading;
+            }
+            @include media($desktop-bp){
+                font: $xs-subheading;    
+            }
+        }
+
+        p{
+        	font-family: $focolight!important;
+            font-weight: 300!important;
+            color: white;
+    		text-align: center;
+    		width: 100%;
+    		margin: 0 auto;
+    		margin-top: 18px;
+            font: $sm-sq-heading-p;
+
+            @include media($xl-desktop){
+                font: $rg-sq-heading-p; 
+                margin-top: 28px;  
+            }
+            @include media($most-common-screen){
+                font: $sm-sq-heading-p;
+            }
+            @include media($macbook-pro-13){
+                font: $sm-sq-heading-p;
+            }
+            @include media($sm-desktop){
+                font: $xs-sq-heading-p;
+            }
+            @include media($sm-mobile){
+                font: $md-heading-p;
+            }
+        }
+        a{
+
+        }
+    }
+}
+
+.mobile-top-square{
+    display:none!important;
+
+    @include media($sm-mobile){
+        display:inline-block!important;
+        position:static!important;
+        vertical-align: top;
+        opacity: 1;
+    }
+
+    div.relative-container{
+        position: relative;
+        width:100%;
+        height:100%;
+    }
+}
+.top-square{
+    &.is-shown{
+        @include media($mobile){
+            display: block!important;
+            opacity:1;
+        }
+         @include media($sm-mobile){
+            display: none!important;
+        }
+    }
+}
+.global-apn{
+   display: none;
+}
+
+div.underline{
+    width:30%;
+    height:1px;
+    background: white;
+    margin: 0 auto;
+    max-width: 100px;
+
+    @include media($xl-desktop){
+        width:20%;
+    }
+    @include media($xs-mobile){
+        width:15%;
+    }
+}
+
+.social-media-hub {
+    width: 19.25vw;
+    max-width: 19.25vw;
+    overflow: hidden;
+    height: 19.25vw;
+    display: block;
+    position: fixed;
+    z-index: -4000;
+    top: 65vh;
+
+    @include media($mobile){
+        width: 32.444vw;
+        max-width: 32.444vw;
+        overflow: hidden;
+        height: 32.444vw;   
+    }
+    @include media($sm-mobile){
+        display: none;  
+    }
+
+    div.media-container{
+        width: 80%;
+        @include position(absolute, 50% null null 50%);
+        @include transform(translate(-50%, -50%));
+
+        h3.join-cta, a.hashtag {
+            @include transition(all 1s ease-in-out);
+            color: white;
+            text-align: left; 
+            vertical-align: middle; 
+            margin-bottom: 15px;
+            padding-bottom: 0;
+            font: $lg-story-heading; 
+
+            @include media($xl-desktop){
+                font: $xl-story-heading;    
+            }
+            @include media($most-common-screen){
+                font: $rg-story-heading;
+            }
+            @include media($macbook-pro-13){
+                font: $md-story-heading;
+            }
+            @include media($sm-desktop){
+                font: $md-story-heading;
+            }
+            @include media($desktop-bp){
+                font: $md-story-heading;    
+            }
+
+            span.join-arrow{
+                @include transition(all 1s ease-in-out);
+                display:inline-block;
+                width:20px;
+                height:20px;
+                background-image: url('../images/arrow.svg');
+                background-repeat: no-repeat;
+                background-size: contain;
+                margin-top: 2px;
+                margin-left:10px;
+
+                @include media($most-common-screen){
+                    width:17px;
+                    height:17px;
+                }
+                @include media($sm-desktop){
+                    width:14px;
+                    height:14px;
+                }
+                @include media($macbook-pro-13){
+                    width:17px;
+                    height:17px;
+                }
+            }
+        }
+
+        a.hashtag{
+            @include transition(all 1s ease-in-out);
+            display:block;
+            text-decoration: none;
+            font-family: $focolight!important;
+            font-weight: 300!important;
+            margin-top: 20px;
+        }
+
+        p{
+            margin-top: 20px;
+            font: $sm-smalllink;
+            @include transition(all 1s ease-in-out);
+            -webkit-hyphens: auto;
+              -moz-hyphens: auto;
+              -ms-hyphens: auto;
+              hyphens: auto;
+
+            @include media($xl-desktop){
+                font: $lg-smalllink; 
+                // margin-top: 28px;  
+            }
+            @include media($most-common-screen){
+                font: $sm-smalllink;
+            }
+            @include media($macbook-pro-13){
+                font: $sm-smalllink;
+            }
+            @include media($sm-desktop){
+                font: $xs-smalllink;
+            }
+            @include media($sm-mobile){
+                font: $smalllink;
+            }
+        }
+        .icons-container{
+            margin-top: 20px;
+            .icon{
+                @include transition(all 1s ease-in-out);
+            }
+        }
+
+        &.is-green{
+            h3, span, a{
+                color: $green;
+            }
+            .join-arrow{
+                background-image: url('../images/arrow-green.svg')!important;
+            }
+            .instagram.icon{
+              background-image: url('../images/icon-instagram-green.svg');
+            }
+            .facebook.icon{
+              background-image: url('../images/icon-facebook-green.svg');
+            }
+            .twitter.icon{
+              background-image: url('../images/icon-twitter-green.svg');
+            }
+            .linkedin.icon{
+              background-image: url('../images/icon-linkedin-green.svg');
+            }
+        }
+
+        &.is-blue{
+            h3, span, a{
+                color: $blue;
+            }
+            .join-arrow{
+                background-image: url('../images/arrow-blue.svg')!important;
+            }
+            .instagram.icon{
+              background-image: url('../images/icon-instagram-blue.svg');
+            }
+            .facebook.icon{
+              background-image: url('../images/icon-facebook-blue.svg');
+            }
+            .twitter.icon{
+              background-image: url('../images/icon-twitter-blue.svg');
+            }
+            .linkedin.icon{
+              background-image: url('../images/icon-linkedin-blue.svg');
+            }
+        }
+
+        &.is-lime{
+            h3, span, a{
+                color: $lime;
+            }
+            .join-arrow{
+                background-image: url('../images/arrow-lime.svg')!important;
+            }
+            .instagram.icon{
+              background-image: url('../images/icon-instagram-lime.svg');
+            }
+            .facebook.icon{
+              background-image: url('../images/icon-facebook-lime.svg');
+            }
+            .twitter.icon{
+              background-image: url('../images/icon-twitter-lime.svg');
+            }
+            .linkedin.icon{
+              background-image: url('../images/icon-linkedin-lime.svg');
+            }
+        }
+
+        &.is-orange{
+            h3, span, a{
+                color: $orange;
+            }
+            .join-arrow{
+                background-image: url('../images/arrow-orange.svg')!important;
+            }
+            .instagram.icon{
+              background-image: url('../images/icon-instagram-orange.svg');
+            }
+            .facebook.icon{
+              background-image: url('../images/icon-facebook-orange.svg');
+            }
+            .twitter.icon{
+              background-image: url('../images/icon-twitter-orange.svg');
+            }
+            .linkedin.icon{
+              background-image: url('../images/icon-linkedin-orange.svg');
+            }
+        }
+
+        &.is-pink{
+            h3, span, a{
+                color: $pink;
+            }
+            .join-arrow{
+                background-image: url('../images/arrow-pink.svg')!important;
+            }
+            .instagram.icon{
+              background-image: url('../images/icon-instagram-pink.svg');
+            }
+            .facebook.icon{
+              background-image: url('../images/icon-facebook-pink.svg');
+            }
+            .twitter.icon{
+              background-image: url('../images/icon-twitter-pink.svg');
+            }
+            .linkedin.icon{
+              background-image: url('../images/icon-linkedin-pink.svg');
+            }
+        }
+    }
+}
+
+.video-page-is-active{
+    .social-media-hub, .top-square{
+        z-index: 4000;
+    }
+}
+.click-blocker{
+    display: none;
+    &.is-activated{
+        @include position(fixed, 0 0 0 0);
+        z-index: 9999999;
+        width:100vw;
+        height:100vh;
+        background: none;
+    }
+}

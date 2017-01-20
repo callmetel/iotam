@@ -1,76 +1,114 @@
 @import '../base/fonts';
+
 #preloader {
+
   @include position(fixed, 0 0 0 0);
   width: 100%;
   height: 100%;
   z-index: 1001;
   margin:0 auto;
-  color: black;
-}
-  #preloader .preloader-container {
-     margin: 0 auto;
-     width: 50%;
-     @include media($v-ipad-max-screen){
-        width:65%;
-      }
+  color: white;
+
+  &.is-hidden {
+    visibility: hidden;
+    opacity: 0; 
   }
-  #preloader{
-    div.intro-mod-logo-container{
+
+  video#teaser-video { 
+    @include position(fixed, 50% 0 0 50%);
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: -1000;
+    display: inherit;
+    @include transform(translateX(-50%) translateY(-50%));
+    background: url('../images/intro.png') no-repeat;
+    background-size: cover;
+    @include transition(1s opacity);
+    
+    @include media($v-iphone-6-plus){
+      
+    }
+  }
+
+  div.mobile-bg {
+    @include position(fixed, 0 0 0 0);
+    z-index: -1000;
+    display: inherit!important;
+    min-width: 120%;
+    min-height: 100%;
+    background-image: url('../images/mobile-teaser-video.gif');
+    background-size: cover;
+    background-repeat: no-repeat;
+    @include media($v-iphone-6-plus){
+      display:none;
+    }
+  }
+  
+  .preloader-container {
+    margin: 0 auto;
+    width: auto;
+    text-align: center;
+
+    div.enter-site-link-container{
       margin: 0 auto;
       margin-top: 47.25vh;
-      width:200px;
-      max-width:200px;
-      height:118px;
       position: relative;
 
-      @include media($sm-mobile){
-        width:30vw;
-      }
+      .enter-site-link{
+        width:auto;
+        cursor: pointer;
+        opacity:0;
+        @include transform(translateX(-100px));
 
-      .intro-mod-logo{
-        width:100%;
+        .right-arrow{
+          width: 10px;
+          height: auto;
+          vertical-align: middle;
+          margin-left: 10px;
+
+          @include media($xl-desktop){
+            width: 18px;
+          }
+          @include media($lg-desktop){
+            width: 14px;
+          }
+          @include media($md-desktop){
+            width: 14px;
+          }
+        }
       }
     }
+  }
+
+  #skip-intro{
+    @include position(fixed, null 20px 20px null);
+    font: $smalllink;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    @include transition(font .7s ease-in-out);
+
+    @include media($xl-desktop){
+      font: $xl-smalllink;
+    }
+    @include media($lg-desktop){
+      font: $lg-smalllink;
+    }
+    @include media($md-desktop){
+      font: $lg-smalllink;
+    }
+    @include media($sm-desktop-height){
+      font: $smalllink;
+    }
+    @include media($macbook-pro-13){
+      font: $smalllink;
+    }
+    @include media($h-ipad-max-screen){
+      font: $smalllink;
+    }
+
+  }
 }
 
-#preloader.is-hidden {
-  visibility: hidden;
-  opacity: 0; 
-}
-
-
-.initial-hide {
-  opacity:0;
-  z-index:-3000;
-}
-
-#skip-intro{
-  @include position(fixed, null 20px 20px null);
-  font: $av-light;
-  cursor: pointer;
-  text-transform: uppercase;
-  @include transition(font .7s ease-in-out);
-
-  @include media($xl-desktop){
-    font:$lgd-av-light;
-  }
-  @include media($lg-desktop){
-    font:$mp-av-light;
-  }
-  @include media($xlsm-height){
-    font:$mp-av-light;
-  }
-  @include media($md-desktop){
-    font:$mp-av-light;
-  }
-  @include media($sm-desktop-height){
-    font: $av-light;
-  }
-  @include media($macbook-pro-13){
-    font:$av-light;
-  }
-  @include media($h-ipad-max-screen){
-    font:$lg-av-light;
-  }
-
-}

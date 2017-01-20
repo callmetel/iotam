@@ -1,60 +1,372 @@
-// Global section styles
 
-.page{
-	width:100%;
-	@include position(fixed, 0 0 0 0);
-	@include transform(translateY(100%));
-	@include transition(transform 1s $ease-in-out-quart);
+.video-page {
+    position: relative;
+    height: 100vh;
+    opacity:0;
+    display: none;
+    // @include transition(transform 1s $ease-in-out-quad);
 
-	.section{
-		height: 100vh;
-		width:100vw;
-		text-align: center;
-		overflow: hidden;
-		@include position(absolute, 0 0 0 0);
-		@include transform(translateY(100%));
-		@include transition(transform 1s $ease-in-out-quart);
+    .page {
+        @include position(fixed, 0 0 0 0);
+        @include transition(transform 1.5s $ease-in-out-quad);
+        @include transform(translateX(0%));
+        z-index: 3000;
+
+        &.is-current-page{
+            .main-page {
+                display: block!important;
+            }
+        }
+
+    	.overlay{
+    		background-size: cover;
+    		background-repeat: no-repeat;
+    		width: 100%;
+    		height: 100vh;
+    		position: absolute;
+    		z-index: 0;
+            @include transition(opacity 1s ease-in-out);
+
+    		&:before{
+    			position: absolute;
+    			content:" ";
+    			top:0;
+    			left:0;
+    			width:100%;
+    			height:100%;
+    			display: block;
+    			z-index:0;
+    			background-color: $transBlack;
+    		}   
+    	}
+
+        .video{
+            @include position(fixed, 50% 0 0 50%);
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            z-index: -1000;
+            opacity:0;
+            display: inherit;
+            @include transform(translateX(-50%) translateY(-50%));
+            background-size: cover;
+            @include transition(opacity 1s ease-in-out);
+            
+            @include media($v-iphone-6-plus){
+              
+            }
+
+        }
+
+        .html5-main-video{
+            min-width: 100%;
+            min-height: 100%;
+            width: auto!important;
+            height: auto!important;
+            @include position(fixed, 50% 0 0 50%);
+            @include transform(translateX(-50%) translateY(-50%));
+
+        }
+
+    	.main-page {
+    		display: none;
+    		vertical-align: middle;
+    		width: 50%;
+    		position: absolute;
+    		top: 30%;
+    		left: 50%;
+    		@include transform(translateX(-50%));
+
+            @include media($mobile){
+                width: 100%;
+            }
+    	}
+
+    	.video-play{
+            cursor:pointer; 
+            width: 100%;
+
+            img {
+        		width: 7.3vw;
+                min-width: 60px;
+        		max-width: 150px;
+        		height: auto;
+        		display: block;
+        		left: 45%;
+        		padding-bottom: 20px;
+        		text-align: center;
+        		margin: 0 auto;
+        	}
+        }
+
+    	.middle-info {
+    		text-align: center;
+    		margin: 0 auto;
+
+    		h1 {
+    			color: white;
+    			position: relative;
+    			text-align: center;
+    			display: inline-block;
+    			vertical-align: middle;
+                font: $rg-sq-heading-p;
+
+                @include media($xl-desktop){
+                    font: $lg-sq-heading-p; 
+                }
+                @include media($most-common-screen){
+                    font: $rg-sq-heading-p;
+                }
+                @include media($macbook-pro-13){
+                    font: $md-sq-heading-p;
+                }
+                @include media($sm-desktop){
+                    font: $md-sq-heading-p;
+                }
+                @include media($sm-mobile){
+                    font: $sm-sq-heading-p;
+                }
+    		}
+
+    		.left-arrow {
+    			width: 2vw;
+                min-width: 20px;
+    			display: inline-block;
+    			margin-right: 4.5vw;
+    			vertical-align: middle;
+                cursor:pointer;
+    		}
+
+    		.right-arrow {
+    			width: 2vw;
+                min-width: 20px;
+    			display: inline-block;
+    			margin-left: 4.5vw;
+    			vertical-align: middle;
+                cursor:pointer;
+    		}
+
+    		p {
+    			color: white;
+    			text-align: center;
+    			width: 26vw;
+    			margin: 0 auto;
+    			margin-top: 18px;
+    			margin-bottom: 30px;
+                font: $rg-heading-p;
+
+                @include media($xl-desktop){
+                    font: $lg-heading-p; 
+                }
+                @include media($most-common-screen){
+                    font: $rg-heading-p;
+                }
+                @include media($macbook-pro-13){
+                    font: $md-heading-p;
+                }
+                @include media($sm-desktop){
+                    font: $md-heading-p;
+                }
+                @include media($lg-mobile){
+                    width: 40vw;
+                }
+                @include media($sm-mobile){
+                    font: $sm-heading-p;
+                    width: 65vw;
+                }
+    		}
+
+    		.underline {
+    			margin-top: 20px;
+    		}
+
+    		
+
+    		a.transcript-button {
+                display: block;
+                text-decoration: none;
+    			width: 16vw;
+    			padding: 15px 20px;
+    			margin: 0 auto;
+
+
+                @include media($lg-mobile){
+                    width: 25vw;
+                }
+                @include media($sm-mobile){
+                    width: 45vw;
+                }
+
+    			p {
+    				display: inline;
+    				padding-right: 5px;
+    				// text-align: center;
+                    vertical-align: middle;
+    			}
+
+                .transcript-arrow {
+                    width: 10px;
+                    display: inline-block;
+                    vertical-align: middle;
+                    border:0!important;
+                    outline:none!important;
+                }
+    		}
+
+    	}
+    }
+
+    .main-page-dots {
+        @include position(absolute, null null 5% 50%);
+        @include transform(translateX(-50%));
+        z-index: -4000;
+        @include media($xl-desktop){
+            bottom: 15vh;
+        }
+
+    }
+
+    .dot{
+        background-color:rgba(255,255,255,0.2);
+        display:inline-block;
+        width: 20px;
+        height: 20px;
+        text-align:center;
+        border-radius:50%; 
+        text-align: center!important;
+        margin: 0 10px 0 0;
+        cursor: pointer;
+        @include transition(all .35s ease-in-out);
+
+        @include media($most-common-screen){
+            width: 15px;
+            height:15px;
+        }
+        @include media($macbook-pro-13){
+            width: 15px;
+            height:15px;
+        }
+        @include media($sm-desktop){
+            width: 10px;
+            height:10px;
+        }
+        @include media($lg-mobile){
+            width: 10px;
+            height:10px;
+        }
+
+        &.selected, &:hover{
+            background:#ffffff!important;
+        }
+    }
+
+
+    .border span{
+        border: 1px solid #ffffff!important;
+        border-radius: 50%;
+    }
+
+
+
+    .center{
+        text-align:center!important;
+    }
+
+    .transparent {
+        background-color: #b0afb0;
+    }
+
+
+    .large {
+        font-size: 18px!important;
+    }
+
+    .selected {
+        background-color: white;
+    }
+
+}
+.addtlpage, .section-2{
+	posiiton: relative;
+	background: white;
+.main-resources, .share-your-story{
+		padding-top: 7vh;
+		padding-left: 23vw;
+		padding-right:0;
+		background: white;
+
+		@include media($most-common-screen){
+	        padding-left: 23vw; 
+	    }
+		@include media($macbook-pro-13){
+	        padding-left: 23vw; 
+	    }
+		@include media($sm-desktop){
+	        padding-left: 23vw; 
+	    }
+
+	    @include media($mobile){
+	        padding-left: 36.333vw;
+	    }
+	    @include media($sm-mobile){
+	    	padding-left: 5vw;
+	    	padding-right: 5vw;
+	    	
+	    }
+
+		h2 {
+	        font: $md-subheading;
+	        text-align: left;
+
+	        @include media($sm-desktop){
+                font: $sm-subheading;
+            }
+            @include media($mobile){
+	        	font: $xs-subheading;
+	        }
+
+	        &:nth-of-type(2){
+				font-family: $foco!important;
+                font-weight: 400!important;
+				vertical-align: middle;
+				margin-top:65px;
+                margin-bottom: 50px;
+
+                @include media($sm-desktop){
+                    margin-top:45px;
+                }
+
+				img.colored-down-arrow{
+					width:15px;
+					margin-left: 20px;
+					vertical-align: middle;
+					@include transform(rotate(90deg));
+				}
+	        }
+	    }
+	    p {
+            font: $sm-sq-heading-p;
+            font-family: $focolight!important;
+            font-weight: 300!important;
+            color: $gray; 
+            padding-top: 10px;
+
+            @include media($sm-desktop){
+                font: $md-heading-p;
+            }
+            @include media($mobile){
+            	font: $md-heading-p;
+            }
+        }
 	}
 
-	section.sec-01{
-		h1.page-title{
-			font-family: 'Bella Heavy';
-			font-size: 200px;
-			color: white;
-			margin-top: 46.5vh;
-
-			@include media($xl-desktop){
-				font-size: 22.5rem;
-				margin-top: 47vh;
-			}
-			@include media($lg-desktop){
-				font-size: 16.5rem;
-				margin-top: 47vh;
-			}
-			@include media($xlsm-height){
-				font-size: 16.5rem;
-				margin-top: 47vh;
-			}
-			@include media($md-desktop){
-				font-size: 16.5rem;
-				margin-top: 47vh;
-			}
-			@include media($md-mobile){
-				font-size: 7.5rem;
-				margin-top: 47vh;
-			}
-		}
-	}
-
-	.section-title{
-		padding-bottom: 30px;
-	}
-
-	&#D-page{
-		section.sec-03{
-			background: #000000;
-		}
-	}
 }
 
-
+.video-page-is-active{
+    opacity:1;
+    display: block;
+    .main-page-dots{
+         z-index: 4000;
+    }
+}

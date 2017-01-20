@@ -1,41 +1,57 @@
 <?php
 
-add_action( 'wp_enqueue_scripts', 'register_jquery' );
-function register_jquery() {
-    wp_deregister_script( 'jquery' );
-    wp_register_script( 'jquery', ( 'http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js' ), false, null, true );
-    wp_enqueue_script( 'jquery' );
+//Making jQuery Google API
+function modify_jquery() {
+  if (!is_admin()) {
+    // comment out the next two lines to load the local copy of jQuery
+    wp_deregister_script('jquery');
+    wp_register_script('jquery', 'https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js', false, '3.1.1');
+    wp_enqueue_script('jquery');
+  }
+}
+add_action('init', 'modify_jquery');
+
+function IOTAM_script_enqueue() {
+  wp_enqueue_style( 'customstyle', get_template_directory_uri() . '/app/css/app.css' , array(), '1.0.0', 'all' );
+  wp_enqueue_script( 'customjs', get_template_directory_uri() . '/app/js/lib/function.js' , array(), null, true );
 }
 
-function MOD_script_enqueue() {
-  wp_enqueue_style( 'fonts', '//fast.fonts.net/cssapi/f5903750-8000-42f7-a667-c62502d80e78.css' , array(), '1.0.0', 'all' );
-	wp_enqueue_style( 'customstyle', get_template_directory_uri() . '/assets/css/style.css' , array(), '1.0.0', 'all' );
-  wp_enqueue_script( 'customjs', get_template_directory_uri() . '/assets/js/script.js' , array(), '1.0.0', true );
-}
-
-add_action( 'wp_enqueue_scripts' , 'MOD_script_enqueue');
+add_action( 'wp_enqueue_scripts' , 'IOTAM_script_enqueue');
 
 // Let's hook in our function with the javascript files with the wp_enqueue_scripts hook 
 
 // Register some javascript files, because we love javascript files. Enqueue a couple as well 
-function MOD_load_javascript_files() {
-  wp_register_script( 'global_script', get_template_directory_uri() . '/assets/js/_script.js', array('jquery'), '1.0.0', true );
-  wp_register_script( 'gsap', get_template_directory_uri() . 'https://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.0/TweenMax.min.js', array('jquery'), '1.0.0', true );
+function IOTAM_load_javascript_files() {
+  // wp_register_script( 'submit', get_template_directory_uri() . '/app/js/lib/submit.js', array(), '1.0.0', true );
+  wp_register_script( 'gsap',('https://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.0/TweenMax.min.js'), array('jquery'), '1.0.0', true );
+  wp_register_script( 'mousewheel', ('https://cdnjs.cloudflare.com/ajax/libs/jquery-mousewheel/3.1.13/jquery.mousewheel.min.js'), array('jquery'), '1.0.0', true );
+  // wp_enqueue_script( 'submit' );
+  wp_enqueue_script( 'gsap' );
+  wp_enqueue_script( 'mousewheel' );
+
 
 }
-add_action( 'wp_enqueue_scripts', 'MOD_load_javascript_files' );
+add_action( 'wp_enqueue_scripts', 'IOTAM_load_javascript_files' );
 
-function MOD_theme_setup(){
+function IOTAM_theme_setup(){
 
-	add_theme_support('menus');
+  // add_theme_support('menus');
 
-  register_nav_menus(array(
-    'primary' => __('MOD Jobs Nav', 'MOD'),
-    ));
+  // register_nav_menus(array(
+  //   'primary' => __('Fixed Nav', 'jgp'),
+  //   'secondary' => __('Subpage Nav', 'jgp'),
+  //   'store-menu' => __('Here2CoolStuff Menu', 'jgp'),
+  //   'productions-menu' => __('John Graves Productions Menu', 'jgp'),
+  //   'studio-menu' => __('JGP Studio Menu', 'jgp')
+  //   ));
  
 }
 
-add_action( 'init', 'MOD_theme_setup' );
+add_action( 'init', 'IOTAM_theme_setup' );
+
+add_filter( 'body_class', function( $classes ) {
+    return array_merge( $classes, array( 'initial-hide' ) );
+} );
 
 /**
  * Remove Original Wysiwyg Editor from Backend pages
@@ -98,1414 +114,169 @@ function custom_upload_mimes ( $existing_mimes=array() ) {
 
 }
 
+/*SHORTCODE FOR GETTING THE FORM on FRONTEND*/
+function post_form_shortcode($atts, $content = null) {
+
+ob_start();
+
+echo '<form method="post" action="" class="share-form">
+<div class="left">
+    <input type="text" name="firstName" class="name-field field" placeholder="First name:" role="textbox">
+    <input type="text" name="city" class="city-field field field" placeholder="City:" role="textbox">
+    <input type="text" name="state" class="state-field field" placeholder="State:" role="textbox">
+    <input type="hidden" name="category" value="" class="category" role="textbox">
+    <select name="topic" class="topic hidden-field hide">
+        <option value=""></option>
+    </select>
+    <ul class="select-dropdown">
+        <li class="select-option is-selected" role="button" tabindex="0"><span>Topic</span></li>
+        <li class="select-option" cat="2" role="button" tabindex="0"><span>Happiness</span></li>
+        <li class="select-option" cat="3" role="button" tabindex="0"><span>Connection</span></li>
+        <li class="select-option" cat="4" role="button" tabindex="0"><span>Peace of Mind</span></li>
+        <li class="select-option" cat="5" role="button" tabindex="0"><span>Confidence</span></li>
+        <li class="select-option" cat="6" role="button" tabindex="0"><span>Freedom</span></li>
+    </ul>
+</div>
+<div class="right">
+    <textarea name="story" class="story" placeholder="Story:"></textarea>
+    <div class="checkbox-field">
+        <input type="checkbox" name="termsandconditions" value="none" id="checkbox1" role="button" tabindex="0">
+        <label for="checkbox1" class="checkbox-label">I accept the <a href="#">terms and conditions</a>.</label>
+    </div>
+</div>
+<div class="submit">
+    <input type="submit" id="happiness-submit" class="submit-btn" value="Share" name="add_post" role="button" tabindex="0">
+    <p class="disclaimer">*Your story will be shared on this public site for others to read</p>
+</div>
+</form>';
+
+
+// Reset query to prevent conflicts
+return ob_get_clean();
+}
+add_shortcode("post-form", "post_form_shortcode");
+
+
+if($_POST['add_post']){
+  $new_post = wp_insert_post(array(
+    'post_type' => 'post',
+    'post_title' => $_POST['topic'],
+    'post_content' => $_POST['story'],
+    'post_author' => 'user',
+    'post_status' => 'draft',
+    'post_category' => array($_POST['category']),
+  ));
+  $id = $new_post;
+  update_post_meta($id,'first_name', $_POST['firstName']);
+  update_post_meta($id,'city', $_POST['city']);
+  update_post_meta($id,'state', $_POST['state']);
+}
+
 /**
  * Advanced Custom Fields
  * [add field groups to the site]
  */
 
-if( function_exists('acf_add_local_field_group') ):
 
-acf_add_local_field_group(array (
-  'key' => 'group_58122ae555c23',
-  'title' => 'Job Descriptions',
-  'fields' => array (
-    array (
-      'key' => 'field_58121905e4b68',
-      'label' => 'Client Services Job Description',
-      'name' => 'client_services_job_description',
-      'type' => 'repeater',
-      'instructions' => 'To add a new client services job to the job listings click the button to the right.',
-      'required' => 0,
-      'conditional_logic' => 0,
-      'wrapper' => array (
-        'width' => '',
-        'class' => 'single-job-description',
-        'id' => '',
-      ),
-      'collapsed' => '',
-      'min' => '',
-      'max' => '',
-      'layout' => 'row',
-      'button_label' => 'Add A Client Services Job',
-      'sub_fields' => array (
-        array (
-          'key' => 'field_58121990e4b69',
-          'label' => 'Job Title',
-          'name' => 'job_title',
-          'type' => 'text',
-          'instructions' => 'Enter the job title here',
-          'required' => 1,
-          'conditional_logic' => 0,
-          'wrapper' => array (
-            'width' => '',
-            'class' => '',
-            'id' => '',
-          ),
-          'default_value' => '',
-          'placeholder' => 'Film Editor',
-          'prepend' => '',
-          'append' => '',
-          'maxlength' => '',
-        ),
-        array (
-          'key' => 'field_581219c3e4b6a',
-          'label' => 'Title Caption',
-          'name' => 'title_caption',
-          'type' => 'text',
-          'instructions' => 'Enter the title caption here. Use the placeholder text for inspiration.',
-          'required' => 0,
-          'conditional_logic' => 0,
-          'wrapper' => array (
-            'width' => '',
-            'class' => 'title-caption',
-            'id' => '',
-          ),
-          'default_value' => '',
-          'placeholder' => 'The world is your .mov',
-          'prepend' => '',
-          'append' => '',
-          'maxlength' => '',
-        ),
-        array (
-          'key' => 'field_58121cde830b1',
-          'label' => 'Description',
-          'name' => 'description',
-          'type' => 'wysiwyg',
-          'instructions' => 'Enter the job description here.  **AVOID FORMATTING TOOLS ABOVE**',
-          'required' => 1,
-          'conditional_logic' => 0,
-          'wrapper' => array (
-            'width' => '',
-            'class' => 'description',
-            'id' => '',
-          ),
-          'default_value' => '',
-          'tabs' => 'visual',
-          'toolbar' => 'very_simple',
-          'media_upload' => 0,
-        ),
-        array (
-          'key' => 'field_58121d5d830b2',
-          'label' => 'Responsibilities List',
-          'name' => 'responsibilities_list',
-          'type' => 'repeater',
-          'instructions' => 'Enter a responsibility here. Use the \'Add A Responsibility\' button to add more than one.',
-          'required' => 1,
-          'conditional_logic' => 0,
-          'wrapper' => array (
-            'width' => '',
-            'class' => 'responsibilities-list',
-            'id' => '',
-          ),
-          'collapsed' => '',
-          'min' => '',
-          'max' => '',
-          'layout' => 'row',
-          'button_label' => 'Add A Responsibility',
-          'sub_fields' => array (
-            array (
-              'key' => 'field_58121dc8830b3',
-              'label' => 'Responsibilty',
-              'name' => 'responsibilty',
-              'type' => 'text',
-              'instructions' => 'Enter one responsibility here.',
-              'required' => 0,
-              'conditional_logic' => 0,
-              'wrapper' => array (
-                'width' => '',
-                'class' => 'responsibilty',
-                'id' => '',
-              ),
-              'default_value' => '',
-              'placeholder' => 'Working with an immense range of clients in all sizes.',
-              'prepend' => '',
-              'append' => '',
-              'maxlength' => '',
-            ),
-          ),
-        ),
-        array (
-          'key' => 'field_58123452ad0c2',
-          'label' => 'Musts List',
-          'name' => 'musts_list',
-          'type' => 'repeater',
-          'instructions' => 'Enter a responsibility here. Use the \'Add A Must\' button to add more than one.',
-          'required' => 1,
-          'conditional_logic' => 0,
-          'wrapper' => array (
-            'width' => '',
-            'class' => 'musts-list',
-            'id' => '',
-          ),
-          'collapsed' => '',
-          'min' => '',
-          'max' => '',
-          'layout' => 'row',
-          'button_label' => 'Add A Must',
-          'sub_fields' => array (
-            array (
-              'key' => 'field_58123452ad0c3',
-              'label' => 'Must',
-              'name' => 'must',
-              'type' => 'text',
-              'instructions' => 'Enter one must here.',
-              'required' => 1,
-              'conditional_logic' => '',
-              'wrapper' => array (
-                'width' => '',
-                'class' => 'must',
-                'id' => '',
-              ),
-              'default_value' => '',
-              'placeholder' => '4+ years in business development',
-              'prepend' => '',
-              'append' => '',
-              'maxlength' => '',
-            ),
-          ),
-        ),
-        array (
-          'key' => 'field_58123c631bbd1',
-          'label' => 'Mights List',
-          'name' => 'mights_list',
-          'type' => 'repeater',
-          'instructions' => 'Enter a responsibility here. Use the \'Add A Might\' button to add more than one.',
-          'required' => 0,
-          'conditional_logic' => 0,
-          'wrapper' => array (
-            'width' => '',
-            'class' => 'musts-list',
-            'id' => '',
-          ),
-          'collapsed' => '',
-          'min' => '',
-          'max' => '',
-          'layout' => 'row',
-          'button_label' => 'Add A Might',
-          'sub_fields' => array (
-            array (
-              'key' => 'field_58123c631bbd2',
-              'label' => 'Might',
-              'name' => 'might',
-              'type' => 'text',
-              'instructions' => 'Enter one might here.',
-              'required' => 0,
-              'conditional_logic' => 0,
-              'wrapper' => array (
-                'width' => '',
-                'class' => 'might',
-                'id' => '',
-              ),
-              'default_value' => '',
-              'placeholder' => 'Agency experience.',
-              'prepend' => '',
-              'append' => '',
-              'maxlength' => '',
-            ),
-          ),
-        ),
-      ),
-    ),
-    array (
-      'key' => 'field_5813b999336a4',
-      'label' => 'Creative Job Description',
-      'name' => 'creative_job_description',
-      'type' => 'repeater',
-      'instructions' => 'To add a new creative job to the job listings click the button to the right.',
-      'required' => 0,
-      'conditional_logic' => 0,
-      'wrapper' => array (
-        'width' => '',
-        'class' => 'single-job-description',
-        'id' => '',
-      ),
-      'collapsed' => '',
-      'min' => '',
-      'max' => '',
-      'layout' => 'row',
-      'button_label' => 'Add A Creative Job',
-      'sub_fields' => array (
-        array (
-          'key' => 'field_5813b999336a5',
-          'label' => 'Job Title',
-          'name' => 'job_title',
-          'type' => 'text',
-          'instructions' => 'Enter the job title here',
-          'required' => 1,
-          'conditional_logic' => 0,
-          'wrapper' => array (
-            'width' => '',
-            'class' => '',
-            'id' => '',
-          ),
-          'default_value' => '',
-          'placeholder' => 'Film Editor',
-          'prepend' => '',
-          'append' => '',
-          'maxlength' => '',
-        ),
-        array (
-          'key' => 'field_5813b999336a6',
-          'label' => 'Title Caption',
-          'name' => 'title_caption',
-          'type' => 'text',
-          'instructions' => 'Enter the title caption here. Use the placeholder text for inspiration.',
-          'required' => 0,
-          'conditional_logic' => 0,
-          'wrapper' => array (
-            'width' => '',
-            'class' => 'title-caption',
-            'id' => '',
-          ),
-          'default_value' => '',
-          'placeholder' => 'The world is your .mov',
-          'prepend' => '',
-          'append' => '',
-          'maxlength' => '',
-        ),
-        array (
-          'key' => 'field_5813b999336a7',
-          'label' => 'Description',
-          'name' => 'description',
-          'type' => 'wysiwyg',
-          'instructions' => 'Enter the job description here.  **AVOID FORMATTING TOOLS ABOVE**',
-          'required' => 1,
-          'conditional_logic' => 0,
-          'wrapper' => array (
-            'width' => '',
-            'class' => 'description',
-            'id' => '',
-          ),
-          'default_value' => '',
-          'tabs' => 'visual',
-          'toolbar' => 'very_simple',
-          'media_upload' => 0,
-        ),
-        array (
-          'key' => 'field_5813b999336a8',
-          'label' => 'Responsibilities List',
-          'name' => 'responsibilities_list',
-          'type' => 'repeater',
-          'instructions' => 'Enter a responsibility here. Use the \'Add A Responsibility\' button to add more than one.',
-          'required' => 1,
-          'conditional_logic' => 0,
-          'wrapper' => array (
-            'width' => '',
-            'class' => 'responsibilities-list',
-            'id' => '',
-          ),
-          'collapsed' => '',
-          'min' => '',
-          'max' => '',
-          'layout' => 'row',
-          'button_label' => 'Add A Responsibility',
-          'sub_fields' => array (
-            array (
-              'key' => 'field_5813b999336a9',
-              'label' => 'Responsibilty',
-              'name' => 'responsibilty',
-              'type' => 'text',
-              'instructions' => 'Enter one responsibility here.',
-              'required' => 0,
-              'conditional_logic' => 0,
-              'wrapper' => array (
-                'width' => '',
-                'class' => 'responsibilty',
-                'id' => '',
-              ),
-              'default_value' => '',
-              'placeholder' => 'Working with an immense range of clients in all sizes.',
-              'prepend' => '',
-              'append' => '',
-              'maxlength' => '',
-            ),
-          ),
-        ),
-        array (
-          'key' => 'field_5813b999336aa',
-          'label' => 'Musts List',
-          'name' => 'musts_list',
-          'type' => 'repeater',
-          'instructions' => 'Enter a responsibility here. Use the \'Add A Must\' button to add more than one.',
-          'required' => 1,
-          'conditional_logic' => 0,
-          'wrapper' => array (
-            'width' => '',
-            'class' => 'musts-list',
-            'id' => '',
-          ),
-          'collapsed' => '',
-          'min' => '',
-          'max' => '',
-          'layout' => 'row',
-          'button_label' => 'Add A Must',
-          'sub_fields' => array (
-            array (
-              'key' => 'field_5813b999336ab',
-              'label' => 'Must',
-              'name' => 'must',
-              'type' => 'text',
-              'instructions' => 'Enter one must here.',
-              'required' => 1,
-              'conditional_logic' => 0,
-              'wrapper' => array (
-                'width' => '',
-                'class' => 'must',
-                'id' => '',
-              ),
-              'default_value' => '',
-              'placeholder' => '4+ years in business development',
-              'prepend' => '',
-              'append' => '',
-              'maxlength' => '',
-            ),
-          ),
-        ),
-        array (
-          'key' => 'field_5813b999336ac',
-          'label' => 'Mights List',
-          'name' => 'mights_list',
-          'type' => 'repeater',
-          'instructions' => 'Enter a responsibility here. Use the \'Add A Might\' button to add more than one.',
-          'required' => 0,
-          'conditional_logic' => 0,
-          'wrapper' => array (
-            'width' => '',
-            'class' => 'musts-list',
-            'id' => '',
-          ),
-          'collapsed' => '',
-          'min' => '',
-          'max' => '',
-          'layout' => 'row',
-          'button_label' => 'Add A Might',
-          'sub_fields' => array (
-            array (
-              'key' => 'field_5813b999336ad',
-              'label' => 'Might',
-              'name' => 'might',
-              'type' => 'text',
-              'instructions' => 'Enter one might here.',
-              'required' => 0,
-              'conditional_logic' => 0,
-              'wrapper' => array (
-                'width' => '',
-                'class' => 'might',
-                'id' => '',
-              ),
-              'default_value' => '',
-              'placeholder' => 'Agency experience.',
-              'prepend' => '',
-              'append' => '',
-              'maxlength' => '',
-            ),
-          ),
-        ),
-      ),
-    ),
-    array (
-      'key' => 'field_5812292a81008',
-      'label' => 'Film Job Description',
-      'name' => 'film_job_description',
-      'type' => 'repeater',
-      'instructions' => 'To add a new film job to the job listings click the button to the right.',
-      'required' => 0,
-      'conditional_logic' => 0,
-      'wrapper' => array (
-        'width' => '',
-        'class' => 'single-job-description',
-        'id' => '',
-      ),
-      'collapsed' => '',
-      'min' => '',
-      'max' => '',
-      'layout' => 'row',
-      'button_label' => 'Add A Film Job',
-      'sub_fields' => array (
-        array (
-          'key' => 'field_5812292b8100a',
-          'label' => 'Job Title',
-          'name' => 'job_title',
-          'type' => 'text',
-          'instructions' => 'Enter the job title here',
-          'required' => 1,
-          'conditional_logic' => 0,
-          'wrapper' => array (
-            'width' => '',
-            'class' => 'job-title',
-            'id' => '',
-          ),
-          'default_value' => '',
-          'placeholder' => 'GRAPHIC DESIGNER',
-          'prepend' => '',
-          'append' => '',
-          'maxlength' => '',
-        ),
-        array (
-          'key' => 'field_5812292b8100c',
-          'label' => 'Title Caption',
-          'name' => 'title_caption',
-          'type' => 'text',
-          'instructions' => 'Enter the title caption here. Use the placeholder text for inspiration',
-          'required' => 0,
-          'conditional_logic' => 0,
-          'wrapper' => array (
-            'width' => '',
-            'class' => 'title-caption',
-            'id' => '',
-          ),
-          'default_value' => '',
-          'placeholder' => 'No boring people allowed.',
-          'prepend' => '',
-          'append' => '',
-          'maxlength' => '',
-        ),
-        array (
-          'key' => 'field_5812292b8100e',
-          'label' => 'Description',
-          'name' => 'description',
-          'type' => 'wysiwyg',
-          'instructions' => 'Enter the job description here.  **AVOID FORMATTING TOOLS ABOVE**',
-          'required' => 1,
-          'conditional_logic' => 0,
-          'wrapper' => array (
-            'width' => '',
-            'class' => 'description',
-            'id' => '',
-          ),
-          'default_value' => '',
-          'tabs' => 'visual',
-          'toolbar' => 'full',
-          'media_upload' => 1,
-        ),
-        array (
-          'key' => 'field_5812292b8100f',
-          'label' => 'Responsibilities List',
-          'name' => 'responsibilities_list',
-          'type' => 'repeater',
-          'instructions' => 'Enter a responsibility here. Use the \'Add A Responsibility\' button to add more than one.',
-          'required' => 1,
-          'conditional_logic' => 0,
-          'wrapper' => array (
-            'width' => '',
-            'class' => 'responsibilities-list',
-            'id' => '',
-          ),
-          'collapsed' => '',
-          'min' => '',
-          'max' => '',
-          'layout' => 'table',
-          'button_label' => 'Add A Responsibility',
-          'sub_fields' => array (
-            array (
-              'key' => 'field_5812292b81010',
-              'label' => 'Responsibilty',
-              'name' => 'responsibilty',
-              'type' => 'text',
-              'instructions' => 'Enter one responsibility here.',
-              'required' => '',
-              'conditional_logic' => '',
-              'wrapper' => array (
-                'width' => '',
-                'class' => 'responsibilty',
-                'id' => '',
-              ),
-              'default_value' => '',
-              'placeholder' => 'Working with an immense range of clients in all sizes.',
-              'prepend' => '',
-              'append' => '',
-              'maxlength' => '',
-            ),
-          ),
-        ),
-        array (
-          'key' => 'field_58123d361bbd5',
-          'label' => 'Musts List',
-          'name' => 'musts_list',
-          'type' => 'repeater',
-          'instructions' => 'Enter a responsibility here. Use the \'Add A Must\' button to add more than one.',
-          'required' => 1,
-          'conditional_logic' => 0,
-          'wrapper' => array (
-            'width' => '',
-            'class' => 'responsibilities-list',
-            'id' => '',
-          ),
-          'collapsed' => '',
-          'min' => '',
-          'max' => '',
-          'layout' => 'row',
-          'button_label' => 'Add A Must',
-          'sub_fields' => array (
-            array (
-              'key' => 'field_58123d361bbd6',
-              'label' => 'Must',
-              'name' => 'must',
-              'type' => 'text',
-              'instructions' => 'Enter one must here.',
-              'required' => 1,
-              'conditional_logic' => '',
-              'wrapper' => array (
-                'width' => '',
-                'class' => 'must',
-                'id' => '',
-              ),
-              'default_value' => '',
-              'placeholder' => '1–3 years experience',
-              'prepend' => '',
-              'append' => '',
-              'maxlength' => '',
-            ),
-          ),
-        ),
-        array (
-          'key' => 'field_58123db21bbd7',
-          'label' => 'Mights List',
-          'name' => 'mights_list',
-          'type' => 'repeater',
-          'instructions' => 'Enter a responsibility here. Use the \'Add A Might\' button to add more than one.',
-          'required' => 0,
-          'conditional_logic' => 0,
-          'wrapper' => array (
-            'width' => '',
-            'class' => 'responsibilities-list',
-            'id' => '',
-          ),
-          'collapsed' => '',
-          'min' => '',
-          'max' => '',
-          'layout' => 'row',
-          'button_label' => 'Add A Might',
-          'sub_fields' => array (
-            array (
-              'key' => 'field_58123db21bbd8',
-              'label' => 'Might',
-              'name' => 'might',
-              'type' => 'text',
-              'instructions' => 'Enter one might here.',
-              'required' => 0,
-              'conditional_logic' => 0,
-              'wrapper' => array (
-                'width' => '',
-                'class' => 'might',
-                'id' => '',
-              ),
-              'default_value' => '',
-              'placeholder' => 'Agency experience.',
-              'prepend' => '',
-              'append' => '',
-              'maxlength' => '',
-            ),
-          ),
-        ),
-      ),
-    ),
-    array (
-      'key' => 'field_5812299e81012',
-      'label' => 'Strategy Job Description',
-      'name' => 'strategy_job_description',
-      'type' => 'repeater',
-      'instructions' => 'To add a new strategy job to the job listings click the button to the right.',
-      'required' => 0,
-      'conditional_logic' => 0,
-      'wrapper' => array (
-        'width' => '',
-        'class' => 'single-job-description',
-        'id' => '',
-      ),
-      'collapsed' => '',
-      'min' => '',
-      'max' => '',
-      'layout' => 'row',
-      'button_label' => 'Add A Strategy Job',
-      'sub_fields' => array (
-        array (
-          'key' => 'field_5812299e81014',
-          'label' => 'Job Title',
-          'name' => 'job_title',
-          'type' => 'text',
-          'instructions' => 'Enter the job title here',
-          'required' => 1,
-          'conditional_logic' => 0,
-          'wrapper' => array (
-            'width' => '',
-            'class' => 'job-title',
-            'id' => '',
-          ),
-          'default_value' => '',
-          'placeholder' => 'GRAPHIC DESIGNER',
-          'prepend' => '',
-          'append' => '',
-          'maxlength' => '',
-        ),
-        array (
-          'key' => 'field_5812299e81016',
-          'label' => 'Title Caption',
-          'name' => 'title_caption',
-          'type' => 'text',
-          'instructions' => 'Enter the title caption here. Use the placeholder text for inspiration',
-          'required' => 1,
-          'conditional_logic' => 0,
-          'wrapper' => array (
-            'width' => '',
-            'class' => 'title-caption',
-            'id' => '',
-          ),
-          'default_value' => '',
-          'placeholder' => 'No boring people allowed.',
-          'prepend' => '',
-          'append' => '',
-          'maxlength' => '',
-        ),
-        array (
-          'key' => 'field_5812299e81018',
-          'label' => 'Description',
-          'name' => 'description',
-          'type' => 'wysiwyg',
-          'instructions' => 'Enter the job description here.  **AVOID FORMATTING TOOLS ABOVE**',
-          'required' => 1,
-          'conditional_logic' => 0,
-          'wrapper' => array (
-            'width' => '',
-            'class' => 'description',
-            'id' => '',
-          ),
-          'default_value' => '',
-          'tabs' => 'visual',
-          'toolbar' => 'full',
-          'media_upload' => 1,
-        ),
-        array (
-          'key' => 'field_5812299e81019',
-          'label' => 'Responsibilities List',
-          'name' => 'responsibilities_list',
-          'type' => 'repeater',
-          'instructions' => 'Enter a responsibility here. Use the \'Add A Responsibility\' button to add more than one.',
-          'required' => 1,
-          'conditional_logic' => 0,
-          'wrapper' => array (
-            'width' => '',
-            'class' => 'responsibilities-list',
-            'id' => '',
-          ),
-          'collapsed' => '',
-          'min' => '',
-          'max' => '',
-          'layout' => 'table',
-          'button_label' => 'Add A Responsibility',
-          'sub_fields' => array (
-            array (
-              'key' => 'field_5812299e8101a',
-              'label' => 'Responsibilty',
-              'name' => 'responsibilty',
-              'type' => 'text',
-              'instructions' => 'Enter one responsibility here.',
-              'required' => '',
-              'conditional_logic' => '',
-              'wrapper' => array (
-                'width' => '',
-                'class' => 'responsibilty',
-                'id' => '',
-              ),
-              'default_value' => '',
-              'placeholder' => 'Working with an immense range of clients in all sizes.',
-              'prepend' => '',
-              'append' => '',
-              'maxlength' => '',
-            ),
-          ),
-        ),
-        array (
-          'key' => 'field_58123e1e1bbd9',
-          'label' => 'Musts List',
-          'name' => 'musts_list',
-          'type' => 'repeater',
-          'instructions' => 'Enter a responsibility here. Use the \'Add A Must\' button to add more than one.',
-          'required' => 1,
-          'conditional_logic' => 0,
-          'wrapper' => array (
-            'width' => '',
-            'class' => 'musts-list',
-            'id' => '',
-          ),
-          'collapsed' => '',
-          'min' => '',
-          'max' => '',
-          'layout' => 'row',
-          'button_label' => 'Add A Must',
-          'sub_fields' => array (
-            array (
-              'key' => 'field_58123e1e1bbda',
-              'label' => 'Must',
-              'name' => 'must',
-              'type' => 'text',
-              'instructions' => 'Enter one must here.',
-              'required' => '',
-              'conditional_logic' => '',
-              'wrapper' => array (
-                'width' => '',
-                'class' => 'must',
-                'id' => '',
-              ),
-              'default_value' => '',
-              'placeholder' => '1–3 years experience.',
-              'prepend' => '',
-              'append' => '',
-              'maxlength' => '',
-            ),
-          ),
-        ),
-        array (
-          'key' => 'field_58123f391bbdb',
-          'label' => 'Mights List',
-          'name' => 'mights_list',
-          'type' => 'repeater',
-          'instructions' => 'Enter a responsibility here. Use the \'Add A Might\' button to add more than one.',
-          'required' => 0,
-          'conditional_logic' => 0,
-          'wrapper' => array (
-            'width' => '',
-            'class' => 'mights-list',
-            'id' => '',
-          ),
-          'collapsed' => '',
-          'min' => '',
-          'max' => '',
-          'layout' => 'row',
-          'button_label' => 'Add A Might',
-          'sub_fields' => array (
-            array (
-              'key' => 'field_58123f391bbdc',
-              'label' => 'Might',
-              'name' => 'might',
-              'type' => 'text',
-              'instructions' => 'Enter one might here.',
-              'required' => 0,
-              'conditional_logic' => 0,
-              'wrapper' => array (
-                'width' => '',
-                'class' => 'might',
-                'id' => '',
-              ),
-              'default_value' => '',
-              'placeholder' => 'Agency experience.',
-              'prepend' => '',
-              'append' => '',
-              'maxlength' => '',
-            ),
-          ),
-        ),
-      ),
-    ),
-    array (
-      'key' => 'field_581229cf8101d',
-      'label' => 'Web Job Description',
-      'name' => 'web_job_description',
-      'type' => 'repeater',
-      'instructions' => 'To add a new web job to the job listings click the button to the right.',
-      'required' => 0,
-      'conditional_logic' => 0,
-      'wrapper' => array (
-        'width' => '',
-        'class' => 'single-job-description',
-        'id' => '',
-      ),
-      'collapsed' => '',
-      'min' => '',
-      'max' => '',
-      'layout' => 'row',
-      'button_label' => 'Add A Web Job',
-      'sub_fields' => array (
-        array (
-          'key' => 'field_581229cf8101f',
-          'label' => 'Job Title',
-          'name' => 'job_title',
-          'type' => 'text',
-          'instructions' => 'Enter the job title here',
-          'required' => 1,
-          'conditional_logic' => 0,
-          'wrapper' => array (
-            'width' => '',
-            'class' => 'job-title',
-            'id' => '',
-          ),
-          'default_value' => '',
-          'placeholder' => 'GRAPHIC DESIGNER',
-          'prepend' => '',
-          'append' => '',
-          'maxlength' => '',
-        ),
-        array (
-          'key' => 'field_581229cf81021',
-          'label' => 'Title Caption',
-          'name' => 'title_caption',
-          'type' => 'text',
-          'instructions' => 'Enter the title caption here. Use the placeholder text for inspiration',
-          'required' => 1,
-          'conditional_logic' => 0,
-          'wrapper' => array (
-            'width' => '',
-            'class' => 'title-caption',
-            'id' => '',
-          ),
-          'default_value' => '',
-          'placeholder' => 'No boring people allowed.',
-          'prepend' => '',
-          'append' => '',
-          'maxlength' => '',
-        ),
-        array (
-          'key' => 'field_581229cf81023',
-          'label' => 'Description',
-          'name' => 'description',
-          'type' => 'wysiwyg',
-          'instructions' => 'Enter the job description here.  **AVOID FORMATTING TOOLS ABOVE**',
-          'required' => 1,
-          'conditional_logic' => 0,
-          'wrapper' => array (
-            'width' => '',
-            'class' => 'description',
-            'id' => '',
-          ),
-          'default_value' => '',
-          'tabs' => 'visual',
-          'toolbar' => 'full',
-          'media_upload' => 1,
-        ),
-        array (
-          'key' => 'field_581229cf81024',
-          'label' => 'Responsibilities List',
-          'name' => 'responsibilities_list',
-          'type' => 'repeater',
-          'instructions' => 'Enter a responsibility here. Use the \'Add A Responsibility\' button to add more than one.',
-          'required' => 1,
-          'conditional_logic' => 0,
-          'wrapper' => array (
-            'width' => '',
-            'class' => 'responsibilities-list',
-            'id' => '',
-          ),
-          'collapsed' => '',
-          'min' => '',
-          'max' => '',
-          'layout' => 'row',
-          'button_label' => 'Add A Responsibility',
-          'sub_fields' => array (
-            array (
-              'key' => 'field_581229cf81025',
-              'label' => 'Responsibilty',
-              'name' => 'responsibilty',
-              'type' => 'text',
-              'instructions' => 'Enter one responsibility here.',
-              'required' => '',
-              'conditional_logic' => '',
-              'wrapper' => array (
-                'width' => '',
-                'class' => 'responsibilty',
-                'id' => '',
-              ),
-              'default_value' => '',
-              'placeholder' => 'Working with an immense range of clients in all sizes.',
-              'prepend' => '',
-              'append' => '',
-              'maxlength' => '',
-            ),
-          ),
-        ),
-        array (
-          'key' => 'field_58123f981bbdd',
-          'label' => 'Musts List',
-          'name' => 'musts_list',
-          'type' => 'repeater',
-          'instructions' => 'Enter a responsibility here. Use the \'Add A Must\' button to add more than one.',
-          'required' => 1,
-          'conditional_logic' => 0,
-          'wrapper' => array (
-            'width' => '',
-            'class' => 'musts-list',
-            'id' => '',
-          ),
-          'collapsed' => '',
-          'min' => '',
-          'max' => '',
-          'layout' => 'row',
-          'button_label' => 'Add A Must',
-          'sub_fields' => array (
-            array (
-              'key' => 'field_58123f981bbde',
-              'label' => 'Must',
-              'name' => 'must',
-              'type' => 'text',
-              'instructions' => 'Enter one must here.',
-              'required' => '',
-              'conditional_logic' => '',
-              'wrapper' => array (
-                'width' => '',
-                'class' => 'must',
-                'id' => '',
-              ),
-              'default_value' => '',
-              'placeholder' => '1–3 years experience.',
-              'prepend' => '',
-              'append' => '',
-              'maxlength' => '',
-            ),
-          ),
-        ),
-        array (
-          'key' => 'field_58123fe61bbdf',
-          'label' => 'Mights List',
-          'name' => 'mights_list',
-          'type' => 'repeater',
-          'instructions' => 'Enter a responsibility here. Use the \'Add A Might\' button to add more than one.',
-          'required' => 0,
-          'conditional_logic' => 0,
-          'wrapper' => array (
-            'width' => '',
-            'class' => 'musts-list',
-            'id' => '',
-          ),
-          'collapsed' => '',
-          'min' => '',
-          'max' => '',
-          'layout' => 'row',
-          'button_label' => 'Add A Might',
-          'sub_fields' => array (
-            array (
-              'key' => 'field_58123fe61bbe0',
-              'label' => 'Might',
-              'name' => 'might',
-              'type' => 'text',
-              'instructions' => 'Enter one might here.',
-              'required' => 0,
-              'conditional_logic' => 0,
-              'wrapper' => array (
-                'width' => '',
-                'class' => 'might',
-                'id' => '',
-              ),
-              'default_value' => '',
-              'placeholder' => 'Agency experience.',
-              'prepend' => '',
-              'append' => '',
-              'maxlength' => '',
-            ),
-          ),
-        ),
-      ),
-    ),
-    array (
-      'key' => 'field_58122a8981027',
-      'label' => 'Operations Job Description',
-      'name' => 'operations_job_description',
-      'type' => 'repeater',
-      'instructions' => 'To add a new operations job to the job listings click the button to the right.',
-      'required' => 0,
-      'conditional_logic' => 0,
-      'wrapper' => array (
-        'width' => '',
-        'class' => 'single-job-description',
-        'id' => '',
-      ),
-      'collapsed' => '',
-      'min' => '',
-      'max' => '',
-      'layout' => 'row',
-      'button_label' => 'Add An Operations Job',
-      'sub_fields' => array (
-        array (
-          'key' => 'field_58122a8981029',
-          'label' => 'Job Title',
-          'name' => 'job_title',
-          'type' => 'text',
-          'instructions' => 'Enter the job title here',
-          'required' => 1,
-          'conditional_logic' => 0,
-          'wrapper' => array (
-            'width' => '',
-            'class' => 'job-title',
-            'id' => '',
-          ),
-          'default_value' => '',
-          'placeholder' => 'GRAPHIC DESIGNER',
-          'prepend' => '',
-          'append' => '',
-          'maxlength' => '',
-        ),
-        array (
-          'key' => 'field_58122a898102b',
-          'label' => 'Title Caption',
-          'name' => 'title_caption',
-          'type' => 'text',
-          'instructions' => 'Enter the title caption here. Use the placeholder text for inspiration',
-          'required' => 1,
-          'conditional_logic' => 0,
-          'wrapper' => array (
-            'width' => '',
-            'class' => 'title-caption',
-            'id' => '',
-          ),
-          'default_value' => '',
-          'placeholder' => 'No boring people allowed.',
-          'prepend' => '',
-          'append' => '',
-          'maxlength' => '',
-        ),
-        array (
-          'key' => 'field_58122a898102d',
-          'label' => 'Description',
-          'name' => 'description',
-          'type' => 'wysiwyg',
-          'instructions' => 'Enter the job description here.  **AVOID FORMATTING TOOLS ABOVE**',
-          'required' => 1,
-          'conditional_logic' => 0,
-          'wrapper' => array (
-            'width' => '',
-            'class' => 'description',
-            'id' => '',
-          ),
-          'default_value' => '',
-          'tabs' => 'visual',
-          'toolbar' => 'full',
-          'media_upload' => 1,
-        ),
-        array (
-          'key' => 'field_58122a898102e',
-          'label' => 'Responsibilities List',
-          'name' => 'responsibilities_list',
-          'type' => 'repeater',
-          'instructions' => 'Enter a responsibility here. Use the \'Add A Responsibility\' button to add more than one.',
-          'required' => 1,
-          'conditional_logic' => 0,
-          'wrapper' => array (
-            'width' => '',
-            'class' => 'responsibilities-list',
-            'id' => '',
-          ),
-          'collapsed' => '',
-          'min' => '',
-          'max' => '',
-          'layout' => 'row',
-          'button_label' => 'Add A Responsibility',
-          'sub_fields' => array (
-            array (
-              'key' => 'field_58122a898102f',
-              'label' => 'Responsibilty',
-              'name' => 'responsibilty',
-              'type' => 'text',
-              'instructions' => 'Enter one responsibility here.',
-              'required' => '',
-              'conditional_logic' => '',
-              'wrapper' => array (
-                'width' => '',
-                'class' => 'responsibilty',
-                'id' => '',
-              ),
-              'default_value' => '',
-              'placeholder' => 'Working with an immense range of clients in all sizes.',
-              'prepend' => '',
-              'append' => '',
-              'maxlength' => '',
-            ),
-          ),
-        ),
-        array (
-          'key' => 'field_581246261bbe1',
-          'label' => 'Musts List',
-          'name' => 'musts_list',
-          'type' => 'repeater',
-          'instructions' => 'Enter a responsibility here. Use the \'Add A Must\' button to add more than one.',
-          'required' => 1,
-          'conditional_logic' => 0,
-          'wrapper' => array (
-            'width' => '',
-            'class' => 'musts-list',
-            'id' => '',
-          ),
-          'collapsed' => '',
-          'min' => '',
-          'max' => '',
-          'layout' => 'row',
-          'button_label' => 'Add A Must',
-          'sub_fields' => array (
-            array (
-              'key' => 'field_581246261bbe2',
-              'label' => 'Must',
-              'name' => 'must',
-              'type' => 'text',
-              'instructions' => 'Enter one must here.',
-              'required' => '',
-              'conditional_logic' => '',
-              'wrapper' => array (
-                'width' => '',
-                'class' => 'must',
-                'id' => '',
-              ),
-              'default_value' => '',
-              'placeholder' => '1–3 years experience.',
-              'prepend' => '',
-              'append' => '',
-              'maxlength' => '',
-            ),
-          ),
-        ),
-        array (
-          'key' => 'field_5812467e1bbe4',
-          'label' => 'Mights List',
-          'name' => 'mights_list',
-          'type' => 'repeater',
-          'instructions' => 'Enter a responsibility here. Use the \'Add A Might\' button to add more than one.',
-          'required' => 0,
-          'conditional_logic' => 0,
-          'wrapper' => array (
-            'width' => '',
-            'class' => 'mights-list',
-            'id' => '',
-          ),
-          'collapsed' => '',
-          'min' => '',
-          'max' => '',
-          'layout' => 'row',
-          'button_label' => 'Add A Might',
-          'sub_fields' => array (
-            array (
-              'key' => 'field_5812467e1bbe5',
-              'label' => 'Might',
-              'name' => 'might',
-              'type' => 'text',
-              'instructions' => 'Enter one might here.',
-              'required' => 0,
-              'conditional_logic' => 0,
-              'wrapper' => array (
-                'width' => '',
-                'class' => 'might',
-                'id' => '',
-              ),
-              'default_value' => '',
-              'placeholder' => 'Agency experience.',
-              'prepend' => '',
-              'append' => '',
-              'maxlength' => '',
-            ),
-          ),
-        ),
-      ),
-    ),
-    array (
-      'key' => 'field_58122b3bbd0bc',
-      'label' => 'Insternship Description',
-      'name' => 'internship_description',
-      'type' => 'repeater',
-      'instructions' => 'To add a new internship to the job listings click the button to the right.',
-      'required' => 0,
-      'conditional_logic' => 0,
-      'wrapper' => array (
-        'width' => '',
-        'class' => 'single-job-description',
-        'id' => '',
-      ),
-      'collapsed' => '',
-      'min' => '',
-      'max' => '',
-      'layout' => 'row',
-      'button_label' => 'Add An Internship',
-      'sub_fields' => array (
-        array (
-          'key' => 'field_58122b3bbd0be',
-          'label' => 'Job Title',
-          'name' => 'job_title',
-          'type' => 'text',
-          'instructions' => 'Enter the job title here',
-          'required' => 1,
-          'conditional_logic' => 0,
-          'wrapper' => array (
-            'width' => '',
-            'class' => 'job-title',
-            'id' => '',
-          ),
-          'default_value' => '',
-          'placeholder' => 'GRAPHIC DESIGNER',
-          'prepend' => '',
-          'append' => '',
-          'maxlength' => '',
-        ),
-        array (
-          'key' => 'field_58122b3bbd0c0',
-          'label' => 'Title Caption',
-          'name' => 'title_caption',
-          'type' => 'text',
-          'instructions' => 'Enter the title caption here. Use the placeholder text for inspiration',
-          'required' => 1,
-          'conditional_logic' => 0,
-          'wrapper' => array (
-            'width' => '',
-            'class' => 'title-caption',
-            'id' => '',
-          ),
-          'default_value' => '',
-          'placeholder' => 'No boring people allowed.',
-          'prepend' => '',
-          'append' => '',
-          'maxlength' => '',
-        ),
-        array (
-          'key' => 'field_58122b3bbd0c2',
-          'label' => 'Description',
-          'name' => 'description',
-          'type' => 'wysiwyg',
-          'instructions' => 'Enter the job description here.  **AVOID FORMATTING TOOLS ABOVE**',
-          'required' => 1,
-          'conditional_logic' => 0,
-          'wrapper' => array (
-            'width' => '',
-            'class' => 'description',
-            'id' => '',
-          ),
-          'default_value' => '',
-          'tabs' => 'visual',
-          'toolbar' => 'full',
-          'media_upload' => 1,
-        ),
-        array (
-          'key' => 'field_58122b3bbd0c3',
-          'label' => 'Responsibilities List',
-          'name' => 'responsibilities_list',
-          'type' => 'repeater',
-          'instructions' => 'Enter a responsibility here. Use the \'Add A Responsibility\' button to add more than one.',
-          'required' => 1,
-          'conditional_logic' => 0,
-          'wrapper' => array (
-            'width' => '',
-            'class' => 'responsibilities-list',
-            'id' => '',
-          ),
-          'collapsed' => '',
-          'min' => '',
-          'max' => '',
-          'layout' => 'row',
-          'button_label' => 'Add A Responsibility',
-          'sub_fields' => array (
-            array (
-              'key' => 'field_58122b3bbd0c4',
-              'label' => 'Responsibilty',
-              'name' => 'responsibilty',
-              'type' => 'text',
-              'instructions' => 'Enter one responsibility here.',
-              'required' => 1,
-              'conditional_logic' => 0,
-              'wrapper' => array (
-                'width' => '',
-                'class' => 'responsibilty',
-                'id' => '',
-              ),
-              'default_value' => '',
-              'placeholder' => 'Working with an immense range of clients in all sizes.',
-              'prepend' => '',
-              'append' => '',
-              'maxlength' => '',
-            ),
-          ),
-        ),
-        array (
-          'key' => 'field_581246fa1bbe6',
-          'label' => 'Musts List',
-          'name' => 'musts_list',
-          'type' => 'repeater',
-          'instructions' => 'Enter a responsibility here. Use the \'Add A Must\' button to add more than one.',
-          'required' => 1,
-          'conditional_logic' => 0,
-          'wrapper' => array (
-            'width' => '',
-            'class' => 'musts-list',
-            'id' => '',
-          ),
-          'collapsed' => '',
-          'min' => '',
-          'max' => '',
-          'layout' => 'row',
-          'button_label' => 'Add A Must',
-          'sub_fields' => array (
-            array (
-              'key' => 'field_581246fa1bbe7',
-              'label' => 'Must',
-              'name' => 'must',
-              'type' => 'text',
-              'instructions' => 'Enter one must here.',
-              'required' => '',
-              'conditional_logic' => '',
-              'wrapper' => array (
-                'width' => '',
-                'class' => 'must',
-                'id' => '',
-              ),
-              'default_value' => '',
-              'placeholder' => '1–3 years experience.',
-              'prepend' => '',
-              'append' => '',
-              'maxlength' => '',
-            ),
-          ),
-        ),
-        array (
-          'key' => 'field_581247441bbe8',
-          'label' => 'Mights List',
-          'name' => 'mights_list',
-          'type' => 'repeater',
-          'instructions' => 'Enter a responsibility here. Use the \'Add A Might\' button to add more than one.',
-          'required' => 0,
-          'conditional_logic' => 0,
-          'wrapper' => array (
-            'width' => '',
-            'class' => 'mights-list',
-            'id' => '',
-          ),
-          'collapsed' => '',
-          'min' => '',
-          'max' => '',
-          'layout' => 'row',
-          'button_label' => 'Add A Might',
-          'sub_fields' => array (
-            array (
-              'key' => 'field_581247441bbe9',
-              'label' => 'Might',
-              'name' => 'might',
-              'type' => 'text',
-              'instructions' => 'Enter one might here.',
-              'required' => 0,
-              'conditional_logic' => 0,
-              'wrapper' => array (
-                'width' => '',
-                'class' => 'might',
-                'id' => '',
-              ),
-              'default_value' => '',
-              'placeholder' => 'Agency experience.',
-              'prepend' => '',
-              'append' => '',
-              'maxlength' => '',
-            ),
-          ),
-        ),
-      ),
-    ),
-  ),
-  'location' => array (
-    array (
-      array (
-        'param' => 'page_template',
-        'operator' => '==',
-        'value' => 'page-templates/careers-index.php',
-      ),
-    ),
-  ),
-  'menu_order' => 0,
-  'position' => 'normal',
-  'style' => 'default',
-  'label_placement' => 'top',
-  'instruction_placement' => 'label',
-  'hide_on_screen' => '',
-  'active' => 1,
-  'description' => '',
-));
 
-endif;
+
+
+
+
+// <?php
+
+// add_action( 'wp_enqueue_scripts', 'register_jquery' );
+// function register_jquery() {
+//     wp_deregister_script( 'jquery' );
+//     wp_register_script( 'jquery', ( 'https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js' ), false, null, true );
+//     wp_enqueue_script( 'jquery' );
+// }
+
+// function IOTAM_script_enqueue() {
+//   wp_enqueue_style( 'fonts', '//fast.fonts.net/cssapi/f5903750-8000-42f7-a667-c62502d80e78.css' , array(), '1.0.0', 'all' );
+// 	wp_enqueue_style( 'customstyle', get_template_directory_uri() . '/app/css/app.min.css' , array(), '1.0.0', 'all' );
+//   wp_enqueue_script( 'customjs', get_template_directory_uri() . '/app/js/lib/script.js' , array(), '1.0.0', true );
+// }
+
+// add_action( 'wp_enqueue_scripts' , 'IOTAM_script_enqueue');
+
+// // Let's hook in our function with the javascript files with the wp_enqueue_scripts hook 
+
+// // Register some javascript files, because we love javascript files. Enqueue a couple as well 
+// function IOTAM_load_javascript_files() {
+//   wp_register_script( 'global_script', get_template_directory_uri() . '/app/js/lib/function.min.js', array('jquery'), '1.0.0', true );
+//   wp_register_script( 'gsap', get_template_directory_uri() . 'https://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.0/TweenMax.min.js', array('jquery'), '1.0.0', true );
+//   wp_register_script( 'mousewheel', get_template_directory_uri() . 'https://cdnjs.cloudflare.com/ajax/libs/jquery-mousewheel/3.1.13/jquery.mousewheel.min.js', array('jquery'), '1.0.0', true );
+
+// }
+// add_action( 'wp_enqueue_scripts', 'IOTAM_load_javascript_files' );
+
+
+// add_action( 'init', 'IOTAM_theme_setup' );
+
+// /**
+//  * Remove Original Wysiwyg Editor from Backend pages
+//  */
+
+// add_action('init', 'my_remove_editor_from_post_type');
+// function my_remove_editor_from_post_type() {
+//     remove_post_type_support( 'page', 'editor' );
+// }
+
+// /**
+//  * Remove Wyiswg Editor Toolbar
+//  */
+
+// add_filter( 'acf/fields/wysiwyg/toolbars' , 'my_toolbars'  );
+// function my_toolbars( $toolbars )
+// {
+//   // Uncomment to view format of $toolbars
+//   /*
+//   echo '< pre >';
+//     print_r($toolbars);
+//   echo '< /pre >';
+//   die;
+//   */
+
+//   // Add a new toolbar called "Very Simple"
+//   // - this toolbar has only 1 row of buttons
+//   $toolbars['Very Simple' ] = array();
+//   $toolbars['Very Simple' ][1] = array('bold' , 'italic' , 'underline' );
+
+//   // Edit the "Full" toolbar and remove 'code'
+//   // - delet from array code from http://stackoverflow.com/questions/7225070/php-array-delete-by-value-not-key
+//   if( ($key = array_search('code' , $toolbars['Full' ][2])) !== false )
+//   {
+//       unset( $toolbars['Full' ][2][$key] );
+//   }
+
+//   // remove the 'Basic' toolbar completely
+//   unset( $toolbars['Basic' ] );
+
+//   // return $toolbars - IMPORTANT!
+//   return $toolbars;
+// }
+
+// /**
+//  * Allow SVG files to be uploaded
+//  */
+
+// add_filter('upload_mimes', 'custom_upload_mimes');
+
+// function custom_upload_mimes ( $existing_mimes=array() ) {
+
+//   // add the file extension to the array
+
+//   $existing_mimes['svg'] = 'mime/type';
+
+//         // call the modified list of extensions
+
+//   return $existing_mimes;
+
+// }
+
+// /**
+//  * Advanced Custom Fields
+//  * [add field groups to the site]
+//  */
+

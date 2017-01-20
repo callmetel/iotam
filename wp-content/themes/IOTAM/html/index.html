@@ -6,19 +6,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Aetna | It Only Takes A Minute</title>
     <style>
-        .initial-hide {
-            display: none;
-            opacity: 0;
-            z-index: -3000;
-        }
+        @-webkit-keyframes fadeIn {0% {opacity: 0;} 50% {opacity: 0;} 100% {opacity: 1;}}
+        @-moz-keyframes fadeIn {0% {opacity: 0;} 50% {opacity: 0;} 100% {opacity: 1;}}
+        @keyframes fadeIn {0% {opacity: 0;} 50% {opacity: 0;} 100% {opacity: 1;}}
+        body.fade-in{ -webkit-animation: fadeIn 2s ease-in-out; -o-animation: fadeIn 2s ease-in-out; animation: fadeIn 2s ease-in-out; }
+        .initial-hide {display: none; opacity: 0; z-index: -3000;}
     </style>
-    <link type="text/css" rel="stylesheet" href="//fast.fonts.net/cssapi/5ee63762-c386-4f3e-a7c7-c4ceb17cb4ac.css"/>
+    <script src="https://use.typekit.net/xlo6btt.js"></script>
+    <script>try{Typekit.load({ async: true });}catch(e){}</script>
     <link rel="stylesheet" href="app/css/app.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 </head>
 
-
-<body>
+<body class="initial-hide">
     <div id="preloader">
         <div class="preloader-container">
             <div class="enter-site-link-container"> 
@@ -26,273 +26,1293 @@
                 <p id="skip-intro">SKIP VIDEO</p>
             </div>
         </div>
-        <video id="teaser-video" class="bg" autoplay>
+        <video id="teaser-video" class="bg">
             <source class="video" src="app/images/intro.mp4" type="video/mp4"> 
         </video>
     </div>
     <header>
         <nav class="global-nav">
-            <a href="#menu" class="toggle-menu">
+            <button class="toggle-menu" tabindex="-1">
                 <span id="menu-toggle"></span>
                 <span class="nav-trigger"></span>
-                <span class="burger"><i id="mQ-logo" class="global-logo"></i></span>   
-            </a>
-            <ul id="menu" class="nav-menu"> 
-                <li>
-                    <span class="main-link"><a class="home-link" href="#main">Home</a></span>
-                </li>
-                <li>
-                    <span class="main-link">Topics</span>
-                    <ul class="dropdown">
-                        <li class="has-children">
-                            <div class="dropdown-title">Happiness</div>
-                            <img id="arrow1" src="app/images/arrow.svg" alt="Happiness Dropdown Button" class="dropdown-btn arrow">
-                            <ul class="hidden">
-                                <li>
-                                    <img src="app/images/play-btn.svg" alt="Being There Matters Play Button" class="play-btn">
-                                    <span class="dropdown-link">Being There Matters</span>
-                                </li>
-                                <li>
-                                    <img src="app/images/play-btn.svg" alt="New Moms Arent Alone Play Button" class="play-btn">
-                                    <span class="dropdown-link">New Moms Aren’t Alone</span>
-                                </li>
-                                <li>
-                                    <img src="app/images/play-btn.svg" alt="Living For Thursdays Play Button" class="play-btn">
-                                    <span class="dropdown-link">Living for Thursdays</span>
-                                </li>
-                            </ul>
-                        </li>
-                    </ul>
-                    <ul class="dropdown">
-                        <li class="has-children">
-                            <div id ="connection" class="dropdown-title">Connection</div>
-                                <img id="arrow2" src="app/images/arrow.svg" alt="Connection Dropdown Button" class="dropdown-btn arrow">
-                            <ul class="hidden">
-                                <li>
-                                    <img src="app/images/play-btn.svg" alt="Being There Matters Play Button" class="play-btn">
-                                    <span class="dropdown-link">Being There Matters</span>
-                                </li>
-                                <li>
-                                    <img src="app/images/play-btn.svg" alt="New Moms Arent Alone Play Button" class="play-btn">
-                                    <span class="dropdown-link">New Moms Aren’t Alone</span>
-                                </li>
-                                <li>
-                                    <img src="app/images/play-btn.svg" alt="Living For Thursdays Play Button" class="play-btn">
-                                    <span class="dropdown-link">Living for Thursdays</span>
-                                </li>
-                            </ul>
-                        </li>
-                    </ul>
-                    <ul class="dropdown">
-                        <li class="has-children">
-                            <div id="peace-of-mind" class="dropdown-title">Peace of mind</div>
-                                <img id="arrow3" src="app/images/arrow.svg" alt="Peace of Mind Dropdown Button" class="dropdown-btn arrow">
-                            <ul class="hidden">
-                                <li>
-                                    <img src="app/images/play-btn.svg" alt="Being There Matters Play Button" class="play-btn">
-                                    <span class="dropdown-link">Being There Matters</span>
-                                </li>
-                                <li>
-                                    <img src="app/images/play-btn.svg" alt="New Moms Arent Alone Play Button" class="play-btn">
-                                    <span class="dropdown-link">New Moms Aren’t Alone</span>
-                                </li>
-                                <li>
-                                    <img src="app/images/play-btn.svg" alt="Living For Thursdays Play Button" class="play-btn">
-                                    <span class="dropdown-link">Living for Thursdays</span>
-                                </li>
-                            </ul>
-                        </li>
-                    </ul>
-                    <ul class="dropdown">
-                        <li class="has-children">
-                            <div id="confidence" class="dropdown-title">Confidence</div>
-                            <img id="arrow4" src="app/images/arrow.svg" alt="Confidence Dropdown Button" class="dropdown-btn arrow">
-                            <ul class="hidden">
-                                <li>
-                                    <img src="app/images/play-btn.svg" alt="Being There Matters Play Button" class="play-btn">
-                                    <span class="dropdown-link">Being There Matters</span>
-                                </li>
-                                <li>
-                                    <img src="app/images/play-btn.svg" alt="New Moms Arent Alone Play Button" class="play-btn">
-                                    <span class="dropdown-link">New Moms Aren’t Alone</span>
-                                </li>
-                                <li>
-                                    <img src="app/images/play-btn.svg" alt="Living For Thursdays Play Button" class="play-btn">
-                                    <span class="dropdown-link">Living for Thursdays</span>
-                                </li>
-                            </ul>
-                        </li>
-                    </ul>
-                    <ul class="dropdown">
-                        <li class="has-children">
-                            <div id="freedom" class="dropdown-title">Freedom</div>
-                            <img id="arrow5" src="app/images/arrow.svg" alt="Freedom Dropdown Button" class="dropdown-btn arrow">
-                            <ul class="hidden">
-                                <li>
-                                    <img src="app/images/play-btn.svg" alt="Being There Matters Play Button" class="play-btn">
-                                    <span class="dropdown-link">Being There Matters</span>
-                                </li>
-                                <li>
-                                    <img src="app/images/play-btn.svg" alt="New Moms Arent Alone Play Button" class="play-btn">
-                                    <span class="dropdown-link">New Moms Aren’t Alone</span>
-                                </li>
-                                <li>
-                                    <img src="app/images/play-btn.svg" alt="Living For Thursdays Play Button" class="play-btn">
-                                    <span class="dropdown-link">Living for Thursdays</span>
-                                </li>
-                            </ul>
-                        </li>
-                    </ul>
-                </li>
-                <li>
-                    <span class="main-link"><a id="resources-link" href="#resources-page">Resources</a></span>
-                </li>
-                <li id="menu-disclaimer">Aetna is the brand name used for products and services provided by one or more of the Aetna group of subsidiary companies, including Aetna Life Insurance Company and its affiliates (Aetna).</li>
-                <p class="global-apn">&#169;2016 Aetna Inc.</p>
-                <p class="global-apn">48.36.807.1  (11/16)</p>
-            </ul>
+                <span class="burger"></span>   
+            </button>
         </nav>
     </header>
-    <div class="content-container hide">
-        <div id="main">
-            <div class="main-container">
-                <div class="grid-items-lines">
-                    <div class="grid-item">
-                        <a class="mySlides" href="javascript:void(0)" id="grid-item-1">
-                            <h1>It only takes a minute</h1>
-                            <p>Is it possible to change someone's outlook in less than a minute? We think so.</p>
-                        </a>
-                        <a class="mySlides" href="javascript:void(0)" id="grid-item-1">
-                            <h1>It only takes a minute</h1>
-                            <p>Here we celebrate real people who’ve taken steps to overcome emotional and mental health challenges in their lives or with others.<p> 
-                            <p>You’ll see and hear how each person addresses topics not everyone is comfortable talking about.</p>
-                        </a>
-                        <div class="w3-center w3-section w3-large w3-text-white w3-display-bottommiddle" style="width:100%">
-                            <span id="dot1" class="w3-badge demo w3-border w3-transparent w3-hover-white selected" onclick="currentDiv(1)"></span>
-                            <span id="dot2" class="w3-badge demo w3-border w3-transparent w3-hover-white selected" onclick="currentDiv(2)"></span>
-                        </div>
+    <ul id="menu" class="nav-menu"> 
+        <div class="close-menu">
+            <span class="close-trigger"></span>
+            <span class="burger"></span>   
+        </div>
+        <li>
+            <span class="main-link" role="menuitem"><a tabindex="-1" id="home-link" href="#main">Home</a></span>
+        </li>
+        <li>
+            <span class="main-link" role="menuitem" aria-haspopup="true">Topics</span>
+            <ul id="happiness-dropdown" class="dropdown" aria-label="submenu">
+                <li class="has-children">
+                    <div class="invisible-dropdown-btn" role="menuitem">
+                        <div class="dropdown-title">Happiness</div>
+                        <img src="app/images/arrow.svg" alt="Happiness Dropdown Button" class="dropdown-btn arrow">
                     </div>
-                    <div class="grid-item">
-                        <div class="grid-item-square">
-                            <a class="first-square" href="javascript:void(0)">
-                                <h1>Discover</h1>
-                                <div class="underline"></div>
-                                <p>Happiness</p>
-                            </a>
-                            <a class="second-square mySlides discover-square" href="javascript:void(0)"> 
-                                <p>Finding people to talk to and connect with to overcome depression</p>
-                                <div class="underline"></div>
-                                <h1>Watch the videos</h1>
-                                <img src="app/images/arrow.svg">
-                            </a>
+                    <ul>
+                        <li role="menuitem">
+                            <img src="app/images/play-btn.svg" alt="Being There Matters Play Button" class="play-btn">
+                            <span class="dropdown-link">Being There Matters</span>
+                        </li>
+                        <li role="menuitem">
+                            <img src="app/images/play-btn.svg" alt="Living For Thursdays Play Button" class="play-btn">
+                            <span class="dropdown-link">Living for Thursdays</span>
+                        </li>
+                        <li role="menuitem">
+                            <img src="app/images/play-btn.svg" alt="New Moms Arent Alone Play Button" class="play-btn">
+                            <span class="dropdown-link">New Moms Aren’t Alone</span>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+            <ul id="connection-dropdown" class="dropdown" aria-label="submenu">
+                <li class="has-children">
+                    <div class="invisible-dropdown-btn" role="menuitem">
+                        <div id ="connection" class="dropdown-title">Connection</div>
+                        <img src="app/images/arrow.svg" alt="Connection Dropdown Button" class="dropdown-btn arrow">
+                    </div>
+                    <ul>
+                        <li role="menuitem">
+                            <img src="app/images/play-btn.svg" alt="Working Out Together Play Button" class="play-btn">
+                            <span class="dropdown-link">Working Out Together</span>
+                        </li>
+                        <li role="menuitem">
+                            <img src="app/images/play-btn.svg" alt="The Power of a Pet Play Button" class="play-btn">
+                            <span class="dropdown-link">The Power of a Pet</span>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+            <ul id="peaceofmind-dropdown" class="dropdown" aria-label="submenu">
+                <li class="has-children">
+                    <div class="invisible-dropdown-btn" role="menuitem">
+                        <div id="peace-of-mind" class="dropdown-title">Peace of mind</div>
+                        <img src="app/images/arrow.svg" alt="Peace of Mind Dropdown Button" class="dropdown-btn arrow">
+                    </div>
+                    <ul>
+                        <li role="menuitem">
+                            <img src="app/images/play-btn.svg" alt="Dealing With Stress Play Button" class="play-btn">
+                            <span class="dropdown-link">Dealing With Stress</span>
+                        </li>
+                        <li role="menuitem">
+                            <img src="app/images/play-btn.svg" alt="Space for Wellness Play Button" class="play-btn">
+                            <span class="dropdown-link">Space for Wellness</span>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+            <ul id="confidence-dropdown" class="dropdown" aria-label="submenu">
+                <li class="has-children">
+                    <div class="invisible-dropdown-btn" role="menuitem">
+                        <div id="confidence" class="dropdown-title">Confidence</div>
+                        <img src="app/images/arrow.svg" alt="Confidence Dropdown Button" class="dropdown-btn arrow">
+                    </div>
+                    <ul>
+                        <li role="menuitem">
+                            <img src="app/images/play-btn.svg" alt="Overcoming Bullying Play Button" class="play-btn">
+                            <span class="dropdown-link">Overcoming Bullying</span>
+                        </li>
+                        <li role="menuitem">
+                            <img src="app/images/play-btn.svg" alt="Improving Self-Esteem Play Button" class="play-btn">
+                            <span class="dropdown-link">Improving Self-Esteem</span>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+            <ul id="freedom-dropdown" class="dropdown" aria-label="submenu">
+                <li class="has-children">
+                    <div class="invisible-dropdown-btn" role="menuitem">
+                        <div id="freedom" class="dropdown-title">Freedom</div>
+                        <img src="app/images/arrow.svg" alt="Freedom Dropdown Button" class="dropdown-btn arrow">
+                    </div>
+                    <ul>
+                        <li role="menuitem">
+                            <img src="app/images/play-btn.svg" alt="Overcoming Addiction Play Button" class="play-btn">
+                            <span class="dropdown-link">Overcoming Addiction</span>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <span class="main-link" role="menuitem"><a tabindex="-1" id="resources-link" href="#resources-page">Resources</a></span>
+        </li>
+        <li id="menu-disclaimer">Aetna is the brand name used for products and services provided by one or more of the Aetna group of subsidiary companies, including Aetna Life Insurance Company and its affiliates (Aetna). <br><br><p>&#169;2016 Aetna Inc.</p>
+            <p>48.36.807.1  (11/16)</p>
+        </li>
+    </ul>
+    <div class="site-transition"></div>
+    <div class="click-blocker"></div>
+    <div id="site-container" class="site-container hide">
+        <div class="content-container">
+            <div id="main">
+                <div class="main-container">
+                    <div class="grid-items-lines">
+                        <div class="grid-item" id="grid-item-1">
+                            <h1>It only takes a&nbsp;minute</h1>
+                            <p class="slide-1">Is it possible to change someone's outlook in less than a minute? We think so.</p>
+                            <div class="slide-2">
+                                <p>Here we celebrate real people who’ve taken steps to overcome emotional and mental health challenges in their lives or with others.</p>
+                                <p>You’ll see and hear how each person addresses topics not everyone is comfortable talking about.</p>
+                            </div>
+                            <div class="slide-indicator">
+                                <div class="selected slide-dot"></div>
+                                <div class="slide-dot"></div>
+                            </div>
                         </div>
-                        <div class="grid-item-square">
-                            <a class="first-square" href="javascript:void(0)">
-                                <h1>Discover</h1>
-                                <div class="underline"></div>
-                                <p>Connection</p>
-                            </a>
-                            <a class="second-square mySlides discover-square" href="javascript:void(0)"> 
-                                <p>Finding comfort in connection to overcome PTSD and more</p>
-                                <div class="underline"></div>
-                                <h1>Watch the videos</h1><img src="app/images/arrow.svg">
-                            </a>
-                        </div>
-                        <div class="grid-item-square has-white-background">
-                            <a href="javascript:void(0)">
-                                <img class="first-square" src="app/images/people-icon.svg" alt="people icon">
-                            </a>
-                            <a  class="second-square mySlides icon-square" href="javascript:void(0)"> 
-                                <p> You’re one of a kind.  But as a human being, you also have a great deal in common with more people than you can imagine.</p>
-                            </a>
-
-                        </div>
-                        <div class="grid-item-square">
-                            <a class="first-square" href="javascript:void(0)">
-                                <h1>Discover</h1>
-                                <div class="underline"></div>
-                                <p>Peace of mind</p>
-                            </a>
-                            <a class="second-square mySlides discover-square" href="javascript:void(0)"> 
-                                <p>Finding ways to manage stress and foster productivity</p>
-                                <div class="underline"></div>
-                                <h1>Watch the videos</h1><img src="app/images/arrow.svg">
-                            </a>
+                        <div class="grid-item">
+                            <div id="happiness-square" class="grid-item-square">
+                                <a class="slide-1" href="javascript:void(0)">
+                                    <h1>Discover</h1>
+                                    <div class="underline"></div>
+                                    <p>Happiness</p>
+                                </a>
+                                <a class="slide-2 discover-square" href="javascript:void(0)">
+                                    <p>Finding people to talk to and connect with to overcome depression</p>
+                                    <div class="underline"></div>
+                                    <h1>Watch the videos</h1> <img src="app/images/arrow.svg"> </a>
+                            </div>
+                            <div id="connection-square" class="grid-item-square">
+                                <a class="slide-1" href="javascript:void(0)">
+                                    <h1>Discover</h1>
+                                    <div class="underline"></div>
+                                    <p>Connection</p>
+                                </a>
+                                <a class="slide-2 discover-square" href="javascript:void(0)">
+                                    <p>Finding comfort in connection to overcome PTSD and more</p>
+                                    <div class="underline"></div>
+                                    <h1>Watch the videos</h1><img src="app/images/arrow.svg"> </a>
+                            </div>
+                            <div class="grid-item-square has-white-background">
+                                <a class="slide-1" href="javascript:void(0)"> <img src="app/images/people-icon.svg" alt="people icon"> </a>
+                                <a class="slide-2 icon-square" href="javascript:void(0)">
+                                    <p> You’re one of a kind. But as a human being, you also have a great deal in common with more people than you can imagine.</p>
+                                </a>
+                            </div>
+                            <div id="peaceofmind-square" class="grid-item-square">
+                                <a class="slide-1" href="javascript:void(0)">
+                                    <h1>Discover</h1>
+                                    <div class="underline"></div>
+                                    <p>Peace of mind</p>
+                                </a>
+                                <a class="slide-2 discover-square" href="javascript:void(0)">
+                                    <p>Finding ways to manage stress and foster productivity</p>
+                                    <div class="underline"></div>
+                                    <h1>Watch the videos</h1><img src="app/images/arrow.svg"> </a>
+                            </div>
                         </div>
                     </div>
                     <div class="grid-items-lines">
                         <div class="grid-item-small has-white-background">
-                            <a href="javascript:void(0)">
-                                <img class="first-square" src="app/images/heart-icon.svg" alt="heart icon">
-                            </a>
-                            <a class="second-square mySlides icon-square" href="javascript:void(0)"> 
+                            <a class="slide-1" href="javascript:void(0)"> <img src="app/images/heart-icon.svg" alt="heart icon"> </a>
+                            <a class="slide-2 icon-square" href="javascript:void(0)">
                                 <p>Access resources to help you or a loved one.</p>
                             </a>
                         </div>
-                        <div class="grid-item-small">
-                            <a class="first-square" href="javascript:void(0)">
+                        <div id="confidence-square" class="grid-item-small">
+                            <a class="slide-1" href="javascript:void(0)">
                                 <h1>Discover</h1>
                                 <div class="underline"></div>
                                 <p>Confidence</p>
                             </a>
-                            <a class="second-square mySlides discover-square" href="javascript:void(0)"> 
+                            <a class="slide-2 discover-square" href="javascript:void(0)">
                                 <p>Finding ourselves to overcome bullying and low self-esteem</p>
                                 <div class="underline"></div>
-                                <h1>Watch the videos</h1><img src="app/images/arrow.svg">
-                            </a>
+                                <h1>Watch the videos</h1><img src="app/images/arrow.svg"> </a>
                         </div>
-                        <div class="grid-item-small">
-                            <a class="first-square" href="javascript:void(0)">
+                        <div id="freedom-square" class="grid-item-small">
+                            <a class="slide-1" href="javascript:void(0)">
                                 <h1>Discover</h1>
                                 <div class="underline"></div>
                                 <p>Freedom</p>
                             </a>
-                            <a class="second-square mySlides discover-square" href="javascript:void(0)"> 
+                            <a class="slide-2 discover-square" href="javascript:void(0)">
                                 <p>Finding ways to break free from addiction and substance abuse</p>
                                 <div class="underline"></div>
-                                <h1>Watch the videos</h1><img src="app/images/arrow.svg">
-                            </a>
+                                <h1>Watch the videos</h1><img src="app/images/arrow.svg"> </a>
                         </div>
                         <div class="grid-item-small has-white-background">
-                            <a href="javascript:void(0)">
-                                <img class="first-square" src="app/images/checklist-icon.svg" alt="checklist icon">
-                            </a>
-                            <a class="second-square mySlides icon-square" href="javascript:void(0)"> 
-                                <p>It takes less time  than you think to  start a conversation.</p>
+                            <a class="slide-1" href="javascript:void(0)"> <img class="first-square" src="app/images/checklist-icon.svg" alt="checklist icon"> </a>
+                            <a class="slide-2 icon-square" href="javascript:void(0)">
+                                <p>It takes less time than you think to start a conversation.</p>
                             </a>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-    <div class="sub-content-container">
-        <div id="resources-page" class="hide page">
-            <div id="resources-top-square" class="top-square"><h2>Resources</h2></div>
+        <div class="sub-content-container is-inactive-section">
+            <div id="happiness-video-page" class="video-page">
+                <div id="happiness-top-square" class="top-square">
+                    <div class="top-square-container">
+                        <h2>Happiness</h2>
+                        <div class="underline"></div>
+                        <p>Finding people to talk to and connect with to overcome depression</p>
+                    </div>
+                </div>
+                <div id="happiness-social-media-hub" class="social-media-hub">
+                    <div class="media-container">
+                        <h3 class="join-cta">Join the conversation<span class="join-arrow"></span></h3>
+                        <div class="icons-container">
+                            <a href="http://instagram.com/aetna/" target="_blank" class="instagram icon"></a>
+                            <a href="http://www.facebook.com/aetna" target="_blank" class="facebook icon"></a>
+                            <a href="http://twitter.com/aetna" target="_blank" class="twitter icon"></a>
+                            <a href="http://www.linkedin.com/company/aetna" target="_blank" class="linkedin icon"></a>
+                        </div><a href="http://twitter.com/#itonlytakesaminute" class="hashtag">#itonlytakesaminute</a>
+                        <p class="page-apn">48.36/807.1 (11/16)</p>
+                    </div>
+                </div>
+                <div class="section section-1">
+                    <div class="page-1 page is-current-page">
+                        <div class="overlay"></div>
+                        <div class="next-video">
+                            <div class="container">
+                                <h3 class="next-video-cta">Next video playing in:<span class="next-video-countdown"></span></h3>
+                                <div class="divider"></div>
+                                <div class="media-container">
+                                    <h3 class="join-cta">Join the conversation<span class="join-arrow"></span></h3>
+                                    <div class="icons-container">
+                                        <a href="http://instagram.com/aetna/" target="_blank" class="instagram icon"></a>
+                                        <a href="http://www.facebook.com/aetna" target="_blank" class="facebook icon"></a>
+                                        <a href="http://twitter.com/aetna" target="_blank" class="twitter icon"></a>
+                                        <a href="http://www.linkedin.com/company/aetna" target="_blank" class="linkedin icon"></a>
+                                    </div><a href="http://twitter.com/#itonlytakesaminute" class="hashtag">#itonlytakesaminute</a> </div>
+                            </div>
+                        </div>
+                        <video class="video" id="beingtherematters">
+                            <source src="app/images/beingtherematters.mp4" type="video/mp4"> </video>
+                        <button type="button" class="close-video fade-out"><img src="app/images/close-icon.svg" alt="video close icon" class="icon"></button>
+                        <div class="video-controls fade-out">
+                            <div class="video-buttons">
+                                <button type="button" class="rewind-video"><img src="app/images/rewind.svg" alt="video rewind icon" id="v1-rewind" class="icon"></button>
+                                <button type="button" class="play-pause-video"><img src="app/images/play.svg" alt="video play icon" id="v1-play" class="icon"></button>
+                                <button type="button" class="fastforward-video"><img src="app/images/fastforward.svg" alt="video fastforward icon" id="v1-fastforward" class="icon"></button>
+                            </div>
+                            <input type="range" id="v1-progressbar" class="progress-bar" min="0" max="100" value="0"> </div>
+                        <div class="main-page">
+                            <div class="video-play"><img src="app/images/arrow-thin.svg"></div>
+                            <div class="middle-info"> <img src="app/images/arrow-left.svg" alt="arrow" class="left-arrow">
+                                <h1>Being There Matters</h1> <img src="app/images/arrow.svg" alt="arrow" class="right-arrow">
+                                <div class="underline"></div>
+                                <p>When Jennifer faced depression in high school, her long-time best friend, Alyson, was there for her. With no formal training, just being a friend made a difference.</p>
+                                <a href="app/transcripts/BeingThereMattersTranscript.pdf" target="_blank" class="transcript-button">
+                                    <p>Read Transcript</p><img src="app/images/arrow.svg" alt="arrow" class="transcript-arrow"> </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="page page-2 is-next-page">
+                        <div class="overlay"></div>
+                        <div class="next-video">
+                            <div class="container">
+                                <h3 class="next-video-cta">Next video playing in:<span class="next-video-countdown"> seconds</span></h3>
+                                <div class="divider"></div>
+                                <div class="media-container">
+                                    <h3 class="join-cta">Join the conversation<span class="join-arrow"></span></h3>
+                                    <div class="icons-container">
+                                        <a href="http://instagram.com/aetna/" target="_blank" class="instagram icon"></a>
+                                        <a href="http://www.facebook.com/aetna" target="_blank" class="facebook icon"></a>
+                                        <a href="http://twitter.com/aetna" target="_blank" class="twitter icon"></a>
+                                        <a href="http://www.linkedin.com/company/aetna" target="_blank" class="linkedin icon"></a>
+                                    </div><a href="http://twitter.com/#itonlytakesaminute" class="hashtag">#itonlytakesaminute</a> </div>
+                            </div>
+                        </div>
+                        <video class="video" id="livingforthursdays">
+                            <source src="app/images/livingforthursdays.mp4" type="video/mp4"> </video>
+                        <button type="button" class="close-video fade-out"><img src="app/images/close-icon.svg" alt="video close icon" class="icon"></button>
+                        <div class="video-controls fade-out">
+                            <div class="video-buttons">
+                                <button type="button" class="rewind-video"><img src="app/images/rewind.svg" alt="video rewind icon" id="v2-rewind" class="icon"></button>
+                                <button type="button" class="play-pause-video"><img src="app/images/play.svg" alt="video play icon" id="v2-play" class="icon"></button>
+                                <button type="button" class="fastforward-video"><img src="app/images/fastforward.svg" alt="video fastforward icon" id="v2-fastforward" class="icon"></button>
+                            </div>
+                            <input type="range" id="v2-progressbar" class="progress-bar" min="0" max="100" value="0"> </div>
+                        <div class="main-page">
+                            <div class="video-play"><img src="app/images/arrow-thin.svg"></div>
+                            <div class="middle-info"> <img src="app/images/arrow-left.svg" alt="arrow" class="left-arrow">
+                                <h1>Living for Thursdays</h1> <img src="app/images/arrow.svg" alt="arrow" class="right-arrow">
+                                <div class="underline"></div>
+                                <p>After his accident, AJ couldn’t envision a life worth living. He was an active person who thought he’d never have an active life again. Learn how joining a new community completely changed AJ’s perspective.</p>
+                                <a href="app/transcripts/LivingForThursdaysTranscript.pdf" target="_blank" class="transcript-button">
+                                    <p>Read Transcript</p><img src="app/images/arrow.svg" alt="arrow" class="transcript-arrow"> </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="page page-3 is-next-page">
+                        <div class="overlay"></div>
+                        <div class="next-video">
+                            <div class="container">
+                                <h3 class="next-video-cta">Next video playing in:<span class="next-video-countdown"> seconds</span></h3>
+                                <div class="divider"></div>
+                                <div class="media-container">
+                                    <h3 class="join-cta">Join the conversation<span class="join-arrow"></span></h3>
+                                    <div class="icons-container">
+                                        <a href="http://instagram.com/aetna/" target="_blank" class="instagram icon"></a>
+                                        <a href="http://www.facebook.com/aetna" target="_blank" class="facebook icon"></a>
+                                        <a href="http://twitter.com/aetna" target="_blank" class="twitter icon"></a>
+                                        <a href="http://www.linkedin.com/company/aetna" target="_blank" class="linkedin icon"></a>
+                                    </div><a href="http://twitter.com/#itonlytakesaminute" class="hashtag">#itonlytakesaminute</a> </div>
+                            </div>
+                        </div>
+                        <video class="video" id="newmomsarentalone">
+                            <source src="app/images/newmomsarentalone.mp4" type="video/mp4"> </video>
+                        <button type="button" class="close-video fade-out"><img src="app/images/close-icon.svg" alt="video close icon" class="icon"></button>
+                        <div class="video-controls fade-out">
+                            <div class="video-buttons">
+                                <button type="button" class="rewind-video"><img src="app/images/rewind.svg" alt="video rewind icon" id="v3-rewind" class="icon"></button>
+                                <button type="button" class="play-pause-video"><img src="app/images/play.svg" alt="video play icon" id="v3-play" class="icon"></button>
+                                <button type="button" class="fastforward-video"><img src="app/images/fastforward.svg" alt="video fastforward icon" id="v3-fastforward" class="icon"></button>
+                            </div>
+                            <input type="range" id="v3-progressbar" class="progress-bar" min="0" max="100" value="0"> </div>
+                        <div class="main-page">
+                            <div class="video-play"><img src="app/images/arrow-thin.svg"></div>
+                            <div class="middle-info"> <img src="app/images/arrow-left.svg" alt="arrow" class="left-arrow">
+                                <h1>New Moms Aren’t Alone</h1> <img src="app/images/arrow.svg" alt="arrow" class="right-arrow">
+                                <div class="underline"></div>
+                                <p>Postpartum depression is more common than many new mothers realize – and it can be very serious. Learn how Raivon faced her postpartum depression by learning she wasn’t alone and got the help she needed.</p>
+                                <a href="app/transcripts/NewMomsArentAloneTranscript.pdf" target="_blank" class="transcript-button">
+                                    <p>Read Transcript</p><img src="app/images/arrow.svg" alt="arrow" class="transcript-arrow"> </a>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="global-apn" id="apn">48.36.807.1 (11/16)</p>
+                    <div class="center main-page-dots"> <span id="dot-1" class="dot dot-1 selected"></span> <span id="dot-2" class="dot dot-2"></span> <span id="dot-3" class="dot dot-3"></span> </div>
+                </div>
+                <div class="section section-2 is-next-section is-not-scrollable">
+                    <div id="happiness-share" class="share-your-story">
+                        <h2>Share your story</h2>
+                        <p>You can help others by sharing your own story. Because when someone knows others have faced and overcome similar challenges, it can make a difference.*</p>
+                        <form class="share-form">
+                            <div class="left">
+                                <input type="text" name="first name" class="name-field field" placeholder="First name:">
+                                <input type="text" name="city" class="city-field field field" placeholder="City:">
+                                <input type="text" name="state" class="state-field field" placeholder="State:">
+                                <select name="topic" id="topic" class="hidden-field hide">
+                                    <option value=""></option>
+                                </select>
+                                <ul class="select-dropdown">
+                                    <li class="select-option is-selected"><span>Topic</span></li>
+                                    <li class="select-option"><span>Happiness</span></li>
+                                    <li class="select-option"><span>Connection</span></li>
+                                    <li class="select-option"><span>Peace of Mind</span></li>
+                                    <li class="select-option"><span>Confidence</span></li>
+                                    <li class="select-option"><span>Freedom</span></li>
+                                </ul>
+                            </div>
+                            <div class="right">
+                                <textarea name="story" class="story" placeholder="Story:"></textarea>
+                                <div class="checkbox-field">
+                                    <input type="checkbox" name="termsandconditions" value="none" id="checkbox1">
+                                    <label for="checkbox1" class="checkbox-label">I accept the <a href="#">terms and conditions</a>.</label>
+                                </div>
+                            </div>
+                            <div class="submit">
+                                <input type='submit' id='happiness-submit' class="submit-btn" value='Share'>
+                                <p class="disclaimer">*Your story will be shared on this public site for others to read</p>
+                            </div>
+                        </form>
+                        <h2>View Stories <img src="app/images/arrow-green.svg" alt="green down arrow" class="colored-down-arrow"></h2> </div>
+                </div>
+                <div class="section section-3 is-next-section is-not-scrollable">
+                    <div id="happiness-stories" class="stories-grid">
+                        <ul class="stories-container">
+                            <li class="mobile-top-square">
+                                <div class="relative-container">
+                                    <div class="top-square-container">
+                                        <h2>Happiness</h2>
+                                        <div class="underline"></div>
+                                        <p>Finding people to talk to and connect with to overcome&nbsp;depression</p>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="story">
+                                <div class="individual-story-container">
+                                    <h3 class="name">Mike<span class="location">Chicago, IL</span></h3>
+                                    <p>Duis id sapien faucibus, molestie neque et, facilisis enim. Quisque ac sem non nulla consectetur elementum. Cum sociis natoque penatibus et magnis.</p>
+                                    <p class="reveal hide">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam distinctio dolore assumenda, accusantium? Impedit error eius nihil accusantium quis libero, non, sed natus nam, mollitia temporibus blanditiis in tenetur at? Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam distinctio dolore assumenda, accusantium? Impedit error eius nihil accusantium quis libero, non, sed natus nam, mollitia temporibus blanditiis in tenetur at?</p><button class="read-more-btn">Read more <span></span></button> </div>
+                            </li>
+                            <li class="story">
+                                <div class="individual-story-container">
+                                    <h3 class="name">Jenn<span class="location">Philadelphia, PA</span></h3>
+                                    <p>Duis id sapien faucibus, molestie neque et, facilisis enim. Quisque ac sem non nulla consectetur elementum. Cum sociis natoque penatibus et magnis.</p>
+                                    <p class="reveal hide">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam distinctio dolore assumenda, accusantium? Impedit error eius nihil accusantium quis libero, non, sed natus nam, mollitia temporibus blanditiis in tenetur at? Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam distinctio dolore assumenda, accusantium? Impedit error eius nihil accusantium quis libero, non, sed natus nam, mollitia temporibus blanditiis in tenetur at?</p><button class="read-more-btn">Read more <span></span></button> </div>
+                            </li>
+                            <li class="story">
+                                <div class="individual-story-container">
+                                    <h3 class="name">Tom<span class="location">Dallas, TX</span></h3>
+                                    <p>Duis id sapien faucibus, molestie neque et, facilisis enim. Quisque ac sem non nulla consectetur elementum. Cum sociis natoque penatibus et magnis.</p>
+                                    <p class="reveal hide">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam distinctio dolore assumenda, accusantium? Impedit error eius nihil accusantium quis libero, non, sed natus nam, mollitia temporibus blanditiis in tenetur at? Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam distinctio dolore assumenda, accusantium? Impedit error eius nihil accusantium quis libero, non, sed natus nam, mollitia temporibus blanditiis in tenetur at?</p><button class="read-more-btn">Read more <span></span></button> </div>
+                            </li>
+                            <li class="story">
+                                <div class="individual-story-container">
+                                    <h3 class="name">Ashley<span class="location">San Francisco, CA</span></h3>
+                                    <p>Duis id sapien faucibus, molestie neque et, facilisis enim. Quisque ac sem non nulla consectetur elementum. Cum sociis natoque penatibus et magnis.</p>
+                                    <p class="reveal hide">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam distinctio dolore assumenda, accusantium? Impedit error eius nihil accusantium quis libero, non, sed natus nam, mollitia temporibus blanditiis in tenetur at? Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam distinctio dolore assumenda, accusantium? Impedit error eius nihil accusantium quis libero, non, sed natus nam, mollitia temporibus blanditiis in tenetur at?</p><button class="read-more-btn">Read more <span></span></button> </div>
+                            </li>
+                            <li class="story">
+                                <div class="individual-story-container">
+                                    <h3 class="name">Joe<span class="location">Orlando, FL</span></h3>
+                                    <p>Duis id sapien faucibus, molestie neque et, facilisis enim. Quisque ac sem non nulla consectetur elementum. Cum sociis natoque penatibus et magnis.</p>
+                                    <p class="reveal hide">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam distinctio dolore assumenda, accusantium? Impedit error eius nihil accusantium quis libero, non, sed natus nam, mollitia temporibus blanditiis in tenetur at? Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam distinctio dolore assumenda, accusantium? Impedit error eius nihil accusantium quis libero, non, sed natus nam, mollitia temporibus blanditiis in tenetur at?</p><button class="read-more-btn">Read more <span></span></button> </div>
+                            </li>
+                            <li class="story">
+                                <div class="individual-story-container">
+                                    <h3 class="name">Christina<span class="location">Seattle, WA</span></h3>
+                                    <p>Duis id sapien faucibus, molestie neque et, facilisis enim. Quisque ac sem non nulla consectetur elementum. Cum sociis natoque penatibus et magnis.</p>
+                                    <p class="reveal hide">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam distinctio dolore assumenda, accusantium? Impedit error eius nihil accusantium quis libero, non, sed natus nam, mollitia temporibus blanditiis in tenetur at? Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam distinctio dolore assumenda, accusantium? Impedit error eius nihil accusantium quis libero, non, sed natus nam, mollitia temporibus blanditiis in tenetur at?</p><button class="read-more-btn">Read more <span></span></button> </div>
+                            </li>
+                            <li class="story">
+                                <div class="individual-story-container">
+                                    <h3 class="name">Jessica<span class="location">Phoenix, AZ</span></h3>
+                                    <p>Duis id sapien faucibus, molestie neque et, facilisis enim. Quisque ac sem non nulla consectetur elementum. Cum sociis natoque penatibus et magnis.</p>
+                                    <p class="reveal hide">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam distinctio dolore assumenda, accusantium? Impedit error eius nihil accusantium quis libero, non, sed natus nam, mollitia temporibus blanditiis in tenetur at? Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam distinctio dolore assumenda, accusantium? Impedit error eius nihil accusantium quis libero, non, sed natus nam, mollitia temporibus blanditiis in tenetur at?</p><button class="read-more-btn">Read more <span></span></button> </div>
+                            </li>
+                            <li class="story">
+                                <div class="individual-story-container">
+                                    <h3 class="name">Mark<span class="location">Columbia, SC</span></h3>
+                                    <p>Duis id sapien faucibus, molestie neque et, facilisis enim. Quisque ac sem non nulla consectetur elementum. Cum sociis natoque penatibus et magnis.</p>
+                                    <p class="reveal hide">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam distinctio dolore assumenda, accusantium? Impedit error eius nihil accusantium quis libero, non, sed natus nam, mollitia temporibus blanditiis in tenetur at?</p><button class="read-more-btn">Read more <span></span></button> </div>
+                            </li>
+                            <li class="story last-story">
+                                <div class="individual-story-container"><a href="#happiness-share" class="back-to-top-btn">Back to top <span></span></a><button class="more-stories-btn">View more<br>stories <span></span></button>
+                                    <p class="story-counter"><span class="count">139</span> Stories</p>
+                                </div>
+                            </li>
+                        </ul>
+                        <div class="story-lightbox"><a href="javascript:void(0)" class="close-story">Close Story</a></div>
+                        <div class="lightbox-dimmer"></div>
+                    </div>
+                </div>
+            </div>
+            <div id="connection-video-page" class="video-page">
+                <div id="connection-top-square" class="top-square">
+                    <div class="top-square-container">
+                        <h2>Connection</h2>
+                        <div class="underline"></div>
+                        <p>Find ways to overcome PTSD and&nbsp;more</p>
+                    </div>
+                </div>
+                <div id="connection-social-media-hub" class="social-media-hub">
+                    <div class="media-container">
+                        <h3 class="join-cta">Join the conversation<span class="join-arrow"></span></h3>
+                        <div class="icons-container">
+                            <a href="http://instagram.com/aetna/" target="_blank" class="instagram icon"></a>
+                            <a href="http://www.facebook.com/aetna" target="_blank" class="facebook icon"></a>
+                            <a href="http://twitter.com/aetna" target="_blank" class="twitter icon"></a>
+                            <a href="http://www.linkedin.com/company/aetna" target="_blank" class="linkedin icon"></a>
+                        </div><a href="http://twitter.com/#itonlytakesaminute" class="hashtag">#itonlytakesaminute</a>
+                        <p class="page-apn">48.36/807.1 (11/16)</p>
+                    </div>
+                </div>
+                <div class="section section-1">
+                    <div class="page-1 page is-current-page">
+                        <div class="overlay"></div>
+                        <div class="next-video">
+                            <div class="container">
+                                <h3 class="next-video-cta">Next video playing in:<span class="next-video-countdown"> seconds</span></h3>
+                                <div class="divider"></div>
+                                <div class="media-container">
+                                    <h3 class="join-cta">Join the conversation<span class="join-arrow"></span></h3>
+                                    <div class="icons-container">
+                                        <a href="http://instagram.com/aetna/" target="_blank" class="instagram icon"></a>
+                                        <a href="http://www.facebook.com/aetna" target="_blank" class="facebook icon"></a>
+                                        <a href="http://twitter.com/aetna" target="_blank" class="twitter icon"></a>
+                                        <a href="http://www.linkedin.com/company/aetna" target="_blank" class="linkedin icon"></a>
+                                    </div><a href="http://twitter.com/#itonlytakesaminute" class="hashtag">#itonlytakesaminute</a> </div>
+                            </div>
+                        </div>
+                        <video class="video" id="workingouttogether">
+                            <source src="app/images/workingouttogether.mp4" type="video/mp4"> </video>
+                        <button type="button" class="close-video fade-out"><img src="app/images/close-icon.svg" alt="video close icon" class="icon"></button>
+                        <div class="video-controls fade-out">
+                            <div class="video-buttons">
+                                <button type="button" class="rewind-video"><img src="app/images/rewind.svg" alt="video rewind icon" id="v4-rewind" class="icon"></button>
+                                <button type="button" class="play-pause-video"><img src="app/images/play.svg" alt="video play icon" id="v4-play" class="icon"></button>
+                                <button type="button" class="fastforward-video"><img src="app/images/fastforward.svg" alt="video fastforward icon" id="v4-fastforward" class="icon"></button>
+                            </div>
+                            <input type="range" id="v4-progressbar" class="progress-bar" min="0" max="100" value="0"> </div>
+                        <div class="main-page">
+                            <div class="video-play"><img src="app/images/arrow-thin.svg"></div>
+                            <div class="middle-info"> <img src="app/images/arrow-left.svg" alt="arrow" class="left-arrow">
+                                <h1>Working Out Together</h1> <img src="app/images/arrow.svg" alt="arrow" class="right-arrow">
+                                <div class="underline"></div>
+                                <p>When Blayne struggled to return to civilian life after the military, he turned to exercise and personal connections. Learn how Team Red White and Blue now helps other veterans and civilians who face similar challenges.</p>
+                                <a href="app/transcripts/WorkingOutTogetherTranscript.pdf" target="_blank" class="transcript-button">
+                                    <p>Read Transcript</p><img src="app/images/arrow.svg" alt="arrow" class="transcript-arrow"> </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="page page-2 is-next-page">
+                        <div class="overlay"></div>
+                        <div class="next-video">
+                            <div class="container">
+                                <h3 class="next-video-cta">Next video playing in:<span class="next-video-countdown"> seconds</span></h3>
+                                <div class="divider"></div>
+                                <div class="media-container">
+                                    <h3 class="join-cta">Join the conversation<span class="join-arrow"></span></h3>
+                                    <div class="icons-container">
+                                        <a href="http://instagram.com/aetna/" target="_blank" class="instagram icon"></a>
+                                        <a href="http://www.facebook.com/aetna" target="_blank" class="facebook icon"></a>
+                                        <a href="http://twitter.com/aetna" target="_blank" class="twitter icon"></a>
+                                        <a href="http://www.linkedin.com/company/aetna" target="_blank" class="linkedin icon"></a>
+                                    </div><a href="http://twitter.com/#itonlytakesaminute" class="hashtag">#itonlytakesaminute</a> </div>
+                            </div>
+                        </div>
+                        <video class="video" id="powerofapet">
+                            <source src="app/images/powerofapet.mp4" type="video/mp4"> </video>
+                        <button type="button" class="close-video fade-out"><img src="app/images/close-icon.svg" alt="video close icon" class="icon"></button>
+                        <div class="video-controls fade-out">
+                            <div class="video-buttons">
+                                <button type="button" class="rewind-video"><img src="app/images/rewind.svg" alt="video rewind icon" id="v5-rewind" class="icon"></button>
+                                <button type="button" class="play-pause-video"><img src="app/images/play.svg" alt="video play icon" id="v5-play" class="icon"></button>
+                                <button type="button" class="fastforward-video"><img src="app/images/fastforward.svg" alt="video fastforward icon" id="v5-fastforward" class="icon"></button>
+                            </div>
+                            <input type="range" id="v5-progressbar" class="progress-bar" min="0" max="100" value="0"> </div>
+                        <div class="main-page">
+                            <div class="video-play"><img src="app/images/arrow-thin.svg"></div>
+                            <div class="middle-info"> <img src="app/images/arrow-left.svg" alt="arrow" class="left-arrow">
+                                <h1>The Power of a Pet</h1> <img src="app/images/arrow.svg" alt="arrow" class="right-arrow">
+                                <div class="underline"></div>
+                                <p>Many children struggle to read. But therapy dogs can provide the comfort they need to read confidently. Lynne’s organization, Paws for People, is dedicated to the positive connections between people and animals.</p>
+                                <a href="app/transcripts/ThePowerOfAPetTranscript.pdf" target="_blank" class="transcript-button">
+                                    <p>Read Transcript</p><img src="app/images/arrow.svg" alt="arrow" class="transcript-arrow"> </a>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="global-apn" id="apn">48.36.807.1 (11/16)</p>
+                    <div class="center main-page-dots"> <span id="dot-1" class="dot dot-1 selected"></span> <span id="dot-2" class="dot dot-2"></span> </div>
+                </div>
+                <div class="section section-2 is-next-section is-not-scrollable">
+                    <div id="connection-share" class="share-your-story">
+                        <h2>Share your story</h2>
+                        <p>You can help others by sharing your own story. Because when someone knows others have faced and overcome similar challenges, it can make a difference.*</p>
+                        <form class="share-form">
+                            <div class="left">
+                                <input type="text" name="first name" class="name-field field" placeholder="First name:">
+                                <input type="text" name="city" class="city-field field field" placeholder="City:">
+                                <input type="text" name="state" class="state-field field" placeholder="State:">
+                                <select name="topic" id="topic" class="hidden-field hide">
+                                    <option value=""></option>
+                                </select>
+                                <ul class="select-dropdown">
+                                    <li class="select-option is-selected"><span>Topic</span></li>
+                                    <li class="select-option"><span>Happiness</span></li>
+                                    <li class="select-option"><span>Connection</span></li>
+                                    <li class="select-option"><span>Peace of Mind</span></li>
+                                    <li class="select-option"><span>Confidence</span></li>
+                                    <li class="select-option"><span>Freedom</span></li>
+                                </ul>
+                            </div>
+                            <div class="right">
+                                <textarea name="story" class="story" placeholder="Story:"></textarea>
+                                <div class="checkbox-field">
+                                    <input type="checkbox" name="termsandconditions" value="none" id="checkbox1">
+                                    <label for="checkbox1" class="checkbox-label">I accept the <a href="#">terms and conditions</a>.</label>
+                                </div>
+                            </div>
+                            <div class="submit">
+                                <input type='submit' id='connection-submit' class="submit-btn" value='Share'>
+                                <p class="disclaimer">*Your story will be shared on this public site for others to read</p>
+                            </div>
+                        </form>
+                        <h2>View Stories <img src="app/images/arrow-orange.svg" alt="orange down arrow" class="colored-down-arrow"></h2> </div>
+                </div>
+                <div class="section section-3 is-next-section is-not-scrollable">
+                    <div id="connection-stories" class="stories-grid">
+                        <ul class="stories-container">
+                            <li class="mobile-top-square">
+                                <div class="relative-container">
+                                    <div class="top-square-container">
+                                        <h2>Connection</h2>
+                                        <div class="underline"></div>
+                                        <p>Find ways to overcome PTSD and&nbsp;more</p>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="story">
+                                <div class="individual-story-container">
+                                    <h3 class="name">Mike<span class="location">Chicago, IL</span></h3>
+                                    <p>Duis id sapien faucibus, molestie neque et, facilisis enim. Quisque ac sem non nulla consectetur elementum. Cum sociis natoque penatibus et magnis.</p>
+                                    <p class="reveal hide">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam distinctio dolore assumenda, accusantium? Impedit error eius nihil accusantium quis libero, non, sed natus nam, mollitia temporibus blanditiis in tenetur at? Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam distinctio dolore assumenda, accusantium? Impedit error eius nihil accusantium quis libero, non, sed natus nam, mollitia temporibus blanditiis in tenetur at?</p><button class="read-more-btn">Read more <span></span></button> </div>
+                            </li>
+                            <li class="story">
+                                <div class="individual-story-container">
+                                    <h3 class="name">Jenn<span class="location">Philadelphia, PA</span></h3>
+                                    <p>Duis id sapien faucibus, molestie neque et, facilisis enim. Quisque ac sem non nulla consectetur elementum. Cum sociis natoque penatibus et magnis.</p>
+                                    <p class="reveal hide">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam distinctio dolore assumenda, accusantium? Impedit error eius nihil accusantium quis libero, non, sed natus nam, mollitia temporibus blanditiis in tenetur at? Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam distinctio dolore assumenda, accusantium? Impedit error eius nihil accusantium quis libero, non, sed natus nam, mollitia temporibus blanditiis in tenetur at?</p><button class="read-more-btn">Read more <span></span></button> </div>
+                            </li>
+                            <li class="story">
+                                <div class="individual-story-container">
+                                    <h3 class="name">Tom<span class="location">Dallas, TX</span></h3>
+                                    <p>Duis id sapien faucibus, molestie neque et, facilisis enim. Quisque ac sem non nulla consectetur elementum. Cum sociis natoque penatibus et magnis.</p>
+                                    <p class="reveal hide">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam distinctio dolore assumenda, accusantium? Impedit error eius nihil accusantium quis libero, non, sed natus nam, mollitia temporibus blanditiis in tenetur at? Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam distinctio dolore assumenda, accusantium? Impedit error eius nihil accusantium quis libero, non, sed natus nam, mollitia temporibus blanditiis in tenetur at?</p><button class="read-more-btn">Read more <span></span></button> </div>
+                            </li>
+                            <li class="story">
+                                <div class="individual-story-container">
+                                    <h3 class="name">Ashley<span class="location">San Francisco, CA</span></h3>
+                                    <p>Duis id sapien faucibus, molestie neque et, facilisis enim. Quisque ac sem non nulla consectetur elementum. Cum sociis natoque penatibus et magnis.</p>
+                                    <p class="reveal hide">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam distinctio dolore assumenda, accusantium? Impedit error eius nihil accusantium quis libero, non, sed natus nam, mollitia temporibus blanditiis in tenetur at? Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam distinctio dolore assumenda, accusantium? Impedit error eius nihil accusantium quis libero, non, sed natus nam, mollitia temporibus blanditiis in tenetur at?</p><button class="read-more-btn">Read more <span></span></button> </div>
+                            </li>
+                            <li class="story">
+                                <div class="individual-story-container">
+                                    <h3 class="name">Joe<span class="location">Orlando, FL</span></h3>
+                                    <p>Duis id sapien faucibus, molestie neque et, facilisis enim. Quisque ac sem non nulla consectetur elementum. Cum sociis natoque penatibus et magnis.</p>
+                                    <p class="reveal hide">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam distinctio dolore assumenda, accusantium? Impedit error eius nihil accusantium quis libero, non, sed natus nam, mollitia temporibus blanditiis in tenetur at? Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam distinctio dolore assumenda, accusantium? Impedit error eius nihil accusantium quis libero, non, sed natus nam, mollitia temporibus blanditiis in tenetur at?</p><button class="read-more-btn">Read more <span></span></button> </div>
+                            </li>
+                            <li class="story">
+                                <div class="individual-story-container">
+                                    <h3 class="name">Christina<span class="location">Seattle, WA</span></h3>
+                                    <p>Duis id sapien faucibus, molestie neque et, facilisis enim. Quisque ac sem non nulla consectetur elementum. Cum sociis natoque penatibus et magnis.</p>
+                                    <p class="reveal hide">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam distinctio dolore assumenda, accusantium? Impedit error eius nihil accusantium quis libero, non, sed natus nam, mollitia temporibus blanditiis in tenetur at? Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam distinctio dolore assumenda, accusantium? Impedit error eius nihil accusantium quis libero, non, sed natus nam, mollitia temporibus blanditiis in tenetur at?</p><button class="read-more-btn">Read more <span></span></button> </div>
+                            </li>
+                            <li class="story">
+                                <div class="individual-story-container">
+                                    <h3 class="name">Jessica<span class="location">Phoenix, AZ</span></h3>
+                                    <p>Duis id sapien faucibus, molestie neque et, facilisis enim. Quisque ac sem non nulla consectetur elementum. Cum sociis natoque penatibus et magnis.</p>
+                                    <p class="reveal hide">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam distinctio dolore assumenda, accusantium? Impedit error eius nihil accusantium quis libero, non, sed natus nam, mollitia temporibus blanditiis in tenetur at? Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam distinctio dolore assumenda, accusantium? Impedit error eius nihil accusantium quis libero, non, sed natus nam, mollitia temporibus blanditiis in tenetur at?</p><button class="read-more-btn">Read more <span></span></button> </div>
+                            </li>
+                            <li class="story">
+                                <div class="individual-story-container">
+                                    <h3 class="name">Mark<span class="location">Columbia, SC</span></h3>
+                                    <p>Duis id sapien faucibus, molestie neque et, facilisis enim. Quisque ac sem non nulla consectetur elementum. Cum sociis natoque penatibus et magnis.</p>
+                                    <p class="reveal hide">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam distinctio dolore assumenda, accusantium? Impedit error eius nihil accusantium quis libero, non, sed natus nam, mollitia temporibus blanditiis in tenetur at?</p><button class="read-more-btn">Read more <span></span></button> </div>
+                            </li>
+                            <li class="story last-story">
+                                <div class="individual-story-container"><a href="#happiness-share" class="back-to-top-btn">Back to top <span></span></a><a href="#" class="more-stories-btn">View more<br>stories <span></span></a>
+                                    <p class="story-counter"><span class="count">139</span> Stories</p>
+                                </div>
+                            </li>
+                        </ul>
+                        <div class="story-lightbox"><a href="javascript:void(0)" class="close-story">Close Story</a></div>
+                        <div class="lightbox-dimmer"></div>
+                    </div>
+                </div>
+            </div>
+            <div id="peaceofmind-video-page" class="video-page">
+                <div id="peaceofmind-top-square" class="top-square">
+                    <div class="top-square-container">
+                        <h2>Peace of Mind</h2>
+                        <div class="underline"></div>
+                        <p>Find ways to manage stress and improve productivity</p>
+                    </div>
+                </div>
+                <div id="peaceofmind-social-media-hub" class="social-media-hub">
+                    <div class="media-container">
+                        <h3 class="join-cta">Join the conversation<span class="join-arrow"></span></h3>
+                        <div class="icons-container">
+                            <a href="http://instagram.com/aetna/" target="_blank" class="instagram icon"></a>
+                            <a href="http://www.facebook.com/aetna" target="_blank" class="facebook icon"></a>
+                            <a href="http://twitter.com/aetna" target="_blank" class="twitter icon"></a>
+                            <a href="http://www.linkedin.com/company/aetna" target="_blank" class="linkedin icon"></a>
+                        </div><a href="http://twitter.com/#itonlytakesaminute" class="hashtag">#itonlytakesaminute</a>
+                        <p class="page-apn">48.36/807.1 (11/16)</p>
+                    </div>
+                </div>
+                <div class="section section-1">
+                    <div class="page-1 page is-current-page">
+                        <div class="overlay"></div>
+                        <div class="next-video">
+                            <div class="container">
+                                <h3 class="next-video-cta">Next video playing in:<span class="next-video-countdown"> seconds</span></h3>
+                                <div class="divider"></div>
+                                <div class="media-container">
+                                    <h3 class="join-cta">Join the conversation<span class="join-arrow"></span></h3>
+                                    <div class="icons-container">
+                                        <a href="http://instagram.com/aetna/" target="_blank" class="instagram icon"></a>
+                                        <a href="http://www.facebook.com/aetna" target="_blank" class="facebook icon"></a>
+                                        <a href="http://twitter.com/aetna" target="_blank" class="twitter icon"></a>
+                                        <a href="http://www.linkedin.com/company/aetna" target="_blank" class="linkedin icon"></a>
+                                    </div><a href="http://twitter.com/#itonlytakesaminute" class="hashtag">#itonlytakesaminute</a> </div>
+                            </div>
+                        </div>
+                        <video class="video" id="dealingwithstress">
+                            <source src="app/images/dealingwithstress.mp4" type="video/mp4"> </video>
+                        <button type="button" class="close-video fade-out"><img src="app/images/close-icon.svg" alt="video close icon" class="icon"></button>
+                        <div class="video-controls fade-out">
+                            <div class="video-buttons">
+                                <button type="button" class="rewind-video"><img src="app/images/rewind.svg" alt="video rewind icon" id="v6-rewind" class="icon"></button>
+                                <button type="button" class="play-pause-video"><img src="app/images/play.svg" alt="video play icon" id="v6-play" class="icon"></button>
+                                <button type="button" class="fastforward-video"><img src="app/images/fastforward.svg" alt="video fastforward icon" id="v6-fastforward" class="icon"></button>
+                            </div>
+                            <input type="range" id="v6-progressbar" class="progress-bar" min="0" max="100" value="0"> </div>
+                        <div class="main-page">
+                            <div class="video-play"><img src="app/images/arrow-thin.svg"></div>
+                            <div class="middle-info"> <img src="app/images/arrow-left.svg" alt="arrow" class="left-arrow">
+                                <h1>Dealing With Stress</h1> <img src="app/images/arrow.svg" alt="arrow" class="right-arrow">
+                                <div class="underline"></div>
+                                <p>Many of us accumulate stresses. Understanding how to deal with this stress is important in maintaining mental and physical health. Learn how Kyle deals with stresses he faces each day.</p>
+                                <a href="app/transcripts/DealingWithStressTranscript.pdf" target="_blank" class="transcript-button">
+                                    <p>Read Transcript</p><img src="app/images/arrow.svg" alt="arrow" class="transcript-arrow"> </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="page page-2 is-next-page">
+                        <div class="overlay"></div>
+                        <div class="next-video">
+                            <div class="container">
+                                <h3 class="next-video-cta">Next video playing in:<span class="next-video-countdown"> seconds</span></h3>
+                                <div class="divider"></div>
+                                <div class="media-container">
+                                    <h3 class="join-cta">Join the conversation<span class="join-arrow"></span></h3>
+                                    <div class="icons-container">
+                                        <a href="http://instagram.com/aetna/" target="_blank" class="instagram icon"></a>
+                                        <a href="http://www.facebook.com/aetna" target="_blank" class="facebook icon"></a>
+                                        <a href="http://twitter.com/aetna" target="_blank" class="twitter icon"></a>
+                                        <a href="http://www.linkedin.com/company/aetna" target="_blank" class="linkedin icon"></a>
+                                    </div><a href="http://twitter.com/#itonlytakesaminute" class="hashtag">#itonlytakesaminute</a> </div>
+                            </div>
+                        </div>
+                        <video class="video" id="spaceforwellness">
+                            <source src="app/images/spaceforwellness.mp4" type="video/mp4"> </video>
+                        <button type="button" class="close-video fade-out"><img src="app/images/close-icon.svg" alt="video close icon" class="icon"></button>
+                        <div class="video-controls fade-out">
+                            <div class="video-buttons">
+                                <button type="button" class="rewind-video"><img src="app/images/rewind.svg" alt="video rewind icon" id="v7-rewind" class="icon"></button>
+                                <button type="button" class="play-pause-video"><img src="app/images/play.svg" alt="video play icon" id="v7-play" class="icon"></button>
+                                <button type="button" class="fastforward-video"><img src="app/images/fastforward.svg" alt="video fastforward icon" id="v7-fastforward" class="icon"></button>
+                            </div>
+                            <input type="range" id="v7-progressbar" class="progress-bar" min="0" max="100" value="0"> </div>
+                        <div class="main-page">
+                            <div class="video-play"><img src="app/images/arrow-thin.svg"></div>
+                            <div class="middle-info"> <img src="app/images/arrow-left.svg" alt="arrow" class="left-arrow">
+                                <h1>Space for Wellness</h1> <img src="app/images/arrow.svg" alt="arrow" class="right-arrow">
+                                <div class="underline"></div>
+                                <p>The space we live and work in can affect us in many ways. A well-designed environment can help emotional health and productivity. Learn how the space around us influences how we feel from registered architect, Jay Tacket</p>
+                                <a href="app/transcripts/SpaceForWellnessTranscript.pdf" target="_blank" class="transcript-button">
+                                    <p>Read Transcript</p><img src="app/images/arrow.svg" alt="arrow" class="transcript-arrow"> </a>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="global-apn" id="apn">48.36.807.1 (11/16)</p>
+                    <div class="center main-page-dots"> <span id="dot-1" class="dot dot-1 selected"></span> <span id="dot-2" class="dot dot-2"></span> </div>
+                </div>
+                <div class="section section-2 is-next-section is-not-scrollable">
+                    <div id="peaceofmind-share" class="share-your-story">
+                        <h2>Share your story</h2>
+                        <p>You can help others by sharing your own story. Because when someone knows others have faced and overcome similar challenges, it can make a difference.*</p>
+                        <form class="share-form">
+                            <div class="left">
+                                <input type="text" name="first name" class="name-field field" placeholder="First name:">
+                                <input type="text" name="city" class="city-field field field" placeholder="City:">
+                                <input type="text" name="state" class="state-field field" placeholder="State:">
+                                <select name="topic" id="topic" class="hidden-field hide">
+                                    <option value=""></option>
+                                </select>
+                                <ul class="select-dropdown">
+                                    <li class="select-option is-selected"><span>Topic</span></li>
+                                    <li class="select-option"><span>Happiness</span></li>
+                                    <li class="select-option"><span>Connection</span></li>
+                                    <li class="select-option"><span>Peace of Mind</span></li>
+                                    <li class="select-option"><span>Confidence</span></li>
+                                    <li class="select-option"><span>Freedom</span></li>
+                                </ul>
+                            </div>
+                            <div class="right">
+                                <textarea name="story" class="story" placeholder="Story:"></textarea>
+                                <div class="checkbox-field">
+                                    <input type="checkbox" name="termsandconditions" value="none" id="checkbox1">
+                                    <label for="checkbox1" class="checkbox-label">I accept the <a href="#">terms and conditions</a>.</label>
+                                </div>
+                            </div>
+                            <div class="submit">
+                                <input type='submit' id='peaceofmind-submit' class="submit-btn" value='Share'>
+                                <p class="disclaimer">*Your story will be shared on this public site for others to read</p>
+                            </div>
+                        </form>
+                        <h2>View Stories <img src="app/images/arrow-blue.svg" alt="blue down arrow" class="colored-down-arrow"></h2> </div>
+                </div>
+                <div class="section section-3 is-next-section is-not-scrollable">
+                    <div id="peaceofmind-stories" class="stories-grid">
+                        <ul class="stories-container">
+                            <li class="mobile-top-square">
+                                <div class="relative-container">
+                                    <div class="top-square-container">
+                                        <h2>Peace of Mind</h2>
+                                        <div class="underline"></div>
+                                        <p>Find ways to manage stress and improve&nbsp;productivity</p>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="story">
+                                <div class="individual-story-container">
+                                    <h3 class="name">Mike<span class="location">Chicago, IL</span></h3>
+                                    <p>Duis id sapien faucibus, molestie neque et, facilisis enim. Quisque ac sem non nulla consectetur elementum. Cum sociis natoque penatibus et magnis.</p>
+                                    <p class="reveal hide">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam distinctio dolore assumenda, accusantium? Impedit error eius nihil accusantium quis libero, non, sed natus nam, mollitia temporibus blanditiis in tenetur at? Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam distinctio dolore assumenda, accusantium? Impedit error eius nihil accusantium quis libero, non, sed natus nam, mollitia temporibus blanditiis in tenetur at?</p><button class="read-more-btn">Read more <span></span></button> </div>
+                            </li>
+                            <li class="story">
+                                <div class="individual-story-container">
+                                    <h3 class="name">Jenn<span class="location">Philadelphia, PA</span></h3>
+                                    <p>Duis id sapien faucibus, molestie neque et, facilisis enim. Quisque ac sem non nulla consectetur elementum. Cum sociis natoque penatibus et magnis.</p>
+                                    <p class="reveal hide">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam distinctio dolore assumenda, accusantium? Impedit error eius nihil accusantium quis libero, non, sed natus nam, mollitia temporibus blanditiis in tenetur at? Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam distinctio dolore assumenda, accusantium? Impedit error eius nihil accusantium quis libero, non, sed natus nam, mollitia temporibus blanditiis in tenetur at?</p><button class="read-more-btn">Read more <span></span></button> </div>
+                            </li>
+                            <li class="story">
+                                <div class="individual-story-container">
+                                    <h3 class="name">Tom<span class="location">Dallas, TX</span></h3>
+                                    <p>Duis id sapien faucibus, molestie neque et, facilisis enim. Quisque ac sem non nulla consectetur elementum. Cum sociis natoque penatibus et magnis.</p>
+                                    <p class="reveal hide">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam distinctio dolore assumenda, accusantium? Impedit error eius nihil accusantium quis libero, non, sed natus nam, mollitia temporibus blanditiis in tenetur at? Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam distinctio dolore assumenda, accusantium? Impedit error eius nihil accusantium quis libero, non, sed natus nam, mollitia temporibus blanditiis in tenetur at?</p><button class="read-more-btn">Read more <span></span></button> </div>
+                            </li>
+                            <li class="story">
+                                <div class="individual-story-container">
+                                    <h3 class="name">Ashley<span class="location">San Francisco, CA</span></h3>
+                                    <p>Duis id sapien faucibus, molestie neque et, facilisis enim. Quisque ac sem non nulla consectetur elementum. Cum sociis natoque penatibus et magnis.</p>
+                                    <p class="reveal hide">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam distinctio dolore assumenda, accusantium? Impedit error eius nihil accusantium quis libero, non, sed natus nam, mollitia temporibus blanditiis in tenetur at? Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam distinctio dolore assumenda, accusantium? Impedit error eius nihil accusantium quis libero, non, sed natus nam, mollitia temporibus blanditiis in tenetur at?</p><button class="read-more-btn">Read more <span></span></button> </div>
+                            </li>
+                            <li class="story">
+                                <div class="individual-story-container">
+                                    <h3 class="name">Joe<span class="location">Orlando, FL</span></h3>
+                                    <p>Duis id sapien faucibus, molestie neque et, facilisis enim. Quisque ac sem non nulla consectetur elementum. Cum sociis natoque penatibus et magnis.</p>
+                                    <p class="reveal hide">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam distinctio dolore assumenda, accusantium? Impedit error eius nihil accusantium quis libero, non, sed natus nam, mollitia temporibus blanditiis in tenetur at? Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam distinctio dolore assumenda, accusantium? Impedit error eius nihil accusantium quis libero, non, sed natus nam, mollitia temporibus blanditiis in tenetur at?</p><button class="read-more-btn">Read more <span></span></button> </div>
+                            </li>
+                            <li class="story">
+                                <div class="individual-story-container">
+                                    <h3 class="name">Christina<span class="location">Seattle, WA</span></h3>
+                                    <p>Duis id sapien faucibus, molestie neque et, facilisis enim. Quisque ac sem non nulla consectetur elementum. Cum sociis natoque penatibus et magnis.</p>
+                                    <p class="reveal hide">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam distinctio dolore assumenda, accusantium? Impedit error eius nihil accusantium quis libero, non, sed natus nam, mollitia temporibus blanditiis in tenetur at? Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam distinctio dolore assumenda, accusantium? Impedit error eius nihil accusantium quis libero, non, sed natus nam, mollitia temporibus blanditiis in tenetur at?</p><button class="read-more-btn">Read more <span></span></button> </div>
+                            </li>
+                            <li class="story">
+                                <div class="individual-story-container">
+                                    <h3 class="name">Jessica<span class="location">Phoenix, AZ</span></h3>
+                                    <p>Duis id sapien faucibus, molestie neque et, facilisis enim. Quisque ac sem non nulla consectetur elementum. Cum sociis natoque penatibus et magnis.</p>
+                                    <p class="reveal hide">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam distinctio dolore assumenda, accusantium? Impedit error eius nihil accusantium quis libero, non, sed natus nam, mollitia temporibus blanditiis in tenetur at? Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam distinctio dolore assumenda, accusantium? Impedit error eius nihil accusantium quis libero, non, sed natus nam, mollitia temporibus blanditiis in tenetur at?</p><button class="read-more-btn">Read more <span></span></button> </div>
+                            </li>
+                            <li class="story">
+                                <div class="individual-story-container">
+                                    <h3 class="name">Mark<span class="location">Columbia, SC</span></h3>
+                                    <p>Duis id sapien faucibus, molestie neque et, facilisis enim. Quisque ac sem non nulla consectetur elementum. Cum sociis natoque penatibus et magnis.</p>
+                                    <p class="reveal hide">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam distinctio dolore assumenda, accusantium? Impedit error eius nihil accusantium quis libero, non, sed natus nam, mollitia temporibus blanditiis in tenetur at?</p><button class="read-more-btn">Read more <span></span></button> </div>
+                            </li>
+                            <li class="story last-story">
+                                <div class="individual-story-container"><a href="#happiness-share" class="back-to-top-btn">Back to top <span></span></a><a href="#" class="more-stories-btn">View more<br>stories <span></span></a>
+                                    <p class="story-counter"><span class="count">139</span> Stories</p>
+                                </div>
+                            </li>
+                        </ul>
+                        <div class="story-lightbox"><a href="javascript:void(0)" class="close-story">Close Story</a></div>
+                        <div class="lightbox-dimmer"></div>
+                    </div>
+                </div>
+            </div>
+            <div id="confidence-video-page" class="video-page">
+                <div id="confidence-top-square" class="top-square">
+                    <div class="top-square-container">
+                        <h2>Confidence</h2>
+                        <div class="underline"></div>
+                        <p>Find strength to overcome bullying and low self-esteem</p>
+                    </div>
+                </div>
+                <div id="confidence-social-media-hub" class="social-media-hub">
+                    <div class="media-container">
+                        <h3 class="join-cta">Join the conversation<span class="join-arrow"></span></h3>
+                        <div class="icons-container">
+                            <a href="http://instagram.com/aetna/" target="_blank" class="instagram icon"></a>
+                            <a href="http://www.facebook.com/aetna" target="_blank" class="facebook icon"></a>
+                            <a href="http://twitter.com/aetna" target="_blank" class="twitter icon"></a>
+                            <a href="http://www.linkedin.com/company/aetna" target="_blank" class="linkedin icon"></a>
+                        </div><a href="http://twitter.com/#itonlytakesaminute" class="hashtag">#itonlytakesaminute</a>
+                        <p class="page-apn">48.36/807.1 (11/16)</p>
+                    </div>
+                </div>
+                <div class="section section-1">
+                    <div class="page-1 page is-current-page">
+                        <div class="overlay"></div>
+                        <div class="next-video">
+                            <div class="container">
+                                <h3 class="next-video-cta">Next video playing in:<span class="next-video-countdown"> seconds</span></h3>
+                                <div class="divider"></div>
+                                <div class="media-container">
+                                    <h3 class="join-cta">Join the conversation<span class="join-arrow"></span></h3>
+                                    <div class="icons-container">
+                                        <a href="http://instagram.com/aetna/" target="_blank" class="instagram icon"></a>
+                                        <a href="http://www.facebook.com/aetna" target="_blank" class="facebook icon"></a>
+                                        <a href="http://twitter.com/aetna" target="_blank" class="twitter icon"></a>
+                                        <a href="http://www.linkedin.com/company/aetna" target="_blank" class="linkedin icon"></a>
+                                    </div><a href="http://twitter.com/#itonlytakesaminute" class="hashtag">#itonlytakesaminute</a> </div>
+                            </div>
+                        </div>
+                        <video class="video" id="overcomingbullying">
+                            <source src="app/images/overcomingbullying.mp4" type="video/mp4"> </video>
+                        <button type="button" class="close-video fade-out"><img src="app/images/close-icon.svg" alt="video close icon" class="icon"></button>
+                        <div class="video-controls fade-out">
+                            <div class="video-buttons">
+                                <button type="button" class="rewind-video"><img src="app/images/rewind.svg" alt="video rewind icon" id="v8-rewind" class="icon"></button>
+                                <button type="button" class="play-pause-video"><img src="app/images/play.svg" alt="video play icon" id="v8-play" class="icon"></button>
+                                <button type="button" class="fastforward-video"><img src="app/images/fastforward.svg" alt="video fastforward icon" id="v8-fastforward" class="icon"></button>
+                            </div>
+                            <input type="range" id="v8-progressbar" class="progress-bar" min="0" max="100" value="0"> </div>
+                        <div class="main-page">
+                            <div class="video-play"><img src="app/images/arrow-thin.svg"></div>
+                            <div class="middle-info"> <img src="app/images/arrow-left.svg" alt="arrow" class="left-arrow">
+                                <h1>Overcoming Bullying</h1> <img src="app/images/arrow.svg" alt="arrow" class="right-arrow">
+                                <div class="underline"></div>
+                                <p>Bullying is an epidemic that is more common than people realize and it should be taken very seriously. Learn how Alex overcame the struggles of being bullied.</p>
+                                <a href="app/transcripts/OvercomingBullyingTranscript.pdf" target="_blank" class="transcript-button">
+                                    <p>Read Transcript</p><img src="app/images/arrow.svg" alt="arrow" class="transcript-arrow"> </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="page page-2 is-next-page">
+                        <div class="overlay"></div>
+                        <div class="next-video">
+                            <div class="container">
+                                <h3 class="next-video-cta">Next video playing in:<span class="next-video-countdown"> seconds</span></h3>
+                                <div class="divider"></div>
+                                <div class="media-container">
+                                    <h3 class="join-cta">Join the conversation<span class="join-arrow"></span></h3>
+                                    <div class="icons-container">
+                                        <a href="http://instagram.com/aetna/" target="_blank" class="instagram icon"></a>
+                                        <a href="http://www.facebook.com/aetna" target="_blank" class="facebook icon"></a>
+                                        <a href="http://twitter.com/aetna" target="_blank" class="twitter icon"></a>
+                                        <a href="http://www.linkedin.com/company/aetna" target="_blank" class="linkedin icon"></a>
+                                    </div><a href="http://twitter.com/#itonlytakesaminute" class="hashtag">#itonlytakesaminute</a> </div>
+                            </div>
+                        </div>
+                        <video class="video" id="improvingselfesteem">
+                            <source src="app/images/improvingselfesteem.mp4" type="video/mp4"> </video>
+                        <button type="button" class="close-video fade-out"><img src="app/images/close-icon.svg" alt="video close icon" class="icon"></button>
+                        <div class="video-controls fade-out">
+                            <div class="video-buttons">
+                                <button type="button" class="rewind-video"><img src="app/images/rewind.svg" alt="video rewind icon" id="v9-rewind" class="icon"></button>
+                                <button type="button" class="play-pause-video"><img src="app/images/play.svg" alt="video play icon" id="v9-play" class="icon"></button>
+                                <button type="button" class="fastforward-video"><img src="app/images/fastforward.svg" alt="video fastforward icon" id="v9-fastforward" class="icon"></button>
+                            </div>
+                            <input type="range" id="v9-progressbar" class="progress-bar" min="0" max="100" value="0"> </div>
+                        <div class="main-page">
+                            <div class="video-play"><img src="app/images/arrow-thin.svg"></div>
+                            <div class="middle-info"> <img src="app/images/arrow-left.svg" alt="arrow" class="left-arrow">
+                                <h1>Improving Self-Esteem</h1> <img src="app/images/arrow.svg" alt="arrow" class="right-arrow">
+                                <div class="underline"></div>
+                                <p>At one time or another, many of us will struggle with low self-esteem. See how Stephen overcame his insecurities about body image by using his energy and positivity to help empower others.</p>
+                                <a href="app/transcripts/ImprovingSelfEsteemTranscript.pdf" target="_blank" class="transcript-button">
+                                    <p>Read Transcript</p><img src="app/images/arrow.svg" alt="arrow" class="transcript-arrow"> </a>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="global-apn" id="apn">48.36.807.1 (11/16)</p>
+                    <div class="center main-page-dots"> <span id="dot-1" class="dot dot-1 selected"></span> <span id="dot-2" class="dot dot-2"></span> </div>
+                </div>
+                <div class="section section-2 is-next-section is-not-scrollable">
+                    <div id="confidence-share" class="share-your-story">
+                        <h2>Share your story</h2>
+                        <p>You can help others by sharing your own story. Because when someone knows others have faced and overcome similar challenges, it can make a difference.*</p>
+                        <form class="share-form">
+                            <div class="left">
+                                <input type="text" name="first name" class="name-field field" placeholder="First name:">
+                                <input type="text" name="city" class="city-field field field" placeholder="City:">
+                                <input type="text" name="state" class="state-field field" placeholder="State:">
+                                <select name="topic" id="topic" class="hidden-field hide">
+                                    <option value=""></option>
+                                </select>
+                                <ul class="select-dropdown">
+                                    <li class="select-option is-selected"><span>Topic</span></li>
+                                    <li class="select-option"><span>Happiness</span></li>
+                                    <li class="select-option"><span>Connection</span></li>
+                                    <li class="select-option"><span>Peace of Mind</span></li>
+                                    <li class="select-option"><span>Confidence</span></li>
+                                    <li class="select-option"><span>Freedom</span></li>
+                                </ul>
+                            </div>
+                            <div class="right">
+                                <textarea name="story" class="story" placeholder="Story:"></textarea>
+                                <div class="checkbox-field">
+                                    <input type="checkbox" name="termsandconditions" value="none" id="checkbox1">
+                                    <label for="checkbox1" class="checkbox-label">I accept the <a href="#">terms and conditions</a>.</label>
+                                </div>
+                            </div>
+                            <div class="submit">
+                                <input type='submit' id='confidence-submit' class="submit-btn" value='Share'>
+                                <p class="disclaimer">*Your story will be shared on this public site for others to read</p>
+                            </div>
+                        </form>
+                        <h2>View Stories <img src="app/images/arrow-lime.svg" alt="lime down arrow" class="colored-down-arrow"></h2> </div>
+                </div>
+                <div class="section section-3 is-next-section is-not-scrollable">
+                    <div id="confidence-stories" class="stories-grid">
+                        <ul class="stories-container">
+                            <li class="mobile-top-square">
+                                <div class="relative-container">
+                                    <div class="top-square-container">
+                                        <h2>Confidence</h2>
+                                        <div class="underline"></div>
+                                        <p>Find strength to overcome bullying and low self-esteem</p>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="story">
+                                <div class="individual-story-container">
+                                    <h3 class="name">Mike<span class="location">Chicago, IL</span></h3>
+                                    <p>Duis id sapien faucibus, molestie neque et, facilisis enim. Quisque ac sem non nulla consectetur elementum. Cum sociis natoque penatibus et magnis.</p>
+                                    <p class="reveal hide">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam distinctio dolore assumenda, accusantium? Impedit error eius nihil accusantium quis libero, non, sed natus nam, mollitia temporibus blanditiis in tenetur at? Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam distinctio dolore assumenda, accusantium? Impedit error eius nihil accusantium quis libero, non, sed natus nam, mollitia temporibus blanditiis in tenetur at?</p><button class="read-more-btn">Read more <span></span></button> </div>
+                            </li>
+                            <li class="story">
+                                <div class="individual-story-container">
+                                    <h3 class="name">Jenn<span class="location">Philadelphia, PA</span></h3>
+                                    <p>Duis id sapien faucibus, molestie neque et, facilisis enim. Quisque ac sem non nulla consectetur elementum. Cum sociis natoque penatibus et magnis.</p>
+                                    <p class="reveal hide">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam distinctio dolore assumenda, accusantium? Impedit error eius nihil accusantium quis libero, non, sed natus nam, mollitia temporibus blanditiis in tenetur at? Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam distinctio dolore assumenda, accusantium? Impedit error eius nihil accusantium quis libero, non, sed natus nam, mollitia temporibus blanditiis in tenetur at?</p><button class="read-more-btn">Read more <span></span></button> </div>
+                            </li>
+                            <li class="story">
+                                <div class="individual-story-container">
+                                    <h3 class="name">Tom<span class="location">Dallas, TX</span></h3>
+                                    <p>Duis id sapien faucibus, molestie neque et, facilisis enim. Quisque ac sem non nulla consectetur elementum. Cum sociis natoque penatibus et magnis.</p>
+                                    <p class="reveal hide">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam distinctio dolore assumenda, accusantium? Impedit error eius nihil accusantium quis libero, non, sed natus nam, mollitia temporibus blanditiis in tenetur at? Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam distinctio dolore assumenda, accusantium? Impedit error eius nihil accusantium quis libero, non, sed natus nam, mollitia temporibus blanditiis in tenetur at?</p><button class="read-more-btn">Read more <span></span></button> </div>
+                            </li>
+                            <li class="story">
+                                <div class="individual-story-container">
+                                    <h3 class="name">Ashley<span class="location">San Francisco, CA</span></h3>
+                                    <p>Duis id sapien faucibus, molestie neque et, facilisis enim. Quisque ac sem non nulla consectetur elementum. Cum sociis natoque penatibus et magnis.</p>
+                                    <p class="reveal hide">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam distinctio dolore assumenda, accusantium? Impedit error eius nihil accusantium quis libero, non, sed natus nam, mollitia temporibus blanditiis in tenetur at? Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam distinctio dolore assumenda, accusantium? Impedit error eius nihil accusantium quis libero, non, sed natus nam, mollitia temporibus blanditiis in tenetur at?</p><button class="read-more-btn">Read more <span></span></button> </div>
+                            </li>
+                            <li class="story">
+                                <div class="individual-story-container">
+                                    <h3 class="name">Joe<span class="location">Orlando, FL</span></h3>
+                                    <p>Duis id sapien faucibus, molestie neque et, facilisis enim. Quisque ac sem non nulla consectetur elementum. Cum sociis natoque penatibus et magnis.</p>
+                                    <p class="reveal hide">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam distinctio dolore assumenda, accusantium? Impedit error eius nihil accusantium quis libero, non, sed natus nam, mollitia temporibus blanditiis in tenetur at? Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam distinctio dolore assumenda, accusantium? Impedit error eius nihil accusantium quis libero, non, sed natus nam, mollitia temporibus blanditiis in tenetur at?</p><button class="read-more-btn">Read more <span></span></button> </div>
+                            </li>
+                            <li class="story">
+                                <div class="individual-story-container">
+                                    <h3 class="name">Christina<span class="location">Seattle, WA</span></h3>
+                                    <p>Duis id sapien faucibus, molestie neque et, facilisis enim. Quisque ac sem non nulla consectetur elementum. Cum sociis natoque penatibus et magnis.</p>
+                                    <p class="reveal hide">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam distinctio dolore assumenda, accusantium? Impedit error eius nihil accusantium quis libero, non, sed natus nam, mollitia temporibus blanditiis in tenetur at? Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam distinctio dolore assumenda, accusantium? Impedit error eius nihil accusantium quis libero, non, sed natus nam, mollitia temporibus blanditiis in tenetur at?</p><button class="read-more-btn">Read more <span></span></button> </div>
+                            </li>
+                            <li class="story">
+                                <div class="individual-story-container">
+                                    <h3 class="name">Jessica<span class="location">Phoenix, AZ</span></h3>
+                                    <p>Duis id sapien faucibus, molestie neque et, facilisis enim. Quisque ac sem non nulla consectetur elementum. Cum sociis natoque penatibus et magnis.</p>
+                                    <p class="reveal hide">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam distinctio dolore assumenda, accusantium? Impedit error eius nihil accusantium quis libero, non, sed natus nam, mollitia temporibus blanditiis in tenetur at? Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam distinctio dolore assumenda, accusantium? Impedit error eius nihil accusantium quis libero, non, sed natus nam, mollitia temporibus blanditiis in tenetur at?</p><button class="read-more-btn">Read more <span></span></button> </div>
+                            </li>
+                            <li class="story">
+                                <div class="individual-story-container">
+                                    <h3 class="name">Mark<span class="location">Columbia, SC</span></h3>
+                                    <p>Duis id sapien faucibus, molestie neque et, facilisis enim. Quisque ac sem non nulla consectetur elementum. Cum sociis natoque penatibus et magnis.</p>
+                                    <p class="reveal hide">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam distinctio dolore assumenda, accusantium? Impedit error eius nihil accusantium quis libero, non, sed natus nam, mollitia temporibus blanditiis in tenetur at?</p><button class="read-more-btn">Read more <span></span></button> </div>
+                            </li>
+                            <li class="story last-story">
+                                <div class="individual-story-container"><a href="#happiness-share" class="back-to-top-btn">Back to top <span></span></a><a href="#" class="more-stories-btn">View more<br>stories <span></span></a>
+                                    <p class="story-counter"><span class="count">139</span> Stories</p>
+                                </div>
+                            </li>
+                        </ul>
+                        <div class="story-lightbox"><a href="javascript:void(0)" class="close-story">Close Story</a></div>
+                        <div class="lightbox-dimmer"></div>
+                    </div>
+                </div>
+            </div>
+            <div id="freedom-video-page" class="video-page">
+                <div id="freedom-top-square" class="top-square">
+                    <div class="top-square-container">
+                        <h2>Freedom</h2>
+                        <div class="underline"></div>
+                        <p>Find ways to break free from addiction and substances</p>
+                    </div>
+                </div>
+                <div id="freedom-social-media-hub" class="social-media-hub">
+                    <div class="media-container">
+                        <h3 class="join-cta">Join the conversation<span class="join-arrow"></span></h3>
+                        <div class="icons-container">
+                            <a href="http://instagram.com/aetna/" target="_blank" class="instagram icon"></a>
+                            <a href="http://www.facebook.com/aetna" target="_blank" class="facebook icon"></a>
+                            <a href="http://twitter.com/aetna" target="_blank" class="twitter icon"></a>
+                            <a href="http://www.linkedin.com/company/aetna" target="_blank" class="linkedin icon"></a>
+                        </div><a href="http://twitter.com/#itonlytakesaminute" class="hashtag">#itonlytakesaminute</a>
+                        <p class="page-apn">48.36/807.1 (11/16)</p>
+                    </div>
+                </div>
+                <div class="section section-1">
+                    <div class="page-1 page is-current-page">
+                        <div class="overlay"></div>
+                        <div class="next-video">
+                            <div class="container">
+                                <h3 class="next-video-cta">Next video playing in:<span class="next-video-countdown"> seconds</span></h3>
+                                <div class="divider"></div>
+                                <div class="media-container">
+                                    <h3 class="join-cta">Join the conversation<span class="join-arrow"></span></h3>
+                                    <div class="icons-container">
+                                        <a href="http://instagram.com/aetna/" target="_blank" class="instagram icon"></a>
+                                        <a href="http://www.facebook.com/aetna" target="_blank" class="facebook icon"></a>
+                                        <a href="http://twitter.com/aetna" target="_blank" class="twitter icon"></a>
+                                        <a href="http://www.linkedin.com/company/aetna" target="_blank" class="linkedin icon"></a>
+                                    </div><a href="http://twitter.com/#itonlytakesaminute" class="hashtag">#itonlytakesaminute</a> </div>
+                            </div>
+                        </div>
+                        <video class="video" id="overcomingaddiction">
+                            <source src="app/images/substanceabuse.mp4" type="video/mp4"> </video>
+                        <button type="button" class="close-video fade-out"><img src="app/images/close-icon.svg" alt="video close icon" class="icon"></button>
+                        <div class="video-controls fade-out">
+                            <div class="video-buttons">
+                                <button type="button" class="rewind-video"><img src="app/images/rewind.svg" alt="video rewind icon" id="v10-rewind" class="icon"></button>
+                                <button type="button" class="play-pause-video"><img src="app/images/play.svg" alt="video play icon" id="v10-play" class="icon"></button>
+                                <button type="button" class="fastforward-video"><img src="app/images/fastforward.svg" alt="video fastforward icon" id="v10-fastforward" class="icon"></button>
+                            </div>
+                            <input type="range" id="v10-progressbar" class="progress-bar" min="0" max="100" value="0"> </div>
+                        <div class="main-page">
+                            <div class="video-play"><img src="app/images/arrow-thin.svg"></div>
+                            <div class="middle-info"> <img src="app/images/arrow-left.svg" alt="arrow" class="left-arrow">
+                                <h1>Overcoming Addiction</h1> <img src="app/images/arrow.svg" alt="arrow" class="right-arrow">
+                                <div class="underline"></div>
+                                <p>Substance abuse, of opiates especially, has become a full-scale epidemic. Sons, sisters, husbands and mothers have all been affected. Learn how Drew and Jennifer both struggled, but overcame their addictions.</p>
+                                <a href="app/transcripts/SubstanceAbuseTranscript.pdf" target="_blank" class="transcript-button">
+                                    <p>Read Transcript</p><img src="app/images/arrow.svg" alt="arrow" class="transcript-arrow"> </a>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="global-apn" id="apn">48.36.807.1 (11/16)</p>
+                    <div class="center main-page-dots"> <span id="dot-1" class="dot dot-1 selected"></span>
+                        <!-- <span id="dot-2" class="dot dot-2"></span> <span id="dot-3" class="dot dot-3"></span> --></div>
+                </div>
+                <div class="section section-2 is-next-section is-not-scrollable">
+                    <div id="freedom-share" class="share-your-story">
+                        <h2>Share your story</h2>
+                        <p>You can help others by sharing your own story. Because when someone knows others have faced and overcome similar challenges, it can make a difference.*</p>
+                        <form class="share-form">
+                            <div class="left">
+                                <input type="text" name="first name" class="name-field field" placeholder="First name:">
+                                <input type="text" name="city" class="city-field field field" placeholder="City:">
+                                <input type="text" name="state" class="state-field field" placeholder="State:">
+                                <select name="topic" id="topic" class="hidden-field hide">
+                                    <option value=""></option>
+                                </select>
+                                <ul class="select-dropdown">
+                                    <li class="select-option is-selected"><span>Topic</span></li>
+                                    <li class="select-option"><span>Happiness</span></li>
+                                    <li class="select-option"><span>Connection</span></li>
+                                    <li class="select-option"><span>Peace of Mind</span></li>
+                                    <li class="select-option"><span>Confidence</span></li>
+                                    <li class="select-option"><span>Freedom</span></li>
+                                </ul>
+                            </div>
+                            <div class="right">
+                                <textarea name="story" class="story" placeholder="Story:"></textarea>
+                                <div class="checkbox-field">
+                                    <input type="checkbox" name="termsandconditions" value="none" id="checkbox1">
+                                    <label for="checkbox1" class="checkbox-label">I accept the <a href="#">terms and conditions</a>.</label>
+                                </div>
+                            </div>
+                            <div class="submit">
+                                <input type='submit' id='freedom-submit' class="submit-btn" value='Share'>
+                                <p class="disclaimer">*Your story will be shared on this public site for others to read</p>
+                            </div>
+                        </form>
+                        <h2>View Stories <img src="app/images/arrow-pink.svg" alt="pink down arrow" class="colored-down-arrow"></h2> </div>
+                </div>
+                <div class="section section-3 is-next-section is-not-scrollable">
+                    <div id="freedom-stories" class="stories-grid">
+                        <ul class="stories-container">
+                            <li class="mobile-top-square">
+                                <div class="relative-container">
+                                    <div class="top-square-container">
+                                        <h2>Freedom</h2>
+                                        <div class="underline"></div>
+                                        <p>Find ways to break free from addiction and substances</p>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="story">
+                                <div class="individual-story-container">
+                                    <h3 class="name">Mike<span class="location">Chicago, IL</span></h3>
+                                    <p>Duis id sapien faucibus, molestie neque et, facilisis enim. Quisque ac sem non nulla consectetur elementum. Cum sociis natoque penatibus et magnis.</p>
+                                    <p class="reveal hide">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam distinctio dolore assumenda, accusantium? Impedit error eius nihil accusantium quis libero, non, sed natus nam, mollitia temporibus blanditiis in tenetur at? Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam distinctio dolore assumenda, accusantium? Impedit error eius nihil accusantium quis libero, non, sed natus nam, mollitia temporibus blanditiis in tenetur at?</p><button class="read-more-btn">Read more <span></span></button> </div>
+                            </li>
+                            <li class="story">
+                                <div class="individual-story-container">
+                                    <h3 class="name">Jenn<span class="location">Philadelphia, PA</span></h3>
+                                    <p>Duis id sapien faucibus, molestie neque et, facilisis enim. Quisque ac sem non nulla consectetur elementum. Cum sociis natoque penatibus et magnis.</p>
+                                    <p class="reveal hide">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam distinctio dolore assumenda, accusantium? Impedit error eius nihil accusantium quis libero, non, sed natus nam, mollitia temporibus blanditiis in tenetur at? Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam distinctio dolore assumenda, accusantium? Impedit error eius nihil accusantium quis libero, non, sed natus nam, mollitia temporibus blanditiis in tenetur at?</p><button class="read-more-btn">Read more <span></span></button> </div>
+                            </li>
+                            <li class="story">
+                                <div class="individual-story-container">
+                                    <h3 class="name">Tom<span class="location">Dallas, TX</span></h3>
+                                    <p>Duis id sapien faucibus, molestie neque et, facilisis enim. Quisque ac sem non nulla consectetur elementum. Cum sociis natoque penatibus et magnis.</p>
+                                    <p class="reveal hide">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam distinctio dolore assumenda, accusantium? Impedit error eius nihil accusantium quis libero, non, sed natus nam, mollitia temporibus blanditiis in tenetur at? Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam distinctio dolore assumenda, accusantium? Impedit error eius nihil accusantium quis libero, non, sed natus nam, mollitia temporibus blanditiis in tenetur at?</p><button class="read-more-btn">Read more <span></span></button> </div>
+                            </li>
+                            <li class="story">
+                                <div class="individual-story-container">
+                                    <h3 class="name">Ashley<span class="location">San Francisco, CA</span></h3>
+                                    <p>Duis id sapien faucibus, molestie neque et, facilisis enim. Quisque ac sem non nulla consectetur elementum. Cum sociis natoque penatibus et magnis.</p>
+                                    <p class="reveal hide">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam distinctio dolore assumenda, accusantium? Impedit error eius nihil accusantium quis libero, non, sed natus nam, mollitia temporibus blanditiis in tenetur at? Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam distinctio dolore assumenda, accusantium? Impedit error eius nihil accusantium quis libero, non, sed natus nam, mollitia temporibus blanditiis in tenetur at?</p><button class="read-more-btn">Read more <span></span></button> </div>
+                            </li>
+                            <li class="story">
+                                <div class="individual-story-container">
+                                    <h3 class="name">Joe<span class="location">Orlando, FL</span></h3>
+                                    <p>Duis id sapien faucibus, molestie neque et, facilisis enim. Quisque ac sem non nulla consectetur elementum. Cum sociis natoque penatibus et magnis.</p>
+                                    <p class="reveal hide">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam distinctio dolore assumenda, accusantium? Impedit error eius nihil accusantium quis libero, non, sed natus nam, mollitia temporibus blanditiis in tenetur at? Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam distinctio dolore assumenda, accusantium? Impedit error eius nihil accusantium quis libero, non, sed natus nam, mollitia temporibus blanditiis in tenetur at?</p><button class="read-more-btn">Read more <span></span></button> </div>
+                            </li>
+                            <li class="story">
+                                <div class="individual-story-container">
+                                    <h3 class="name">Christina<span class="location">Seattle, WA</span></h3>
+                                    <p>Duis id sapien faucibus, molestie neque et, facilisis enim. Quisque ac sem non nulla consectetur elementum. Cum sociis natoque penatibus et magnis.</p>
+                                    <p class="reveal hide">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam distinctio dolore assumenda, accusantium? Impedit error eius nihil accusantium quis libero, non, sed natus nam, mollitia temporibus blanditiis in tenetur at? Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam distinctio dolore assumenda, accusantium? Impedit error eius nihil accusantium quis libero, non, sed natus nam, mollitia temporibus blanditiis in tenetur at?</p><button class="read-more-btn">Read more <span></span></button> </div>
+                            </li>
+                            <li class="story">
+                                <div class="individual-story-container">
+                                    <h3 class="name">Jessica<span class="location">Phoenix, AZ</span></h3>
+                                    <p>Duis id sapien faucibus, molestie neque et, facilisis enim. Quisque ac sem non nulla consectetur elementum. Cum sociis natoque penatibus et magnis.</p>
+                                    <p class="reveal hide">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam distinctio dolore assumenda, accusantium? Impedit error eius nihil accusantium quis libero, non, sed natus nam, mollitia temporibus blanditiis in tenetur at? Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam distinctio dolore assumenda, accusantium? Impedit error eius nihil accusantium quis libero, non, sed natus nam, mollitia temporibus blanditiis in tenetur at?</p><button class="read-more-btn">Read more <span></span></button> </div>
+                            </li>
+                            <li class="story">
+                                <div class="individual-story-container">
+                                    <h3 class="name">Mark<span class="location">Columbia, SC</span></h3>
+                                    <p>Duis id sapien faucibus, molestie neque et, facilisis enim. Quisque ac sem non nulla consectetur elementum. Cum sociis natoque penatibus et magnis.</p>
+                                    <p class="reveal hide">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam distinctio dolore assumenda, accusantium? Impedit error eius nihil accusantium quis libero, non, sed natus nam, mollitia temporibus blanditiis in tenetur at?</p><button class="read-more-btn">Read more <span></span></button> </div>
+                            </li>
+                            <li class="story last-story">
+                                <div class="individual-story-container"><a href="#happiness-share" class="back-to-top-btn">Back to top <span></span></a><a href="#" class="more-stories-btn">View more<br>stories <span></span></a>
+                                    <p class="story-counter"><span class="count">139</span> Stories</p>
+                                </div>
+                            </li>
+                        </ul>
+                        <div class="story-lightbox"><a href="javascript:void(0)" class="close-story">Close Story</a></div>
+                        <div class="lightbox-dimmer"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="resources" class="addtlpage page is-inactive-section">
+            <div id="resources-top-square" class="top-square">
+                <div class="top-square-container">
+                    <h2>Resources</h2>
+                    <div class="underline"></div>
+                    <!-- <p>Finding people to talk to and connect with to overcome&nbsp;depression</p> -->
+                </div>
+            </div>
+            <div id="resources-social-media-hub" class="social-media-hub">
+                <div class="media-container is-blue">
+                    <p class="page-apn">48.36/807.1 (11/16)</p>
+                </div>
+            </div>
             <div class="main-resources">
-                <h1>Connect with other communities</h1>
+                <h2>Connect with other communities</h2>
                 <p>Take advantage of the following resources to start feeling better overall.</p>
 
-                <h3><a href="https://www.mindchecktoday.com/" target="_blank">Mindchecktoday.com</a></h3>
-                <img src="app/images/arrow-blue.svg" alt="arrow">
+                <h3>
+                    <a href="https://www.mindchecktoday.com/" target="_blank">Mindchecktoday.com</a>
+                    <img src="app/images/arrow-aetnablue.svg" alt="arrow">
+                </h3>
                 <p>Get a quick read on your emotional health.</p>
 
-                <h3><a href="https://www.assesswellbeing.com/" target="_blank">AssessWellBeing.com</a></h3>
-                <img src="app/images/arrow-blue.svg" alt="arrow">
+                <h3>
+                    <a href="https://www.assesswellbeing.com/" target="_blank">AssessWellBeing.com</a>
+                    <img src="app/images/arrow-aetnablue.svg" alt="arrow">
+                </h3>
                 <p>Take a short assessment if you’re experiencing symptoms of depression or anxiety.</p>
 
-                <h3><a href="https://www.getaheadofstress.com/" target="_blank">GetaheadofStress.com</a></h3>
-                <img src="app/images/arrow-blue.svg" alt="arrow">
+                <h3>
+                    <a href="https://www.getaheadofstress.com/" target="_blank">AetnaGetaheadofStress.com</a>
+                    <img src="app/images/arrow-aetnablue.svg" alt="arrow">
+                </h3>
                 <p>Purchase a 30-minute phone session for help with a stress management plan.</p>
             </div>
             <p class="global-apn" id="apn">48.36.807.1 (11/16)</p>
         </div>
-        <div id="happiness-video-page" class="page"> <div id="happiness-top-square" class="top-square opaque"> <div class="top-square-container"> <h2>Happiness</h2> <div class="underline"></div><p>Finding people to talk to and connect with to overcome&nbsp;depression</p></div></div><div id="happiness-social-media-hub" class="social-media-hub"></div><div class="main-happiness hide"> <div class="overlay"></div><div class="happiness-play"><img src="app/images/arrow-thin.svg"></div><div id="middle-info"> <img src="app/images/arrow-left.svg" alt="arrow" id="left-arrow"> <h1>Being There Matters</h1> <img src="app/images/arrow.svg" alt="arrow" id="right-arrow"> </div></div><div id="happiness-share" class="share-your-story hide"> <h2>Share your story</h2> <p>You can help others by sharing your own story. Because when someone knows others have faced and overcome similar challenges, it can make a difference.*</p><form class="share-form"> <div class="left"> <input type="text" name="first name" class="name-field field" placeholder="First name:"> <input type="text" name="city" class="city-field field field" placeholder="City:"> <input type="text" name="state" class="state-field field" placeholder="State:"> <select name="topic" id="topic" class="hidden-field hide"> <option value=""></option> </select> <ul class="select-dropdown"> <li class="select-option is-selected"><span>Topic</span></li><li class="select-option"><span>Happiness</span></li><li class="select-option"><span>Connection</span></li><li class="select-option"><span>Peace of Mind</span></li><li class="select-option"><span>Confidence</span></li><li class="select-option"><span>Freedom</span></li></ul> </div><div class="right"> <textarea name="story" class="story" placeholder="Story:"></textarea> <div class="checkbox-field"> <input type="checkbox" name="termsandconditions" value="none" id="checkbox1"><label for="checkbox1" class="checkbox-label">I accept the <a href="#">terms and conditions</a>.</label> </div></div><div class="submit"> <input type='submit' id='happiness-submit' class="submit-btn" value='Share'> <p class="disclaimer">*Your story will be shared on this public site for others to read</p></div></form> <h2>View Stories <img src="app/images/arrow-green.svg" alt="green down arrow" class="green-down-arrow"></h2> </div><div id="happiness-stories" class="stories-grid"> <ul class="stories-container"> <li class="mobile-top-square"><div class="top-square-container"> <h2>Happiness</h2> <div class="underline"></div><p>Finding people to talk to and connect with to overcome&nbsp;depression</p></div></li><li class="story"> <div class="individual-story-container"> <h3 class="name">Mike<span class="location">Chicago, IL</span></h3> <p>Duis id sapien faucibus, molestie neque et, facilisis enim. Quisque ac sem non nulla consectetur elementum. Cum sociis natoque penatibus et magnis.</p><a href="#" class="read-more-btn">Read more <span></span></a> </div></li><li class="story"> <div class="individual-story-container"> <h3 class="name">Mike<span class="location">Chicago, IL</span></h3> <p>Duis id sapien faucibus, molestie neque et, facilisis enim. Quisque ac sem non nulla consectetur elementum. Cum sociis natoque penatibus et magnis.</p><a href="#" class="read-more-btn">Read more <span></span></a> </div></li><li class="story"> <div class="individual-story-container"> <h3 class="name">Mike<span class="location">Chicago, IL</span></h3> <p>Duis id sapien faucibus, molestie neque et, facilisis enim. Quisque ac sem non nulla consectetur elementum. Cum sociis natoque penatibus et magnis.</p><a href="#" class="read-more-btn">Read more <span></span></a> </div></li><li class="story"> <div class="individual-story-container"> <h3 class="name">Mike<span class="location">Chicago, IL</span></h3> <p>Duis id sapien faucibus, molestie neque et, facilisis enim. Quisque ac sem non nulla consectetur elementum. Cum sociis natoque penatibus et magnis.</p><a href="#" class="read-more-btn">Read more <span></span></a> </div></li><li class="story"> <div class="individual-story-container"> <h3 class="name">Mike<span class="location">Chicago, IL</span></h3> <p>Duis id sapien faucibus, molestie neque et, facilisis enim. Quisque ac sem non nulla consectetur elementum. Cum sociis natoque penatibus et magnis.</p><a href="#" class="read-more-btn">Read more <span></span></a> </div></li><li class="story"> <div class="individual-story-container"> <h3 class="name">Mike<span class="location">Chicago, IL</span></h3> <p>Duis id sapien faucibus, molestie neque et, facilisis enim. Quisque ac sem non nulla consectetur elementum. Cum sociis natoque penatibus et magnis.</p><a href="#" class="read-more-btn">Read more <span></span></a> </div></li><li class="story"> <div class="individual-story-container"> <h3 class="name">Mike<span class="location">Chicago, IL</span></h3> <p>Duis id sapien faucibus, molestie neque et, facilisis enim. Quisque ac sem non nulla consectetur elementum. Cum sociis natoque penatibus et magnis.</p><a href="#" class="read-more-btn">Read more <span></span></a> </div></li><li class="story"> <div class="individual-story-container"> <h3 class="name">Mike<span class="location">Chicago, IL</span></h3> <p>Duis id sapien faucibus, molestie neque et, facilisis enim. Quisque ac sem non nulla consectetur elementum. Cum sociis natoque penatibus et magnis.</p><a href="#" class="read-more-btn">Read more <span></span></a> </div></li><li class="story last-story"> <a href="#happiness-share" class="back-to-top-btn">Back to top <span></span></a><a href="#" class="more-stories-btn">View more stories <span></span></a><p class="story-counter"><span class="count">139</span> Stories</p></li></ul> </div></div>
     </div>
-    <script src="app/bower_components/gsap/src/minified/TweenMax.min.js"></script>
-    <script src="app/js/plugins/jquery-mousewheel-3.1.13/jquery.mousewheel.min.js"></script>
-    <script src="app/js/lib/function.js"></script>
-    <script id="__bs_script__">//<![CDATA[
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.0/TweenMax.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-mousewheel/3.1.13/jquery.mousewheel.min.js"></script>
+<script src="app/js/lib/function.js"></script>
+<script id="__bs_script__">//<![CDATA[
     document.write("<script async src='http://HOST:3000/browser-sync/browser-sync-client.2.14.0.js'><\/script>".replace("HOST", location.hostname));
     //]]></script>
 </body>

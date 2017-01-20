@@ -1,0 +1,86 @@
+div.next-video{
+	@include position(fixed, 0 0 0 0);
+	background: rgba(0,0,0,0.65);
+	display:none;
+	opacity:0;
+	@include transition(opacity 2s ease-in-out);
+
+	div.container{
+		@include position(fixed, 50% 0 0 50%);
+		@include transform(translate(-50%,-50%));
+		h3, a.hashtag{
+		    color: white;
+		    text-align: center; 
+		   	margin: 0 auto;
+		    vertical-align: middle; 
+		    margin-bottom: 15px;
+		    padding-bottom: 0;
+		    font: $lg-story-heading; 
+
+		    @include media($xl-desktop){
+		        font: $xl-story-heading;    
+		    }
+		    @include media($most-common-screen){
+		        font: $rg-story-heading;
+		    }
+		    @include media($macbook-pro-13){
+		        font: $md-story-heading;
+		    }
+		    @include media($sm-desktop){
+		        font: $md-story-heading;
+		    }
+		    @include media($desktop-bp){
+		        font: $md-story-heading;    
+		    }
+		}
+
+		span.next-video-countdown, a.hashtag{
+		    font-family: $focolight!important;
+		    font-weight: 300!important;
+		    text-decoration: none;
+		    text-align: center; 
+		   	margin: 0 auto;
+		}
+		a.hashtag{
+			display: block;
+			margin-top: 20px;
+		}
+
+		span.join-arrow{
+		    @include transition(all 1s ease-in-out);
+		    display:inline-block;
+		    width:20px;
+		    height:20px;
+		    background-image: url('../images/arrow.svg');
+		    background-repeat: no-repeat;
+		    background-size: contain;
+		    margin-top: 2px;
+		    margin-left:10px;
+
+		    @include media($most-common-screen){
+		        width:17px;
+		        height:17px;
+		    }
+		    @include media($sm-desktop){
+		        width:14px;
+		        height:14px;
+		    }
+		    @include media($macbook-pro-13){
+		        width:17px;
+		        height:17px;
+		    }
+		}
+
+		.icons-container{
+			text-align: center; 
+		   	margin: 0 auto;
+		   	margin-top: 20px;
+		}
+	}
+
+	&.start-countdown{
+		display:block!important;
+		opacity:1!important;
+		z-index: 100!important;
+	}
+}
