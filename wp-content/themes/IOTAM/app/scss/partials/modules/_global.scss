@@ -138,7 +138,16 @@ div.underline{
     display: block;
     position: fixed;
     z-index: -4000;
-    top: 65vh;
+    bottom:0;
+
+    @include media($lg-desktop){
+        width: 21.25vw;
+        max-width: 21.25vw;
+    }
+    @include media($xl-desktop){
+        width: 20.25vw;
+        max-width: 20.25vw;
+    }
 
     @include media($mobile){
         width: 32.444vw;
@@ -355,8 +364,86 @@ div.underline{
     }
 }
 
+.discover-btn {
+    width: 19.25vw;
+    max-width: 19.25vw;
+    overflow: hidden;
+    height: 19.25vw;
+    display: block;
+    position: fixed;
+    z-index: -4000;
+    bottom:0;
+    right:0;
+    padding-top:12.25vw;
+
+    @include media($md-desktop){
+        width: 25.25vw;
+        max-width: 25.25vw;
+    }
+    @include media($lg-desktop){
+        width: 23.25vw;
+        max-width: 23.25vw;
+    }
+    @include media($xl-desktop){
+        width: 23.25vw;
+        max-width: 23.25vw;
+    }
+    @include media($mobile){
+        width: 32.444vw;
+        max-width: 32.444vw;
+        overflow: hidden;
+        height: 32.444vw;   
+    }
+    @include media($sm-mobile){
+        display: none;  
+    }
+
+    .discover{
+        width: 90%;
+        text-decoration: none;
+        text-align: left;
+        margin:0;
+        display: block;
+
+        h3 {
+            @include transition(all 1s ease-in-out);
+            color: white;
+            text-align: right;
+            vertical-align: middle; 
+            margin-bottom: 15px;
+            padding-bottom: 0;
+            font: $lg-story-heading; 
+
+            @include media($xl-desktop){
+                font: $xl-story-heading;    
+            }
+            @include media($most-common-screen){
+                font: $rg-story-heading;
+            }
+            @include media($macbook-pro-13){
+                font: $md-story-heading;
+            }
+            @include media($sm-desktop){
+                font: $md-story-heading;
+            }
+            @include media($desktop-bp){
+                font: $md-story-heading;    
+            }
+
+        }
+
+        .discover-icon{
+            display: inline-block;
+            vertical-align: middle;
+            margin-right:20px;
+            margin-left: 0;
+        }
+
+    }
+}
+
 .video-page-is-active{
-    .social-media-hub, .top-square{
+    .social-media-hub, .top-square, .discover-btn{
         z-index: 4000;
     }
 }

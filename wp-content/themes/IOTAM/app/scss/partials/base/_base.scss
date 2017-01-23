@@ -82,6 +82,7 @@ img{}
 .site-container{
     @include transform(translateX(0));
     @include transition(transform .85s $ease-in-out-quad);
+    height:100vh;
 
     &.move-over{
         @include transform(translateX(20%)!important);

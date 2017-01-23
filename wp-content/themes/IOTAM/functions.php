@@ -27,6 +27,7 @@ function IOTAM_load_javascript_files() {
   wp_register_script( 'mousewheel', ('https://cdnjs.cloudflare.com/ajax/libs/jquery-mousewheel/3.1.13/jquery.mousewheel.min.js'), array('jquery'), '1.0.0', true );
   // wp_enqueue_script( 'submit' );
   wp_enqueue_script( 'gsap' );
+  wp_enqueue_script( 'vimeoplayer' );
   wp_enqueue_script( 'mousewheel' );
 
 

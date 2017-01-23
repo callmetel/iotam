@@ -40,24 +40,50 @@
     		}   
     	}
 
-        .video{
-            @include position(fixed, 50% 0 0 50%);
-            min-width: 100%;
-            min-height: 100%;
-            width: auto;
-            height: auto;
-            z-index: -1000;
-            opacity:0;
-            display: inherit;
-            @include transform(translateX(-50%) translateY(-50%));
-            background-size: cover;
-            @include transition(opacity 1s ease-in-out);
-            
-            @include media($v-iphone-6-plus){
-              
-            }
-
+        .video-background {
+          background: #000;
+          position: fixed;
+          top: 0; right: 0; bottom: 0; left: 0;
+          z-index: -1000;
+          opacity:0;
+          display: inherit;
+          @include transition(opacity 1s ease-in-out);
         }
+        .video-foreground,
+        .video-background iframe {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          pointer-events: none;
+        }
+
+        @media (min-aspect-ratio: 16/9) {
+          .video-foreground { height: 300%; top: -100%; }
+        }
+        @media (max-aspect-ratio: 16/9) {
+          .video-foreground { width: 300%; left: -100%; }
+        }
+
+        // .video{
+        //     @include position(fixed, 50% 0 0 50%);
+        //     min-width: 100%;
+        //     min-height: 100%;
+        //     width: auto;
+        //     height: auto;
+        //     z-index: -1000;
+        //     opacity:0;
+        //     display: inherit;
+        //     @include transform(translateX(-50%) translateY(-50%));
+        //     background-size: cover;
+        //     @include transition(opacity 1s ease-in-out);
+            
+        //     @include media($v-iphone-6-plus){
+              
+        //     }
+
+        // }
 
         .html5-main-video{
             min-width: 100%;

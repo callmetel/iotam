@@ -17,6 +17,9 @@
         <p class="page-apn">48.36/807.1 (11/16)</p>
     </div>
 </div>
+<div id="peaceofmind-discover-btn" class="discover-btn">
+    <a href="javascript:void(0)" class="discover"><h3><span class="discover-icon icon"></span>Share and discover</h3></a>
+</div>
 <div class="section section-1"> <?php include 'topics/peace/videos.php'; ?> </div>
 <div class="section section-2 is-next-section is-not-scrollable"> <?php include 'topics/peace/share-form.php'; ?> </div>
 <div class="section section-3 is-next-section is-not-scrollable"> <?php include 'topics/peace/stories.php'; ?> </div>

@@ -17,7 +17,15 @@
     <!-- <video class="video" id="overcomingbullying">
         <source src="http://localhost/wp-content/uploads/2016/12/overcomingbullying.mp4" type="video/mp4"> 
     </video> -->
-    <iframe class="video" id="overcomingbullying" src="https://www.youtube.com/embed/Fv756P9mTHs?rel=0&amp;controls=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>
+    
+    <div class="video-background">
+        <div class="video-foreground">
+            <iframe class="video" id="overcomingbullying" src="https://www.youtube.com/embed/Fv756P9mTHs?controls=0&showinfo=0&rel=0&loop=1&enablejsapi=1" frameborder="0" allowfullscreen="true" allowscriptaccess="always"></iframe>
+        </div>
+    </div>
+
+    
+
     <button type="button" tabindex="-1"  role="button" aria-pressed="false" class="close-video fade-out"><img src="http://localhost/wp-content/uploads/2016/12/close-icon.svg" alt="video close icon" class="icon"></button>
     <div class="video-controls fade-out">
         <div class="video-buttons">

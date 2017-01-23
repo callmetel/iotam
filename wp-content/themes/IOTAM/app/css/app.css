@@ -79,7 +79,8 @@ button {
   transform: translateX(0);
   -webkit-transition: -webkit-transform 0.85s cubic-bezier(0.455, 0.03, 0.515, 0.955);
   -moz-transition: -moz-transform 0.85s cubic-bezier(0.455, 0.03, 0.515, 0.955);
-  transition: transform 0.85s cubic-bezier(0.455, 0.03, 0.515, 0.955); }
+  transition: transform 0.85s cubic-bezier(0.455, 0.03, 0.515, 0.955);
+  height: 100vh; }
   .site-container.move-over {
     -webkit-transform: translateX(20%) !important;
     -moz-transform: translateX(20%) !important;
@@ -917,6 +918,9 @@ button.close-video {
 .linkedin.icon {
   background-image: url("../images/icon-linkedin-white.svg"); }
 
+.discover-icon.icon {
+  background-image: url("../images/discover-icon.svg"); }
+
 footer {
   position: fixed;
   bottom: 3vh;
@@ -1522,28 +1526,35 @@ footer {
         display: block;
         z-index: 0;
         background-color: rgba(0, 0, 0, 0.37); }
-    .video-page .page .video {
+    .video-page .page .video-background {
+      background: #000;
       position: fixed;
-      top: 50%;
+      top: 0;
       right: 0;
       bottom: 0;
-      left: 50%;
-      min-width: 100%;
-      min-height: 100%;
-      width: auto;
-      height: auto;
+      left: 0;
       z-index: -1000;
       opacity: 0;
       display: inherit;
-      -webkit-transform: translateX(-50%) translateY(-50%);
-      -moz-transform: translateX(-50%) translateY(-50%);
-      -ms-transform: translateX(-50%) translateY(-50%);
-      -o-transform: translateX(-50%) translateY(-50%);
-      transform: translateX(-50%) translateY(-50%);
-      background-size: cover;
       -webkit-transition: opacity 1s ease-in-out;
       -moz-transition: opacity 1s ease-in-out;
       transition: opacity 1s ease-in-out; }
+    .video-page .page .video-foreground,
+    .video-page .page .video-background iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none; }
+    @media (min-aspect-ratio: 16 / 9) {
+      .video-page .page .video-foreground {
+        height: 300%;
+        top: -100%; } }
+    @media (max-aspect-ratio: 16 / 9) {
+      .video-page .page .video-foreground {
+        width: 300%;
+        left: -100%; } }
     .video-page .page .html5-main-video {
       min-width: 100%;
       min-height: 100%;
@@ -3551,7 +3562,15 @@ div.underline {
   display: block;
   position: fixed;
   z-index: -4000;
-  top: 65vh; }
+  bottom: 0; }
+  @media screen and (min-width: 1600px) and (max-width: 2000px) {
+    .social-media-hub {
+      width: 21.25vw;
+      max-width: 21.25vw; } }
+  @media screen and (min-width: 2001px) {
+    .social-media-hub {
+      width: 20.25vw;
+      max-width: 20.25vw; } }
   @media screen and (max-width: 992px) {
     .social-media-hub {
       width: 32.444vw;
@@ -3721,7 +3740,76 @@ div.underline {
     .social-media-hub div.media-container.is-pink .linkedin.icon {
       background-image: url("../images/icon-linkedin-pink.svg"); }
 
-.video-page-is-active .social-media-hub, .video-page-is-active .top-square {
+.discover-btn {
+  width: 19.25vw;
+  max-width: 19.25vw;
+  overflow: hidden;
+  height: 19.25vw;
+  display: block;
+  position: fixed;
+  z-index: -4000;
+  bottom: 0;
+  right: 0;
+  padding-top: 12.25vw; }
+  @media screen and (min-width: 1441px) and (max-width: 1599px) {
+    .discover-btn {
+      width: 25.25vw;
+      max-width: 25.25vw; } }
+  @media screen and (min-width: 1600px) and (max-width: 2000px) {
+    .discover-btn {
+      width: 23.25vw;
+      max-width: 23.25vw; } }
+  @media screen and (min-width: 2001px) {
+    .discover-btn {
+      width: 23.25vw;
+      max-width: 23.25vw; } }
+  @media screen and (max-width: 992px) {
+    .discover-btn {
+      width: 32.444vw;
+      max-width: 32.444vw;
+      overflow: hidden;
+      height: 32.444vw; } }
+  @media screen and (max-width: 768px) {
+    .discover-btn {
+      display: none; } }
+  .discover-btn .discover {
+    width: 90%;
+    text-decoration: none;
+    text-align: left;
+    margin: 0;
+    display: block; }
+    .discover-btn .discover h3 {
+      -webkit-transition: all 1s ease-in-out;
+      -moz-transition: all 1s ease-in-out;
+      transition: all 1s ease-in-out;
+      color: white;
+      text-align: right;
+      vertical-align: middle;
+      margin-bottom: 15px;
+      padding-bottom: 0;
+      font: normal normal 700 28px/30px "foco-n7", "foco", "Calibri W01 Bold_904607", Calibri, sans-serif; }
+      @media screen and (min-width: 2001px) {
+        .discover-btn .discover h3 {
+          font: normal normal 700 36px/38px "foco-n7", "foco", "Calibri W01 Bold_904607", Calibri, sans-serif; } }
+      @media screen and (min-width: 1367px) and (max-width: 1440px) {
+        .discover-btn .discover h3 {
+          font: normal normal 700 20px/22px "foco-n7", "foco", "Calibri W01 Bold_904607", Calibri, sans-serif; } }
+      @media screen and (min-width: 1280px) and (max-width: 1366px) {
+        .discover-btn .discover h3 {
+          font: normal normal 700 17px/19px "foco-n7", "foco", "Calibri W01 Bold_904607", Calibri, sans-serif; } }
+      @media screen and (max-width: 1280px) {
+        .discover-btn .discover h3 {
+          font: normal normal 700 17px/19px "foco-n7", "foco", "Calibri W01 Bold_904607", Calibri, sans-serif; } }
+      @media screen and (max-width: 1200px) {
+        .discover-btn .discover h3 {
+          font: normal normal 700 17px/19px "foco-n7", "foco", "Calibri W01 Bold_904607", Calibri, sans-serif; } }
+    .discover-btn .discover .discover-icon {
+      display: inline-block;
+      vertical-align: middle;
+      margin-right: 20px;
+      margin-left: 0; }
+
+.video-page-is-active .social-media-hub, .video-page-is-active .top-square, .video-page-is-active .discover-btn {
   z-index: 4000; }
 
 .click-blocker {
