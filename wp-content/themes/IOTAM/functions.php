@@ -141,8 +141,8 @@ echo '<form method="post" action="" class="share-form">
 <div class="right">
     <textarea name="story" class="story" placeholder="Story:"></textarea>
     <div class="checkbox-field">
-        <input type="checkbox" name="termsandconditions" value="none" id="checkbox1" role="button" tabindex="0">
-        <label for="checkbox1" class="checkbox-label">I accept the <a href="#">terms and conditions</a>.</label>
+        <input type="checkbox" name="termsandconditions" value="none" id="checkbox1" aria-hidden="true" tabindex="-1">
+        <label for="checkbox1" role="button" tabindex="0" class="checkbox-label">I accept the <a href="#">terms and conditions</a>.</label>
     </div>
 </div>
 <div class="submit">

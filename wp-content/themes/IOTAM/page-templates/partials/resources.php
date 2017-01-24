@@ -1,4 +1,3 @@
-
 <div id="resources-top-square" class="top-square">
     <div class="top-square-container">
         <h2>Resources</h2>
@@ -28,7 +27,7 @@
     <p>Take a short assessment if you’re experiencing symptoms of depression or anxiety.</p>
 
     <h3>
-        <a href="https://www.getaheadofstress.com/" target="_blank">AetnaGetaheadofStress.com</a>
+        <a href="https://www.aetnagetaheadofstress.com/" target="_blank">AetnaGetaheadofStress.com</a>
         <img src="http://localhost/wp-content/uploads/2016/12/arrow-aetnablue.svg" alt="arrow">
     </h3>
     <p>Purchase a 30-minute phone session for help with a stress management plan.</p>

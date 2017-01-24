@@ -131,6 +131,24 @@ $(document).ready(function() {
 		}
 		var scrollstart=0;
 
+	// Change IDs for Checkboxes & Submit
+		
+		$('#connection-video-page .share-form .checkbox-field > input').attr('id', 'checkbox2');
+		$('#connection-video-page .share-form .checkbox-field > label').attr('for', 'checkbox2');
+		$('#connection-video-page .share-form .submit > input').attr('id', 'connection-submit');
+
+		$('#peaceofmind-video-page .share-form .checkbox-field > input').attr('id', 'checkbox3');
+		$('#peaceofmind-video-page .share-form .checkbox-field > label').attr('for', 'checkbox3');
+		$('#peaceofmind-video-page .share-form .submit > input').attr('id', 'peaceofmind-submit');
+
+		$('#confidence-video-page .share-form .checkbox-field > input').attr('id', 'checkbox4');
+		$('#confidence-video-page .share-form .checkbox-field > label').attr('for', 'checkbox4');
+		$('#confidence-video-page .share-form .submit > input').attr('id', 'confidence-submit');
+
+		$('#freedom-video-page .share-form .checkbox-field > input').attr('id', 'checkbox5');
+		$('#freedom-video-page .share-form .checkbox-field > label').attr('for', 'checkbox5');
+		$('#freedom-video-page .share-form .submit > input').attr('id', 'freedom-submit');
+
 	// Disable Site Transition on Resize
 		
 		$(window).resize(function(){
@@ -459,7 +477,7 @@ $(document).ready(function() {
 				$('.nav-trigger').trigger('click');
 			} else{
 				tm.set('.media-container', {className:'media-container'});
-				$(this).addClass('no-focus');
+				// // //$(this).addClass('no-focus');
 				$('.close-video').trigger('click');
 				$('.nav-trigger').trigger('click');
 				startHappinessPage();
@@ -475,7 +493,7 @@ $(document).ready(function() {
 				$('.nav-trigger').trigger('click');
 			} else{
 				tm.set('.media-container', {className:'media-container'});
-				$(this).addClass('no-focus');
+				// // //$(this).addClass('no-focus');
 				$('.close-video').trigger('click');
 				$('.nav-trigger').trigger('click');
 				startHappinessPage();
@@ -491,7 +509,7 @@ $(document).ready(function() {
 				$('.nav-trigger').trigger('click');
 			} else{
 				tm.set('.media-container', {className:'media-container'});
-				$(this).addClass('no-focus');
+				// // //$(this).addClass('no-focus');
 				$('.close-video').trigger('click');
 				$('.nav-trigger').trigger('click');
 				startHappinessPage();
@@ -508,7 +526,7 @@ $(document).ready(function() {
 				$('.nav-trigger').trigger('click');
 			} else{
 				tm.set('.media-container', {className:'media-container'});
-				$(this).addClass('no-focus');
+				// //$(this).addClass('no-focus');
 				$('.close-video').trigger('click');
 				$('.nav-trigger').trigger('click');
 				startConnectionPage();
@@ -524,7 +542,7 @@ $(document).ready(function() {
 				$('.nav-trigger').trigger('click');
 			} else{
 				tm.set('.media-container', {className:'media-container'});
-				$(this).addClass('no-focus');
+				// //$(this).addClass('no-focus');
 				$('.close-video').trigger('click');
 				$('.nav-trigger').trigger('click');
 				startConnectionPage();
@@ -540,7 +558,7 @@ $(document).ready(function() {
 				$('.nav-trigger').trigger('click');
 			} else{
 				tm.set('.media-container', {className:'media-container'});
-				$(this).addClass('no-focus');
+				// //$(this).addClass('no-focus');
 				$('.close-video').trigger('click');
 				$('.nav-trigger').trigger('click');
 				startPeacePage();
@@ -556,7 +574,7 @@ $(document).ready(function() {
 				$('.nav-trigger').trigger('click');
 			} else{
 				tm.set('.media-container', {className:'media-container'});
-				$(this).addClass('no-focus');
+				// //$(this).addClass('no-focus');
 				$('.close-video').trigger('click');
 				$('.nav-trigger').trigger('click');
 				startPeacePage();
@@ -572,7 +590,7 @@ $(document).ready(function() {
 				$('.nav-trigger').trigger('click');
 			} else{
 				tm.set('.media-container', {className:'media-container'});
-				$(this).addClass('no-focus');
+				// //$(this).addClass('no-focus');
 				$('.close-video').trigger('click');
 				$('.nav-trigger').trigger('click');
 				startConfidencePage();
@@ -588,7 +606,7 @@ $(document).ready(function() {
 				$('.nav-trigger').trigger('click');
 			} else{
 				tm.set('.media-container', {className:'media-container'});
-				$(this).addClass('no-focus');
+				// //$(this).addClass('no-focus');
 				$('.close-video').trigger('click');
 				$('.nav-trigger').trigger('click');
 				startConfidencePage();
@@ -604,7 +622,7 @@ $(document).ready(function() {
 				$('.nav-trigger').trigger('click');
 			} else{
 				tm.set('.media-container', {className:'media-container'});
-				$(this).addClass('no-focus');
+				// //$(this).addClass('no-focus');
 				$('.close-video').trigger('click');
 				$('.nav-trigger').trigger('click');
 				startFreedomPage();
@@ -613,7 +631,7 @@ $(document).ready(function() {
 		});
 
 		$('.dropdown > li.has-children > .invisible-dropdown-btn').on("click", function() {
-			$(this).addClass('no-focus');
+			// //$(this).addClass('no-focus');
 			$(this).parent().siblings().find('ul').toggleClass("is-open");
 			$(this).parent().find('ul').stop(true, false, true).toggleClass('is-open');
 			$(this).find('img').toggleClass('is-rotated');
@@ -623,37 +641,37 @@ $(document).ready(function() {
 	// Homepage Square Click Events
 
 		$("#happiness-square").on('click', function(){
-			$(this).addClass('no-focus');
+			//$(this).addClass('no-focus');
 			startHappinessPage();
 			$('body').addClass('is-not-scrollable');
 		});
 
 		$("#connection-square").on('click', function(){
-			$(this).addClass('no-focus');
+			//$(this).addClass('no-focus');
 			startConnectionPage();
 			$('body').addClass('is-not-scrollable');
 		});
 
 		$("#peaceofmind-square").on('click', function(){
-			$(this).addClass('no-focus');
+			//$(this).addClass('no-focus');
 			startPeacePage();
 			$('body').addClass('is-not-scrollable');
 		});
 
 		$("#confidence-square").on('click', function(){
-			$(this).addClass('no-focus');
+			//$(this).addClass('no-focus');
 			startConfidencePage();
 			$('body').addClass('is-not-scrollable');
 		});
 
 		$("#freedom-square").on('click', function(){
-			$(this).addClass('no-focus');
+			//$(this).addClass('no-focus');
 			startFreedomPage();
 			$('body').addClass('is-not-scrollable');
 		});
 
 		$(".grid-item-small:eq(0)").bind('click touchend', function(){
-			$(this).addClass('no-focus');
+			//$(this).addClass('no-focus');
 			colorBlock.removeClass('to-happiness to-connection to-peace to-confidence to-freedom').addClass('is-transitioning to-home');
 			$('body').unbind();
 			$('body').removeClass('is-not-scrollable');
@@ -665,15 +683,15 @@ $(document).ready(function() {
 			setTimeout(function(){
 				colorBlock.removeClass('is-transitioning');
 			},1800);
-		});
+		});// 
 
 	// Skip Intro Click Event
 
 		$('.enter-site-link, #skip-intro').on('click', function(){
-			$(this).addClass('no-focus');
+			//$(this).addClass('no-focus');
 			clearTimeout(regIntro);
 			intro();
-		});
+		});// 
 
 	// Toggle Menu Click Events
 
@@ -694,7 +712,7 @@ $(document).ready(function() {
 	// Main Nav Click Events
 
 		$('#menu > li > span').on('click', function(){
-			$(this).addClass('no-focus');
+			//$(this).addClass('no-focus');
 			if ($(this).parent().children('ul').hasClass('dropdown') && !$(this).children('ul').hasClass('is-open')){
 				$(this).parent().children('ul.dropdown').toggleClass('is-open');
 			}
@@ -703,7 +721,7 @@ $(document).ready(function() {
 		$("#home-link").on('click', function(){
 			if($('.sub-content-container').hasClass('is-active-section') || $('#resources').hasClass('is-active-section')){
 				attachHomePage();
-				$(this).addClass('no-focus');
+				//$(this).addClass('no-focus');
 				$('.nav-trigger').trigger('click');
 				$('.close-video').trigger('click');
 				colorBlock.removeClass('to-happiness to-connection to-peace to-confidence to-freedom').addClass('is-transitioning to-home');
@@ -730,7 +748,7 @@ $(document).ready(function() {
 			if($('#resources').hasClass('is-active-section')){
 				$('.nav-trigger').trigger('click');
 			} else{
-				$(this).addClass('no-focus');
+				//$(this).addClass('no-focus');
 				$('.nav-trigger').trigger('click');
 				$('.close-video').trigger('click');
 				colorBlock.removeClass('to-happiness to-connection to-peace to-confidence to-freedom').addClass('is-transitioning to-home');
@@ -745,7 +763,7 @@ $(document).ready(function() {
 					colorBlock.removeClass('is-transitioning');
 				},1800);
 			}
-		});
+		});// 
 
 	// Share & Discover Click Event
 		
@@ -756,7 +774,7 @@ $(document).ready(function() {
 	// Video Play/Pause/Rewind/FastForward Click Event
 
 		$('.video-play').on('click touchend', function(ev){
-			// $(this).addClass('no-focus');
+			// // //$(this).addClass('no-focus');
 			videoPlay = 1;
 			$('body').unbind();
 
@@ -772,6 +790,7 @@ $(document).ready(function() {
 				videoPage = $(this).parents('.video-page');
 
 			$(this).parents('.page').find('.video').removeClass('fade-out').addClass('fade-in');
+			$(this).parents('.video-page-is-active').find('.discover-btn').addClass('fade-out');
 			$(this).parents('.page').find('.video-background').removeClass('fade-out').addClass('fade-in');
 			$(this).parents('.page').find('.video-controls').removeClass('fade-out').addClass('fade-in');
 			$(this).parents('.page').find('.video-controls').find('input[type="range"]').removeClass('fade-out').addClass('fade-in');
@@ -915,7 +934,7 @@ $(document).ready(function() {
 				        var check = new Date - this_time;
 				        $('.next-video-countdown').html(' ' + Math.abs(Math.round(check / 1000)) + ' seconds');
 				        if (check >= 0) {
-				            clearInterval(timer);
+				            // clearInterval(timer);
 				            $('.close-video').trigger('click');
 				            if(video.parents('.section').find('.dot-1').hasClass('selected')){
 								video.parents('.section').find('.dot-2').trigger('click');
@@ -939,11 +958,12 @@ $(document).ready(function() {
 			$('.close-video').bind('click touchend', function(){
 				$(this).siblings('.video-controls').find('button').prop('tabIndex', '-1');
 				$(this).prop('tabIndex', '-1');
-				// $(this).addClass('no-focus');
+				// // //$(this).addClass('no-focus');
 				if(videoPlay === 1){
-					clearInterval(timer);
+					// clearInterval(timer);
 					$video.contentWindow.postMessage('{"event":"command","func":"' + 'pauseVideo' + '","args":""}', '*');
 					$(this).siblings('.main-page').removeClass('fade-out');
+					$(this).parents('.video-page-is-active').find('.discover-btn').removeClass('fade-out');
 					$(this).parents('.page').find('.video').removeClass('fade-in').addClass('fade-out');
 					$(this).parents('.page').find('.video-background').removeClass('fade-in').addClass('fade-out');
 					$(this).parents('.page').find('.video-controls').removeClass('fade-in').addClass('fade-out');
@@ -964,9 +984,9 @@ $(document).ready(function() {
 		$('.close-video').bind('click touchend', function(){
 			$(this).siblings('.video-controls').find('button').prop('tabIndex', '-1');
 			$(this).prop('tabIndex', '-1');
-			// $(this).addClass('no-focus');
+			// // //$(this).addClass('no-focus');
 			if(videoPlay === 1){
-				$video.pause();
+				$video.contentWindow.postMessage('{"event":"command","func":"' + 'pauseVideo' + '","args":""}', '*');
 				$(this).siblings('.main-page').removeClass('fade-out');
 				$(this).parents('.page').find('.video').removeClass('fade-in').addClass('fade-out');
 				$(this).parents('.page').find('.video-controls').removeClass('fade-in').addClass('fade-out');
@@ -1002,7 +1022,7 @@ $(document).ready(function() {
 		var clicked;
 
 		$('.select-option').bind('click touchend', function() {
-			$(this).addClass('no-focus');
+			// //$(this).addClass('no-focus');
             var selectedText = $(this).text();
             var category = $(this).attr('cat');
 
@@ -1027,7 +1047,7 @@ $(document).ready(function() {
     // Stories Lightbox Click Events
 
         $('.story').bind('click touchend', function() {
-        	$(this).addClass('no-focus');
+        	//$(this).addClass('no-focus');
         	if(!$(this).hasClass('last-story')){
         		var storyInfo = $(this).html();
         		if(isMobile.detectMobile()){
@@ -1058,7 +1078,7 @@ $(document).ready(function() {
         });
 
         $('.close-story').bind('click touchend', function() {
-        	$(this).addClass('no-focus');
+        	//$(this).addClass('no-focus');
         	$('.story-lightbox').removeClass('is-shown').addClass('fade-out');
         	$('.lightbox-dimmer').removeClass('is-shown').addClass('fade-out');
 
@@ -1067,12 +1087,12 @@ $(document).ready(function() {
         	 	$('.lightbox-dimmer').removeClass('fade-out');
         		$('.story-lightbox .individual-story-container').detach();
         	},1200);
-        });
+        });// 
 
     // Homepage Slide Toggle Click & Mouseover Events
 
         $('.slide-dot').bind('click touchend', function(){
-        	$(this).addClass('no-focus');
+        	//$(this).addClass('no-focus');
 
 			if($(this).is('.slide-dot:first') && !$(this).hasClass('selected')){
 				$(this).addClass('selected');
@@ -1098,7 +1118,7 @@ $(document).ready(function() {
 			  	$(this).find('.slide-2').removeClass('is-active-slide');
 			  	$(this).find('.slide-1').removeClass('is-inactive-slide');
 			}
-		});
+		});// 
 
 	// Videopage Page Indicator Click Events 
 
@@ -1129,7 +1149,7 @@ $(document).ready(function() {
 		});
 
 		$(".right-arrow").bind("click touchend", function() {
-			$(this).addClass('no-focus');
+			//$(this).addClass('no-focus');
 			if($(this).parents(".page").hasClass("page-1") && $(this).parents(".is-current-page").siblings().hasClass("page-2")){
 				$(this).parents(".section-1").find(".dot-2").siblings().removeClass('selected');
 				$(this).parents(".section-1").find(".dot-2").addClass('selected');
@@ -1144,11 +1164,18 @@ $(document).ready(function() {
 				$(this).parents(".section-1").find(".page-2").removeClass('is-current-page is-next-page is-previous-page').addClass('is-previous-page');
 				$(this).parents(".section-1").find(".page-1").removeClass('is-current-page is-next-page is-previous-page').addClass('is-previous-page');
 			}
+			else if(($(this).parents(".page").hasClass("page-2") && !$(this).parents(".is-current-page").siblings().hasClass("page-3")) || $(this).parents(".page").hasClass("page-3")){
+				$(this).parents(".section-1").find(".dot-1").siblings().removeClass('selected');
+				$(this).parents(".section-1").find(".dot-1").addClass('selected');
+				$(this).parents(".section-1").find(".page-1").removeClass('make-next is-next-page is-previous-page').addClass('is-current-page');
+				$(this).parents(".section-1").find(".page-2").removeClass('is-current-page is-next-page is-previous-page').addClass('is-next-page');
+				$(this).parents(".section-1").find(".page-3").removeClass('is-current-page is-next-page is-previous-page').addClass('is-next-page');
+			}
 			
 		});
 
 		$(".left-arrow").bind("click touchend", function() {
-			$(this).addClass('no-focus');
+			//$(this).addClass('no-focus');
 			if($(this).parents(".page").hasClass("page-2")){
 				$(this).parents(".section-1").find(".dot-1").siblings().removeClass('selected');
 				$(this).parents(".section-1").find(".dot-1").addClass('selected');
@@ -1164,7 +1191,7 @@ $(document).ready(function() {
 				$(this).parents(".section-1").find(".page-1").removeClass('is-current-page is-next-page is-previous-page').addClass('is-previous-page');
 			}
 			
-		});
+		});// 
 				       
 	// Happiness Page Slide Up & Down Functions
 	
@@ -1174,7 +1201,8 @@ $(document).ready(function() {
 					tm.set('#happiness-video-page .section-2', {className:'section section-2 is-current-section'});
 					tm.set('#happiness-video-page .section-1', {className:'section section-1 is-previous-section'});
 					tm.set('#happiness-top-square', {className:'+=opaque is-shown', delay:1});
-					tm.set('#happiness-social-media-hub .media-container', {className:'+=is-green'});	
+					tm.set('#happiness-social-media-hub .media-container', {className:'+=is-green'});
+					tm.set('#happiness-discover-btn', {className:'discover-btn fade-out'});
 				}, 500);
 			}
 			else if($('#happiness-video-page .section-2').hasClass('is-current-section') && $('#happiness-video-page').hasClass('video-page-is-active')) {
@@ -1199,7 +1227,8 @@ $(document).ready(function() {
 					tm.set('#happiness-video-page .section-1', {className:'section section-1 is-current-section'});
 					tm.set('#happiness-video-page .section-2', {className:'section section-2 is-next-section'});
 					tm.set('#happiness-top-square', {className:'-=opaque is-shown'});
-					tm.set('#happiness-social-media-hub .media-container', {className:'-=is-green'});	
+					tm.set('#happiness-social-media-hub .media-container', {className:'-=is-green'});
+					tm.set('#happiness-discover-btn', {className:'discover-btn fade-in'});	
 				}, 500);
 			}
 			else if($('#happiness-video-page .section-3').hasClass('is-current-section') && $('#happiness-video-page').hasClass('video-page-is-active')) {
@@ -1219,6 +1248,7 @@ $(document).ready(function() {
 					tm.set('#connection-video-page .section-1', {className:'section section-1 is-previous-section'});
 					tm.set('#connection-top-square', {className:'+=opaque is-shown', delay:1});
 					tm.set('#connection-social-media-hub .media-container', {className:'+=is-orange'});
+					tm.set('#connection-discover-btn', {className:'discover-btn fade-out'});
 				}, 500);
 			}
 			else if($('#connection-video-page .section-2').hasClass('is-current-section') && $('#connection-video-page').hasClass('video-page-is-active')) {
@@ -1243,6 +1273,7 @@ $(document).ready(function() {
 					tm.set('#connection-video-page .section-2', {className:'section section-2 is-next-section'});
 					tm.set('#connection-top-square', {className:'-=opaque is-shown'});
 					tm.set('#connection-social-media-hub .media-container', {className:'-=is-orange'});
+					tm.set('#connection-discover-btn', {className:'discover-btn fade-in'});
 				}, 500);
 			}
 			else if($('#connection-video-page .section-3').hasClass('is-current-section') && $('#connection-video-page').hasClass('video-page-is-active')) {
@@ -1262,6 +1293,7 @@ $(document).ready(function() {
 					tm.set('#peaceofmind-video-page .section-1', {className:'section section-1 is-previous-section'});
 					tm.set('#peaceofmind-top-square', {className:'+=opaque is-shown', delay:1});
 					tm.set('#peaceofmind-social-media-hub .media-container', {className:'+=is-blue'});	
+					tm.set('#peaceofmind-discover-btn', {className:'discover-btn fade-out'});
 				}, 500);
 			}
 			else if($('#peaceofmind-video-page .section-2').hasClass('is-current-section') && $('#peaceofmind-video-page').hasClass('video-page-is-active')) {
@@ -1286,6 +1318,7 @@ $(document).ready(function() {
 					tm.set('#peaceofmind-video-page .section-2', {className:'section section-2 is-next-section'});
 					tm.set('#peaceofmind-top-square', {className:'-=opaque is-shown'});
 					tm.set('#peaceofmind-social-media-hub .media-container', {className:'-=is-blue'});
+					tm.set('#peaceofmind-discover-btn', {className:'discover-btn fade-in'});
 				}, 500);
 			}
 			else if($('#peaceofmind-video-page .section-3').hasClass('is-current-section') && $('#peaceofmind-video-page').hasClass('video-page-is-active')) {
@@ -1305,6 +1338,7 @@ $(document).ready(function() {
 					tm.set('#confidence-video-page .section-1', {className:'section section-1 is-previous-section'});
 					tm.set('#confidence-top-square', {className:'+=opaque is-shown', delay:1});
 					tm.set('#confidence-social-media-hub .media-container', {className:'+=is-lime'});
+					tm.set('#confidence-discover-btn', {className:'discover-btn fade-out'});
 				}, 500);
 			}
 			else if($('#confidence-video-page .section-2').hasClass('is-current-section') && $('#confidence-video-page').hasClass('video-page-is-active')) {
@@ -1329,6 +1363,7 @@ $(document).ready(function() {
 					tm.set('#confidence-video-page .section-2', {className:'section section-2 is-next-section'});
 					tm.set('#confidence-top-square', {className:'-=opaque is-shown'});
 					tm.set('#confidence-social-media-hub .media-container', {className:'-=is-lime'});
+					tm.set('#confidence-discover-btn', {className:'discover-btn fade-in'});
 				}, 500);
 			}
 			else if($('#confidence-video-page .section-3').hasClass('is-current-section') && $('#confidence-video-page').hasClass('video-page-is-active')) {
@@ -1348,6 +1383,7 @@ $(document).ready(function() {
 					tm.set('#freedom-video-page .section-1', {className:'section section-1 is-previous-section'});
 					tm.set('#freedom-top-square', {className:'+=opaque is-shown', delay:1});	
 					tm.set('#freedom-social-media-hub .media-container', {className:'+=is-pink'});
+					tm.set('#freedom-discover-btn', {className:'discover-btn fade-out'});
 				}, 500);
 			}
 
@@ -1373,6 +1409,7 @@ $(document).ready(function() {
 					tm.set('#freedom-video-page .section-2', {className:'section section-2 is-next-section'});
 					tm.set('#freedom-top-square', {className:'-=opaque is-shown'});
 					tm.set('#freedom-social-media-hub .media-container', {className:'-=is-pink'});
+					tm.set('#freedom-discover-btn', {className:'discover-btn fade-in'});
 				}, 500);
 			}
 			else if($('#freedom-video-page .section-3').hasClass('is-current-section') && $('#freedom-video-page').hasClass('video-page-is-active')) {
@@ -1580,7 +1617,6 @@ $(document).ready(function() {
 		    	}
 		    });
 
-
 		// Home Grid Tab Index Function
 
 		    $('.grid-item, .grid-item-square, .grid-item-small').on('focus', function(){
@@ -1594,7 +1630,7 @@ $(document).ready(function() {
 			
 			$('#skip-intro').bind('keydown', function(event){
 		    	if (event.keyCode === 13) {
-		    		$(this).addClass('no-focus');
+		    		// // //$(this).addClass('no-focus');
 					clearTimeout(regIntro);
 					intro();
 		    	}
@@ -1606,11 +1642,13 @@ $(document).ready(function() {
 				var videoPlayBtn = $(this).parents('.social-media-hub').siblings('.section-1').find('.is-current-page .video-play');
 		    	if (event.keyCode === 9 && $(this).parents('.social-media-hub').siblings('.section-1').hasClass('is-current-section')) {
 		        	event.preventDefault();
-		        	videoPlayBtn.focus();
+		        	$(this).parents('.social-media-hub').siblings('.section-1').find('.is-current-page').find('.video-play').focus();
+		        	console.log($(this).parents('.social-media-hub').siblings('.section-1').find('.is-current-page').find('.video-play').attr('class'));
 		        } else if (event.keyCode === 9 && !$(this).parents('.social-media-hub').siblings('.section-1').hasClass('is-current-section')) {
 		        	event.preventDefault();
 		        	keypressSlideUp();
 		        	videoPlayBtn.focus();
+		        	alert('hi');
 		        }
 		    });
 
@@ -1696,12 +1734,31 @@ $(document).ready(function() {
 		    	console.log($(this).closest('.section-2').siblings('.section-3').find('.story').length);
 		    	if(event.keyCode === 9 && $(this).closest('.section-2').siblings('.section-3').find('.story').length > 1 ){
 		    		event.preventDefault();
+		    		$(this).closest('.section-2').siblings('.section-3').find('.story:first-of-type .read-more-btn').focus();
 		    		keypressSlideDown();
-		    		$(this).closest('.section-2').siblings('.section-3').find('.story:first-of-type').focus();
 		    	} else{
 		    		event.preventDefault();
 		    		$(this).closest('.section-2').siblings('.section-3').find('.back-to-top-btn').focus();
 		    		keypressSlideDown();
+		    	}
+		    });
+
+		    $('.checkbox-label').bind('keydown', function(event){
+		    	if(event.keyCode === 13){
+		    		event.preventDefault();
+		    		$(this).parents('.checkbox-field').find('input').trigger('click');
+		    		$(this).focus();
+		    	}
+		    });
+
+		    $('.read-more-btn').bind('keydown', function(event){
+		    	// console.log($(this).closest('.section-2').siblings('.section-3').find('.story').length);
+		    	if(event.keyCode === 9 && $(this).parents('.story').next('.story').hasClass('last-story') ){
+		    		event.preventDefault();
+		    		$(this).parents('.story').next('.story').find('.read-more-btn').focus();
+		    	} else{
+		    		event.preventDefault();
+		    		$(this).parents('.story').next('.story').find('.back-to-top-btn').focus();
 		    	}
 		    });
 

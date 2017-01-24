@@ -18,7 +18,7 @@
     </div>
 </div>
 <div id="connection-discover-btn" class="discover-btn">
-    <a href="javascript:void(0)" class="discover"><h3><span class="discover-icon icon"></span>Share and discover</h3></a>
+    <a href="javascript:void(0)" role="button" tabindex="-1" class="discover"><h3><span class="discover-icon icon"></span>Share and discover</h3></a>
 </div>
 <div class="section section-1"> <?php include 'topics/connection/videos.php'; ?> </div>
 <div class="section section-2 is-next-section is-not-scrollable"> <?php include 'topics/connection/share-form.php'; ?> </div>
