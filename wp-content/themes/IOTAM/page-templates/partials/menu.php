@@ -7,24 +7,24 @@
         <span class="main-link" role="menuitem" tabindex="-1" id="home-link">Home</span>
     </li>
     <li class="menu-item">
-        <span class="main-link" role="menuitem" aria-haspopup="true" tabindex="-1">Topics</span>
+        <span class="main-link" role="menuitem" aria-haspopup="true" tabindex="-1" id="topics-link">Topics</span>
         <ul id="happiness-dropdown" class="dropdown" aria-label="submenu">
             <li class="has-children">
                 <div class="invisible-dropdown-btn" role="menuitem" aria-haspopup="true" tabindex="-1">
                     <div class="dropdown-title">Happiness</div>
-                    <img src="http://localhost/wp-content/uploads/2016/12/arrow.svg" alt="Happiness Dropdown Button" class="dropdown-btn arrow">
+                    <img src="http://localhost/wp-content/uploads/2016/12/arrow.svg" alt="" class="dropdown-btn arrow">
                 </div>
                 <ul class="sub-sub-menu">
                     <li class="sub-sub-menu-item">
-                        <img src="http://localhost/wp-content/uploads/2016/12/play-btn.svg" alt="Being There Matters Play Button" class="play-btn">
+                        <img src="http://localhost/wp-content/uploads/2016/12/play-btn.svg" alt="" class="play-btn">
                         <span class="dropdown-link" role="menuitem" tabindex="-1">Being There Matters</span>
                     </li>
                     <li class="sub-sub-menu-item">
-                        <img src="http://localhost/wp-content/uploads/2016/12/play-btn.svg" alt="Living For Thursdays Play Button" class="play-btn">
+                        <img src="http://localhost/wp-content/uploads/2016/12/play-btn.svg" alt="" class="play-btn">
                         <span class="dropdown-link" role="menuitem" tabindex="-1">Living for Thursdays</span>
                     </li>
                     <li class="sub-sub-menu-item">
-                        <img src="http://localhost/wp-content/uploads/2016/12/play-btn.svg" alt="New Moms Arent Alone Play Button" class="play-btn">
+                        <img src="http://localhost/wp-content/uploads/2016/12/play-btn.svg" alt="" class="play-btn">
                         <span class="dropdown-link" role="menuitem" tabindex="-1">New Moms Aren’t Alone</span>
                     </li>
                 </ul>
@@ -34,15 +34,15 @@
             <li class="has-children">
                 <div class="invisible-dropdown-btn" role="menuitem" aria-haspopup="true" tabindex="-1">
                     <div id ="connection" class="dropdown-title">Connection</div>
-                    <img src="http://localhost/wp-content/uploads/2016/12/arrow.svg" alt="Connection Dropdown Button" class="dropdown-btn arrow">
+                    <img src="http://localhost/wp-content/uploads/2016/12/arrow.svg" alt="" class="dropdown-btn arrow">
                 </div>
                 <ul class="sub-sub-menu">
                     <li class="sub-sub-menu-item">
-                        <img src="http://localhost/wp-content/uploads/2016/12/play-btn.svg" alt="Working Out Together Play Button" class="play-btn">
+                        <img src="http://localhost/wp-content/uploads/2016/12/play-btn.svg" alt="" class="play-btn">
                         <span class="dropdown-link" role="menuitem" tabindex="-1">Working Out Together</span>
                     </li>
                     <li class="sub-sub-menu-item">
-                        <img src="http://localhost/wp-content/uploads/2016/12/play-btn.svg" alt="The Power of a Pet Play Button" class="play-btn">
+                        <img src="http://localhost/wp-content/uploads/2016/12/play-btn.svg" alt="" class="play-btn">
                         <span class="dropdown-link" role="menuitem" tabindex="-1">The Power of a Pet</span>
                     </li>
                 </ul>
@@ -52,15 +52,15 @@
             <li class="has-children">
                 <div class="invisible-dropdown-btn" role="menuitem" aria-haspopup="true" tabindex="-1">
                     <div id="peace-of-mind" class="dropdown-title">Peace of mind</div>
-                    <img src="http://localhost/wp-content/uploads/2016/12/arrow.svg" alt="Peace of Mind Dropdown Button" class="dropdown-btn arrow">
+                    <img src="http://localhost/wp-content/uploads/2016/12/arrow.svg" alt="" class="dropdown-btn arrow">
                 </div>
                 <ul class="sub-sub-menu">
                     <li class="sub-sub-menu-item">
-                        <img src="http://localhost/wp-content/uploads/2016/12/play-btn.svg" alt="Dealing With Stress Play Button" class="play-btn">
+                        <img src="http://localhost/wp-content/uploads/2016/12/play-btn.svg" alt="" class="play-btn">
                         <span class="dropdown-link" role="menuitem" tabindex="-1">Dealing With Stress</span>
                     </li>
                     <li class="sub-sub-menu-item">
-                        <img src="http://localhost/wp-content/uploads/2016/12/play-btn.svg" alt="Space for Wellness Play Button" class="play-btn">
+                        <img src="http://localhost/wp-content/uploads/2016/12/play-btn.svg" alt="" class="play-btn">
                         <span class="dropdown-link" role="menuitem" tabindex="-1">Space for Wellness</span>
                     </li>
                 </ul>
@@ -70,15 +70,15 @@
             <li class="has-children">
                 <div class="invisible-dropdown-btn" role="menuitem" aria-haspopup="true" tabindex="-1">
                     <div id="confidence" class="dropdown-title">Confidence</div>
-                    <img src="http://localhost/wp-content/uploads/2016/12/arrow.svg" alt="Confidence Dropdown Button" class="dropdown-btn arrow">
+                    <img src="http://localhost/wp-content/uploads/2016/12/arrow.svg" alt="" class="dropdown-btn arrow">
                 </div>
                 <ul class="sub-sub-menu">
                     <li class="sub-sub-menu-item">
-                        <img src="http://localhost/wp-content/uploads/2016/12/play-btn.svg" alt="Overcoming Bullying Play Button" class="play-btn">
+                        <img src="http://localhost/wp-content/uploads/2016/12/play-btn.svg" alt="" class="play-btn">
                         <span class="dropdown-link" role="menuitem" tabindex="-1">Overcoming Bullying</span>
                     </li>
                     <li class="sub-sub-menu-item">
-                        <img src="http://localhost/wp-content/uploads/2016/12/play-btn.svg" alt="Improving Self-Esteem Play Button" class="play-btn">
+                        <img src="http://localhost/wp-content/uploads/2016/12/play-btn.svg" alt="" class="play-btn">
                         <span class="dropdown-link" role="menuitem" tabindex="-1">Improving Self-Esteem</span>
                     </li>
                 </ul>
@@ -88,11 +88,11 @@
             <li class="has-children">
                 <div class="invisible-dropdown-btn" role="menuitem" aria-haspopup="true" tabindex="-1">
                     <div id="freedom" class="dropdown-title">Freedom</div>
-                    <img src="http://localhost/wp-content/uploads/2016/12/arrow.svg" alt="Freedom Dropdown Button" class="dropdown-btn arrow">
+                    <img src="http://localhost/wp-content/uploads/2016/12/arrow.svg" alt="" class="dropdown-btn arrow">
                 </div>
                 <ul class="sub-sub-menu">
                     <li class="sub-sub-menu-item">
-                        <img src="http://localhost/wp-content/uploads/2016/12/play-btn.svg" alt="Overcoming Addiction Play Button" class="play-btn">
+                        <img src="http://localhost/wp-content/uploads/2016/12/play-btn.svg" alt="" class="play-btn">
                         <span class="dropdown-link" role="menuitem" tabindex="-1">Overcoming Addiction</span>
                     </li>
                 </ul>

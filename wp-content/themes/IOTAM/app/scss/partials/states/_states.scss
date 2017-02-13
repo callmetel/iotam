@@ -26,9 +26,11 @@
 }
 
 .no-focus{
-	outline: none!important; 
-    background: inherit;
-    border:0!important;
+	&:focus{
+		outline: none!important; 
+	    background: none!important;
+	    border:0!important;	
+	}
 }
 
 .is-active{
@@ -43,10 +45,13 @@
 }
 .is-visible{
 	visibility: visible;
-	@include transition(all .5s ease-in-out);
+	opacity:1;
+	@include transition(all 1s ease-in-out);
 }
 .is-hidden{
 	opacity:0;
+	z-index: -4000;
+	@include transition(all 1s ease-in-out);
 }
 .has-not-transition{
 	@include transition(none!important);

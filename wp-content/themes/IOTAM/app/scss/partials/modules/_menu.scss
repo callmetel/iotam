@@ -62,6 +62,12 @@ ul#menu {
             left: 20px;
             @include position(absolute, 5px null null 20px);
 
+            @include media($v-iphone-6-plus){
+                top:0;
+                left:0;
+                width:40%;
+            }
+
             .burger{
                 .global-logo:after{
                     @include transition(opacity .5s ease-in-out);

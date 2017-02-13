@@ -164,6 +164,15 @@ div.underline{
         @include position(absolute, 50% null null 50%);
         @include transform(translate(-50%, -50%));
 
+        @include media($sm-desktop){
+            width: 85%;
+            @include transform(translate(-45%, -50%));
+        }
+        @include media($v-ipad-max-screen){
+            width: 80%;
+            @include transform(translate(-50%, -50%));
+        }
+
         h3.join-cta, a.hashtag {
             @include transition(all 1s ease-in-out);
             color: white;
@@ -370,11 +379,9 @@ div.underline{
     overflow: hidden;
     height: 19.25vw;
     display: block;
-    position: fixed;
     z-index: -4000;
-    bottom:0;
-    right:0;
     padding-top:12.25vw;
+    @include position(fixed, null 0 0 null);
 
     @include media($md-desktop){
         width: 25.25vw;
@@ -395,7 +402,7 @@ div.underline{
         height: 32.444vw;   
     }
     @include media($sm-mobile){
-        display: none;  
+        @include position(fixed, 75vh -3.5vw null null);
     }
 
     .discover{
@@ -429,6 +436,10 @@ div.underline{
             @include media($desktop-bp){
                 font: $md-story-heading;    
             }
+            @include media($sm-mobile){
+                font-size:0;
+                line-height:0;    
+            }
 
         }
 
@@ -439,6 +450,90 @@ div.underline{
             margin-left: 0;
         }
 
+    }
+}
+
+.view-stories-btn {
+    width: 19.25vw;
+    max-width: 19.25vw;
+    overflow: hidden;
+    height: 19.25vw;
+    display: block;
+    position: fixed;
+    z-index: -4000;
+    bottom:0;
+    right:0;
+    padding-top:12.25vw;
+    opacity:0;
+    @include transition(all 1s ease-in-out);
+
+    @include media($md-desktop){
+        width: 25.25vw;
+        max-width: 25.25vw;
+    }
+    @include media($lg-desktop){
+        width: 23.25vw;
+        max-width: 23.25vw;
+    }
+    @include media($xl-desktop){
+        width: 23.25vw;
+        max-width: 23.25vw;
+    }
+    @include media($mobile){
+        width: 32.444vw;
+        max-width: 32.444vw;
+        overflow: hidden;
+        height: 32.444vw;   
+    }
+    @include media($sm-mobile){
+        display: none;
+    }
+
+    .view-stories{
+        width: 90%;
+        text-decoration: none;
+        text-align: left;
+        margin:0;
+        display: block;
+
+        h3 {
+            text-align: right;
+            vertical-align: middle; 
+            margin-bottom: 15px;
+            padding-bottom: 0;
+            font: $lg-story-heading; 
+
+            @include media($xl-desktop){
+                font: $xl-story-heading;    
+            }
+            @include media($most-common-screen){
+                font: $rg-story-heading;
+            }
+            @include media($macbook-pro-13){
+                font: $md-story-heading;
+            }
+            @include media($sm-desktop){
+                font: $md-story-heading;
+            }
+            @include media($desktop-bp){
+                font: $md-story-heading;    
+            }
+
+        }
+
+        .view-stories-icon{
+            display: inline-block;
+            vertical-align: middle;
+            margin-right:20px;
+            margin-left: 0;
+        }
+
+    }
+
+    &.active{
+        @include transition(all 1s ease-in-out);
+        z-index: 4000!important;
+        opacity:1!important;
     }
 }
 

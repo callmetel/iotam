@@ -48,81 +48,6 @@
     }
 }
 
-@include keyframes (slideLettersIn) {
-    0% {
-        @include transform(translateX(30%));
-        opacity:0;
-    }
-    100% {
-        opacity:1;
-        @include transform(translateX(-2%));
-    }
-}
-@include media($lg-mobile){
-    @include keyframes (slideLettersIn) {
-        0% {
-            @include transform(translateX(30%));
-            opacity:0;
-        }
-        100% {
-            opacity:1;
-            @include transform(translateX(-10%));
-        }
-    }
-}
-
-@include media($md-mobile){
-    @include keyframes (slideLettersIn) {
-        0% {
-            @include transform(translateX(30%));
-            opacity:0;
-        }
-        100% {
-            opacity:1;
-            @include transform(translateX(-15%));
-        }
-    }
-}
-
-@include media($sm-mobile){
-    @include keyframes (slideLettersIn) {
-        0% {
-            @include transform(translateX(30%));
-            opacity:0;
-        }
-        100% {
-            opacity:1;
-            @include transform(translateX(-15.5%));
-        }
-    }
-}
-
-@include media($xs-mobile){
-    @include keyframes (slideLettersIn) {
-        0% {
-            @include transform(translateX(30%));
-            opacity:0;
-        }
-        100% {
-            opacity:1;
-            @include transform(translateX(-22.5%));
-        }
-    }
-}
-
-@include media($v-iphone-6-plus){
-    @include keyframes (slideLettersIn) {
-        0% {
-            @include transform(translateX(30%));
-            opacity:0;
-        }
-        100% {
-            opacity:1;
-            @include transform(translateX(-30%));
-        }
-    }
-}
-
 @include keyframes (fadeIn) {
     0%{
         opacity:0;
@@ -156,76 +81,6 @@
     }
 }
 
-@include keyframes (openNav) {
-    0%{
-        z-index:9500;
-        opacity:0;
-        
-        @include transform(scaleY(.002));
-    }
-    50%{
-        opacity:1;
-        @include transform(scaleY(.002));
-    }
-    51%{
-        background:#000000;
-    }
-    100% {
-        @include transform(scaleY(1));
-    }
-}
-
-@include keyframes (closeNav) {
-    0%{
-        z-index:9500;
-        opacity:1;
-        @include transform(scaleY(1));
-        
-    }
-    60%{
-        background:#000000;
-        @include transform(scaleY(0));
-    }
-    96% {
-        @include transform(scaleY(0));
-        opacity:1;
-    }
-    97%{
-        opacity:0;
-    }
-    100%{
-        z-index: -8000;
-        @include transform(scaleY(.002));
-        opacity:0;
-    }
-}
-
-@include keyframes (showNavItem) {
-    0%{
-        opacity:0;
-        @include transform(translateY(-20px));
-    }
-    70%{
-        opacity:0;
-        @include transform(translateY(-20px));
-    }
-    100% {
-        opacity:1!important;
-        @include transform(translateY(0px));
-    }
-}
-
-@include keyframes (hideNavItem) {
-    0%{
-        opacity:1;
-        @include transform(translateY(0px));
-    }
-    100% {
-        opacity:0;
-        @include transform(translateY(-20px));
-    }
-}
-
 @include keyframes (fadeUp) {
     0%{
         opacity:0;
@@ -255,5 +110,35 @@
         opacity:1;
     }
 }
+
+@include keyframes (anim-effect-radomir) {
+    0% {
+        opacity: 1;
+        @include transform(scale3d(0.4, 0.4, 1));
+    }
+    20% {
+        box-shadow: inset 0 0 0 2px rgba(255,255,255,0.8);
+        opacity: 0.1;
+    }
+    40% {
+        box-shadow: inset 0 0 0 2px rgba(255,255,255,0.8);
+        opacity: 0;
+        @include transform(scale3d(1.2, 1.2, 1));
+    }
+    100%{
+        box-shadow: inset 0 0 0 2px rgba(255,255,255,0.8);
+        opacity: 0;
+        @include transform(scale3d(1.2, 1.2, 1)); 
+    }
+}
+
+
+
+
+
+
+
+
+
 
 

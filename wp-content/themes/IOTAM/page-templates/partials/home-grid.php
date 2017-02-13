@@ -1,7 +1,7 @@
 <div id="main">
     <div class="main-container">
         <div class="grid-items-lines">
-            <button class="grid-item" id="grid-item-1">
+            <div class="grid-item" id="grid-item-1">
                 <h1>It only takes a&nbsp;minute</h1>
                 <p class="slide-1">Is it possible to change someone's outlook in less than a minute? We think so.</p>
                 <div class="slide-2" aria-hidden="true">
@@ -10,10 +10,10 @@
                     <p>You’ll see and hear how each person addresses topics not everyone is comfortable talking about.</p>
                 </div>
                 <div class="slide-indicator">
-                    <div class="selected slide-dot"></div>
-                    <div class="slide-dot"></div>
+                    <div class="selected slide-dot" role="button" tabindex="0"></div>
+                    <div class="slide-dot" role="button" tabindex="0"></div>
                 </div>
-            </button>
+            </div>
             <div class="grid-item">
                 <button id="happiness-square" class="grid-item-square">
                     <div class="slide-1">

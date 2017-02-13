@@ -31,7 +31,7 @@ div#main{
 
 .site-transition{
 	width:200vw;
-	height:120vh;
+	height:100vh;
 	@include position(fixed, 0 0 0 0);
 	@include transform(translateX(100vw));
 	@include transition(transform .75s $ease-in-out-quad);

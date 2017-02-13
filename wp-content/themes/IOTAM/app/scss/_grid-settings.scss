@@ -29,15 +29,17 @@ $macbook-pro-13: new-breakpoint(min-width 1280px max-width 1366px);
 $most-common-screen: new-breakpoint(min-width 1367px max-width 1440px);
 $macbook-pro-15: new-breakpoint(min-width 1441px);
 $md-desktop: new-breakpoint(min-width 1441px max-width 1599px);
+$short-lg-desktop: new-breakpoint(min-width 1441px max-height 1125px);
 $lg-desktop: new-breakpoint(min-width 1600px max-width 2000px);
 $xl-desktop: new-breakpoint(min-width 2001px);
 $desktop: new-breakpoint(min-width 1100px);
-$xs-mobile: new-breakpoint(max-width 600px);
+$xs-mobile: new-breakpoint(max-width 500px);
 $sm-mobile: new-breakpoint(max-width 768px);
 $lg-mobile: new-breakpoint(max-width 1024px);
 $mobile: new-breakpoint(max-width 992px);
 $reg-desktop: new-breakpoint(min-width 993px max-width 2000px);
 $md-mobile: new-breakpoint(max-width 880px);
+$not-mobile: new-breakpoint(min-width 769px);
 
 //height breakpoint
 

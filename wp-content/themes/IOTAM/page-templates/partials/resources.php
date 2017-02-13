@@ -16,20 +16,20 @@
 
     <h3>
         <a href="https://www.mindchecktoday.com/" target="_blank">Mindchecktoday.com</a>
-        <img src="http://localhost/wp-content/uploads/2016/12/arrow-aetnablue.svg" alt="arrow">
+        <img src="http://localhost/wp-content/uploads/2016/12/arrow-aetnablue.svg" alt="">
     </h3>
     <p>Get a quick read on your emotional health.</p>
 
     <h3>
         <a href="https://www.assesswellbeing.com/" target="_blank">AssessWellBeing.com</a>
-        <img src="http://localhost/wp-content/uploads/2016/12/arrow-aetnablue.svg" alt="arrow">
+        <img src="http://localhost/wp-content/uploads/2016/12/arrow-aetnablue.svg" alt="">
     </h3>
     <p>Take a short assessment if you’re experiencing symptoms of depression or anxiety.</p>
 
     <h3>
         <a href="https://www.aetnagetaheadofstress.com/" target="_blank">AetnaGetaheadofStress.com</a>
-        <img src="http://localhost/wp-content/uploads/2016/12/arrow-aetnablue.svg" alt="arrow">
+        <img src="http://localhost/wp-content/uploads/2016/12/arrow-aetnablue.svg" alt="">
     </h3>
     <p>Purchase a 30-minute phone session for help with a stress management plan.</p>
 </div>
-<p class="global-apn" id="apn">48.36.807.1 (11/16)</p>
+<p class="global-apn">48.36.807.1 (11/16)</p>

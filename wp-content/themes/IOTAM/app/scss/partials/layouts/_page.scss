@@ -5,6 +5,9 @@
     opacity:0;
     display: none;
     // @include transition(transform 1s $ease-in-out-quad);
+    @include media($v-iphone-6-plus){
+        height: 100%;
+    }
 
     .page {
         @include position(fixed, 0 0 0 0);
@@ -50,7 +53,7 @@
           @include transition(opacity 1s ease-in-out);
         }
         .video-foreground,
-        .video-background iframe {
+        .video-background iframe, .mobile-video {
           position: absolute;
           top: 0;
           left: 0;
@@ -107,6 +110,9 @@
             @include media($mobile){
                 width: 100%;
             }
+            @include media($v-iphone-6-plus){
+                top:20%;
+            }
     	}
 
     	.video-play{
@@ -130,7 +136,7 @@
     		text-align: center;
     		margin: 0 auto;
 
-    		h1 {
+    		h2 {
     			color: white;
     			position: relative;
     			text-align: center;
@@ -250,6 +256,9 @@
         @include media($xl-desktop){
             bottom: 15vh;
         }
+        @include media($v-iphone-6-plus){
+            bottom:15%;
+        }
 
     }
 
@@ -321,6 +330,9 @@
 		padding-left: 23vw;
 		padding-right:0;
 		background: white;
+        height: 100%;
+        padding-right: 3vw;
+        position:relative;
 
 		@include media($most-common-screen){
 	        padding-left: 23vw; 
@@ -340,6 +352,9 @@
 	    	padding-right: 5vw;
 	    	
 	    }
+        @include media($v-iphone-6-plus){
+            height: auto;
+        }
 
 		h2 {
 	        font: $md-subheading;
@@ -385,6 +400,15 @@
             	font: $md-heading-p;
             }
         }
+
+        .mobile-view-stories-btn{
+            display: block;
+            @include position(absolute, null 4.5vw 15vh null);
+            z-index: 100;
+            @include media($not-mobile){
+                display:none!important;
+            }
+        }
 	}
 
 }
@@ -394,5 +418,15 @@
     display: block;
     .main-page-dots{
          z-index: 4000;
+    }
+}
+
+form .right a{
+    color: black;
+    font:$rg-heading-p;
+    cursor: pointer;
+    
+    @include media($mobile){
+       font: $md-heading-p;
     }
 }

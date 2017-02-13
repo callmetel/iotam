@@ -15,7 +15,7 @@
 	        padding-left: 19.5vw;
 	    }
 		@include media($sm-desktop){
-	        padding-left: 19.5vw;
+	        padding-left: 19.55vw;
 	    }
 
 	    @include media($mobile){
@@ -81,7 +81,7 @@
 			    	height: 19.5vw;  
 			    }
 			    @include media($sm-desktop){
-			        height: 19.5vw;  
+			        height: 19.55vw;  
 			    }
 			    @include media($mobile){
 			        width: 32.888vw;
@@ -160,6 +160,7 @@
 			    			font: $lg-subheading; 
 			    			line-height: 48.4px!important;
 			    			margin-top: 25px;
+			    			text-align: left;
 
 				            @include media($xl-desktop){
 				                font: $xl-subheading;

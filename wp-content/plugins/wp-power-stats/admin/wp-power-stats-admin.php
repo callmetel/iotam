@@ -206,6 +206,19 @@ class PowerStatsAdmin
         return true;
     }
 
+	/**
+	 * Add a link to the settings page on the plugins page
+	 */
+	public static function add_action_link( $links )
+    {
+		if (current_user_can('wp_power_stats_admin') || current_user_can('manage_options')) {
+			$new_links = '<a href="' . self::$config_url . '">' . __( 'Settings', 'wp-power-stats' ) . '</a>';
+			array_unshift( $links, $new_links );
+		}
+
+	    return $links;
+	}
+
     /**
      * Removes a capability from a role
      * @param $role role from which to remove the capability
@@ -350,7 +363,7 @@ class PowerStatsAdmin
     public static function new_blog($blog_id)
     {
         switch_to_blog($blog_id);
-        self::init_environment();
+        self::activate();
         restore_current_blog();
         PowerStats::$options = get_option('power_stats_options', array());
     }

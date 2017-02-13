@@ -3,7 +3,7 @@
 Plugin Name: WP Power Stats
 Plugin URI: http://www.websivu.com/wp-power-stats/
 Description: Powerful real-time statistics of your visitors for your WordPress site.
-Version: 2.1.6
+Version: 2.2.0
 Author: Igor Buyanov
 Text Domain: power-stats
 Author URI: http://www.websivu.com
@@ -14,7 +14,7 @@ if (!empty(PowerStats::$options)) return true;
 
 class PowerStats
 {
-    public static $version = '2.1.6';
+    public static $version = '2.2.0';
     public static $options = array();
     public static $wpdb = '';
     protected static $options_hash = '';
@@ -63,7 +63,7 @@ class PowerStats
         require_once POWER_STATS_DIR . '/admin/vendor/search-terms/Countries.php';
         require_once POWER_STATS_DIR . '/admin/vendor/tabgeo_country_v4/tabgeo_country_v4.php';
 
-        self::$vendors['browser'] = new Browser($_SERVER['HTTP_USER_AGENT']);
+        if ( isset($_SERVER['HTTP_USER_AGENT']) && !empty($_SERVER['HTTP_USER_AGENT']) ) self::$vendors['browser'] = new Browser($_SERVER['HTTP_USER_AGENT']);
         self::$vendors['device'] = new Mobile_Detect();
 
         // Add the server and client-side tracker
@@ -176,6 +176,8 @@ class PowerStats
 
         // Optimize table
         self::$wpdb->query("OPTIMIZE TABLE {$GLOBALS['wpdb']->prefix}power_stats_visits");
+
+	    exit; // Exit script after conjob run
     }
 
     /**
@@ -335,6 +337,18 @@ class PowerStats
 
         // Assign a visit id if set in the cookies
         self::insert_data();
+
+	    // Something went wrong during the insert
+	    if ( empty( self::$data[ 'id' ] ) ) {
+
+		    // Attempt to init the environment, probably the plugin has been just activated on a blog in a MU network
+		    include_once(POWER_STATS_DIR . '/admin/wp-power-stats-admin.php');
+		    PowerStatsAdmin::activate();
+
+		    // Let's try again
+		    self::insert_data();
+
+	    }
 
         // Check if this is a new visitor
         $cookie_filter = apply_filters('power_stats_set_visit_cookie', true);
@@ -497,7 +511,7 @@ class PowerStats
 
         }
 
-        if (!isset(self::$data['id']) || empty(self::$data['id'])) self::$data['id'] = substr(md5(rand()), 0, 7);
+	    if (!isset(self::$data['id']) || empty(self::$data['id'])) self::$data['id'] = 0;
     }
 
     /**
@@ -1225,6 +1239,7 @@ if (function_exists('add_action')) {
             add_action('wp_dashboard_setup', array('PowerStatsAdmin', 'replace_dashboard'));
             register_activation_hook(__FILE__, array('PowerStatsAdmin', 'activate'));
             register_deactivation_hook(__FILE__, array('PowerStatsAdmin', 'deactivate'));
+	        add_filter('plugin_action_links_'.plugin_basename(__FILE__), array('PowerStatsAdmin', 'add_action_link'));
         }
 
     }

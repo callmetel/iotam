@@ -71,42 +71,64 @@ $(document).ready(function() {
 	// Check if intro video loaded and start intro
 	
 	    function checkLoad() {
-	        if (introvid.readyState === 4) {
+	    //     if (introvid.readyState === 4) {
 	        	// alert('ready');
 	        	playVideo();
 	        	$('body').removeClass('initial-hide');
-	            regIntroEnd();
 	            setTimeout(function(){
 	            	$('.site-container').removeClass('initial-hide');
 	            },500);
-	        } else {
-	             setTimeout(checkLoad, 100);
-	             console.log('checking');
-	        }
+	        // } else {
+	        //      setTimeout(checkLoad, 100);
+	        //      console.log('checking');
+	        // }
 	    }
+
 	    checkLoad();
 
-	    if(!isMobile.detectMobile()){
-		    function refreshOnSlowLoad(){
-		    	setTimeout(function(){
-		    		if(introvid.readyState !== 4){
-			    		clearTimeout(checkLoad);
-			    		location.reload();
-			    	}
-		    	},3000);
-		    }
-	    	refreshOnSlowLoad();
+	// Check if video is playing
+	
+
+	// Add HTML5 Videos & Uncomment Videos
+
+	    if(isMobile.detectMobile()){
+		    $('.page iframe').attr('src','');
+		    $('.page iframe').remove();
+
+		    $('#preloader').bind('touchend', function(){
+		    	$('#splash-screen').removeClass('faded');
+		    	$('#teaser-video')[0].play();
+		    	regIntroEnd();
+		    	// alert('hey');
+		    });
+		    $('#teaser-video').bind('webkitendfullscreen', function(e){
+			    console.log("user pressed done");
+			    clearTimeout(regIntro);
+			    tm.set('#preloader', {alpha:0});
+				tm.set('nav', {className:'-=initial-hide'});
+				tm.set('header', {className:'+=is-on-screen-Y'});
+				$('#site-container').removeClass('hide');
+				setTimeout(function(){
+				$('#preloader').detach();
+					status=0;
+				}, 100);
+			});
+	    } else{
+	    	regIntroEnd();
 	    };
 
 	    function playVideo() {
 		    if(isMobile.detectMobile() ){
-		    	$('body').removeClass('initial-hide').addClass('fade-in');	
+		    	$('body').removeClass('initial-hide').addClass('fade-in');
 		    }
 		    else{
-			    $('#teaser-video')[0].play();
+			    $('#teaser-video')[0].play(fadeSplashScreen());
+			    
 			}
 		}
-
+		function fadeSplashScreen(){
+	        $('#splash-screen').addClass('faded');
+		}
 	// Intro Animation
 
 		function intro(){
@@ -131,6 +153,10 @@ $(document).ready(function() {
 		}
 		var scrollstart=0;
 
+	// Initialize Aria Hidden
+		
+		$('.sub-content-container, #resources').attr('aria-hidden', 'true');
+
 	// Change IDs for Checkboxes & Submit
 		
 		$('#connection-video-page .share-form .checkbox-field > input').attr('id', 'checkbox2');
@@ -148,6 +174,39 @@ $(document).ready(function() {
 		$('#freedom-video-page .share-form .checkbox-field > input').attr('id', 'checkbox5');
 		$('#freedom-video-page .share-form .checkbox-field > label').attr('for', 'checkbox5');
 		$('#freedom-video-page .share-form .submit > input').attr('id', 'freedom-submit');
+
+	// Checkbox Functionality for Accepting Terms
+		
+		$('.checkbox-label').on('click', function(){
+			$(this).blur();
+			if (checkClicked == true) {
+			    $(this).siblings('input:checkbox').attr('checked',false);
+			    $(this).find('span').removeClass('is-checked');
+				setTimeout(function(){
+			    	checkClicked = false;
+			    },500);
+			} 
+			else {
+		  		$(this).siblings('input:checkbox').attr('checked',true);
+		  		$(this).find('span').addClass('is-checked');
+			    setTimeout(function(){
+			    	checkClicked = true;
+			    },500);
+			}
+		});
+	
+	// Remove Focus On Click
+		
+		$('*').mousedown(function(event) {
+			$('*').blur();
+			$('*').addClass('no-focus');
+		});
+
+		$('*').bind('keydown', function(event) {
+			if(event.keyCode === 9){
+				$('*').removeClass('no-focus');
+			}
+		});
 
 	// Disable Site Transition on Resize
 		
@@ -204,6 +263,7 @@ $(document).ready(function() {
 			$(this).siblings().removeClass('selected');
 			$('.slide-1').removeClass('is-inactive-slide');
 			$('.slide-2').removeClass('is-active-slide');
+			checkClicked = false;
 
 			setTimeout(function(){
 				var status=0,
@@ -226,25 +286,27 @@ $(document).ready(function() {
 			                $(this).on('touchend touchcancel', function(){
 			                    touchReg = false;
 			                });
+			                console.log($('#happiness-video-page .section-2').scrollTop());
 
 			                if (ts > te+175){
+			                	
 
 			                    touchReg = true;
 			                    status = 1;
 			                    counterSlide = 1;
-			                    if ($('#happiness-video-page').hasClass('video-page-is-active')){
+			                    if ( ($('#happiness-video-page').hasClass('video-page-is-active') && $('#happiness-video-page .section-2').scrollTop() > 185) || ($('#happiness-video-page').hasClass('video-page-is-active') && $('#happiness-video-page .section-1').hasClass('is-current-section')) ){
 	                            	happinessSlideDown();
 	                            }
-	                            else if ($('#connection-video-page').hasClass('video-page-is-active')){
+	                            else if ( ($('#connection-video-page').hasClass('video-page-is-active') && $('#connection-video-page .section-2').scrollTop() > 185) || ($('#connection-video-page').hasClass('video-page-is-active') && $('#connection-video-page .section-1').hasClass('is-current-section')) ){
 	                            	connectionSlideDown();
 	                            }
-	                       		else if ($('#peaceofmind-video-page').hasClass('video-page-is-active')){
+	                       		else if ( ($('#peaceofmind-video-page').hasClass('video-page-is-active') && $('#peaceofmind-video-page .section-2').scrollTop() > 185) || ($('#peaceofmind-video-page').hasClass('video-page-is-active') && $('#peaceofmind-video-page .section-1').hasClass('is-current-section')) ){
 	                            	peaceSlideDown();
 	                            }
-	                            else if ($('#confidence-video-page').hasClass('video-page-is-active')){
+	                            else if ( ($('#confidence-video-page').hasClass('video-page-is-active') && $('#confidence-video-page .section-2').scrollTop() > 185) || ($('#confidence-video-page').hasClass('video-page-is-active') && $('#confidence-video-page .section-1').hasClass('is-current-section')) ){
 	                            	confidenceSlideDown();
 	                            }
-	                            else if ($('#freedom-video-page').hasClass('video-page-is-active')){
+	                            else if ( ($('#freedom-video-page').hasClass('video-page-is-active') && $('#freedom-video-page .section-2').scrollTop() > 185) || ($('#freedom-video-page').hasClass('video-page-is-active') && $('#freedom-video-page .section-1').hasClass('is-current-section')) ){
 	                            	freedomSlideDown();
 	                            };
 
@@ -257,7 +319,7 @@ $(document).ready(function() {
 
 			                  touchReg = true;
 			                  status = 1;
-			                  if ($('#happiness-video-page').hasClass('video-page-is-active')){
+			                  if (($('#happiness-video-page').hasClass('video-page-is-active') && $('#happiness-video-page .section-2').scrollTop() <= 0) || ($('#happiness-video-page').hasClass('video-page-is-active') && $('#happiness-video-page .section-3').hasClass('is-current-section')) ){
 	                            	happinessSlideUp();
 	                            }
 	                            else if ($('#connection-video-page').hasClass('video-page-is-active')){
@@ -379,11 +441,29 @@ $(document).ready(function() {
 
 	// Each Pages Start Function
 
+		// Hide Pages from Aria
+			
+			function addAriaHiddenPages(){
+				$('#resources').attr('aria-hidden', 'true');
+				$('.video-page').not('.video-page-is-active').attr('aria-hidden', 'true');
+				$('.video-page-is-active, .sub-content-container').removeAttr('aria-hidden');
+			}
+
 		function startHappinessPage(){
 			colorBlock.removeClass('to-home to-connection to-peace to-confidence to-freedom').addClass('is-transitioning to-happiness');
 			// attachVideoPages();
 			bindPage();
+			if(isMobile.detectMobile()){
+				$('.video-page:not(#happiness-video-page) .page video').attr('src','');
+				$('.video-page:not(#happiness-video-page) .page video').remove();
+			    $('#happiness-video-page .page-1 .video-foreground').html('<video class="video mobile-video" id="beingtherematters"><source src="http://localhost/wp-content/uploads/2016/12/mobile-beingtherematters.mp4" type="video/mp4"></video>');
+			    $('#happiness-video-page .page-2 .video-foreground').html('<video class="video mobile-video" id="livingforthursdays"><source src="http://localhost/wp-content/uploads/2016/12/mobile-livingforthursdays.mp4" type="video/mp4"></video>');
+			    $('#happiness-video-page .page-3 .video-foreground').html('<video class="video mobile-video" id="newmomsarentalone"><source src="http://localhost/wp-content/uploads/2016/12/mobile-newmomsarentalone.mp4" type="video/mp4"></video>');
+		    };
+
+
 			setTimeout(function(){
+				$('.burger').removeClass('home connection peace confidence freedom').addClass('happiness');
 				$('.video-page').removeClass('video-page-is-active');
 				$('.content-container, #resources').removeClass('is-active-section').addClass('is-inactive-section');
 				$('.sub-content-container').removeClass('is-inactive-section').addClass('is-active-section');
@@ -395,14 +475,23 @@ $(document).ready(function() {
 			setTimeout(function(){
 				colorBlock.removeClass('is-transitioning');
 				detachHomePage();
+				addAriaHiddenPages();
 			},1800);
 		}
 
 		function startConnectionPage(){
 			colorBlock.removeClass('to-home to-happiness to-peace to-confidence to-freedom').addClass('is-transitioning to-connection');
+			if(isMobile.detectMobile()){
+				$('.video-page:not(#connection-video-page) .page video').attr('src','');
+				$('.video-page:not(#connection-video-page) .page video').remove();
+			    $('#connection-video-page .page-1 .video-foreground').html('<video class="video mobile-video" id="workingouttogether"><source src="http://localhost/wp-content/uploads/2016/12/mobile-workingouttogether.mp4" type="video/mp4"></video>');
+			    $('#connection-video-page .page-2 .video-foreground').html('<video class="video mobile-video" id="powerofapet"><source src="http://localhost/wp-content/uploads/2016/12/mobile-powerofapet.mp4" type="video/mp4"></video>');
+		    };
+
 			// attachVideoPages();
 			bindPage();
 			setTimeout(function(){
+				$('.burger').removeClass('home happiness peace confidence freedom').addClass('connection');
 				$('.video-page').removeClass('video-page-is-active');
 				$('.content-container, #resources').removeClass('is-active-section').addClass('is-inactive-section');
 				$('.sub-content-container').removeClass('is-inactive-section').addClass('is-active-section');
@@ -413,6 +502,7 @@ $(document).ready(function() {
 			setTimeout(function(){
 				colorBlock.removeClass('is-transitioning');
 				detachHomePage();
+				addAriaHiddenPages();
 			},1800);
 		}
 
@@ -420,7 +510,15 @@ $(document).ready(function() {
 			colorBlock.removeClass('to-home to-happiness to-connection to-confidence to-freedom').addClass('is-transitioning to-peace');
 			// attachVideoPages();
 			bindPage();
+			if(isMobile.detectMobile()){
+				$('.video-page:not(#peaceofmind-video-page) .page video').attr('src','');
+				$('.video-page:not(#peaceofmind-video-page) .page video').remove();
+			    $('#peaceofmind-video-page .page-1 .video-foreground').html('<video class="video mobile-video" id="dealingwithstress"><source src="http://localhost/wp-content/uploads/2016/12/mobile-dealingwithstress.mp4" type="video/mp4"></video>');
+			    $('#peaceofmind-video-page .page-2 .video-foreground').html('<video class="video mobile-video" id="spaceforwellness"><source src="http://localhost/wp-content/uploads/2016/12/mobile-spaceforwellness.mp4" type="video/mp4"> </video>');
+		    };
+
 			setTimeout(function(){
+				$('.burger').removeClass('home happiness connection confidence freedom').addClass('peace');
 				$('.video-page').removeClass('video-page-is-active');
 				$('.content-container, #resources').removeClass('is-active-section').addClass('is-inactive-section');
 				$('.sub-content-container').removeClass('is-inactive-section').addClass('is-active-section');
@@ -431,6 +529,7 @@ $(document).ready(function() {
 			setTimeout(function(){
 				colorBlock.removeClass('is-transitioning');
 				detachHomePage();
+				addAriaHiddenPages();
 			},1800);
 		}
 
@@ -438,7 +537,14 @@ $(document).ready(function() {
 			colorBlock.removeClass('to-home to-happiness to-connection to-peace to-freedom').addClass('is-transitioning to-confidence');
 			// attachVideoPages();
 			bindPage();
+			if(isMobile.detectMobile()){
+				$('.video-page:not(#confidence-video-page) .page video').attr('src','');
+				$('.video-page:not(#confidence-video-page) .page video').remove();
+			    $('#confidence-video-page .page-1 .video-foreground').html('<video class="video mobile-video" id="overcomingbullying"><source src="http://localhost/wp-content/uploads/2016/12/mobile-overcomingbullying.mp4" type="video/mp4"></video>');
+			    $('#confidence-video-page .page-2 .video-foreground').html('<video class="video mobile-video" id="improvingselfesteem"><source src="http://localhost/wp-content/uploads/2016/12/mobile-improvingselfesteem.mp4" type="video/mp4"></video>');
+		    };
 			setTimeout(function(){
+				$('.burger').removeClass('home happiness connection peace freedom').addClass('confidence');
 				$('.video-page').removeClass('video-page-is-active');
 				$('.content-container, #resources').removeClass('is-active-section').addClass('is-inactive-section');
 				$('.sub-content-container').removeClass('is-inactive-section').addClass('is-active-section');
@@ -449,6 +555,7 @@ $(document).ready(function() {
 			setTimeout(function(){
 				colorBlock.removeClass('is-transitioning');
 				detachHomePage();
+				addAriaHiddenPages();
 			},1800);
 		}
 
@@ -456,7 +563,13 @@ $(document).ready(function() {
 			colorBlock.removeClass('to-home to-happiness to-connection to-peace to-confidence').addClass('is-transitioning to-freedom');
 			// attachVideoPages();
 			bindPage();
+			if(isMobile.detectMobile()){
+				$('.video-page:not(#freedom-video-page) .page video').attr('src','');
+				$('.video-page:not(#freedom-video-page) .page video').remove();
+			    $('#freedom-video-page .page-1 .video-foreground').html('<video class="video mobile-video" id="overcomingaddiction"><source src="http://localhost/wp-content/uploads/2016/12/mobile-substanceabuse.mp4" type="video/mp4"></video>');
+		    };
 			setTimeout(function(){
+				$('.burger').removeClass('home happiness connection peace confidence').addClass('freedom');
 				$('.video-page').removeClass('video-page-is-active');
 				$('.content-container, #resources').removeClass('is-active-section').addClass('is-inactive-section');
 				$('.sub-content-container').removeClass('is-inactive-section').addClass('is-active-section');
@@ -467,12 +580,15 @@ $(document).ready(function() {
 			setTimeout(function(){
 				colorBlock.removeClass('is-transitioning');
 				detachHomePage();
+				addAriaHiddenPages();
 			},1800);
 		}
 
 	// Dropdown Click Events
 
 		$("#happiness-dropdown > li > ul > li:eq(0)").on('click', function(){
+			$(this).blur();
+			$('.site-container').attr('aria-hidden', 'false');
 			if($('#happiness-video-page.video-page-is-active .page-1').hasClass('is-current-page')){
 				$('.nav-trigger').trigger('click');
 			} else{
@@ -489,6 +605,8 @@ $(document).ready(function() {
 		});
 
 		$("#happiness-dropdown > li > ul > li:eq(1)").on('click', function(){
+			$(this).blur();
+			$('.site-container').attr('aria-hidden', 'false');
 			if($('#happiness-video-page.video-page-is-active .page-2').hasClass('is-current-page')){
 				$('.nav-trigger').trigger('click');
 			} else{
@@ -505,6 +623,8 @@ $(document).ready(function() {
 		});
 
 		$("#happiness-dropdown > li > ul > li:eq(2)").on('click', function(){
+			$(this).blur();
+			$('.site-container').attr('aria-hidden', 'false');
 			if($('#happiness-video-page.video-page-is-active .page-3').hasClass('is-current-page')){
 				$('.nav-trigger').trigger('click');
 			} else{
@@ -522,6 +642,8 @@ $(document).ready(function() {
 		});
 
 		$("#connection-dropdown > li > ul > li:eq(0)").on('click', function(){
+			$(this).blur();
+			$('.site-container').attr('aria-hidden', 'false');
 			if($('#connection-video-page.video-page-is-active .page-1').hasClass('is-current-page')){
 				$('.nav-trigger').trigger('click');
 			} else{
@@ -538,6 +660,8 @@ $(document).ready(function() {
 		});
 
 		$("#connection-dropdown > li > ul > li:eq(1)").on('click', function(){
+			$(this).blur();
+			$('.site-container').attr('aria-hidden', 'false');
 			if($('#connection-video-page.video-page-is-active .page-2').hasClass('is-current-page')){
 				$('.nav-trigger').trigger('click');
 			} else{
@@ -554,6 +678,8 @@ $(document).ready(function() {
 		});
 
 		$("#peaceofmind-dropdown > li > ul > li:eq(0)").on('click', function(){
+			$(this).blur();
+			$('.site-container').attr('aria-hidden', 'false');
 			if($('#peaceofmind-video-page.video-page-is-active .page-1').hasClass('is-current-page')){
 				$('.nav-trigger').trigger('click');
 			} else{
@@ -570,6 +696,8 @@ $(document).ready(function() {
 		});
 
 		$("#peaceofmind-dropdown > li > ul > li:eq(1)").on('click', function(){
+			$(this).blur();
+			$('.site-container').attr('aria-hidden', 'false');
 			if($('#peaceofmind-video-page.video-page-is-active .page-2').hasClass('is-current-page')){
 				$('.nav-trigger').trigger('click');
 			} else{
@@ -586,6 +714,8 @@ $(document).ready(function() {
 		});
 
 		$("#confidence-dropdown > li > ul > li:eq(0)").on('click', function(){
+			$(this).blur();
+			$('.site-container').attr('aria-hidden', 'false');
 			if($('#confidence-video-page.video-page-is-active .page-1').hasClass('is-current-page')){
 				$('.nav-trigger').trigger('click');
 			} else{
@@ -602,6 +732,8 @@ $(document).ready(function() {
 		});
 
 		$("#confidence-dropdown > li > ul > li:eq(1)").on('click', function(){
+			$(this).blur();
+			$('.site-container').attr('aria-hidden', 'false');
 			if($('#confidence-video-page.video-page-is-active .page-2').hasClass('is-current-page')){
 				$('.nav-trigger').trigger('click');
 			} else{
@@ -618,6 +750,8 @@ $(document).ready(function() {
 		});
 
 		$("#freedom-dropdown > li > ul > li:eq(0)").on('click', function(){
+			$(this).blur();
+			$('.site-container').attr('aria-hidden', 'false');
 			if($('#freedom-video-page.video-page-is-active .page-1').hasClass('is-current-page')){
 				$('.nav-trigger').trigger('click');
 			} else{
@@ -632,50 +766,70 @@ $(document).ready(function() {
 
 		$('.dropdown > li.has-children > .invisible-dropdown-btn').on("click", function() {
 			// //$(this).addClass('no-focus');
-			$(this).parent().siblings().find('ul').toggleClass("is-open");
-			$(this).parent().find('ul').stop(true, false, true).toggleClass('is-open');
-			$(this).find('img').toggleClass('is-rotated');
+			var submenu = $(this).parent().find('ul').stop(true, false, true),
+				arrow = $(this).find('img');
+			if(submenu.hasClass('is-open')){
+				submenu.toggleClass('is-open');
+				arrow.toggleClass('is-rotated');
+			} else{
+				$(this).parent().siblings().find('ul').toggleClass("is-open");
+
+				$('.sub-sub-menu').removeClass('is-open');
+				$('.dropdown-btn').removeClass('is-rotated');
+				
+				setTimeout(function(){
+					submenu.toggleClass('is-open');
+					arrow.toggleClass('is-rotated');
+				},100);	
+			}
+			
+
 			return false;
 		});
 
 	// Homepage Square Click Events
 
 		$("#happiness-square").on('click', function(){
-			//$(this).addClass('no-focus');
+			$(this).blur();
 			startHappinessPage();
 			$('body').addClass('is-not-scrollable');
 		});
 
 		$("#connection-square").on('click', function(){
-			//$(this).addClass('no-focus');
+			$(this).blur();
 			startConnectionPage();
 			$('body').addClass('is-not-scrollable');
 		});
 
 		$("#peaceofmind-square").on('click', function(){
-			//$(this).addClass('no-focus');
+			$(this).blur();
 			startPeacePage();
 			$('body').addClass('is-not-scrollable');
 		});
 
 		$("#confidence-square").on('click', function(){
-			//$(this).addClass('no-focus');
+			$(this).blur();
 			startConfidencePage();
 			$('body').addClass('is-not-scrollable');
 		});
 
 		$("#freedom-square").on('click', function(){
-			//$(this).addClass('no-focus');
+			$(this).blur();
 			startFreedomPage();
 			$('body').addClass('is-not-scrollable');
 		});
 
+		$('.grid-item, .grid-item-square, .grid-item-small').on('click', function(){
+			$(this).blur();
+		});
+
 		$(".grid-item-small:eq(0)").bind('click touchend', function(){
-			//$(this).addClass('no-focus');
+			$(this).blur();
 			colorBlock.removeClass('to-happiness to-connection to-peace to-confidence to-freedom').addClass('is-transitioning to-home');
 			$('body').unbind();
 			$('body').removeClass('is-not-scrollable');
 			setTimeout(function(){
+				$('.burger').removeClass('freedom happiness connection peace confidence').addClass('home');
 				$('.content-container, .sub-content-container').removeClass('is-active-section').addClass('is-inactive-section');
 				$('#resources').removeClass('is-inactive-section').addClass('is-active-section');
 				$('body').removeClass('is-not-scrollable');
@@ -688,7 +842,7 @@ $(document).ready(function() {
 	// Skip Intro Click Event
 
 		$('.enter-site-link, #skip-intro').on('click', function(){
-			//$(this).addClass('no-focus');
+			$(this).blur();
 			clearTimeout(regIntro);
 			intro();
 		});// 
@@ -696,38 +850,53 @@ $(document).ready(function() {
 	// Toggle Menu Click Events
 
 		$('.nav-trigger').on('click', function(){
+			$(this).blur();
 			$(this).parents('button').addClass('no-focus');
 			$('li.has-children > ul, ul.dropdown').removeClass('is-open');
 			$('li.has-children .dropdown-btn').removeClass('is-rotated');
 			$('#menu').toggleClass('is-on-screen-X');
 			$('.site-container').toggleClass('move-over');
-			$('.close-menu').toggleClass('show');
+			$('.close-menu').addClass('show');
+
+			setTimeout(function(){
+				if($('#menu').hasClass('is-on-screen-X')){
+					$('.site-container').attr('aria-hidden', 'true');
+				}
+			},1000);
 		});
 
 		$('.close-trigger').on('click', function(){
+			$(this).blur();
+			$('.site-container').attr('aria-hidden', 'false');
 			$(this).parents('button').addClass('no-focus');
 			$('.nav-trigger').trigger('click');
+			setTimeout(function(){
+				$('.close-menu').removeClass('show');
+			},1000);
 		});
 
 	// Main Nav Click Events
 
 		$('#menu > li > span').on('click', function(){
-			//$(this).addClass('no-focus');
+			$(this).blur();
 			if ($(this).parent().children('ul').hasClass('dropdown') && !$(this).children('ul').hasClass('is-open')){
+				
 				$(this).parent().children('ul.dropdown').toggleClass('is-open');
 			}
 		});
 
 		$("#home-link").on('click', function(){
+			$(this).blur();
 			if($('.sub-content-container').hasClass('is-active-section') || $('#resources').hasClass('is-active-section')){
 				attachHomePage();
-				//$(this).addClass('no-focus');
+				$('.sub-content-container, #resources').attr('aria-hidden', 'true');
 				$('.nav-trigger').trigger('click');
 				$('.close-video').trigger('click');
 				colorBlock.removeClass('to-happiness to-connection to-peace to-confidence to-freedom').addClass('is-transitioning to-home');
 				$('body').unbind();
 				$('body').removeClass('is-not-scrollable');
 				setTimeout(function(){
+					$('.burger').removeClass('freedom happiness connection peace confidence').addClass('home');
 					$('#resources, .sub-content-container').removeClass('is-active-section').addClass('is-inactive-section');
 					$('.content-container').removeClass('is-inactive-section');
 					$('.video-page').removeClass('video-page-is-active');
@@ -745,22 +914,28 @@ $(document).ready(function() {
 		});
 
 		$("#resources-link").bind('click touchend', function(){
+			$(this).blur();
 			if($('#resources').hasClass('is-active-section')){
 				$('.nav-trigger').trigger('click');
 			} else{
 				//$(this).addClass('no-focus');
+				$('')
 				$('.nav-trigger').trigger('click');
 				$('.close-video').trigger('click');
 				colorBlock.removeClass('to-happiness to-connection to-peace to-confidence to-freedom').addClass('is-transitioning to-home');
 				$('body').unbind();
 				$('body').removeClass('is-not-scrollable');
 				setTimeout(function(){
+					$('.burger').removeClass('freedom happiness connection peace confidence').addClass('home');
 					$('.content-container, .sub-content-container').removeClass('is-active-section').addClass('is-inactive-section');
 					$('#resources').removeClass('is-inactive-section').addClass('is-active-section');
 					$('body').removeClass('is-not-scrollable');
 				}, 1000);
 				setTimeout(function(){
 					colorBlock.removeClass('is-transitioning');
+					detachHomePage();
+					$('#resources').removeAttr('aria-hidden');
+					$('.sub-content-container').attr('aria-hidden', 'true');
 				},1800);
 			}
 		});// 
@@ -768,13 +943,19 @@ $(document).ready(function() {
 	// Share & Discover Click Event
 		
 		$('.discover').bind('click touchend', function(event){
+			$(this).blur();
+        	keypressSlideDown();
+	    });
+
+	    $('.view-stories').bind('click touchend', function(event){
+			$(this).blur();
         	keypressSlideDown();
 	    });
 
 	// Video Play/Pause/Rewind/FastForward Click Event
 
 		$('.video-play').on('click touchend', function(ev){
-			// // //$(this).addClass('no-focus');
+			$(this).blur();
 			videoPlay = 1;
 			$('body').unbind();
 
@@ -790,7 +971,7 @@ $(document).ready(function() {
 				videoPage = $(this).parents('.video-page');
 
 			$(this).parents('.page').find('.video').removeClass('fade-out').addClass('fade-in');
-			$(this).parents('.video-page-is-active').find('.discover-btn').addClass('fade-out');
+			$(this).parents('.video-page-is-active').find('.discover-btn').addClass('is-hidden');
 			$(this).parents('.page').find('.video-background').removeClass('fade-out').addClass('fade-in');
 			$(this).parents('.page').find('.video-controls').removeClass('fade-out').addClass('fade-in');
 			$(this).parents('.page').find('.video-controls').find('input[type="range"]').removeClass('fade-out').addClass('fade-in');
@@ -806,121 +987,135 @@ $(document).ready(function() {
 				videoControls.find('button').prop('tabIndex', '');
 				close.prop('tabIndex', '');
 
-				$video = document.getElementById(videoID);
-				var $progressBar = document.getElementById(progressID);
+			var $progressBar = document.getElementById(progressID);
+			$video = document.getElementById(videoID);
 
-				var playClicked;
-				// var intervalRewind;
-				playClicked=false;
+			var playClicked;
+			// var intervalRewind;
+			playClicked=false;
+			
+			if(isMobile.detectMobile()){
 
-				function doYT(){
-				    window.player = new YT.Player('video_player', {
-				        videoId: videoID,
-				        events: {
-				            'onReady': onPlayerReady,
-				            'onStateChange': onPlayerStateChange
-				        }
-				    });
-				}
+				setTimeout(function(){
+					ev.preventDefault();
+					$video.playbackRate = 1.0;
+					$video.play();
+					var duration = $video.duration;
+					// var progressLength = $(this).parents('.page').find('.progress-bar').
 
-				window.YT && doYT() || function(){
-				    var a=document.createElement("script");
-				    a.setAttribute("type","text/javascript");
-				    a.setAttribute("src","http://www.youtube.com/player_api");
-				    a.onload=doYT;
-				    a.onreadystatechange=function(){
-				        if (this.readyState=="complete"||this.readyState=="loaded") doYT()
-				    };
-				    (document.getElementsByTagName("head")[0]||document.documentElement).appendChild(a)
-				}();
-
-				function onPlayerReady() {
-				  console.log('Video is ready to play');
-				}
-
-				function onPlayerStateChange(event) {
-				  switch (event.data) {
-				    case YT.PlayerState.UNSTARTED:
-				      console.log('unstarted');
-				      break;
-				    case YT.PlayerState.ENDED:
-				      console.log('ended');
-				      break;
-				    case YT.PlayerState.PLAYING:
-				      console.log('playing');
-				      break;
-				    case YT.PlayerState.PAUSED:
-				      console.log('paused');
-				      break;
-				    case YT.PlayerState.BUFFERING:
-				      console.log('buffering');
-				      break;
-				    case YT.PlayerState.CUED:
-				      console.log('video cued');
-				      break;
-				  }
-				}
-
-			setTimeout(function(){
-				// $video.playbackRate = 1.0;
-				// $video.play();
-				video[0].src += "&autoplay=1";
-			    ev.preventDefault();
-				var duration = $video.duration;
-
-				
-				function updateProgressBar() {
-				   var value = Math.round((($video.contentWindow.postMessage('{"event":"onStateChange","func":"' + 'getPlayerState' + '","args":""}', '*')) * 100) / duration);
-				    $progressBar.value = value;
-				    $('.fade-in .progress-bar').attr('value', value);
-				}
-
-				$video.addEventListener("onStateChange", function() {
-					updateProgressBar();
-				});
-
-				$video.addEventListener("YT.PlayerState.ENDED", function() {
-					console.log('works');
-					$(this).parents('.page').find('.next-video').addClass('start-countdown');
-					countdown();
-				});
-
-				playPause.on('click', function(){
-
-					if (playClicked == true) {
-					    $video.contentWindow.postMessage('{"event":"command","func":"' + 'playVideo' + '","args":""}', '*');
-					    // $video.playbackRate = 1.0;
-						// clearInterval(intervalRewind);
-						setTimeout(function(){
-					    	playClicked = false;
-					    },500);
-					} 
-					else {
-				  		// $video.playbackRate = 1.0;
-						// clearInterval(intervalRewind);
-					    $video.contentWindow.postMessage('{"event":"command","func":"' + 'pauseVideo' + '","args":""}', '*');
-					    setTimeout(function(){
-					    	playClicked = true;
-					    },500);
+					var clicked;
+					var intervalRewind;
+					clicked=0;
+					function updateProgressBar() {
+					   var value = Math.round(($video.currentTime * 100) / duration);
+					    $progressBar.value = value;
+					    $('.fade-in .progress-bar').attr('value', value);
+					    // console.log('progress value: ' + $progressBar.value);
 					}
-				});
-				// fforward.on('click', function() {
-				//     $video.playbackRate = 3.0;
-				// });
-				// rewind.on('click', function() {
-				//    intervalRewind = setInterval(function(){
-				//        $video.playbackRate = 1.0;
-				//        if($video.currentTime == 0){
-				//            clearInterval(intervalRewind);
-				//            $video.pause();
-				//        }
-				//        else{
-				//            $video.currentTime += -.1;
-				//        }
-				//     },30);
-				// });
-				
-			},500);
+
+					$video.addEventListener("timeupdate", function() {
+						updateProgressBar();
+					});
+
+					$video.addEventListener("ended", function() {
+						$(this).parents('.page').find('.next-video').addClass('start-countdown');
+						countdown();
+					});
+
+					playPause.on('click', function(){
+						if ($video.paused == false) {
+						    $video.pause();
+						    $video.playbackRate = 1.0;
+							clearInterval(intervalRewind);
+						  } 
+						else {
+					  		$video.playbackRate = 1.0;
+							clearInterval(intervalRewind);
+					    	$video.play();
+						}
+					});
+					
+				},500);
+
+			} else{
+				var ytVideoID = video.attr("src").substr(30, 11);
+
+				setTimeout(function(){
+					// $video.playbackRate = 1.0;
+					// $video.play();
+				    ev.preventDefault();
+					var duration = $video.duration;
+
+					// create youtube player
+			        var player;
+			        // function onYouTubePlayerAPIReady() {
+			            player = new YT.Player(videoID, {
+			              videoId: ytVideoID,
+			              events: {
+			                'onReady': onPlayerReady,
+			                'onStateChange': onPlayerStateChange
+			              }
+			            });
+			        // }
+
+			        // autoplay video
+			        function onPlayerReady(event) {
+			            player.playVideo();
+			        }
+
+			        // when video ends
+			        function onPlayerStateChange(event) {
+			           if(event.data === 1) {          
+			                console.log('playing');
+			                video.parents('.page').find('.video-background').removeClass('fade-out').addClass('fade-in');
+			            	video.parents('.page').find('.overlay').removeClass('fade-in').addClass('fade-out');
+			            }
+			            else if(event.data === 0) {
+			            	video.parents('.page').find('.video-background').removeClass('fade-out').addClass('fade-in');
+			            	video.parents('.page').find('.overlay').removeClass('fade-in').addClass('fade-out');          
+			                video.parents('.page').find('.next-video').addClass('start-countdown');
+							countdown();
+			            }
+			        }
+					
+					function updateProgressBar() {
+					   var value = Math.round((($video.contentWindow.postMessage('{"event":"onStateChange","func":"' + 'getPlayerState' + '","args":""}', '*')) * 100) / duration);
+					    $progressBar.value = value;
+					    $('.fade-in .progress-bar').attr('value', value);
+					}
+
+					$video.addEventListener("onStateChange", function() {
+						updateProgressBar();
+					});
+
+					$video.addEventListener("YT.PlayerState.ENDED", function() {
+						console.log('works');
+						$(this).parents('.page').find('.next-video').addClass('start-countdown');
+						countdown();
+					});
+
+					playPause.on('click', function(){
+						$(this).blur();
+						if (playClicked == true) {
+						    $video.contentWindow.postMessage('{"event":"command","func":"' + 'playVideo' + '","args":""}', '*');
+						    // $video.playbackRate = 1.0;
+							// clearInterval(intervalRewind);
+							setTimeout(function(){
+						    	playClicked = false;
+						    },500);
+						} 
+						else {
+					  		// $video.playbackRate = 1.0;
+							// clearInterval(intervalRewind);
+						    $video.contentWindow.postMessage('{"event":"command","func":"' + 'pauseVideo' + '","args":""}', '*');
+						    setTimeout(function(){
+						    	playClicked = true;
+						    },500);
+						}
+					});
+					
+				},500);
+			};
 
 			function countdown(){
 				(function (startCountdown) {
@@ -934,7 +1129,7 @@ $(document).ready(function() {
 				        var check = new Date - this_time;
 				        $('.next-video-countdown').html(' ' + Math.abs(Math.round(check / 1000)) + ' seconds');
 				        if (check >= 0) {
-				            // clearInterval(timer);
+				            clearInterval(timer);
 				            $('.close-video').trigger('click');
 				            if(video.parents('.section').find('.dot-1').hasClass('selected')){
 								video.parents('.section').find('.dot-2').trigger('click');
@@ -956,14 +1151,15 @@ $(document).ready(function() {
 			// Close Video Click Event
 
 			$('.close-video').bind('click touchend', function(){
+				$(this).blur();
 				$(this).siblings('.video-controls').find('button').prop('tabIndex', '-1');
 				$(this).prop('tabIndex', '-1');
 				// // //$(this).addClass('no-focus');
 				if(videoPlay === 1){
 					// clearInterval(timer);
-					$video.contentWindow.postMessage('{"event":"command","func":"' + 'pauseVideo' + '","args":""}', '*');
+					// player.pauseVideo();
 					$(this).siblings('.main-page').removeClass('fade-out');
-					$(this).parents('.video-page-is-active').find('.discover-btn').removeClass('fade-out');
+					$(this).parents('.video-page-is-active').find('.discover-btn').removeClass('is-hidden');
 					$(this).parents('.page').find('.video').removeClass('fade-in').addClass('fade-out');
 					$(this).parents('.page').find('.video-background').removeClass('fade-in').addClass('fade-out');
 					$(this).parents('.page').find('.video-controls').removeClass('fade-in').addClass('fade-out');
@@ -975,18 +1171,42 @@ $(document).ready(function() {
 					$(this).parents('.video-page').find('.social-media-hub').removeClass('fade-out');
 					bindPage();
 					$(this).parents('.page').find('.next-video').removeClass('start-countdown');
+
+					if(isMobile.detectMobile()){
+						$video.pause();
+					} else{
+						$video.contentWindow.postMessage('{"event":"command","func":"' + 'pauseVideo' + '","args":""}', '*');
+					};
 				}
 			});
+
+			// Function to allow videos to play in browser on iPad
+
+				$('.mobile-video').bind('webkitendfullscreen', function() { 
+					$(this).parents('.page').find('.close-video').trigger('click');
+				    $video.pause();
+					$(this).siblings('.main-page').removeClass('fade-out');
+					$(this).parents('.page').find('.video').removeClass('fade-in').addClass('fade-out');
+					$(this).parents('.page').find('.video-controls').removeClass('fade-in').addClass('fade-out');
+					$(this).parents('.page').find('.video-controls').find('input[type="range"]').removeClass('fade-in').addClass('fade-out');
+					$(this).parents('.page').find('.close-video').removeClass('bring-to-front').addClass('fade-out');
+					$(this).parents('.page').find('.overlay').removeClass('fade-out');
+					$(this).parents('.section').find('.main-page-dots').removeClass('fade-out');
+					$(this).parents('.video-page').find('.top-square:first-child').removeClass('fade-out');
+					$(this).parents('.video-page').find('.social-media-hub').removeClass('fade-out');
+					$(this).parents('.video-page-is-active').find('.discover-btn').removeClass('is-hidden');
+					bindPage();
+				});
 		});
 	
 	// Close Video Click Event
 
 		$('.close-video').bind('click touchend', function(){
+			$(this).blur();
 			$(this).siblings('.video-controls').find('button').prop('tabIndex', '-1');
 			$(this).prop('tabIndex', '-1');
 			// // //$(this).addClass('no-focus');
 			if(videoPlay === 1){
-				$video.contentWindow.postMessage('{"event":"command","func":"' + 'pauseVideo' + '","args":""}', '*');
 				$(this).siblings('.main-page').removeClass('fade-out');
 				$(this).parents('.page').find('.video').removeClass('fade-in').addClass('fade-out');
 				$(this).parents('.page').find('.video-controls').removeClass('fade-in').addClass('fade-out');
@@ -996,33 +1216,25 @@ $(document).ready(function() {
 				$(this).parents('.section').find('.main-page-dots').removeClass('fade-out');
 				$(this).parents('.video-page').find('.top-square:first-child').removeClass('fade-out');
 				$(this).parents('.video-page').find('.social-media-hub').removeClass('fade-out');
+				$(this).parents('.video-page-is-active').find('.discover-btn').removeClass('is-hidden');
 				bindPage();
 				$(this).parents('.page').find('.next-video').removeClass('start-countdown');
+
+				if(isMobile.detectMobile()){
+					$video.pause();
+				} else{
+					$video.contentWindow.postMessage('{"event":"command","func":"' + 'pauseVideo' + '","args":""}', '*');
+				};
 			}
 		});
 
-	// Function to allow videos to play in browser on iPad
-
-		$('video').bind('webkitendfullscreen', function() { 
-		    $video.pause();
-			$(this).siblings('.main-page').removeClass('fade-out');
-			$(this).parents('.page').find('.video').removeClass('fade-in').addClass('fade-out');
-			$(this).parents('.page').find('.video-controls').removeClass('fade-in').addClass('fade-out');
-			$(this).parents('.page').find('.video-controls').find('input[type="range"]').removeClass('fade-in').addClass('fade-out');
-			$(this).parents('.page').find('.close-video').removeClass('bring-to-front').addClass('fade-out');
-			$(this).parents('.page').find('.overlay').removeClass('fade-out');
-			$(this).parents('.section').find('.main-page-dots').removeClass('fade-out');
-			$(this).parents('.video-page').find('.top-square:first-child').removeClass('fade-out');
-			$(this).parents('.video-page').find('.social-media-hub').removeClass('fade-out');
-			bindPage();
-		});
 
 	// Form Dropdown Click Event
 
 		var clicked;
 
 		$('.select-option').bind('click touchend', function() {
-			// //$(this).addClass('no-focus');
+			$(this).blur();
             var selectedText = $(this).text();
             var category = $(this).attr('cat');
 
@@ -1047,38 +1259,57 @@ $(document).ready(function() {
     // Stories Lightbox Click Events
 
         $('.story').bind('click touchend', function() {
-        	//$(this).addClass('no-focus');
+        	$(this).blur();
         	if(!$(this).hasClass('last-story')){
         		var storyInfo = $(this).html();
+        		console.log(storyInfo);
+        		var parentName = $(this).parents('.video-page').attr('id');
         		if(isMobile.detectMobile()){
 		        	setTimeout(function(){
 		        		if(scrollstart !== 1){
-			            	$('.story-lightbox').addClass('is-shown');
-			            	$('.lightbox-dimmer').addClass('is-shown');
-			            	$('.story-lightbox .close-story').before(storyInfo);
-
-			            	setTimeout(function(){
-			            		$('.story-lightbox .reveal').removeClass('hide');
-			            		$('.story-lightbox .read-more-btn').addClass('hide');
-			            	},500);
+		        			$('.story-lightbox .close-story').before(storyInfo);
+		        			showLightbox();
 			            }
 		        	}, 1000);	
 	        	} else{
-	            	$('.story-lightbox').addClass('is-shown');
-	            	$('.lightbox-dimmer').addClass('is-shown');
-	            	$('.story-lightbox .close-story').before(storyInfo);
-
-	            	setTimeout(function(){
-	            		$('.story-lightbox .reveal').removeClass('hide');
-	            		$('.story-lightbox .read-more-btn').addClass('hide');
-	            	},500);
-		            
+	        		$('.story-lightbox .close-story').before(storyInfo);
+	        		showLightbox();
 		        }
-            }
+            };
+
+            function showLightbox(){
+	        	switch (parentName) {
+				    case 'happiness-video-page':
+				        $('.story-lightbox').addClass('is-green');
+				        break;
+				    case 'connection-video-page':
+				        $('.story-lightbox').addClass('is-orange');
+				        break;
+				    case 'peaceofmind-video-page':
+				        $('.story-lightbox').addClass('is-blue');
+				        break;
+				    case 'confidence-video-page':
+				        $('.story-lightbox').addClass('is-lime');
+				        break;
+				    case 'freedom-video-page':
+				        $('.story-lightbox').addClass('is-pink');
+				}
+				$('.site-container').attr('aria-hidden', 'true');
+				$('.lightbox-container').attr('aria-hidden', 'false');
+				$('.story-lightbox').addClass('is-shown');
+	        	$('.lightbox-dimmer').addClass('is-shown');
+	   
+	        	setTimeout(function(){
+	        		$('.story-lightbox .reveal').removeClass('hide');
+	        		$('.story-lightbox .read-more-btn').addClass('hide');
+	        	},500);
+	        }
         });
 
         $('.close-story').bind('click touchend', function() {
-        	//$(this).addClass('no-focus');
+        	$(this).blur();
+        	$('.site-container').attr('aria-hidden', 'false');
+        	$('.lightbox-container').attr('aria-hidden', 'true');
         	$('.story-lightbox').removeClass('is-shown').addClass('fade-out');
         	$('.lightbox-dimmer').removeClass('is-shown').addClass('fade-out');
 
@@ -1092,8 +1323,8 @@ $(document).ready(function() {
     // Homepage Slide Toggle Click & Mouseover Events
 
         $('.slide-dot').bind('click touchend', function(){
-        	//$(this).addClass('no-focus');
-
+        	$(this).blur();
+        	// alert('worked');
 			if($(this).is('.slide-dot:first') && !$(this).hasClass('selected')){
 				$(this).addClass('selected');
 				$(this).siblings().removeClass('selected');
@@ -1101,6 +1332,7 @@ $(document).ready(function() {
 				$('.slide-2').removeClass('is-active-slide');
 			} 
 			else if($(this).is('.slide-dot:last') && !$(this).hasClass('selected')){
+				// alert('worked');
 				$(this).addClass('selected');
 				$(this).siblings().removeClass('selected');
 				$('.slide-1').addClass('is-inactive-slide');
@@ -1118,7 +1350,7 @@ $(document).ready(function() {
 			  	$(this).find('.slide-2').removeClass('is-active-slide');
 			  	$(this).find('.slide-1').removeClass('is-inactive-slide');
 			}
-		});// 
+		});
 
 	// Videopage Page Indicator Click Events 
 
@@ -1200,18 +1432,23 @@ $(document).ready(function() {
 				setTimeout(function(){
 					tm.set('#happiness-video-page .section-2', {className:'section section-2 is-current-section'});
 					tm.set('#happiness-video-page .section-1', {className:'section section-1 is-previous-section'});
-					tm.set('#happiness-top-square', {className:'+=opaque is-shown', delay:1});
+					tm.set('#happiness-top-square', {className:'+=is-shown', delay:1});
 					tm.set('#happiness-social-media-hub .media-container', {className:'+=is-green'});
-					tm.set('#happiness-discover-btn', {className:'discover-btn fade-out'});
+					$('#happiness-discover-btn').removeClass('is-visible').addClass('is-hidden');
 				}, 500);
+				setTimeout(function(){
+					$('#happiness-view-stories-btn').removeClass('is-hidden').addClass('active');
+				},1000);
 			}
 			else if($('#happiness-video-page .section-2').hasClass('is-current-section') && $('#happiness-video-page').hasClass('video-page-is-active')) {
 				setTimeout(function(){
-
 					tm.set('#happiness-video-page .section-3', {className:'section section-3 is-current-section'});
 					tm.set('#happiness-video-page .section-2', {className:'section section-2 is-previous-section'});
-					tm.set('#happiness-top-square', {className:'+=opaque is-shown'});
+					tm.set('#happiness-top-square', {className:'+=is-shown'});
 				}, 500);
+				setTimeout(function(){
+					$('#happiness-view-stories-btn').removeClass('active').addClass('is-hidden');
+				},1000);
 			}
 	       	else {
 	       		// do nothing
@@ -1226,16 +1463,22 @@ $(document).ready(function() {
 				setTimeout(function(){
 					tm.set('#happiness-video-page .section-1', {className:'section section-1 is-current-section'});
 					tm.set('#happiness-video-page .section-2', {className:'section section-2 is-next-section'});
-					tm.set('#happiness-top-square', {className:'-=opaque is-shown'});
+					tm.set('#happiness-top-square', {className:'-=is-shown'});
 					tm.set('#happiness-social-media-hub .media-container', {className:'-=is-green'});
-					tm.set('#happiness-discover-btn', {className:'discover-btn fade-in'});	
 				}, 500);
+				setTimeout(function(){
+					$('#happiness-discover-btn').removeClass('is-hidden').addClass('is-visible');	
+					$('#happiness-view-stories-btn').removeClass('active').addClass('is-hidden');
+				},1000);
 			}
 			else if($('#happiness-video-page .section-3').hasClass('is-current-section') && $('#happiness-video-page').hasClass('video-page-is-active')) {
 				setTimeout(function(){
 					tm.set('#happiness-video-page .section-2', {className:'section section-2 is-current-section'});
 					tm.set('#happiness-video-page .section-3', {className:'section section-3 is-next-section'});
 				}, 500);
+				setTimeout(function(){
+					$('#happiness-view-stories-btn').removeClass('is-hidden').addClass('active');
+				},1000);
 			}
 	    }
 
@@ -1246,17 +1489,23 @@ $(document).ready(function() {
 				setTimeout(function(){
 					tm.set('#connection-video-page .section-2', {className:'section section-2 is-current-section'});
 					tm.set('#connection-video-page .section-1', {className:'section section-1 is-previous-section'});
-					tm.set('#connection-top-square', {className:'+=opaque is-shown', delay:1});
-					tm.set('#connection-social-media-hub .media-container', {className:'+=is-orange'});
-					tm.set('#connection-discover-btn', {className:'discover-btn fade-out'});
+					tm.set('#connection-top-square', {className:'+=is-shown', delay:1});
+					tm.set('#connection-social-media-hub .media-container', {className:'+=is-orange'});	
+					$('#connection-discover-btn').removeClass('is-visible').addClass('is-hidden');
 				}, 500);
+				setTimeout(function(){
+					$('#connection-view-stories-btn').removeClass('is-hidden').addClass('active');
+				},1000);
 			}
 			else if($('#connection-video-page .section-2').hasClass('is-current-section') && $('#connection-video-page').hasClass('video-page-is-active')) {
 				setTimeout(function(){
 					tm.set('#connection-video-page .section-3', {className:'section section-3 is-current-section'});
 					tm.set('#connection-video-page .section-2', {className:'section section-2 is-previous-section'});
-					tm.set('#connection-top-square', {className:'+=opaque is-shown'});
+					tm.set('#connection-top-square', {className:'+=is-shown'});
 				}, 500);
+				setTimeout(function(){
+					$('#connection-view-stories-btn').removeClass('active').addClass('is-hidden');
+				},1000);
 			}
 	       	else {
 	       		// do nothing
@@ -1271,37 +1520,49 @@ $(document).ready(function() {
 				setTimeout(function(){
 					tm.set('#connection-video-page .section-1', {className:'section section-1 is-current-section'});
 					tm.set('#connection-video-page .section-2', {className:'section section-2 is-next-section'});
-					tm.set('#connection-top-square', {className:'-=opaque is-shown'});
+					tm.set('#connection-top-square', {className:'-=is-shown'});
 					tm.set('#connection-social-media-hub .media-container', {className:'-=is-orange'});
-					tm.set('#connection-discover-btn', {className:'discover-btn fade-in'});
 				}, 500);
+				setTimeout(function(){
+					$('#connection-discover-btn').removeClass('is-hidden').addClass('is-visible');
+					$('#connection-view-stories-btn').removeClass('active').addClass('is-hidden');
+				},1000);
 			}
 			else if($('#connection-video-page .section-3').hasClass('is-current-section') && $('#connection-video-page').hasClass('video-page-is-active')) {
 				setTimeout(function(){
 					tm.set('#connection-video-page .section-2', {className:'section section-2 is-current-section'});
 					tm.set('#connection-video-page .section-3', {className:'section section-3 is-next-section'});
 				}, 500);
+				setTimeout(function(){
+					$('#connection-view-stories-btn').removeClass('is-hidden').addClass('active');
+				},1000);
 			}
 	    }
 
-	// Peace of Mind Page Slide Up & Down Functions
+	// Peace of Mind Page Slide Up & Downis-visibleons
 
 	    function peaceSlideDown(){
 			if($('#peaceofmind-video-page .section-1').hasClass('is-current-section') && $('#peaceofmind-video-page').hasClass('video-page-is-active')) {
 				setTimeout(function(){
 					tm.set('#peaceofmind-video-page .section-2', {className:'section section-2 is-current-section'});
 					tm.set('#peaceofmind-video-page .section-1', {className:'section section-1 is-previous-section'});
-					tm.set('#peaceofmind-top-square', {className:'+=opaque is-shown', delay:1});
-					tm.set('#peaceofmind-social-media-hub .media-container', {className:'+=is-blue'});	
-					tm.set('#peaceofmind-discover-btn', {className:'discover-btn fade-out'});
+					tm.set('#peaceofmind-top-square', {className:'+=is-shown', delay:1});
+					tm.set('#peaceofmind-social-media-hub .media-container', {className:'+=is-blue'});
+					$('#peaceofmind-discover-btn').removeClass('is-visible').addClass('is-hidden');
 				}, 500);
+				setTimeout(function(){
+					$('#peaceofmind-view-stories-btn').removeClass('is-hidden').addClass('active');
+				},1000);
 			}
 			else if($('#peaceofmind-video-page .section-2').hasClass('is-current-section') && $('#peaceofmind-video-page').hasClass('video-page-is-active')) {
 				setTimeout(function(){
 					tm.set('#peaceofmind-video-page .section-3', {className:'section section-3 is-current-section'});
 					tm.set('#peaceofmind-video-page .section-2', {className:'section section-2 is-previous-section'});
-					tm.set('#peaceofmind-top-square', {className:'+=opaque is-shown'});
+					tm.set('#peaceofmind-top-square', {className:'+=is-shown'});
 				}, 500);
+				setTimeout(function(){
+					$('#peaceofmind-view-stories-btn').removeClass('active').addClass('is-hidden');
+				},1000);
 			}
 	       	else {
 	       		// do nothing
@@ -1316,37 +1577,49 @@ $(document).ready(function() {
 				setTimeout(function(){
 					tm.set('#peaceofmind-video-page .section-1', {className:'section section-1 is-current-section'});
 					tm.set('#peaceofmind-video-page .section-2', {className:'section section-2 is-next-section'});
-					tm.set('#peaceofmind-top-square', {className:'-=opaque is-shown'});
+					tm.set('#peaceofmind-top-square', {className:'-=is-shown'});
 					tm.set('#peaceofmind-social-media-hub .media-container', {className:'-=is-blue'});
-					tm.set('#peaceofmind-discover-btn', {className:'discover-btn fade-in'});
 				}, 500);
+				setTimeout(function(){
+					$('#peaceofmind-discover-btn').removeClass('is-hidden').addClass('is-visible');
+					$('#peaceofmind-view-stories-btn').removeClass('active').addClass('is-hidden');
+				},1000);
 			}
 			else if($('#peaceofmind-video-page .section-3').hasClass('is-current-section') && $('#peaceofmind-video-page').hasClass('video-page-is-active')) {
 				setTimeout(function(){
 					tm.set('#peaceofmind-video-page .section-2', {className:'section section-2 is-current-section'});
 					tm.set('#peaceofmind-video-page .section-3', {className:'section section-3 is-next-section'});
 				}, 500);
+				setTimeout(function(){
+					$('#peaceofmind-view-stories-btn').removeClass('is-hidden').addClass('active');
+				},1000);
 			}
 	    }
 
-	// Confidence Page Slide Up & Down Functions
+	// Confidence Page Slide Up & Downis-visibleons
 	
 	    function confidenceSlideDown(){
 			if($('#confidence-video-page .section-1').hasClass('is-current-section') && $('#confidence-video-page').hasClass('video-page-is-active')) {
 				setTimeout(function(){
 					tm.set('#confidence-video-page .section-2', {className:'section section-2 is-current-section'});
 					tm.set('#confidence-video-page .section-1', {className:'section section-1 is-previous-section'});
-					tm.set('#confidence-top-square', {className:'+=opaque is-shown', delay:1});
+					tm.set('#confidence-top-square', {className:'+=is-shown', delay:1});
 					tm.set('#confidence-social-media-hub .media-container', {className:'+=is-lime'});
-					tm.set('#confidence-discover-btn', {className:'discover-btn fade-out'});
+					$('#confidence-discover-btn').removeClass('is-visible').addClass('is-hidden');
 				}, 500);
+				setTimeout(function(){
+					$('#confidence-view-stories-btn').removeClass('is-hidden').addClass('active');
+				},1000);
 			}
 			else if($('#confidence-video-page .section-2').hasClass('is-current-section') && $('#confidence-video-page').hasClass('video-page-is-active')) {
 				setTimeout(function(){
 					tm.set('#confidence-video-page .section-3', {className:'section section-3 is-current-section'});
 					tm.set('#confidence-video-page .section-2', {className:'section section-2 is-previous-section'});
-					tm.set('#confidence-top-square', {className:'+=opaque is-shown'});
+					tm.set('#confidence-top-square', {className:'+=is-shown'});
 				}, 500);
+				setTimeout(function(){
+					$('#confidence-view-stories-btn').removeClass('active').addClass('is-hidden');
+				},1000);
 			}
 	       	else {
 	       		// do nothing
@@ -1361,38 +1634,50 @@ $(document).ready(function() {
 				setTimeout(function(){
 					tm.set('#confidence-video-page .section-1', {className:'section section-1 is-current-section'});
 					tm.set('#confidence-video-page .section-2', {className:'section section-2 is-next-section'});
-					tm.set('#confidence-top-square', {className:'-=opaque is-shown'});
+					tm.set('#confidence-top-square', {className:'-=is-shown'});
 					tm.set('#confidence-social-media-hub .media-container', {className:'-=is-lime'});
-					tm.set('#confidence-discover-btn', {className:'discover-btn fade-in'});
 				}, 500);
+				setTimeout(function(){
+					$('#confidence-discover-btn').removeClass('is-hidden').addClass('is-visible');
+					$('#confidence-view-stories-btn').removeClass('active').addClass('is-hidden');
+				},1000);
 			}
 			else if($('#confidence-video-page .section-3').hasClass('is-current-section') && $('#confidence-video-page').hasClass('video-page-is-active')) {
 				setTimeout(function(){
 					tm.set('#confidence-video-page .section-2', {className:'section section-2 is-current-section'});
 					tm.set('#confidence-video-page .section-3', {className:'section section-3 is-next-section'});
 				}, 500);
+				setTimeout(function(){
+					$('#confidence-view-stories-btn').removeClass('is-hidden').addClass('active');
+				},1000);
 			}
 	    }
 
-	// Freedom Page Slide Up & Down Functions
+	// Freedom Page Slide Up & Downis-visibleons
 
 	    function freedomSlideDown(){
 			if($('#freedom-video-page .section-1').hasClass('is-current-section') && $('#freedom-video-page').hasClass('video-page-is-active')) {
 				setTimeout(function(){
 					tm.set('#freedom-video-page .section-2', {className:'section section-2 is-current-section'});
 					tm.set('#freedom-video-page .section-1', {className:'section section-1 is-previous-section'});
-					tm.set('#freedom-top-square', {className:'+=opaque is-shown', delay:1});	
+					tm.set('#freedom-top-square', {className:'+=is-shown', delay:1});	
 					tm.set('#freedom-social-media-hub .media-container', {className:'+=is-pink'});
-					tm.set('#freedom-discover-btn', {className:'discover-btn fade-out'});
+					$('#freedom-discover-btn').removeClass('is-visible').addClass('is-hidden');
 				}, 500);
+				setTimeout(function(){
+					$('#freedom-view-stories-btn').removeClass('is-hidden').addClass('active');
+				},1000);
 			}
 
 			else if($('#freedom-video-page .section-2').hasClass('is-current-section') && $('#freedom-video-page').hasClass('video-page-is-active')) {
 				setTimeout(function(){
 					tm.set('#freedom-video-page .section-3', {className:'section section-3 is-current-section'});
 					tm.set('#freedom-video-page .section-2', {className:'section section-2 is-previous-section'});
-					tm.set('#freedom-top-square', {className:'+=opaque is-shown'});
+					tm.set('#freedom-top-square', {className:'+=is-shown'});
 				}, 500);
+				setTimeout(function(){
+					$('#freedom-view-stories-btn').removeClass('active').addClass('is-hidden');
+				},1000);
 			}
 	       	else {
 	       		// do nothing
@@ -1407,18 +1692,35 @@ $(document).ready(function() {
 				setTimeout(function(){
 					tm.set('#freedom-video-page .section-1', {className:'section section-1 is-current-section'});
 					tm.set('#freedom-video-page .section-2', {className:'section section-2 is-next-section'});
-					tm.set('#freedom-top-square', {className:'-=opaque is-shown'});
+					tm.set('#freedom-top-square', {className:'-=is-shown'});
 					tm.set('#freedom-social-media-hub .media-container', {className:'-=is-pink'});
-					tm.set('#freedom-discover-btn', {className:'discover-btn fade-in'});
 				}, 500);
+				setTimeout(function(){
+					$('#freedom-discover-btn').removeClass('is-hidden').addClass('is-visible');
+					$('#freedom-view-stories-btn').removeClass('active').addClass('is-hidden');
+				},1000);
 			}
 			else if($('#freedom-video-page .section-3').hasClass('is-current-section') && $('#freedom-video-page').hasClass('video-page-is-active')) {
 				setTimeout(function(){
 					tm.set('#freedom-video-page .section-2', {className:'section section-2 is-current-section'});
 					tm.set('#freedom-video-page .section-3', {className:'section section-3 is-next-section'});
 				}, 500);
+				setTimeout(function(){
+					$('#freedom-view-stories-btn').removeClass('is-hidden').addClass('active');
+				},1000);
 			}
 	    }
+
+	// Back To Top Btn click Function
+		
+		$('.back-to-top-btn').on('click', function(event){
+			event.preventDefault();
+    		keypressSlideUp();
+    		setTimeout(function(){
+    			keypressSlideUp();
+    			$('.discover-btn').removeClass('is-hidden').addClass('fade-in'); 
+    		},2000);
+		});
 
 	// Tab Index Functions
 	
@@ -1452,7 +1754,14 @@ $(document).ready(function() {
 		    // 	}
 		    // });
 
+		    $('.grid-item-small:eq(2)').bind('keydown', function(event){
+		    	if (event.keyCode === 9) {
+		    		event.preventDefault();
+		    		$('.toggle-menu').focus();
+		    	} 
+		    });
 		    $('.menu-item').bind('keydown', function(event){
+		    	event.preventDefault();
 
 		    	if ($('#menu').hasClass('is-on-screen-X') && event.keyCode === 27) {
 		        	$('.close-trigger').trigger('click');
@@ -1582,8 +1891,10 @@ $(document).ready(function() {
 
 		    	else if (event.keyCode === 40 && document.activeElement.className == 'dropdown-link'){
 		    		console.log('pressed sub-dropdown btn');
-		    		if($(this).find(':focus').is('.dropdown-link:eq(2)') || $(this).find(':focus').is('.dropdown-link:eq(4)') || $(this).find(':focus').is('.dropdown-link:eq(6)') || $(this).find(':focus').is('.dropdown-link:eq(8)') || $(this).find(':focus').is('.dropdown-link:eq(9)')){
+		    		if($(this).find(':focus').is('.dropdown-link:eq(2)') || $(this).find(':focus').is('.dropdown-link:eq(4)') || $(this).find(':focus').is('.dropdown-link:eq(6)') || $(this).find(':focus').is('.dropdown-link:eq(8)')){
 		    			$(':focus').closest('.dropdown').next('.dropdown').find('.invisible-dropdown-btn').focus();
+		    		} else if($(this).find(':focus').is('.dropdown-link:eq(9)')){
+		    			$('.menu-item:eq(3)').find('.main-link').focus();
 		    		} else {
 		    			$(':focus').closest('.sub-sub-menu-item').next('.sub-sub-menu-item').find('.dropdown-link').focus();
 		    		}
@@ -1606,10 +1917,25 @@ $(document).ready(function() {
 		    		$(this).find(':focus').trigger('click');
 		    	} 
 		    	else if (event.keyCode === 13 && document.activeElement.className == 'main-link'){
-		    		$(this).find('.main-link').trigger('click');
+		    		event.preventDefault();
+		    		console.log($(this).attr('class'));
+		    		if($(this).find('.main-link').is('#topics-link') && !$(this).find('.dropdown').hasClass('is-open')){
+		    			console.log('clicked topics link while closed');
+		    			$(this).find('.main-link').trigger('click');
+		    			$('#happiness-dropdown').find('.invisible-dropdown-btn').focus();
+		    		} else if($(this).find('.main-link').is('#topics-link') && $(this).find('.dropdown').hasClass('is-open')){
+		    			console.log('clicked topics link while open');
+		    			$(this).find('.main-link').trigger('click');
+		    			$('.menu-item:eq(2)').find('.main-link').focus();
+		    		} else{
+		    			console.log('clicked different main link');
+		    			$(this).find('.main-link').trigger('click');
+		    		}
+		    		
 		    	} 
 		    	else if (event.keyCode === 13 && document.activeElement.className == 'dropdown-link'){
 		    		$(this).find(':focus').trigger('click');
+		    		$('.toggle-menu').focus();
 		    	}
 
 		    	else {
@@ -1620,10 +1946,31 @@ $(document).ready(function() {
 		// Home Grid Tab Index Function
 
 		    $('.grid-item, .grid-item-square, .grid-item-small').on('focus', function(){
-		    	$(this).addClass('selected');
+	    		$(this).addClass('selected');
 				$(this).siblings().removeClass('selected');
 				$(this).find('.slide-1').addClass('is-inactive-slide');
 				$(this).find('.slide-2').addClass('is-active-slide');
+		    });
+
+		    $('.slide-dot:eq(0)').bind('keydown', function(event){
+		    	event.preventDefault();
+		    	if (event.keyCode === 13) {
+		    		$(this).trigger('click');
+		    	} else if(event.keyCode === 37 || event.keyCode === 39 || event.keyCode === 9){
+		    		$('.slide-dot:eq(1)').focus();
+		    	}
+		    });
+		    $('.slide-dot:eq(1)').bind('keydown', function(event){
+		    	event.preventDefault();
+		    	if (event.keyCode === 13) {
+		    		$(this).trigger('click');
+		    	} 
+		    	else if(event.keyCode === 37 || event.keyCode === 39){
+		    		$('.slide-dot:eq(0)').focus();
+		    	}
+		    	else if(event.keyCode === 9){
+		    		$('#happiness-square').focus();
+		    	}
 		    });
 
 		// Button Tab Index Functions
@@ -1640,15 +1987,20 @@ $(document).ready(function() {
 			
 			$('.hashtag').bind('keydown', function(event){
 				var videoPlayBtn = $(this).parents('.social-media-hub').siblings('.section-1').find('.is-current-page .video-play');
+				var nameField = $(this).parents('.social-media-hub').siblings('.section-2').find('.name-field');
+				var firstStory = $(this).parents('.social-media-hub').siblings('.section-3').find('.stories-container').children('.story:eq(0)').find('.read-more-btn').focus();
+
 		    	if (event.keyCode === 9 && $(this).parents('.social-media-hub').siblings('.section-1').hasClass('is-current-section')) {
 		        	event.preventDefault();
-		        	$(this).parents('.social-media-hub').siblings('.section-1').find('.is-current-page').find('.video-play').focus();
-		        	console.log($(this).parents('.social-media-hub').siblings('.section-1').find('.is-current-page').find('.video-play').attr('class'));
-		        } else if (event.keyCode === 9 && !$(this).parents('.social-media-hub').siblings('.section-1').hasClass('is-current-section')) {
-		        	event.preventDefault();
-		        	keypressSlideUp();
 		        	videoPlayBtn.focus();
-		        	alert('hi');
+		        } 
+		        else if (event.keyCode === 9 && $(this).parents('.social-media-hub').siblings('.section-2').hasClass('is-current-section')) {
+		        	event.preventDefault();
+		        	nameField.focus();
+		        }
+		        else if (event.keyCode === 9 && $(this).parents('.social-media-hub').siblings('.section-3').hasClass('is-current-section')) {
+		        	event.preventDefault();
+		       		firstStory.focus();
 		        }
 		    });
 
@@ -1731,14 +2083,28 @@ $(document).ready(function() {
 		    });
 
 		    $('.submit-btn').bind('keydown', function(event){
+		    	if(event.keyCode === 9){
+		    		event.preventDefault();
+		    		$(this).parents('.right').siblings('.form-footer').find('a:eq(0)').focus();
+		    	}
+		    });
+
+		    $('.nondiscrimination-notice').bind('keydown', function(event){
+		    	if(event.keyCode === 9){
+		    		event.preventDefault();
+		    		$(this).parents('.section-2').siblings('.view-stories-btn').find('a').focus();
+		    	}
+		    });
+
+		    $('.view-stories-btn').bind('keydown', function(event){
 		    	console.log($(this).closest('.section-2').siblings('.section-3').find('.story').length);
 		    	if(event.keyCode === 9 && $(this).closest('.section-2').siblings('.section-3').find('.story').length > 1 ){
 		    		event.preventDefault();
-		    		$(this).closest('.section-2').siblings('.section-3').find('.story:first-of-type .read-more-btn').focus();
+		    		$(this).parents('.video-page-is-active').find('.section-3').find('.stories-container').children('.story:eq(0)').find('.read-more-btn').focus();
 		    		keypressSlideDown();
 		    	} else{
 		    		event.preventDefault();
-		    		$(this).closest('.section-2').siblings('.section-3').find('.back-to-top-btn').focus();
+		    		$(this).parents('.video-page-is-active').find('.section-3').find('.stories-container').find('.back-to-top-btn').focus();
 		    		keypressSlideDown();
 		    	}
 		    });
@@ -1746,17 +2112,54 @@ $(document).ready(function() {
 		    $('.checkbox-label').bind('keydown', function(event){
 		    	if(event.keyCode === 13){
 		    		event.preventDefault();
-		    		$(this).parents('.checkbox-field').find('input').trigger('click');
+		    		$(this).trigger('click');
 		    		$(this).focus();
 		    	}
 		    });
 
+		// Stories Grid Functions
+
 		    $('.read-more-btn').bind('keydown', function(event){
+		    	console.log($(this).parents('.story').next('.story').attr('class'));
 		    	// console.log($(this).closest('.section-2').siblings('.section-3').find('.story').length);
-		    	if(event.keyCode === 9 && $(this).parents('.story').next('.story').hasClass('last-story') ){
+		    	if(event.keyCode === 9 && !$(this).parents('.story').next('.story').hasClass('last-story') ){
 		    		event.preventDefault();
 		    		$(this).parents('.story').next('.story').find('.read-more-btn').focus();
-		    	} else{
+		    	} 
+		    	else if(event.keyCode === 9 && $(this).parents('.story').next('.story').hasClass('last-story')){
+		    		event.preventDefault();
+		    		$(this).parents('.story').next('.story').find('.back-to-top-btn').focus();
+		    	}
+		    	else if(event.keyCode === 13 || event.keyCode === 9 && $('.story-lightbox').hasClass('is-shown')){
+		    		event.preventDefault();
+		    		$('.close-story').focus();
+		    	}
+
+		    });
+
+		    $('.back-to-top-btn').bind('keydown', function(event){
+		    	event.preventDefault();
+
+		    	if(event.keyCode === 9){
+		    		$(this).siblings('.more-stories-btn').focus();
+		    	}
+		    	else if(event.keyCode === 13){
+		    		$(this).trigger('click');
+		    		$('.toggle-menu').focus();
+		    	}
+		    })
+
+		    $('.close-story').bind('keydown', function(event){
+		    	if(event.keyCode === 9){
+		    		event.preventDefault();
+		    		$(this).focus();
+		    	} 
+		    	else if(event.keyCode === 13){
+		    		event.preventDefault();
+		    		$(this).trigger('click');
+		    		$('.video-page-is-active ')
+		    	} 
+		    	else{
 		    		event.preventDefault();
 		    		$(this).parents('.story').next('.story').find('.back-to-top-btn').focus();
 		    	}
@@ -1769,10 +2172,19 @@ $(document).ready(function() {
 		    		setTimeout(function(){
 		    			keypressSlideUp();
 		    			$('.toggle-menu').focus();
+		    			$('.discover-btn').removeClass('is-hidden').addClass('fade-in'); 
 		    		},2000);
 		    	}
 		    });
 
+		// Resources Functions
+			
+			$('.main-resources h3:eq(2) > a').bind('keydown', function(event){
+		    	if(event.keyCode === 9){
+		    		event.preventDefault();
+		    		$('.toggle-menu').focus();
+		    	}
+		    });
 
 
 		

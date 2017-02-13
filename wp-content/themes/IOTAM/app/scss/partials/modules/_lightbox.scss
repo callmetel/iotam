@@ -1,4 +1,4 @@
-.stories-grid{
+.lightbox-container{
 	.story-lightbox{
 		width:70vh;
 		height:70vh;
@@ -34,6 +34,36 @@
 			@include transform(translate(-50%, -30%)!important);
 		}
 
+		&.is-green{
+			h3, p, button{
+				color:$green;
+			}
+		}
+
+		&.is-orange{
+			h3, p, button{
+				color:$orange;
+			}
+		}
+
+		&.is-blue{
+			h3, p, button{
+				color:$blue;
+			}
+		}
+
+		&.is-lime{
+			h3, p, button{
+				color:$lime;
+			}
+		}
+
+		&.is-pink{
+			h3, p, button{
+				color:$pink;
+			}
+		}
+
 		.close-story {
 			text-align: right;
 			width: 100%;
@@ -64,10 +94,10 @@
 	    p{
 	    	margin-bottom: 20px;
 	    }
+
 	}
 	.lightbox-dimmer{
 		z-index: -4400;
-		display: none;
 		@include position(fixed, 0 0 0 0);
 		width:100vw;
 		height:100vh;

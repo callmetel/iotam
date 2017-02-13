@@ -11,3 +11,7 @@
 	</div>
 	<div id="resources" class="addtlpage page is-inactive-section"> <?php include 'resources.php'; ?> </div>
 </div>
+<div class="lightbox-container" aria-hidden="true">
+	<div class="story-lightbox"><button class="close-story">Close Story</button></div>
+	<div class="lightbox-dimmer"></div>	
+</div>

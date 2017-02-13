@@ -27,11 +27,35 @@ header{
                 width: 20%;
                 top: 5px;
                 left: 20px;
+
+                @include media($v-iphone-6-plus){
+                    top:0;
+                    left:0;
+                    width:40%;
+                }
             }  
 
             .burger{
-                background-image: url('../images/full-nav-logo.svg');
                  @include transition(opacity .5s ease-in-out);
+
+                 &.home{
+                    background-image: url('../images/full-nav-logo.svg');
+                 }
+                 &.happiness{
+                    background-image: url('../images/full-nav-logo-happiness.svg');
+                 }
+                 &.connection{
+                    background-image: url('../images/full-nav-logo-connection.svg');
+                 }
+                 &.peace{
+                    background-image: url('../images/full-nav-logo-peace.svg');
+                 }
+                 &.confidence{
+                    background-image: url('../images/full-nav-logo-confidence.svg');
+                 }
+                 &.freedom{
+                    background-image: url('../images/full-nav-logo-freedom.svg');
+                 }
             }
             
             &.menu-is-active{

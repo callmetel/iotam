@@ -60,6 +60,9 @@ ul#menu li{
 
 #grid-item-1 h1 {
 	font: $rg-heading;
+	@include media($short-lg-desktop){
+		font: $rg-heading!important;
+	}
 	@include media($xl-desktop){
 		font: $lg-heading;
 	}
@@ -79,15 +82,21 @@ ul#menu li{
 		font: $sm-heading;
 	}
 	@include media($sm-mobile){
-		font: $sm-heading;
+		font: $md-heading;
 	}
 	@include media($xs-mobile){
-		font: $xxs-heading;
+		font: $sm-heading;
+	}
+	@include media($v-iphone-6-plus){
+		font: $sm-heading;
 	}
 }
 
 #grid-item-1 p, .has-white-background .slide-2 p {
 	font: $rg-sq-heading;
+	@include media($short-lg-desktop){
+		font: $lg-sq-heading!important;
+	}
 	@include media($xl-desktop){
 		font: $xl-sq-heading;
 	}
@@ -107,15 +116,21 @@ ul#menu li{
 		font: $md-sq-heading;
 	}
 	@include media($sm-mobile){
-		font: $md-sq-heading;
+		font: $rg-sq-heading;
 	}
 	@include media($xs-mobile){
-		font: $sm-sq-heading;
+		font: $md-sq-heading;
+	}
+	@include media($v-iphone-6-plus){
+		font: $md-sq-heading;
 	}
 }
 
 .grid-item-small p, .grid-item-square p {
 	font: $md-sq-heading-p;
+	@include media($short-lg-desktop){
+		font: $rg-sq-heading-p!important;
+	}
 	@include media($xl-desktop){
 		font: $lg-sq-heading-p;
 	}
@@ -135,15 +150,21 @@ ul#menu li{
 		font: $xs-sq-heading-p;
 	}
 	@include media($sm-mobile){
-		font: $xs-sq-heading-p;
+		font: $sm-sq-heading-p;
 	}
 	@include media($xs-mobile){
+		font: $xs-sq-heading-p;
+	}
+	@include media($v-iphone-6-plus){
 		font: $xs-sq-heading-p;
 	}
 }
 
 .grid-item-small h2, .grid-item-square h2 {
 	font: $rg-sq-heading;
+	@include media($short-lg-desktop){
+		font: $lg-sq-heading!important;
+	}
 	@include media($xl-desktop){
 		font: $xl-sq-heading;
 	}
@@ -163,10 +184,13 @@ ul#menu li{
 		font: $md-sq-heading;
 	}
 	@include media($sm-mobile){
-		font: $md-sq-heading;
+		font: $rg-sq-heading;
 	}
 	@include media($xs-mobile){
-		font: $sm-sq-heading;
+		font: $md-sq-heading;
+	}
+	@include media($v-iphone-6-plus){
+		font: $md-sq-heading;
 	}
 }
 

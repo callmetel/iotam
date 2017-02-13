@@ -13,6 +13,7 @@ add_action('init', 'modify_jquery');
 
 function IOTAM_script_enqueue() {
   wp_enqueue_style( 'customstyle', get_template_directory_uri() . '/app/css/app.css' , array(), '1.0.0', 'all' );
+  wp_enqueue_script( 'youtubeAPI',('https://www.youtube.com/iframe_api') , array('jquery'), null, true );
   wp_enqueue_script( 'customjs', get_template_directory_uri() . '/app/js/lib/function.js' , array(), null, true );
 }
 
@@ -139,16 +140,20 @@ echo '<form method="post" action="" class="share-form">
     </ul>
 </div>
 <div class="right">
-    <textarea name="story" class="story" placeholder="Story:"></textarea>
+    <textarea name="story" class="story-input" placeholder="Story:"></textarea>
     <div class="checkbox-field">
+        <a href="javascript:void(0)" class="dark-link">Terms and conditions</a>
         <input type="checkbox" name="termsandconditions" value="none" id="checkbox1" aria-hidden="true" tabindex="-1">
-        <label for="checkbox1" role="button" tabindex="0" class="checkbox-label">I accept the <a href="#">terms and conditions</a>.</label>
+        <label for="checkbox1" role="button" tabindex="0" class="checkbox-label">I accept the terms and conditions.</label>
+    </div>
+    <div class="submit">
+        <input type="submit" id="happiness-submit" class="submit-btn" value="Share" name="add_post" role="button" tabindex="0">
+        <!--<p class="disclaimer">*Your story will be shared on this public site for others to read</p>-->
     </div>
 </div>
-<div class="submit">
-    <input type="submit" id="happiness-submit" class="submit-btn" value="Share" name="add_post" role="button" tabindex="0">
-    <p class="disclaimer">*Your story will be shared on this public site for others to read</p>
-</div>
+<div class="form-footer">
+      <a href="https://www.aetna.com/legal-notices/privacy.html" target="_blank" class="privacy-center">Privacy Center</a><span>|</span><a href="https://www.aetna.com/legal-notices/disclaimer.html" target="_blank" class="terms-of-use">Terms of Use</a><span>|</span><a href="https://www.aetna.com/legal-notices.html" target="_blank" class="legal-notices">Legal Notices</a><span>|</span><a href="https://www.aetna.com/legal-notices/nondiscrimination-notice.html" target="_blank" class="nondiscrimination-notice">Nondiscrimination Notice</a>
+    </div>
 </form>';
 
 

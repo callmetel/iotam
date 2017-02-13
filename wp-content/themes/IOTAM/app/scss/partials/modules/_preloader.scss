@@ -89,6 +89,7 @@
     text-transform: uppercase;
     letter-spacing: 2px;
     @include transition(font .7s ease-in-out);
+    z-index: 4000;
 
     @include media($xl-desktop){
       font: $xl-smalllink;
@@ -109,6 +110,99 @@
       font: $smalllink;
     }
 
+  }
+
+  #splash-screen{
+    @include position(fixed, 0 0 0 0);
+    z-index:99999;
+    width: 100vw;
+    height: 100vh;
+    background-image: url('../images/splash.jpg');
+    background-size: cover;
+    opacity: 1;
+    @include transition(opacity 1s ease-in-out);
+
+    &.faded{
+      opacity:0;
+      z-index: 1;
+    }
+
+    @include media($v-ipad-max-screen){
+      background: $aetnaBlue;
+    }
+
+    .preloader-logo{
+      display: none;
+      @include media($v-ipad-max-screen){
+        display: block;
+        width:20vw;
+        @include position(fixed, 10px null null 50%);
+        @include transform(translateX(-50%));  
+      }
+      
+    }
+    
+    div.tap-cta{
+      display: none;
+      @include media($v-ipad-max-screen){
+        display: block;
+        @include position(fixed, 50% null null 50%);
+        @include transform(translate(-50%,-50%));
+        width:80vw;
+      }
+    
+      p{
+        margin-bottom: 30px;
+        font: $sm-heading;
+        text-align: center;
+      }
+
+      .cbutton {
+        @include media($v-ipad-max-screen){
+          @include position(absolute, null null -30% 50%);
+          display: inline-block;
+          margin: 1em;
+          padding: 0;
+          border: none;
+          background: none;
+          color: #ffffff;
+          font-size: 1.4em;
+          overflow: visible;
+          -webkit-transition: color 0.7s;
+          transition: color 0.7s;
+          -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+          outline: none;
+          margin: 0 auto;
+          text-align: center;
+        }
+      }
+
+
+      .cbutton__icon {
+        @include media($v-ipad-max-screen){
+          display: block;
+          margin: 0 auto;
+          text-align: center;
+        }
+      }
+
+      .cbutton::after {
+        @include media($v-ipad-max-screen){
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          margin: -35px 0 0 -35px;
+          width: 70px;
+          height: 70px;
+          border-radius: 50%;
+          content: '';
+          opacity: 0;
+          pointer-events: none;
+          @include transform(translate(-50%,-50%));
+        }
+      }
+    }
+    
   }
 }
 

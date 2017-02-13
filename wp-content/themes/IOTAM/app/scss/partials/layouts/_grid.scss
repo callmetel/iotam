@@ -44,7 +44,10 @@
       height:100vw;
     }
     @include media($sm-mobile){
-      height:100vw;
+      height:auto;
+    }
+    @include media($v-iphone-6-plus){
+      height: auto;
     }
     &:focus{
       outline: -webkit-focus-ring-color auto 5px!important;
@@ -67,14 +70,21 @@
       padding: 12vh 17vh 12vh 2vw;
       position:relative;
 
+      @include media($short-lg-desktop){
+        padding: 8vh 17vh 12vh 2vw;
+      }
       @include media($v-ipad-max-screen){
         height:50vw;
       }
       @include media($sm-mobile){
-        height:50vw;
+        height:50vh;
       }
       @include media($xs-mobile){
-        padding: 7vw 10vw;
+        padding: 7vh 10vw 7vh 10vw;
+      }
+
+      @include media($v-iphone-6-plus){
+        height:50vh;
       }
 
       div.slide-indicator{
@@ -83,6 +93,7 @@
         text-align: center;
         @include position(absolute, null null 5% 50%);
         @include transform(translateX(-50%));
+        z-index: 500;
 
         @include media($xl-desktop){
           bottom: 5%;
@@ -123,6 +134,20 @@
 
           &.selected{
             background: white;
+          }
+
+          &:focus{
+            outline: -webkit-focus-ring-color auto 5px!important;
+            border: #7090a5 2px solid!important;
+            &:after{
+              content:'';
+              display: block;
+              background: rgba(0,0,0,0.8);
+              width: 100%;
+              height:100%;
+              @include position(absolute, 0 0 0 0);
+              z-index: -1;
+            }
           }
         }  
       }
@@ -231,6 +256,12 @@
       padding: 0;
 
     }
+    @include media($sm-mobile){
+      height:25vh;
+    }
+    @include media($v-iphone-6-plus){
+      height:25vh;
+    }
 
     &:focus{
       outline: -webkit-focus-ring-color auto 5px!important;
@@ -238,7 +269,7 @@
       &:after{
         content:'';
         display: block;
-        background: rgba(0,0,0,0.4);
+        background: rgba(0,0,0,0.8);
         width:100%;
         height:100%;
         @include position(absolute, 0 0 0 0);
@@ -304,6 +335,9 @@
       .slide-2{
         text-align: left;
         width: 80%;
+        @include media($v-iphone-6-plus){
+          width:90%;
+        }
         p{
           text-align: left;
           color:$aetnaBlue!important;
@@ -331,6 +365,12 @@
       @include transform(translate(-50%, -40%));
       opacity:0;
       width: 80%;
+      @include media($short-lg-desktop) {
+        width:90%;
+      }
+      @include media($v-iphone-6-plus){
+        width:90%;
+      }
       @include transition(all .5s $ease-in-out-quad);
       
       .grid-cta{
@@ -379,8 +419,15 @@
     @include media($v-ipad-max-screen) {
       padding: 0;
     }
+    @include media($sm-mobile){
+      height:25vh;
+    }
     @include media($xs-mobile) {
       padding: 0;
+    }
+
+    @include media($v-iphone-6-plus){
+      height:25vh;
     }
 
     &:focus{
@@ -389,7 +436,7 @@
       &:after{
         content:'';
         display: block;
-        background: rgba(0,0,0,0.4);
+        background: rgba(0,0,0,0.8);
         width:100%;
         height:100%;
         @include position(absolute, 0 0 0 0);
@@ -457,6 +504,9 @@
       .slide-2{
         text-align: left;
         width: 80%;
+        @include media($v-iphone-6-plus){
+          width:90%;
+        }
         p{
           text-align: left;
           color:$aetnaBlue!important;
@@ -467,7 +517,7 @@
       &:focus{
         outline: -webkit-focus-ring-color auto 5px!important;
         border: #7090a5 2px solid!important;
-        background: rgb(180, 231, 253)!important;
+        background: black!important;
         &:after{
           content:'';
           display: block;
@@ -502,6 +552,12 @@
       @include transform(translate(-50%, -40%));
       opacity:0;
       width: 80%;
+      @include media($short-lg-desktop) {
+        width:90%;
+      }
+      @include media($v-iphone-6-plus){
+        width:90%;
+      }
       @include transition(all .5s $ease-in-out-quad);
       
       .grid-cta{

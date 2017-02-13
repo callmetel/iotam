@@ -1,4 +1,4 @@
-<div id="connection-top-square" class="top-square">
+<div id="connection-top-square" class="top-square opaque">
     <div class="top-square-container">
         <h2>Connection</h2>
         <div class="underline"></div>
@@ -19,6 +19,9 @@
 </div>
 <div id="connection-discover-btn" class="discover-btn">
     <a href="javascript:void(0)" role="button" tabindex="-1" class="discover"><h3><span class="discover-icon icon"></span>Share and discover</h3></a>
+</div>
+<div id="connection-view-stories-btn" class="view-stories-btn">
+    <a href="javascript:void(0)" role="button" tabindex="-1" class="view-stories"><h3><span class="view-stories-icon icon"></span>View Stories</h3></a>
 </div>
 <div class="section section-1"> <?php include 'topics/connection/videos.php'; ?> </div>
 <div class="section section-2 is-next-section is-not-scrollable"> <?php include 'topics/connection/share-form.php'; ?> </div>

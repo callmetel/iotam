@@ -1,4 +1,4 @@
-<div id="freedom-top-square" class="top-square">
+<div id="freedom-top-square" class="top-square opaque">
     <div class="top-square-container">
         <h2>Freedom</h2>
         <div class="underline"></div>
@@ -19,6 +19,9 @@
 </div>
 <div id="freedom-discover-btn" class="discover-btn">
     <a href="javascript:void(0)" role="button" tabindex="-1" class="discover"><h3><span class="discover-icon icon"></span>Share and discover</h3></a>
+</div>
+<div id="freedom-view-stories-btn" class="view-stories-btn">
+    <a href="javascript:void(0)" role="button" tabindex="-1" class="view-stories"><h3><span class="view-stories-icon icon"></span>View Stories</h3></a>
 </div>
 <div class="section section-1"> <?php include 'topics/freedom/videos.php'; ?> </div>
 <div class="section section-2 is-next-section is-not-scrollable"> <?php include 'topics/freedom/share-form.php'; ?> </div>

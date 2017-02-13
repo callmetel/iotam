@@ -37,6 +37,4 @@
             </div>
         </li>
     </ul>
-    <div class="story-lightbox"><button class="close-story">Close Story</button></div>
-    <div class="lightbox-dimmer"></div>
 </div>

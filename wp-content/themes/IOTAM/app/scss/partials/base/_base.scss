@@ -37,8 +37,14 @@ body{
 
     &:focus{
         outline: -webkit-focus-ring-color auto 5px;
-        background: #b4e7fd;
+        background: #000000 ;
         border:#7090a5 2px solid;
+    }
+}
+
+.dark-link{
+    &:focus{
+        background: rgba(0,0,0,0.2)!important;
     }
 }
 
@@ -83,6 +89,10 @@ img{}
     @include transform(translateX(0));
     @include transition(transform .85s $ease-in-out-quad);
     height:100vh;
+
+    @include media($v-iphone-6-plus){
+      height: auto;
+    }
 
     &.move-over{
         @include transform(translateX(20%)!important);
