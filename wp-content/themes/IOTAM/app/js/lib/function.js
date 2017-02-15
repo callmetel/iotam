@@ -1328,15 +1328,15 @@ $(document).ready(function() {
 			if($(this).is('.slide-dot:first') && !$(this).hasClass('selected')){
 				$(this).addClass('selected');
 				$(this).siblings().removeClass('selected');
-				$('.slide-1').removeClass('is-inactive-slide');
-				$('.slide-2').removeClass('is-active-slide');
+				$('.has-white-background .slide-1, #grid-item-1 .slide-1').removeClass('is-inactive-slide');
+				$('.has-white-background .slide-2, #grid-item-1 .slide-2').removeClass('is-active-slide');
 			} 
 			else if($(this).is('.slide-dot:last') && !$(this).hasClass('selected')){
 				// alert('worked');
 				$(this).addClass('selected');
 				$(this).siblings().removeClass('selected');
-				$('.slide-1').addClass('is-inactive-slide');
-				$('.slide-2').addClass('is-active-slide');
+				$('.has-white-background .slide-1, #grid-item-1 .slide-1').addClass('is-inactive-slide');
+				$('.has-white-background .slide-2, #grid-item-1 .slide-2').addClass('is-active-slide');
 			} else{
 				//do nothing
 			}

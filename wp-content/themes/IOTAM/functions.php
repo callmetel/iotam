@@ -142,7 +142,7 @@ echo '<form method="post" action="" class="share-form">
 <div class="right">
     <textarea name="story" class="story-input" placeholder="Story:"></textarea>
     <div class="checkbox-field">
-        <a href="javascript:void(0)" class="dark-link">Terms and conditions</a>
+        <!--<p class="dark-link">Terms and conditions</p>-->
         <input type="checkbox" name="termsandconditions" value="none" id="checkbox1" aria-hidden="true" tabindex="-1">
         <label for="checkbox1" role="button" tabindex="0" class="checkbox-label">I accept the terms and conditions.</label>
     </div>

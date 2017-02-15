@@ -10,7 +10,7 @@
     <div id="splash-screen">
     	<img src="http://modpreview.com/IOTAM/wp-content/themes/IOTAM/app/images/menu-logo.svg" alt="" class="preloader-logo">
     	<div class="tap-cta">
-    		<p>Tap to begin video</p>
+    		<p>Discover a new perspective on mental health <span>Enter the site</span></p>
     		<div class="cbutton cbutton--effect-radomir">
 				<i class="cbutton__icon fa fa-fw fa-save"></i>
 			</div>

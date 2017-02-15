@@ -4301,11 +4301,15 @@ header {
           -ms-transform: translate(-50%, -50%);
           -o-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%);
-          width: 80vw; } }
+          width: 85vw; } }
       #preloader #splash-screen div.tap-cta p {
         margin-bottom: 30px;
-        font: normal normal 700 48px/48px "foco-n7", "foco", "Calibri W01 Bold_904607", Calibri, sans-serif;
+        font: normal normal 700 37px/37px "foco-n7", "foco", "Calibri W01 Bold_904607", Calibri, sans-serif;
         text-align: center; }
+        #preloader #splash-screen div.tap-cta p span {
+          display: block;
+          margin-top: 20px;
+          font-size: 20px; }
       @media screen and (max-device-width: 1080px) and (orientation: portrait) {
         #preloader #splash-screen div.tap-cta .cbutton {
           position: absolute;
